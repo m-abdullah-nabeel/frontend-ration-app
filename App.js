@@ -1,42 +1,71 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
-import { View, Text, Image, ScrollView, TextInput } from 'react-native';
+import React, { useState } from "react";
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, TouchableHighlight, Image } from 'react-native';
 
-export default function App() {
-  console.log("App started");
+const ANIMALS = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'Cattle/Buffalo',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Sheep/Dog',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Poultry',
+  },
+];
+
+
+const Species = ({ title }) => {
+  return (
+    <TouchableHighlight style={styles.item} onPress={()=>alert()}>
+      <View style={styles.button}>
+        <Image
+          // style={styles.logo}
+          source={{
+            uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+          }}
+        />
+
+
+        <Text>{title}</Text>
+      </View>
+    </TouchableHighlight>
+);
+}
+
+const App = () => {
+  const renderItem = ({ item }) => (
+    <Species title={item.title} />
+  );
 
   return (
-    <View style={styles.container}>
-      <View style={{ flex: 1 }}>
-        <View style={{ flex: 1, backgroundColor: 'powderblue' }} />
-        <View style={{ flex: 2, backgroundColor: 'skyblue' }} />
-        <View style={{ flex: 3, backgroundColor: 'steelblue' }} />
-      </View>
-
+    <SafeAreaView style={styles.container}>
+      <Text>Select Animal</Text>
       <FlatList
-        data={[
-          {key: 'Devin'},
-          {key: 'Dan'},
-          {key: 'Dominic'},
-          {key: 'Jackson'},
-          {key: 'James'},
-          {key: 'Joel'},
-          {key: 'John'},
-          {key: 'Jillian'},
-          {key: 'Jimmy'},
-          {key: 'Julie'},
-        ]}
-        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        data={ANIMALS}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
   },
 });
+
+export default App;
