@@ -1,12 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 
-const Item = ({name}) => {
+const Item = ({ navigation, name }) => {
     return (
-        <TouchableOpacity onPress={()=>alert(name)}>
+        <TouchableOpacity 
+            onPress={() => {
+            navigation.navigate('Details', {
+                animal: name,
+            });        
+            }}
+        >
             <View style={styles.animal}>
-                {/* <Text>{name}</Text> */}
                 <Text>{name}</Text>
+                {/* <Text>{'name'}</Text> */}
             </View>
         </TouchableOpacity>
     )
@@ -14,7 +20,7 @@ const Item = ({name}) => {
 
 const styles = StyleSheet.create({
     animal: {
-        backgroundColor: "powderblue",
+        backgroundColor: "rgba(25, 0, 200, .5)",
         borderRadius: 20,
         padding: 20,
         margin: 10,

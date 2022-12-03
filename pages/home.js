@@ -1,12 +1,12 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, StatusBar, Button } from 'react-native';
 import AnimalSelector from "../components/animalSelector"
 
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
-        <AnimalSelector/>
+        <AnimalSelector navigation={navigation}/>
     </SafeAreaView>
   );
 }

@@ -17,15 +17,13 @@ const ANIMALS = [
     },
   ];
 
-const AnimalSelector = () => {
+const AnimalSelector = ({navigation}) => {
     return (
         <View>
-        {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}> */}
-            <View style={{width: "100%"}}>
+            <View style={{width: "95%"}}>
                 <Text style={styles.header}>Select Animal for feed formulation</Text>
             </View>
-
-            <FlatList data={ANIMALS} renderItem={({item})=>(<Item name={item.title}></Item>)}/>
+            <FlatList data={ANIMALS} renderItem={({item})=>(<Item navigation={navigation} name={item.title}></Item>)}/>
         </View>
     )
 }
