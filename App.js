@@ -4,9 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from "./pages/home";
 import DetailsScreen from "./pages/detail";
+import Settings from "./pages/settings";
 
 const Stack = createBottomTabNavigator();
-// const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
@@ -22,12 +22,9 @@ const App = () => {
           },
         }}      
       >
-        <Stack.Screen 
-            name="Home" 
-            component={Home} 
-            options={{ title: 'Overview'}}
-        />
-        <Stack.Screen name="Details" component={DetailsScreen}/>
+        <Stack.Screen name="Home" component={Home} options={{ title: 'Feed Formulation'}}/>
+        {/* <Stack.Screen name="Details" component={DetailsScreen}/> */}
+        <Stack.Screen name="Settings" component={Settings}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -9,13 +9,13 @@ const ANIMALS = [
     },
     {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Sheep / Dog',
+      title: 'Sheep / Goat',
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
       title: 'Poultry Birds',
     },
-  ];
+];
 
 const AnimalSelector = ({navigation}) => {
     return (

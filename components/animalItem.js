@@ -11,8 +11,8 @@ const Item = ({ navigation, name }) => {
             }}
         >
             <View style={styles.animal}>
+                <Text>{'image of animal'}</Text>
                 <Text>{name}</Text>
-                {/* <Text>{'name'}</Text> */}
             </View>
         </TouchableOpacity>
     )
