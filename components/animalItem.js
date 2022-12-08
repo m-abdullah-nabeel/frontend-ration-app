@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const Item = ({ navigation, name }) => {
     return (
@@ -32,23 +33,27 @@ const styles = StyleSheet.create({
         
     },
     item: {
-        backgroundColor: "#f9c2ff",
+        backgroundColor: "#fff",
         padding: 20,
-        marginVertical: 8
+        marginVertical: 8,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+
     },
     title: {
-        fontSize: 24
+        fontSize: 14
     }
   
 })
-  
-  
 
 const FeedItem = ({ title }) => (
     <View style={styles.item}>
+        <BouncyCheckbox/>
       <Text style={styles.title}>{title}</Text>
     </View>
-  );
-  
+);
+
 export default Item;
 export {FeedItem};

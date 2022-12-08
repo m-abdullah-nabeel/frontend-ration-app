@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar, Button } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, SectionList, StatusBar, Button } from "react-native";
 import { FeedItem } from "./animalItem";
 
 const DATA = [
     {
-      title: "Main dishes",
-      data: ["Pizza", "Burger", "Risotto"]
+      title: "Protein Sources",
+      data: ["Soya Bean", "CG60", "Soyabean Meal", "Corn Meal", "Cakes, khal", "Quality Protein Cake", "Fishmeal"]
     },
     {
-      title: "Sides",
-      data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+      title: "Enery Sources Sources",
+      data: ["Molasses", "Barley", "Corn", "Oats", "Rics", "Sorghum", "Rye", "Wheat"]
     },
     {
-      title: "Drinks",
+      title: "Fat Sources",
       data: ["Water", "Coke", "Beer"]
     },
     {
-      title: "Desserts",
+      title: "Vitamins and Minerals",
       data: ["Cheese Cake", "Ice Cream"]
     }
   ];
@@ -25,10 +25,13 @@ const StuffSelector = ({route, navigation}) => {
     const { animal } = route.params;
   
     return (
-        <View>
+        <ScrollView>
             <Text>
                 Select FeedStuffs
             </Text>
+
+
+            <Text>Animal: {JSON.stringify(animal)}</Text>
 
             <SectionList
                 sections={DATA}
@@ -55,7 +58,7 @@ const StuffSelector = ({route, navigation}) => {
                 onPress={() => navigation.goBack()}
             />
 
-        </View>
+        </ScrollView>
     )
 }
 
@@ -74,7 +77,8 @@ const styles = StyleSheet.create({
     },
     header: {
       fontSize: 32,
-      backgroundColor: "#fff"
+      backgroundColor: "#fff",
+      fontWeight: 'bold'
     },
     title: {
       fontSize: 24
