@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View, Text, StyleSheet, StatusBar, Button } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar, Button } from 'react-native';
 import AnimalSelector from "../components/animalSelector";
 import StuffSelector from "../components/stuffselector";
 import { createStackNavigator } from '@react-navigation/stack';
@@ -20,7 +20,6 @@ const Home = ({navigation}) => {
         <HomeStack.Screen name="Stuff Selector" navigation={navigation} component={StuffSelector} />
       </HomeStack.Navigator>
 
-        {/* <AnimalSelector navigation={navigation}/> */}
     </SafeAreaView>
   );
 }
