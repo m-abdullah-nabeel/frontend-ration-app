@@ -1,16 +1,23 @@
 import React from "react";
 import { SafeAreaView, View, Text, StyleSheet, StatusBar, Button } from 'react-native';
-import AnimalSelector from "../components/animalSelector"
+import AnimalSelector from "../components/animalSelector";
+import StuffSelector from "../components/stuffselector";
 import { createStackNavigator } from '@react-navigation/stack';
+import DetailsScreen from "./detail";
 
 const HomeStack = createStackNavigator()
 
 const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
-      <HomeStack.Navigator>
-        <HomeStack.Screen name="ChatFeed" component={AnimalSelector} />
-        {/* <HomeStack.Screen name="ChatRoom" component={AnimalSelector} /> */}
+      <HomeStack.Navigator initialRouteName="Animal Selector"
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+        <HomeStack.Screen name="Animal Selector" component={AnimalSelector} />
+        <HomeStack.Screen name="Details" component={DetailsScreen} />
+        <HomeStack.Screen name="Stuff Selector" navigation={navigation} component={StuffSelector} />
       </HomeStack.Navigator>
 
         {/* <AnimalSelector navigation={navigation}/> */}

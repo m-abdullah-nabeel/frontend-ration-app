@@ -5,7 +5,7 @@ const Item = ({ navigation, name }) => {
     return (
         <TouchableOpacity 
             onPress={() => {
-            navigation.navigate('Details', {
+            navigation.navigate('Stuff Selector', {
                 animal: name,
             });        
             }}

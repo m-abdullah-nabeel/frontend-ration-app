@@ -13,10 +13,10 @@ function DetailsScreen({ route, navigation }) {
         <Text>Details of Animal / birds</Text>
         <Text>This will contain a form of age, weigh and production</Text>
         <Text>Animal: {JSON.stringify(animal)}</Text>
-        {/* <Button
+        <Button
             title="Go to Home"
             onPress={() => navigation.goBack()}
-        /> */}
+        />
       </View>
     );
 }
