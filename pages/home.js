@@ -1,12 +1,19 @@
 import React from "react";
 import { SafeAreaView, View, Text, StyleSheet, StatusBar, Button } from 'react-native';
 import AnimalSelector from "../components/animalSelector"
+import { createStackNavigator } from '@react-navigation/stack';
 
+const HomeStack = createStackNavigator()
 
 const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
-        <AnimalSelector navigation={navigation}/>
+      <HomeStack.Navigator>
+        <HomeStack.Screen name="ChatFeed" component={AnimalSelector} />
+        {/* <HomeStack.Screen name="ChatRoom" component={AnimalSelector} /> */}
+      </HomeStack.Navigator>
+
+        {/* <AnimalSelector navigation={navigation}/> */}
     </SafeAreaView>
   );
 }
