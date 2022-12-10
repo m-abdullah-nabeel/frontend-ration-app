@@ -19,46 +19,42 @@ const DATA = [
       title: "Vitamins and Minerals",
       data: ["Cheese Cake", "Ice Cream"]
     }
-  ];
-  
+];
+
 const StuffSelector = ({route, navigation}) => {
+    const [feedstuff, setFeedstuff] = useState([]);
     const { animal } = route.params;
   
     return (
-        <ScrollView>
-            <Text>
-                Select FeedStuffs
-            </Text>
-
-
-            <Text>Animal: {JSON.stringify(animal)}</Text>
+        <SafeAreaView style={{flex: 1}}>
+            <Text style={{fontWeight: 'bold', fontSize: 32, backgroundColor: '#f0b', paddingLeft: 10}}>Select FeedStuffs</Text>
+            <Text style={{fontWeight: 'bold', fontSize: 32, backgroundColor: '#f0b', paddingLeft: 10}}>Animal: {animal}</Text>
 
             <SectionList
                 sections={DATA}
                 keyExtractor={(item, index) => item + index}
-                renderItem={({ item }) => <FeedItem title={item} />}
+                renderItem={({ item }) => <FeedItem title={item} feedstuff={feedstuff} setFeedstuff={setFeedstuff}/>}
                 renderSectionHeader={({ section: { title } }) => (
                     <Text style={styles.header}>{title}</Text>
                 )}
             />
 
-
             <Button
-            onPress={() => {
-                navigation.navigate('Details');        
-            }}
-            title="Go"
-            color="#841584"
-            accessibilityLabel="Go to sibling"
+                onPress={() => {
+                    navigation.navigate('Details');        
+                }}
+                title="Next"
+                color="#841584"
+                accessibilityLabel="Next to detailed"
             />
 
-            <Text>Animal: {JSON.stringify(animal)}</Text>
+            <Text></Text>
             <Button
-                title="Go to Home"
+                title="Home"
                 onPress={() => navigation.goBack()}
             />
 
-        </ScrollView>
+        </SafeAreaView>
     )
 }
 

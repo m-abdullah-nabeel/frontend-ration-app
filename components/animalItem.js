@@ -19,6 +19,32 @@ const Item = ({ navigation, name }) => {
     )
 }
 
+const FeedItem = ({ title }) => (
+    <View style={styles.item}>
+        {/* <BouncyCheckbox/> */}
+        <BouncyCheckbox
+        size={25}
+        fillColor="red"
+        unfillColor="#FFFFFF"
+        text={title}
+        // textComponent={<Text>{title}</Text>}
+        iconStyle={{ borderColor: "red" }}
+        innerIconStyle={{ borderWidth: 2 }}
+        textStyle={{
+            textDecorationLine: "none",
+        }}          
+        // textStyle={{ fontFamily: "JosefinSans-Regular" }}
+        // onPress={(isChecked: true) => {}}
+        onPress={(isChecked) => {
+            console.log(isChecked)
+            if (isChecked) alert("adding " + title)
+            if (!isChecked) alert("removing " + title)
+        }}
+        />
+
+    </View>
+);
+
 const styles = StyleSheet.create({
     animal: {
         backgroundColor: "rgba(25, 0, 200, .5)",
@@ -46,13 +72,6 @@ const styles = StyleSheet.create({
     }
   
 })
-
-const FeedItem = ({ title }) => (
-    <View style={styles.item}>
-        <BouncyCheckbox/>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-);
 
 export default Item;
 export {FeedItem};
