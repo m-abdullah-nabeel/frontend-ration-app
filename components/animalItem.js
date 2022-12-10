@@ -19,7 +19,7 @@ const Item = ({ navigation, name }) => {
     )
 }
 
-const FeedItem = ({ title }) => (
+const FeedItem = ({ title, feedstuff, setFeedstuff }) => (
     <View style={styles.item}>
         {/* <BouncyCheckbox/> */}
         <BouncyCheckbox
@@ -33,12 +33,18 @@ const FeedItem = ({ title }) => (
         textStyle={{
             textDecorationLine: "none",
         }}          
-        // textStyle={{ fontFamily: "JosefinSans-Regular" }}
-        // onPress={(isChecked: true) => {}}
         onPress={(isChecked) => {
-            console.log(isChecked)
-            if (isChecked) alert("adding " + title)
-            if (!isChecked) alert("removing " + title)
+            // console.log(isChecked)
+            if (isChecked) {
+                // alert("adding " + title)
+                setFeedstuff([...feedstuff, title])
+                // console.log(feedstuff)
+            }
+            if (!isChecked) {
+                // alert("removing " + title)
+                setFeedstuff(feedstuff.filter(a => a!==title))
+                // console.log(feedstuff)
+            }
         }}
         />
 

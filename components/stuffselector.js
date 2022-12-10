@@ -24,10 +24,11 @@ const DATA = [
 const StuffSelector = ({route, navigation}) => {
     const [feedstuff, setFeedstuff] = useState([]);
     const { animal } = route.params;
-  
+
     return (
         <SafeAreaView style={{flex: 1}}>
             <Text style={{fontWeight: 'bold', fontSize: 32, backgroundColor: '#f0b', paddingLeft: 10}}>Select FeedStuffs</Text>
+            <Text>{console.log('feedstuff', feedstuff)}</Text>
             <Text style={{fontWeight: 'bold', fontSize: 32, backgroundColor: '#f0b', paddingLeft: 10}}>Animal: {animal}</Text>
 
             <SectionList
