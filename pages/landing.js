@@ -1,9 +1,13 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+import { Counter } from "../features/counter/Counter";
 
 const Landing = () => {
     return (
-        <Text>Landing Page</Text>
+        <View>
+            <Text>Landing Page</Text>
+            <Counter/>
+        </View>
     )
 }
 
