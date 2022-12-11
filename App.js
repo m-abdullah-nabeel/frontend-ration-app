@@ -26,7 +26,7 @@ const App = () => {
           }}      
         >
             {/* load this app first, then if every thing goes well load, other pages below */}
-            <Tab.Screen name="Landing" component={Landing} />
+            {/* <Tab.Screen name="Landing" component={Landing} /> */}
             <Tab.Screen name="Home" component={Home} options={{ title: 'Feed Formulation'}}/>
             <Tab.Screen name="Settings" component={Settings}/>
         </Tab.Navigator>

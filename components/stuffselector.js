@@ -27,14 +27,15 @@ const StuffSelector = ({route, navigation}) => {
     const [feedstuff, setFeedstuff] = useState([]);
     const { animal } = route.params;
     // redux
-    const stuffs = useSelector((state) => state.stock)
-    const dispatch = useDispatch()
+    // const stuffs = useSelector((state) => state.stock)
+    // const dispatch = useDispatch()
 
     return (
         <SafeAreaView style={{flex: 1}}>
             <Text style={{fontWeight: 'bold', fontSize: 32, backgroundColor: '#f0b', paddingLeft: 10}}>Select FeedStuffs</Text>
             {/* <Text>{console.log('feedstuff', feedstuff)}</Text> */}
-            <Text>{console.log(stuffs)}</Text>
+            {/* <Text>{JSON.stringify(feedstuff)}</Text> */}
+            {/* <Text>{console.log(stuffs)}</Text> */}
             <Text style={{fontWeight: 'bold', fontSize: 32, backgroundColor: '#f0b', paddingLeft: 10}}>Animal: {animal}</Text>
 
             <SectionList
@@ -48,7 +49,7 @@ const StuffSelector = ({route, navigation}) => {
 
             <Button
                 onPress={() => {
-                    navigation.navigate('Details');        
+                    navigation.navigate('Details', { stock: feedstuff });        
                 }}
                 title="Next"
                 color="#841584"

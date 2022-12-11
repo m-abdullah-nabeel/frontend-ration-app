@@ -21,8 +21,8 @@ const Item = ({ navigation, name }) => {
 }
 
 const FeedItem = ({ title, feedstuff, setFeedstuff }) => {
-    const count = useSelector((state) => state.stock)
-    const dispatch = useDispatch()
+    // const count = useSelector((state) => state.stock)
+    // const dispatch = useDispatch()
     
     return (
         <View style={styles.item}>
@@ -44,7 +44,7 @@ const FeedItem = ({ title, feedstuff, setFeedstuff }) => {
                     // alert("adding " + title)
                     setFeedstuff([...feedstuff, title])
                     // redux alternatve
-                    dispatch(add(title))
+                    // dispatch(add(title))
                     // console.log(feedstuff)
                 }
                 if (!isChecked) {
