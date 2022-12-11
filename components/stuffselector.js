@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, SectionList, StatusBar, Button } from "react-native";
 import { FeedItem } from "./animalItem";
+import { useSelector, useDispatch } from 'react-redux'
+import { add, remove } from '../states/stock'
 
 const DATA = [
     {
@@ -24,11 +26,15 @@ const DATA = [
 const StuffSelector = ({route, navigation}) => {
     const [feedstuff, setFeedstuff] = useState([]);
     const { animal } = route.params;
+    // redux
+    const stuffs = useSelector((state) => state.stock)
+    const dispatch = useDispatch()
 
     return (
         <SafeAreaView style={{flex: 1}}>
             <Text style={{fontWeight: 'bold', fontSize: 32, backgroundColor: '#f0b', paddingLeft: 10}}>Select FeedStuffs</Text>
-            <Text>{console.log('feedstuff', feedstuff)}</Text>
+            {/* <Text>{console.log('feedstuff', feedstuff)}</Text> */}
+            <Text>{console.log(stuffs)}</Text>
             <Text style={{fontWeight: 'bold', fontSize: 32, backgroundColor: '#f0b', paddingLeft: 10}}>Animal: {animal}</Text>
 
             <SectionList
