@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { useSelector, useDispatch } from 'react-redux'
-import { add, remove } from '../states/stock'
+
+
 const Item = ({ navigation, name }) => {
     return (
         <TouchableOpacity 
