@@ -1,20 +1,27 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 
-const Item = ({ navigation, name }) => {
+const Item = ({ navigation, name, image }) => {
+    path = '../assets/animals/cow.png'
     return (
-        <TouchableOpacity 
+        <TouchableOpacity
             onPress={() => {
-            navigation.navigate('Stuff Selector', {
-                animal: name,
-            });        
+                navigation.navigate('Stuff Selector', {
+                    animal: name,
+                });
             }}
         >
             <View style={styles.animal}>
-                {/* <Text>{'image of animal'}</Text> */}
-                <Text>{name}</Text>
+                <Text style={{
+                    fontSize: 24, fontWeight: 'bold'
+                }}>
+                    {name}
+                </Text>
+                <Image
+                    source={require('../assets/animals/cow.png')}
+                />
             </View>
         </TouchableOpacity>
     )
@@ -23,38 +30,38 @@ const Item = ({ navigation, name }) => {
 const FeedItem = ({ title, feedstuff, setFeedstuff }) => {
     // const count = useSelector((state) => state.stock)
     // const dispatch = useDispatch()
-    
+
     return (
         <View style={styles.item}>
             {/* <BouncyCheckbox/> */}
             <BouncyCheckbox
-            size={25}
-            fillColor="red"
-            unfillColor="#FFFFFF"
-            text={title}
-            // textComponent={<Text>{title}</Text>}
-            iconStyle={{ borderColor: "red" }}
-            innerIconStyle={{ borderWidth: 2 }}
-            textStyle={{
-                textDecorationLine: "none",
-            }}          
-            onPress={(isChecked) => {
-                // console.log(isChecked)
-                if (isChecked) {
-                    // alert("adding " + title)
-                    setFeedstuff([...feedstuff, title])
-                    // redux alternatve
-                    // dispatch(add(title))
-                    // console.log(feedstuff)
-                }
-                if (!isChecked) {
-                    // alert("removing " + title)
-                    setFeedstuff(feedstuff.filter(a => a!==title))
-                    // console.log(feedstuff)
-                }
-            }}
+                size={25}
+                fillColor="red"
+                unfillColor="#FFFFFF"
+                text={title}
+                // textComponent={<Text>{title}</Text>}
+                iconStyle={{ borderColor: "red" }}
+                innerIconStyle={{ borderWidth: 2 }}
+                textStyle={{
+                    textDecorationLine: "none",
+                }}
+                onPress={(isChecked) => {
+                    // console.log(isChecked)
+                    if (isChecked) {
+                        // alert("adding " + title)
+                        setFeedstuff([...feedstuff, title])
+                        // redux alternatve
+                        // dispatch(add(title))
+                        // console.log(feedstuff)
+                    }
+                    if (!isChecked) {
+                        // alert("removing " + title)
+                        setFeedstuff(feedstuff.filter(a => a !== title))
+                        // console.log(feedstuff)
+                    }
+                }}
             />
-    
+
         </View>
     )
 };
@@ -70,7 +77,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        
+
     },
     item: {
         backgroundColor: "#fff",
@@ -84,8 +91,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 14
     }
-  
+
 })
 
 export default Item;
-export {FeedItem};
+export { FeedItem };
