@@ -33,14 +33,12 @@ const FeedItem = ({ title, feedstuff, setFeedstuff }) => {
 
     return (
         <View style={styles.item}>
-            {/* <BouncyCheckbox/> */}
             <BouncyCheckbox
                 size={25}
-                fillColor="red"
+                fillColor="rgb(100, 10, 10)"
                 unfillColor="#FFFFFF"
                 text={title}
-                // textComponent={<Text>{title}</Text>}
-                iconStyle={{ borderColor: "red" }}
+                iconStyle={{ borderColor: "rgb(100, 10, 10)" }}
                 innerIconStyle={{ borderWidth: 2 }}
                 textStyle={{
                     textDecorationLine: "none",
