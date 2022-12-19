@@ -19,12 +19,12 @@ const App = () => {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
-        }}      
+        }}
       >
-          {/* load this app first, then if every thing goes well load, other pages below */}
-          {/* <Tab.Screen name="Landing" component={Landing} /> */}
-          <Tab.Screen name="Home" component={Home} options={{ title: 'Feed Formulation'}}/>
-          <Tab.Screen name="Settings" component={Settings}/>
+        {/* load this app first, then if every thing goes well load, other pages below */}
+        {/* <Tab.Screen name="Landing" component={Landing} /> */}
+        <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }} />
+        <Tab.Screen name="More" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
   );

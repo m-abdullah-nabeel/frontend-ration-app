@@ -4,17 +4,19 @@ import AnimalSelector from "../components/animalSelector";
 import StuffSelector from "../components/stuffselector";
 import { createStackNavigator } from '@react-navigation/stack';
 import DetailsScreen from "./detail";
+import MenuScreen from "./menu";
 
 const HomeStack = createStackNavigator()
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <HomeStack.Navigator initialRouteName="Animal Selector"
+      <HomeStack.Navigator initialRouteName="MenuScreen"
         screenOptions={{
           headerShown: false
         }}
       >
+        <HomeStack.Screen name="Menu Screen" component={MenuScreen} />
         <HomeStack.Screen name="Animal Selector" component={AnimalSelector} />
         <HomeStack.Screen name="Details" component={DetailsScreen} />
         <HomeStack.Screen name="Stuff Selector" navigation={navigation} component={StuffSelector} />
