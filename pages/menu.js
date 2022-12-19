@@ -6,10 +6,6 @@ import { TouchableOpacity } from "react-native"
 const MenuScreen = ({ navigation }) => {
     return (
         <View>
-            {/* <View style={{ width: "95%" }}>
-                <Text style={styles.header}>Select Operation Type</Text>
-            </View> */}
-
             <View style={styles.row}>
                 <TouchableOpacity style={styles.animal}
                     onPress={() => {

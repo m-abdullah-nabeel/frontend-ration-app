@@ -13,16 +13,17 @@ const App = () => {
       <Tab.Navigator initialRouteName="Home"
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#f4511e',
+            backgroundColor: 'rgb(100, 10, 10)',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: 'light',
+            alignItems: 'center'
           },
         }}
       >
         {/* load this app first, then if every thing goes well load, other pages below */}
-        {/* <Tab.Screen name="Landing" component={Landing} /> */}
+        <Tab.Screen name="Welcome to UVA-Gro" component={Landing} />
         <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }} />
         <Tab.Screen name="More" component={Settings} />
       </Tab.Navigator>
