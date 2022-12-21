@@ -28,9 +28,6 @@ const Item = ({ navigation, name, image }) => {
 }
 
 const FeedItem = ({ title, feedstuff, setFeedstuff }) => {
-    // const count = useSelector((state) => state.stock)
-    // const dispatch = useDispatch()
-
     return (
         <View style={styles.item}>
             <BouncyCheckbox
@@ -44,18 +41,11 @@ const FeedItem = ({ title, feedstuff, setFeedstuff }) => {
                     textDecorationLine: "none",
                 }}
                 onPress={(isChecked) => {
-                    // console.log(isChecked)
                     if (isChecked) {
-                        // alert("adding " + title)
                         setFeedstuff([...feedstuff, title])
-                        // redux alternatve
-                        // dispatch(add(title))
-                        // console.log(feedstuff)
                     }
                     if (!isChecked) {
-                        // alert("removing " + title)
                         setFeedstuff(feedstuff.filter(a => a !== title))
-                        // console.log(feedstuff)
                     }
                 }}
             />

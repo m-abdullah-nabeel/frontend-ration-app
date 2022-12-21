@@ -1,8 +1,20 @@
-import React from "react";
-import { Text, View, Image } from "react-native";
+import React, { useCallback } from "react";
+import { Text, View, Image, Linking } from "react-native";
 import { Button, TouchableHighlight, TouchableOpacity } from "react-native";
 
 const Landing = () => {
+    const url_uvas = "https://uvas.edu.pk";
+    const url_arass = "slack://open?team=123456";
+
+    // const handlePress = useCallback(async () => {
+    //     const supported = await Linking.canOpenURL(url);
+    //     if (supported) {
+    //         await Linking.openURL(url);
+    //     } else {
+    //         Alert.alert(`Don't know how to open this URL: ${url}`);
+    //     }
+    // }, [url]);
+
     return (
         <View style={{ flex: 1, backgroundColor: 'rgb(100, 10, 10)' }}>
             <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
@@ -11,12 +23,17 @@ const Landing = () => {
 
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-end' }}>
                 <View style={{ flex: -1, width: '100%', flexDirection: 'row', justifyContent: 'space-around' }}>
-                    <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                        <Image
-                            style={{ width: 75, height: 40 }}
-                            source={require('../assets/arass.png')}
-                        />
-                    </View>
+                    <TouchableOpacity
+                        onPress={() => handlePress(url_uvas)}
+                    >
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                            <Image
+                                style={{ width: 75, height: 40 }}
+                                source={require('../assets/arass.png')}
+                            />
+                        </View>
+
+                    </TouchableOpacity>
 
                     <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                         <Image

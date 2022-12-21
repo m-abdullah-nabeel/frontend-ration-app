@@ -1,0 +1,302 @@
+[
+    {
+        "Name": "Berseem Fodder",
+        "CP": 25.5,
+        "Energy": 2.3,
+        "DM%": 12.5
+    },
+    {
+        "Name": "Mustard Fodder",
+        "CP": 23,
+        "Energy": 2.1,
+        "DM%": 11.5
+    },
+    {
+        "Name": "Maize Fodder",
+        "CP": 14.2,
+        "Energy": 2.4,
+        "DM%": 23.3
+    },
+    {
+        "Name": "Maize Silage",
+        "CP": 9.7,
+        "Energy": 2.3,
+        "DM%": 23.5
+    },
+    {
+        "Name": "Oat Fodder",
+        "CP": 14.2,
+        "Energy": 2.4,
+        "DM%": 26.3
+    },
+    {
+        "Name": "Sugarcane Fodder",
+        "CP": 4,
+        "Energy": 2.2,
+        "DM%": 23.2
+    },
+    {
+        "Name": "Sugarcane Tops",
+        "CP": 14.2,
+        "Energy": 2.4,
+        "DM%": 26.8
+    },
+    {
+        "Name": "Mott grass",
+        "CP": 11.6,
+        "Energy": 2.3,
+        "DM%": 17.9
+    },
+    {
+        "Name": "Rye Grass",
+        "CP": 23.3,
+        "Energy": 2.4,
+        "DM%": 13.5
+    },
+    {
+        "Name": "Maize Cobs",
+        "CP": 3.7,
+        "Energy": 2.1,
+        "DM%": 91.5
+    },
+    {
+        "Name": "Maize Stovers",
+        "CP": 6.2,
+        "Energy": 1.5,
+        "DM%": 92.9
+    },
+    {
+        "Name": "Millet Stovers",
+        "CP": 4,
+        "Energy": 1.5,
+        "DM%": 93.1
+    },
+    {
+        "Name": "Rice Husk",
+        "CP": 3.9,
+        "Energy": 49.5,
+        "DM%": 91.9
+    },
+    {
+        "Name": "Rice Straw",
+        "CP": 5.5,
+        "Energy": 2.1,
+        "DM%": 92.8
+    },
+    {
+        "Name": "Sorghum Stovers",
+        "CP": 6.6,
+        "Energy": 1.8,
+        "DM%": 85.5
+    },
+    {
+        "Name": "Wheat Straw",
+        "CP": 4.8,
+        "Energy": 1.5,
+        "DM%": 91
+    },
+    {
+        "Name": "Potato",
+        "CP": 12.3,
+        "Energy": 3.2,
+        "DM%": 20.6
+    },
+    {
+        "Name": "Sugar Beet Pulp",
+        "CP": 10.7,
+        "Energy": 2.4,
+        "DM%": 21
+    },
+    {
+        "Name": "Maize Grains",
+        "CP": 9.1,
+        "Energy": 3.2,
+        "DM%": 87.3
+    },
+    {
+        "Name": "Millet Grains",
+        "CP": 9.3,
+        "Energy": 3.1,
+        "DM%": 89.6
+    },
+    {
+        "Name": "Mamni",
+        "CP": 12.8,
+        "Energy": 2.9,
+        "DM%": 87.5
+    },
+    {
+        "Name": "Wheat Grains",
+        "CP": 14.4,
+        "Energy": 4.5,
+        "DM%": 87
+    },
+    {
+        "Name": "Biscuit Waste",
+        "CP": 8.2,
+        "Energy": 3.3,
+        "DM%": 91
+    },
+    {
+        "Name": "De-oiled Rice Bran",
+        "CP": 16.1,
+        "Energy": 3.2,
+        "DM%": 91.6
+    },
+    {
+        "Name": "Maize Bran",
+        "CP": 10,
+        "Energy": 2.6,
+        "DM%": 89
+    },
+    {
+        "Name": "Maize Glutten Meal 60%",
+        "CP": 59.7,
+        "Energy": 2.8,
+        "DM%": 90
+    },
+    {
+        "Name": "Maize Glutten Meal 30%20",
+        "CP": 29,
+        "Energy": 2.8,
+        "DM%": 88.3
+    },
+    {
+        "Name": "Maize Oil Cake",
+        "CP": 19.3,
+        "Energy": 2.1,
+        "DM%": 93
+    },
+    {
+        "Name": "Rice Polish",
+        "CP": 15.9,
+        "Energy": 2.8,
+        "DM%": 90.2
+    },
+    {
+        "Name": "RE-Rice Polish",
+        "CP": 16.2,
+        "Energy": 3.2,
+        "DM%": 90
+    },
+    {
+        "Name": "Vermicelles",
+        "CP": 12.2,
+        "Energy": 3.3,
+        "DM%": 91
+    },
+    {
+        "Name": "Wheat Bran",
+        "CP": 15.9,
+        "Energy": 2.8,
+        "DM%": 87
+    },
+    {
+        "Name": "Black Pea Seeds",
+        "CP": 19.3,
+        "Energy": 2.8,
+        "DM%": 86.5
+    },
+    {
+        "Name": "Channa Karra",
+        "CP": 15.3,
+        "Energy": 2.4,
+        "DM%": 89
+    },
+    {
+        "Name": "Black Chick Pea Hulls",
+        "CP": 5.2,
+        "Energy": 2,
+        "DM%": 93
+    },
+    {
+        "Name": "Guar Meal",
+        "CP": 40.4,
+        "Energy": 2.7,
+        "DM%": 95
+    },
+    {
+        "Name": "Mung Karra",
+        "CP": 17.5,
+        "Energy": 2.5,
+        "DM%": 87.9
+    },
+    {
+        "Name": "Massar Karra",
+        "CP": 16.8,
+        "Energy": 2.3,
+        "DM%": 88.6
+    },
+    {
+        "Name": "Soybean Hulls",
+        "CP": 11.6,
+        "Energy": 1.5,
+        "DM%": 89.1
+    },
+    {
+        "Name": "Pea Seeds",
+        "CP": 23.6,
+        "Energy": 2.9,
+        "DM%": 86.5
+    },
+    {
+        "Name": "Canola Meal",
+        "CP": 39.6,
+        "Energy": 1.7,
+        "DM%": 88.8
+    },
+    {
+        "Name": "Cotton Seed Cake",
+        "CP": 23.8,
+        "Energy": 2,
+        "DM%": 92.2
+    },
+    {
+        "Name": "Flaxseed Cake",
+        "CP": 35.7,
+        "Energy": 2.9,
+        "DM%": 90.6
+    },
+    {
+        "Name": "Palm Kaernel Cake",
+        "CP": 17.8,
+        "Energy": 1.8,
+        "DM%": 91.2
+    },
+    {
+        "Name": "Rapeseed Cake",
+        "CP": 34.3,
+        "Energy": 23.2,
+        "DM%": 89.9
+    },
+    {
+        "Name": "Soybean Meal",
+        "CP": 48,
+        "Energy": 3.1,
+        "DM%": 87.9
+    },
+    {
+        "Name": "Sunflower Meal ",
+        "CP": 32.5,
+        "Energy": 2.1,
+        "DM%": 89
+    },
+    {
+        "Name": "Apple Pomace",
+        "CP": 8.7,
+        "Energy": 2.1,
+        "DM%": 20.8
+    },
+    {
+        "Name": "Citrus Peel\/Pulp",
+        "CP": 10.3,
+        "Energy": 2.5,
+        "DM%": 23
+    },
+    {
+        "Name": "Dry Dates",
+        "CP": 3.5,
+        "Energy": 2.5,
+        "DM%": 84
+    }
+]
