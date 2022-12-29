@@ -5,19 +5,15 @@ import { FeedItem } from "./animalItem";
 const DATA = [
   {
     title: "Protein Sources",
-    data: ["Soya Bean", "CG60", "Soyabean Meal", "Corn Meal", "Cakes, khal", "Quality Protein Cake", "Fishmeal"]
+    data: ["csc", "Berseem Fodder", "Maize Fodder", "Maize Silage"]
   },
   {
     title: "Enery Sources Sources",
-    data: ["Molasses", "Barley", "Corn", "Oats", "Rics", "Sorghum", "Rye", "Wheat"]
+    data: ["Oat Fodder", "Sugarcane Fodder", "Sugarcane Tops"]
   },
   {
     title: "Fat Sources",
-    data: ["Water", "Coke", "Beer"]
-  },
-  {
-    title: "Vitamins and Minerals",
-    data: ["Cheese Cake", "Ice Cream"]
+    data: ["Mott grass", "Rye Grass", "Maize Cobs"]
   }
 ];
 

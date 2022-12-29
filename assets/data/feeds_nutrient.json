@@ -1,302 +1,460 @@
 [
     {
-        "Name": "Berseem Fodder",
+        "name": "csc",
+        "CP": 12,
+        "ME": 2900,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 210
+    },
+    {
+        "name": "Berseem Fodder",
         "CP": 25.5,
-        "Energy": 2.3,
-        "DM%": 12.5
+        "ME": 2300,
+        "DM%": 12.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 180
     },
     {
-        "Name": "Mustard Fodder",
+        "name": "Mustard Fodder",
         "CP": 23,
-        "Energy": 2.1,
-        "DM%": 11.5
+        "ME": 2100,
+        "DM%": 11.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Maize Fodder",
+        "name": "Maize Fodder",
         "CP": 14.2,
-        "Energy": 2.4,
-        "DM%": 23.3
+        "ME": 2400,
+        "DM%": 23.3,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 160
     },
     {
-        "Name": "Maize Silage",
+        "name": "Maize Silage",
         "CP": 9.7,
-        "Energy": 2.3,
-        "DM%": 23.5
+        "ME": 2300,
+        "DM%": 23.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 250
     },
     {
-        "Name": "Oat Fodder",
+        "name": "Oat Fodder",
         "CP": 14.2,
-        "Energy": 2.4,
-        "DM%": 26.3
+        "ME": 2400,
+        "DM%": 26.3,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 200
     },
     {
-        "Name": "Sugarcane Fodder",
+        "name": "Sugarcane Fodder",
         "CP": 4,
-        "Energy": 2.2,
-        "DM%": 23.2
+        "ME": 2200,
+        "DM%": 23.2,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 185
     },
     {
-        "Name": "Sugarcane Tops",
+        "name": "Sugarcane Tops",
         "CP": 14.2,
-        "Energy": 2.4,
-        "DM%": 26.8
+        "ME": 2400,
+        "DM%": 26.8,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 190
     },
     {
-        "Name": "Mott grass",
+        "name": "Mott grass",
         "CP": 11.6,
-        "Energy": 2.3,
-        "DM%": 17.9
+        "ME": 2300,
+        "DM%": 17.9,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 169
     },
     {
-        "Name": "Rye Grass",
+        "name": "Rye Grass",
         "CP": 23.3,
-        "Energy": 2.4,
-        "DM%": 13.5
+        "ME": 2400,
+        "DM%": 13.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 170
     },
     {
-        "Name": "Maize Cobs",
+        "name": "Maize Cobs",
         "CP": 3.7,
-        "Energy": 2.1,
-        "DM%": 91.5
+        "ME": 2100,
+        "DM%": 91.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 230
     },
     {
-        "Name": "Maize Stovers",
+        "name": "Maize Stovers",
         "CP": 6.2,
-        "Energy": 1.5,
-        "DM%": 92.9
+        "ME": 1.5,
+        "DM%": 92.9,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 195
     },
     {
-        "Name": "Millet Stovers",
+        "name": "Millet Stovers",
         "CP": 4,
-        "Energy": 1.5,
-        "DM%": 93.1
+        "ME": 1.5,
+        "DM%": 93.1,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 178
     },
     {
-        "Name": "Rice Husk",
+        "name": "Rice Husk",
         "CP": 3.9,
-        "Energy": 49.5,
-        "DM%": 91.9
+        "ME": 49.5,
+        "DM%": 91.9,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 163
     },
     {
-        "Name": "Rice Straw",
+        "name": "Rice Straw",
         "CP": 5.5,
-        "Energy": 2.1,
-        "DM%": 92.8
+        "ME": 2.1,
+        "DM%": 92.8,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 200
     },
     {
-        "Name": "Sorghum Stovers",
+        "name": "Sorghum Stovers",
         "CP": 6.6,
-        "Energy": 1.8,
-        "DM%": 85.5
+        "ME": 1.8,
+        "DM%": 85.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 250
     },
     {
-        "Name": "Wheat Straw",
+        "name": "Wheat Straw",
         "CP": 4.8,
-        "Energy": 1.5,
-        "DM%": 91
+        "ME": 1.5,
+        "DM%": 91,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Potato",
+        "name": "Potato",
         "CP": 12.3,
-        "Energy": 3.2,
-        "DM%": 20.6
+        "ME": 3.2,
+        "DM%": 20.6,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Sugar Beet Pulp",
+        "name": "Sugar Beet Pulp",
         "CP": 10.7,
-        "Energy": 2.4,
-        "DM%": 21
+        "ME": 2.4,
+        "DM%": 21,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Maize Grains",
+        "name": "Maize Grains",
         "CP": 9.1,
-        "Energy": 3.2,
-        "DM%": 87.3
+        "ME": 3.2,
+        "DM%": 87.3,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Millet Grains",
+        "name": "Millet Grains",
         "CP": 9.3,
-        "Energy": 3.1,
-        "DM%": 89.6
+        "ME": 3.1,
+        "DM%": 89.6,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Mamni",
+        "name": "Mamni",
         "CP": 12.8,
-        "Energy": 2.9,
-        "DM%": 87.5
+        "ME": 2.9,
+        "DM%": 87.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Wheat Grains",
+        "name": "Wheat Grains",
         "CP": 14.4,
-        "Energy": 4.5,
-        "DM%": 87
+        "ME": 4.5,
+        "DM%": 87,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Biscuit Waste",
+        "name": "Biscuit Waste",
         "CP": 8.2,
-        "Energy": 3.3,
-        "DM%": 91
+        "ME": 3.3,
+        "DM%": 91,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "De-oiled Rice Bran",
+        "name": "De-oiled Rice Bran",
         "CP": 16.1,
-        "Energy": 3.2,
-        "DM%": 91.6
+        "ME": 3.2,
+        "DM%": 91.6,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Maize Bran",
+        "name": "Maize Bran",
         "CP": 10,
-        "Energy": 2.6,
-        "DM%": 89
+        "ME": 2.6,
+        "DM%": 89,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Maize Glutten Meal 60%",
+        "name": "Maize Glutten Meal 60%",
         "CP": 59.7,
-        "Energy": 2.8,
-        "DM%": 90
+        "ME": 2.8,
+        "DM%": 90,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Maize Glutten Meal 30%20",
+        "name": "Maize Glutten Meal 30%20",
         "CP": 29,
-        "Energy": 2.8,
-        "DM%": 88.3
+        "ME": 2.8,
+        "DM%": 88.3,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Maize Oil Cake",
+        "name": "Maize Oil Cake",
         "CP": 19.3,
-        "Energy": 2.1,
-        "DM%": 93
+        "ME": 2.1,
+        "DM%": 93,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Rice Polish",
+        "name": "Rice Polish",
         "CP": 15.9,
-        "Energy": 2.8,
-        "DM%": 90.2
+        "ME": 2.8,
+        "DM%": 90.2,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "RE-Rice Polish",
+        "name": "RE-Rice Polish",
         "CP": 16.2,
-        "Energy": 3.2,
-        "DM%": 90
+        "ME": 3.2,
+        "DM%": 90,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Vermicelles",
+        "name": "Vermicelles",
         "CP": 12.2,
-        "Energy": 3.3,
-        "DM%": 91
+        "ME": 3.3,
+        "DM%": 91,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Wheat Bran",
+        "name": "Wheat Bran",
         "CP": 15.9,
-        "Energy": 2.8,
-        "DM%": 87
+        "ME": 2.8,
+        "DM%": 87,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Black Pea Seeds",
+        "name": "Black Pea Seeds",
         "CP": 19.3,
-        "Energy": 2.8,
-        "DM%": 86.5
+        "ME": 2.8,
+        "DM%": 86.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Channa Karra",
+        "name": "Channa Karra",
         "CP": 15.3,
-        "Energy": 2.4,
-        "DM%": 89
+        "ME": 2.4,
+        "DM%": 89,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Black Chick Pea Hulls",
+        "name": "Black Chick Pea Hulls",
         "CP": 5.2,
-        "Energy": 2,
-        "DM%": 93
+        "ME": 2,
+        "DM%": 93,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Guar Meal",
+        "name": "Guar Meal",
         "CP": 40.4,
-        "Energy": 2.7,
-        "DM%": 95
+        "ME": 2.7,
+        "DM%": 95,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Mung Karra",
+        "name": "Mung Karra",
         "CP": 17.5,
-        "Energy": 2.5,
-        "DM%": 87.9
+        "ME": 2.5,
+        "DM%": 87.9,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Massar Karra",
+        "name": "Massar Karra",
         "CP": 16.8,
-        "Energy": 2.3,
-        "DM%": 88.6
+        "ME": 2.3,
+        "DM%": 88.6,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Soybean Hulls",
+        "name": "Soybean Hulls",
         "CP": 11.6,
-        "Energy": 1.5,
-        "DM%": 89.1
+        "ME": 1.5,
+        "DM%": 89.1,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Pea Seeds",
+        "name": "Pea Seeds",
         "CP": 23.6,
-        "Energy": 2.9,
-        "DM%": 86.5
+        "ME": 2.9,
+        "DM%": 86.5,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Canola Meal",
+        "name": "Canola Meal",
         "CP": 39.6,
-        "Energy": 1.7,
-        "DM%": 88.8
+        "ME": 1.7,
+        "DM%": 88.8,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Cotton Seed Cake",
+        "name": "Cotton Seed Cake",
         "CP": 23.8,
-        "Energy": 2,
-        "DM%": 92.2
+        "ME": 2,
+        "DM%": 92.2,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Flaxseed Cake",
+        "name": "Flaxseed Cake",
         "CP": 35.7,
-        "Energy": 2.9,
-        "DM%": 90.6
+        "ME": 2.9,
+        "DM%": 90.6,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Palm Kaernel Cake",
+        "name": "Palm Kaernel Cake",
         "CP": 17.8,
-        "Energy": 1.8,
-        "DM%": 91.2
+        "ME": 1.8,
+        "DM%": 91.2,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Rapeseed Cake",
+        "name": "Rapeseed Cake",
         "CP": 34.3,
-        "Energy": 23.2,
-        "DM%": 89.9
+        "ME": 23.2,
+        "DM%": 89.9,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Soybean Meal",
+        "name": "Soybean Meal",
         "CP": 48,
-        "Energy": 3.1,
-        "DM%": 87.9
+        "ME": 3.1,
+        "DM%": 87.9,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Sunflower Meal ",
+        "name": "Sunflower Meal ",
         "CP": 32.5,
-        "Energy": 2.1,
-        "DM%": 89
+        "ME": 2.1,
+        "DM%": 89,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Apple Pomace",
+        "name": "Apple Pomace",
         "CP": 8.7,
-        "Energy": 2.1,
-        "DM%": 20.8
+        "ME": 2.1,
+        "DM%": 20.8,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Citrus Peel\/Pulp",
+        "name": "Citrus Peel\/Pulp",
         "CP": 10.3,
-        "Energy": 2.5,
-        "DM%": 23
+        "ME": 2.5,
+        "DM%": 23,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     },
     {
-        "Name": "Dry Dates",
+        "name": "Dry Dates",
         "CP": 3.5,
-        "Energy": 2.5,
-        "DM%": 84
+        "ME": 2.5,
+        "DM%": 84,
+        "min": 0.10,
+        "max": 0.50,
+        "cost": 150
     }
 ]
