@@ -24,8 +24,8 @@ const App = () => {
       >
         {/* load this app first, then if every thing goes well load, other pages below */}
         <Tab.Screen name="Welcome" component={Landing} options={{ title: 'UVA-Gro' }} />
-        <Tab.Screen name="Home" component={Home} options={{ title: 'UVA-Gro' }} />
-        <Tab.Screen name="More" component={Settings} options={{ title: 'UVA-Gro' }} />
+        <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }} />
+        <Tab.Screen name="More" component={Settings} options={{ title: 'About' }} />
       </Tab.Navigator>
     </NavigationContainer>
   );

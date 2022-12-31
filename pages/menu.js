@@ -8,7 +8,8 @@ const MenuScreen = ({ navigation }) => {
 
     return (
         <View style={{
-            flex: 1, backgroundColor: "rgb(100, 10, 10)"
+            flex: 1,
+            // backgroundColor: "rgb(100, 10, 10)"
         }}>
 
             <View style={{ paddingBottom: 10 }} >

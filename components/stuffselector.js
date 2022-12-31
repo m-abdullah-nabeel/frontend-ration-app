@@ -70,11 +70,11 @@ const styles = StyleSheet.create({
     marginVertical: 8
   },
   header: {
-    fontSize: 32,
-    backgroundColor: "#fff",
-    fontWeight: 'bold',
+    fontSize: 24,
+    fontWeight: '500',
     borderRadius: 50,
-    padding: 20,
+    padding: 10,
+    paddingLeft: 20,
     backgroundColor: 'rgb(200, 200, 200)'
   },
   title: {

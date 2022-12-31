@@ -33,17 +33,17 @@ function Settings() {
         </View>
       </View>
       <View>
-        <Text style={styles.title}>Project Introduction</Text>
+        <Text style={styles.title}>Project Information</Text>
         <View style={styles.contentContainer}>
           <Text>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
           </Text>
-          <View>
-            {/* <YoutubePlayer
+          {/* <View>
+            <YoutubePlayer
               height={200}
               videoId={"iee2TATGMyI"}
-            /> */}
-          </View>
+            />
+          </View> */}
         </View>
       </View>
       <View>
