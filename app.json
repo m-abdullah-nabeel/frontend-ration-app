@@ -1,18 +1,20 @@
 {
   "expo": {
     "name": "UVA-gro",
-    "slug": "UVA-gro",
+    "slug": "donewithit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "jsEngine": "hermes",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/830209da-513c-4d54-b676-888239b74846"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -34,6 +36,9 @@
       "eas": {
         "projectId": "830209da-513c-4d54-b676-888239b74846"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }
