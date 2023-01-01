@@ -23,9 +23,9 @@ const StuffSelector = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20, marginBottom: 20 }}>
-        <Text style={{ fontWeight: 'bold', fontSize: 32, paddingLeft: 10, color: 'white' }}>Select FeedStuffs</Text>
-        <Text style={{ fontWeight: 'bold', fontSize: 16, paddingLeft: 10, color: 'white' }}>Your Animal: {animal}</Text>
+      <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 20 }}>
+        <Text style={{ fontWeight: 'bold', fontSize: 32, paddingLeft: 15, color: 'white' }}>Select FeedStuffs</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 16, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
       </View>
 
       <SectionList

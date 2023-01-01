@@ -4,16 +4,7 @@ import { Button, TouchableHighlight, TouchableOpacity } from "react-native";
 
 const Landing = () => {
     const url_uvas = "https://uvas.edu.pk";
-    const url_arass = "slack://open?team=123456";
-
-    // const handlePress = useCallback(async () => {
-    //     const supported = await Linking.canOpenURL(url);
-    //     if (supported) {
-    //         await Linking.openURL(url);
-    //     } else {
-    //         Alert.alert(`Don't know how to open this URL: ${url}`);
-    //     }
-    // }, [url]);
+    const url_arass = "https://facebook.com";
 
     return (
         <View style={{ flex: 1, backgroundColor: 'rgb(100, 10, 10)' }}>
@@ -24,7 +15,7 @@ const Landing = () => {
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-end' }}>
                 <View style={{ flex: -1, width: '100%', flexDirection: 'row', justifyContent: 'space-around' }}>
                     <TouchableOpacity
-                        onPress={() => handlePress(url_uvas)}
+                        onPress={async () => await Linking.openURL(url_arass)}
                     >
                         <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                             <Image
@@ -32,15 +23,18 @@ const Landing = () => {
                                 source={require('../assets/arass.png')}
                             />
                         </View>
-
                     </TouchableOpacity>
 
-                    <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                        <Image
-                            style={{ width: 75, height: 45 }}
-                            source={require('../assets/uvas-big.png')}
-                        />
-                    </View>
+                    <TouchableOpacity
+                        onPress={async () => await Linking.openURL(url_uvas)}
+                    >
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                            <Image
+                                style={{ width: 75, height: 45 }}
+                                source={require('../assets/uvas-big.png')}
+                            />
+                        </View>
+                    </TouchableOpacity>
 
                 </View>
             </View>

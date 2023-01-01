@@ -2,6 +2,45 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Button } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
 
+
+const ResultCheck = (props) => {
+  const res = props.result
+  let status_ = {
+    0: 'Optimization terminated successfully',
+    1: 'Iteration limit reached',
+    2: 'Problem appears to be infeasible',
+    3: 'Problem appears to be unbounded',
+    4: 'Numerical difficulties encountered',
+  }
+
+  if (res['available']) {
+    if (res['status'] == 0) {
+      return (
+        <View>
+          <Text>Available and correct results</Text>
+          <Text>{JSON.stringify(res['results'])}</Text>
+        </View>
+      )
+    }
+    return (
+      <View>
+        <Text>Available but incorrect results</Text>
+        <Text>{status_[res['status']]}</Text>
+      </View>
+    )
+  }
+  else {
+    return (
+      <View>
+        <Text>N/A component</Text>
+        <Text>{res['error'] && res['error']}</Text>
+      </View>
+
+    )
+  }
+}
+
+
 function DetailsScreen({ navigation, route }) {
   const { stock } = route.params;
   // Final Version
@@ -9,18 +48,6 @@ function DetailsScreen({ navigation, route }) {
   const [data, setData] = useState([]);
   const [compo, setCompo] = useState([]);
   const newlist = []
-
-
-  // {
-  //   "feeds": [
-  //       {
-  //         "name": "csc", "CP": 12, "ME": 2900, "min": 0.10, "max": 0.50, "cost": 150
-  //       },
-  //       {
-  //         "name": "sbm", "CP": 41, "ME": 2000, "min": 0.10, "max": 0.50, "cost": 105
-  //       }
-  //     ]
-  // }
 
   const getMovies = async () => {
     let reqData = {
@@ -52,7 +79,7 @@ function DetailsScreen({ navigation, route }) {
     getMovies();
   }, [compo]);
 
-  console.log(newlist)
+  // console.log(newlist)
   const getNutrientValues = (namesList, NutrientObject) => {
     let newlist = [];
     namesList.map(
@@ -72,25 +99,28 @@ function DetailsScreen({ navigation, route }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      {/*  */}
+      {/*  */}
       <Text>{isLoading ? "Loading..." : "Loaded"}</Text>
       <Text>{compo.length} Selected feedstuffs</Text>
       <Text>Details of Formulated Feed</Text>
+      <ResultCheck result={data} />
       {/* <Text>{JSON.stringify(data)}</Text> */}
-      <Text>{
-        data && data['least-cost-feed'] && JSON.stringify(data['least-cost-feed']) ?
+      {/* <View>
+        {
+          // data && data['available'] && console.log(data['status'])
+          data['available'] ?
+            (data['status'] == 0 ? console.log("The Status is Zero") : console.log("Non-zero status"))
+            // console.log("available") 
+            :
+            console.log("N/A")
+        }
+      </View> */}
+      {/* <Text>{
+        data && data['results'] && JSON.stringify(data['results']) ?
           JSON.stringify(data['least-cost-feed']) :
           "Poor combination, select again"
-      }</Text>
-      <Text>{console.log(compo)}</Text>
-      {/* <Text>Selected feed stuffs are</Text> */}
-      {/* <View>{stock.map((x) => {
-        return <Text key={x}>{x}</Text>
-      })}</View> */}
-      {/* <View>{compo.map(i => {
-        return <Text key={i.Name}>
-          {JSON.stringify(i)}
-        </Text>
-      })}</View> */}
+      }</Text> */}
       <Button
         title="Go to Home"
         onPress={() => {
