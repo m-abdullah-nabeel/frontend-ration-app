@@ -55,18 +55,6 @@ function Settings() {
         </View>
       </View>
       <View>
-        <Text style={styles.title}>Developer</Text>
-        <View style={styles.contentContainer}>
-          <Text>
-            {/* Contact Developer at */}
-            <OpenURLButton url={portfolioURL}>
-              Contact Developer at &nbsp;
-              <Text style={{ color: 'blue' }}>dr-abdullah-nabeel.web.app</Text>
-            </OpenURLButton>
-          </Text>
-        </View>
-      </View>
-      <View>
         <Text style={styles.title}>Contact Us</Text>
         <View style={styles.contentContainer}>
           {/* <Text>Project Manager: +92 311 703 9097</Text> */}
@@ -86,6 +74,18 @@ function Settings() {
             ARASS:
             <OpenURLButton url='https://arass.org/'>
               <Text style={{ color: 'blue' }}>https://arass.org</Text>
+            </OpenURLButton>
+          </Text>
+        </View>
+      </View>
+      <View>
+        <Text style={styles.title}>Developer</Text>
+        <View style={styles.contentContainer}>
+          <Text>
+            {/* Contact Developer at */}
+            <OpenURLButton url={portfolioURL}>
+              Contact Developer at &nbsp;
+              <Text style={{ color: 'blue' }}>dr-abdullah-nabeel.web.app</Text>
             </OpenURLButton>
           </Text>
         </View>

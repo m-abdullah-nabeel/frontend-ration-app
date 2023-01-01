@@ -5,7 +5,7 @@ import { FeedItem } from "./animalItem";
 const DATA = [
   {
     title: "Protein Sources",
-    data: ["csc", "Berseem Fodder", "Maize Fodder", "Maize Silage"]
+    data: ["CSC", "Berseem Fodder", "Maize Fodder", "Maize Silage"]
   },
   {
     title: "Enery Sources Sources",
@@ -46,11 +46,6 @@ const StuffSelector = ({ route, navigation }) => {
         style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20 }}
         accessibilityLabel="Next to detailed"
       />
-
-      {/* <Button
-        title="Home"
-        onPress={() => navigation.goBack()}
-      /> */}
 
     </SafeAreaView>
   )
