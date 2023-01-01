@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button } from "react-native"
+import { View, Text, Button, StyleSheet } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
-
 
 const ResultCheck = (props) => {
   const res = props.result
@@ -18,7 +17,19 @@ const ResultCheck = (props) => {
       return (
         <View>
           <Text>Available and correct results</Text>
-          <Text>{JSON.stringify(res['results'])}</Text>
+          {/* <Text>{JSON.stringify(res['results'])}</Text> */}
+          <View>
+            {
+              Object.keys(res['results']).map(k => {
+                return (
+                  <View key={k}>
+                    <Text>{k}</Text>
+                    <Text>{res['results'][k]}</Text>
+                  </View>
+                )
+              })
+            }
+          </View>
         </View>
       )
     }
@@ -43,13 +54,11 @@ const ResultCheck = (props) => {
 
 function DetailsScreen({ navigation, route }) {
   const { stock } = route.params;
-  // Final Version
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [compo, setCompo] = useState([]);
-  const newlist = []
 
-  const getMovies = async () => {
+  const getCalculations = async () => {
     let reqData = {
       "feeds": compo
     }
@@ -74,13 +83,7 @@ function DetailsScreen({ navigation, route }) {
       setLoading(false);
     }
   }
-
-  useEffect(() => {
-    getMovies();
-  }, [compo]);
-
-  // console.log(newlist)
-  const getNutrientValues = (namesList, NutrientObject) => {
+  const getCompositions = (namesList, NutrientObject) => {
     let newlist = [];
     namesList.map(
       (a) => {
@@ -90,37 +93,25 @@ function DetailsScreen({ navigation, route }) {
       }
     )
     setCompo(newlist)
-    // console.log(newlist)
   }
 
   useEffect(() => {
-    getNutrientValues(stock, nutrientdata);
+    getCalculations();
+  }, [compo]);
+
+  useEffect(() => {
+    getCompositions(stock, nutrientdata);
   }, []);
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      {/*  */}
-      {/*  */}
+    <View style={{ flex: 1 }}>
       <Text>{isLoading ? "Loading..." : "Loaded"}</Text>
-      <Text>{compo.length} Selected feedstuffs</Text>
-      <Text>Details of Formulated Feed</Text>
-      <ResultCheck result={data} />
-      {/* <Text>{JSON.stringify(data)}</Text> */}
-      {/* <View>
-        {
-          // data && data['available'] && console.log(data['status'])
-          data['available'] ?
-            (data['status'] == 0 ? console.log("The Status is Zero") : console.log("Non-zero status"))
-            // console.log("available") 
-            :
-            console.log("N/A")
-        }
-      </View> */}
-      {/* <Text>{
-        data && data['results'] && JSON.stringify(data['results']) ?
-          JSON.stringify(data['least-cost-feed']) :
-          "Poor combination, select again"
-      }</Text> */}
+
+      <View>
+        <Text>Details of Formulated Feed</Text>
+        <Text>{compo.length} Selected feedstuffs</Text>
+        <ResultCheck result={data} />
+      </View>
       <Button
         title="Go to Home"
         onPress={() => {
