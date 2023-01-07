@@ -4,17 +4,64 @@ import { FeedItem } from "./animalItem";
 
 const DATA = [
   {
-    title: "Protein Sources",
-    data: ["CSC", "Berseem Fodder", "Maize Fodder", "Maize Silage"]
+    title: "Roughages",
+    data: [
+      "Barseem",
+      "Maize",
+      "Oat (Jai)",
+      "Mustard (Sarson)",
+      "Maize Silage",
+      "Sugarcane",
+      "Sugarcane tops",
+      "Mott grass",
+      "Johnson grass (Baru)"
+    ]
   },
   {
-    title: "Enery Sources Sources",
-    data: ["Oat Fodder", "Sugarcane Fodder", "Sugarcane Tops"]
+    title: "Dry Roughages & Crop residues",
+    data: [
+      "Wheat Straw (toori)",
+      "Rice Straw (Parali)",
+      "Millet stovers",
+      "Maize stovers",
+      "Sorghum stovers",
+      "Corn cobs",
+      "Rice Husk (Phakk)"
+    ]
   },
   {
-    title: "Fat Sources",
-    data: ["Mott grass", "Rye Grass", "Maize Cobs"]
-  }
+    title: "Energy Sources",
+    data: [
+      "Maize grain",
+      "Wheat grain",
+      "Millet grain",
+      "Mamni",
+      "Maize bran",
+      "Wheat Bran (Chokar)",
+      "Rice polish",
+      "Sugarbeet pulp",
+      "Apple pomace",
+      "Citrus waste",
+      "Channa Karra",
+      "Massar Karra",
+      "Mung Karra",
+      "Dry dates",
+      "Potato"
+    ]
+  }, {
+    title: "Protein sources",
+    data: [
+      "Cottonseed cake (Khal)",
+      "Soybean meal",
+      "Canola meal",
+      "Rapeseed meal",
+      "Maize gluten meal 30%",
+      "Maize gluten meal 60%",
+      "Palm kernel cake",
+      "Sunflower meal",
+      "Guar meal"
+    ]
+  },
 ];
 
 const StuffSelector = ({ route, navigation }) => {
