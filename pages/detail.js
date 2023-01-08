@@ -34,15 +34,15 @@ const ResultCheck = (props) => {
                     <Text>Percentage Use: {percent_val}</Text>
                     <Text>
                       DM%: {curr_['DM%']} ##### Provides Dry Matter {curr_['DM%'] * percent_val}
-                      {dm_a.push(curr_['DM%'] * percent_val)}
+                      Added.{dm_a.push(curr_['DM%'] * percent_val)}
                     </Text>
                     <Text>
                       CP: {curr_['CP']} ##### Provides CP {curr_['CP'] * percent_val}
-                      {cp_a.push(curr_['CP'] * percent_val)}
+                      Added.{cp_a.push(curr_['CP'] * percent_val)}
                     </Text>
                     <Text>
                       ME: {curr_['ME']}  ##### Provides ME {curr_['ME'] * percent_val}
-                      {me_a.push(curr_['ME'] * percent_val)}
+                      Added.{me_a.push(curr_['ME'] * percent_val)}
                     </Text>
                   </View>
                 )
@@ -104,12 +104,13 @@ function DetailsScreen({ navigation, route }) {
   const [compo, setCompo] = useState([]);
 
   const getCalculations = async () => {
+    // console.log(compo)
     let reqData = {
       "feeds": compo
     }
     // Run Only if Selected feedstuff's data is available
     try {
-      // https://reactnative.dev/movies.json
+      console.log(reqData)
       const response = await fetch('https://poo9ym.deta.dev/formulate', {
         method: 'POST',
         headers: {
@@ -120,7 +121,6 @@ function DetailsScreen({ navigation, route }) {
       });
       const json = await response.json();
       setData(json);
-      // setData(json);
       console.log(json);
     } catch (error) {
       console.error(error);

@@ -1,431 +1,353 @@
 [
     {
         "name": "Barseem",
-        "Category": "Roughages",
         "DM%": "12.5",
-        "TDN": "63.4",
         "CP": "23.5",
-        "ME": "2.3",
+        "ME": "2300",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Maize",
-        "Category": "Roughages",
         "DM%": "23.3",
-        "TDN": "61.9",
         "CP": "8.9",
-        "ME": "2.2",
+        "ME": "2200",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Oat (Jai)",
-        "Category": "Roughages",
         "DM%": "26.3",
-        "TDN": "66.5",
         "CP": "14.2",
-        "ME": "2.3",
+        "ME": "2300",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Mustard (Sarson)",
-        "Category": "Roughages",
         "DM%": "11.5",
-        "TDN": "56.8",
         "CP": "23",
-        "ME": "2.1",
+        "ME": "2100",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Maize Silage",
-        "Category": "Roughages",
         "DM%": "29.6",
-        "TDN": "62.6",
         "CP": "9.7",
-        "ME": "2.3",
+        "ME": "2300",
         "cost": "10",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Sugarcane",
-        "Category": "Roughages",
         "DM%": "23.2",
-        "TDN": "60.4",
         "CP": "4",
-        "ME": "2.2",
+        "ME": "2200",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Sugarcane  tops",
-        "Category": "Roughages",
         "DM%": "26.8",
-        "TDN": "45.8",
         "CP": "6.4",
-        "ME": "1.7",
+        "ME": "1700",
         "cost": "3",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Mott grass",
-        "Category": "Roughages",
         "DM%": "17.9",
-        "TDN": "62.3",
         "CP": "11.6",
-        "ME": "2.3",
+        "ME": "2300",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Wheat Straw (toori)",
-        "Category": "Dry Roughages & Crop residues",
         "DM%": "91",
-        "TDN": "41.5",
         "CP": "4.8",
-        "ME": "1.5",
+        "ME": "1500",
         "cost": "17",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Rice Straw (Parali)",
-        "Category": "Dry Roughages & Crop residues",
         "DM%": "92.8",
-        "TDN": "47.9",
         "CP": "5.5",
-        "ME": "1.7",
+        "ME": "1700",
         "cost": "8",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Millet stovers",
-        "Category": "Dry Roughages & Crop residues",
         "DM%": "93.1",
-        "TDN": "41.8",
         "CP": "4",
-        "ME": "1.5",
+        "ME": "1500",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Maize stovers",
-        "Category": "Dry Roughages & Crop residues",
         "DM%": "92.9",
-        "TDN": "42.5",
         "CP": "6.2",
-        "ME": "1.5",
+        "ME": "1500",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Sorghum stovers",
-        "Category": "Dry Roughages & Crop residues",
         "DM%": "85.5",
-        "TDN": "48.5",
         "CP": "6.6",
-        "ME": "1.8",
+        "ME": "1800",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Corn cobs",
-        "Category": "Dry Roughages & Crop residues",
         "DM%": "91.5",
-        "TDN": "58.7",
         "CP": "3.7",
-        "ME": "1.9",
+        "ME": "1900",
         "cost": "5",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Rice Husk (Phakk)",
-        "Category": "Dry Roughages & Crop residues",
         "DM%": "91.9",
-        "TDN": "42.5",
         "CP": "3.9",
-        "ME": "1.5",
+        "ME": "1500",
         "cost": "15",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Maize grain",
-        "Category": "Energy Sources",
         "DM%": "87.3",
-        "TDN": "88.1",
         "CP": "9.1",
-        "ME": "3.2",
+        "ME": "3200",
         "cost": "75",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Wheat grain",
-        "Category": "Energy Sources",
         "DM%": "87",
-        "TDN": "88.3",
         "CP": "14.4",
-        "ME": "3.2",
+        "ME": "3200",
         "cost": "100",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Millet grain",
-        "Category": "Energy Sources",
         "DM%": "89.6",
-        "TDN": "86.7",
         "CP": "9.3",
-        "ME": "3.1",
+        "ME": "3100",
         "cost": "100",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Mamni",
-        "Category": "Energy Sources",
         "DM%": "87.5",
-        "TDN": "79.8",
         "CP": "12.8",
-        "ME": "2.9",
+        "ME": "2900",
         "cost": "50",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Maize bran",
-        "Category": "Energy Sources",
         "DM%": "89",
-        "TDN": "73.1",
         "CP": "10",
-        "ME": "2.6",
+        "ME": "2600",
         "cost": "50",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Wheat Bran (Chokar)",
-        "Category": "Energy Sources",
         "DM%": "87",
-        "TDN": "78.1",
         "CP": "15.9",
-        "ME": "2.8",
+        "ME": "2800",
         "cost": "45",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Rice polish",
-        "Category": "Energy Sources",
         "DM%": "90.2",
-        "TDN": "76.4",
         "CP": "15.9",
-        "ME": "2.8",
+        "ME": "2800",
         "cost": "30",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Sugarbeet pulp",
-        "Category": "Energy Sources",
         "DM%": "21",
-        "TDN": "66.1",
         "CP": "10.7",
-        "ME": "2.4",
+        "ME": "2400",
         "cost": "50",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Apple pomace",
-        "Category": "Energy Sources",
         "DM%": "20.8",
-        "TDN": "57.4",
         "CP": "8.7",
-        "ME": "2.1",
+        "ME": "2100",
         "cost": "20",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Citrus waste",
-        "Category": "Energy Sources",
         "DM%": "23",
-        "TDN": "70.3",
         "CP": "10.3",
-        "ME": "2.5",
+        "ME": "2500",
         "cost": "20",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Channa Karra",
-        "Category": "Energy Sources",
         "DM%": "89",
-        "TDN": "65.1",
         "CP": "15.3",
-        "ME": "2.4",
+        "ME": "2400",
         "cost": "65",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Massar Karra",
-        "Category": "Energy Sources",
         "DM%": "88.6",
-        "TDN": "64.8",
         "CP": "16.8",
-        "ME": "2.3",
+        "ME": "2300",
         "cost": "65",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Mung Karra",
-        "Category": "Energy Sources",
         "DM%": "87.9",
-        "TDN": "70",
         "CP": "17.5",
-        "ME": "2.5",
+        "ME": "2500",
         "cost": "65",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Dry dates",
-        "Category": "Energy Sources",
         "DM%": "84",
-        "TDN": "69.7",
         "CP": "3.5",
-        "ME": "2.5",
+        "ME": "2500",
         "cost": "20",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Potato",
-        "Category": "Energy Sources",
         "DM%": "20.6",
-        "TDN": "12.3",
         "CP": "78.6",
-        "ME": "2.8",
+        "ME": "2800",
         "cost": "20",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Cottonseed cake (Khal)",
-        "Category": "Protein sources",
         "DM%": "92.2",
-        "TDN": "55.4",
         "CP": "23.8",
-        "ME": "2",
+        "ME": "2000",
         "cost": "100",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Soybean meal",
-        "Category": "Protein sources",
         "DM%": "87.9",
-        "TDN": "84.3",
         "CP": "48",
-        "ME": "2.1",
+        "ME": "2100",
         "cost": "300",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Canola meal",
-        "Category": "Protein sources",
         "DM%": "88.8",
-        "TDN": "70.1",
         "CP": "39.6",
-        "ME": "2.5",
+        "ME": "2500",
         "cost": "145",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Rapeseed meal",
-        "Category": "Protein sources",
         "DM%": "89.9",
-        "TDN": "73.5",
         "CP": "34.3",
-        "ME": "2.7",
+        "ME": "2700",
         "cost": "130",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Maize gluten meal 30%",
-        "Category": "Protein sources",
         "DM%": "88.3",
-        "TDN": "77",
         "CP": "29",
-        "ME": "2.8",
+        "ME": "2800",
         "cost": "61",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Maize gluten meal 60%",
-        "Category": "Protein sources",
         "DM%": "90",
-        "TDN": "78.1",
         "CP": "59.7",
-        "ME": "2.8",
+        "ME": "2800",
         "cost": "40",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Palm kernel cake",
-        "Category": "Protein sources",
         "DM%": "91.2",
-        "TDN": "61.2",
         "CP": "17.8",
-        "ME": "2.2",
+        "ME": "2200",
         "cost": "50",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Sunflower meal",
-        "Category": "Protein sources",
         "DM%": "89",
-        "TDN": "58.4",
         "CP": "32.5",
-        "ME": "2.1",
+        "ME": "2100",
         "cost": "55",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Guar meal",
-        "Category": "Protein sources",
         "DM%": "95",
-        "TDN": "74",
         "CP": "40.4",
-        "ME": "2.7",
+        "ME": "2700",
         "cost": "120",
-        "min": "10",
-        "max": "90"
+        "min": "0.1",
+        "max": "0.5"
     }
 ]
