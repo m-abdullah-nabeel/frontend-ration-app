@@ -5,6 +5,8 @@ import Home from "./pages/home";
 import Settings from "./pages/settings";
 import Landing from './pages/landing';
 
+import 'react-native-gesture-handler';
+
 const Tab = createBottomTabNavigator();
 
 const App = () => {
