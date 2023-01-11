@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { Alert, Modal, Pressable } from "react-native";
 import Item from "./animalItem";
 
 const ANIMALS = [
@@ -22,61 +23,156 @@ const ANIMALS = [
   },
 ];
 
+// const Requiring = ({ visible, animal }) => {
+//   const [modalVisible, setModalVisible] = useState(true);
+
+//   return (
+//     <View style={styles.centeredView}>
+//       <Modal
+//         animationType="slide"
+//         transparent={true}
+//         visible={modalVisible}
+//         onRequestClose={() => {
+//           Alert.alert("Modal has been closed.");
+//           setModalVisible(!modalVisible);
+//         }}
+//       >
+//         <View style={styles.centeredView}>
+//           <View style={styles.modalView}>
+//             <Text style={styles.modalText}>Hello World! from Requiring</Text>
+//             <Text style={styles.modalText}>{visible}</Text>
+//             <Text style={styles.modalText}>{animal}</Text>
+//             <Pressable
+//               style={[styles.button, styles.buttonClose]}
+//               onPress={() => setModalVisible(!modalVisible)}
+//             >
+//               <Text style={styles.textStyle}>Hide Modal</Text>
+//             </Pressable>
+//           </View>
+//         </View>
+//       </Modal>
+//       <Pressable
+//         style={[styles.button, styles.buttonOpen]}
+//         onPress={() => setModalVisible(true)}
+//       >
+//         <Text style={styles.textStyle}>Show Modal</Text>
+//       </Pressable>
+//     </View>
+//   )
+// }
+
+const OnlyModal = ({ visible, setVisible, animal }) => {
+  return (
+    <View style={styles.centeredView}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={visible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setVisible(false);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World! from OnlyModal</Text>
+            <Text style={styles.modalText}>{visible}</Text>
+            <Text style={styles.modalText}>{animal}</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setVisible(false)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+    </View>
+  )
+}
+
 const AnimalSelector = ({ navigation }) => {
+  const [visible, setVisible] = useState(false);
+
   return (
     <View>
+      <View>
+        <Text>{toString(visible)}</Text>
+      </View>
+
       <View style={{}}>
         <Text style={{
           backgroundColor: 'rgb(0, 100, 0)', color: 'white', borderRadius: 50,
           paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20,
           fontSize: 24, fontWeight: 'bold'
         }}>
+          {/* <Requiring visible={false} animal={'cow'} /> */}
           Select Your Animal
         </Text>
       </View>
       <View style={{
         flexDirection: 'row', margin: 10, flexWrap: 'wrap', alignItems: 'center', paddingLeft: 20
       }}>
-        <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Cattle', }); }}>
+
+        <TouchableOpacity
+          // style={[styles.button, styles.buttonOpen]}
+          onPress={() => {
+            setVisible(true)
+          }}
+        // onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Cattle', }); }}
+        >
           <View style={styles.animal}>
             <Image style={styles.image} source={require('../assets/animals/cow.png')} />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Buffalo', }); }}>
-          <View style={styles.animal}>
-            <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Goat', }); }}>
-          <View style={styles.animal}>
-            <Image style={styles.image} source={require('../assets/animals/goat.png')} />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Sheep', }); }}>
-          <View style={styles.animal}>
-            <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Camel', }); }}>
-          <View style={styles.animal}>
-            <Image style={styles.image} source={require('../assets/animals/camel.png')} />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Horse', }); }}>
-          <View style={styles.animal}>
-            <Image style={styles.image} source={require('../assets/animals/horse.png')} />
-          </View>
-        </TouchableOpacity>
 
+        <OnlyModal visible={visible} setVisible={setVisible} animal={'cow'} />
+
+        {/* <View>
+          <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Cattle', }); }}>
+            <View style={styles.animal}>
+              <Image style={styles.image} source={require('../assets/animals/cow.png')} />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Buffalo', }); }}>
+            <View style={styles.animal}>
+              <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Goat', }); }}>
+            <View style={styles.animal}>
+              <Image style={styles.image} source={require('../assets/animals/goat.png')} />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Sheep', }); }}>
+            <View style={styles.animal}>
+              <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Camel', }); }}>
+            <View style={styles.animal}>
+              <Image style={styles.image} source={require('../assets/animals/camel.png')} />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => { navigation.navigate('Stuff Selector', { animal: 'Horse', }); }}>
+            <View style={styles.animal}>
+              <Image style={styles.image} source={require('../assets/animals/horse.png')} />
+            </View>
+          </TouchableOpacity>
+        </View> */}
 
       </View>
-
-      {/* <FlatList data={ANIMALS} renderItem={({ item }) => (<Item navigation={navigation} name={item.title} image={item.image}></Item>)} /> */}
     </View >
   )
 }
 
 export default AnimalSelector;
+
+
+
+
+
 
 
 const styles = StyleSheet.create({
@@ -107,6 +203,48 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
   }
+
 
 })
