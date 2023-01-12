@@ -41,13 +41,18 @@ const AnimalSelector = ({ navigation }) => {
 
   return (
     <View>
-      <Text style={{
-        backgroundColor: 'rgb(0, 100, 0)', color: 'white', borderRadius: 50,
+      <View style={{
+        backgroundColor: 'rgb(0, 100, 0)', borderRadius: 50,
         paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20,
-        fontSize: 24, fontWeight: 'bold'
       }}>
-        Select Your Animal
-      </Text>
+        <Text style={{
+          color: 'white',
+          fontSize: 24, fontWeight: 'bold'
+        }}>
+          Select Your Animal
+        </Text>
+
+      </View>
 
       <View style={{
         flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'

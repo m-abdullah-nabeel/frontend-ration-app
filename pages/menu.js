@@ -30,7 +30,7 @@ const MenuScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View >
             <View style={{
-                backgroundColor: 'rgb(10, 100, 0)', borderRadius: 50, marginTop: 90,
+                backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50, marginTop: 90,
                 alignContent: "center", justifyContent: 'center',
             }}>
                 <Text style={{
@@ -40,7 +40,7 @@ const MenuScreen = ({ navigation }) => {
                 }}>Want to get summer feed formula?</Text>
             </View>
             <View style={{
-                backgroundColor: 'rgb(10, 100, 0)', borderRadius: 50, marginTop: 10,
+                backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50, marginTop: 10,
                 alignContent: "center", justifyContent: 'center',
             }}>
                 <Text style={{
