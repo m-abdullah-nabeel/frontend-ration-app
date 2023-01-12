@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, StyleSheet, ScrollView } from "react-native"
+import { View, Text, Button, StyleSheet, Image, ScrollView } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
 
 const ResultCheck = (props) => {
@@ -150,7 +150,18 @@ function DetailsScreen({ navigation, route }) {
 
   return (
     <ScrollView style={{ flex: 1 }}>
-      <Text>{isLoading ? "Loading..." : "Loaded"}</Text>
+      {/* <Text>{isLoading ? "Loading..." : "Loaded"}</Text> */}
+      <View>
+        {
+          isLoading ?
+            <Image
+              style={{ width: '100%', height: 400, flex: 1, justifyContent: 'center', alignItems: "center" }}
+              source={require('../assets/images/loading.gif')}
+            />
+            :
+            null
+        }
+      </View>
 
       <View>
         <Text style={{ fontSize: 18, fontWeight: '500' }}>Details of Formulated Feed</Text>

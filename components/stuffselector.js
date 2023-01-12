@@ -98,7 +98,6 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff }) => {
                 >
                   <Text
                     style={{ fontSize: 24, fontWeight: '500' }}
-
                   >{x}</Text>
                 </TouchableOpacity>
               )
@@ -140,15 +139,6 @@ const StuffSelector = ({ route, navigation }) => {
         }
 
       </ScrollView>
-
-      {/* <SectionList
-        sections={DATA}
-        keyExtractor={(item, index) => item + index}
-        renderItem={({ item }) => <FeedItem title={item} feedstuff={feedstuff} setFeedstuff={setFeedstuff} />}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.header}>{title}</Text>
-        )}
-      /> */}
 
       <Button
         onPress={() => {
