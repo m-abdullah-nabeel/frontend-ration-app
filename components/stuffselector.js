@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, SectionList, StatusBar, Button } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, FlatList, SectionList, StatusBar, Button } from "react-native";
 import { FeedItem } from "./animalItem";
 
 const DATA = [
@@ -64,12 +64,67 @@ const DATA = [
   },
 ];
 
+const DATA2 = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
+
+const Item = ({ title }) => (
+
+  <TouchableOpacity
+    style={styles.button}
+  // onPress={onPress}
+  >
+    <View style={styles.item}></View>
+    <Text>Press Here</Text>
+
+  </TouchableOpacity>
+
+);
+
+const CategorySelector = () => {
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
+  return (
+    <View>
+      <Text>Catery Name</Text>
+      <View>
+        <Text>Items List</Text>
+        {DATA2.map((x) => { return (<Item title={x.title}></Item>) })}
+      </View>
+      <Text>Errors</Text>
+      {/* <FlatList
+        data={DATA2}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      /> */}
+
+    </View>
+  )
+}
+
+
 const StuffSelector = ({ route, navigation }) => {
   const [feedstuff, setFeedstuff] = useState([]);
   const { animal } = route.params;
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
+
+      <CategorySelector />
+
       <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 20 }}>
         <Text style={{ fontWeight: 'bold', fontSize: 32, paddingLeft: 15, color: 'white' }}>Select FeedStuffs</Text>
         <Text style={{ fontWeight: 'bold', fontSize: 16, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
@@ -123,4 +178,3 @@ const styles = StyleSheet.create({
     fontSize: 24
   }
 });
-

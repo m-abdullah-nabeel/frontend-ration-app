@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Text, View, Image, Linking } from "react-native";
 import { Button, TouchableHighlight, TouchableOpacity } from "react-native";
 
-const Landing = () => {
+const Landing = ({ navigation }) => {
     const url_uvas = "https://uvas.edu.pk";
     const url_arass = "https://facebook.com";
 
@@ -42,8 +42,9 @@ const Landing = () => {
             <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 35, paddingRight: 35 }}>
                 <TouchableOpacity
                     onPress={() => {
-                        navigation.navigate('Home');
+                        navigation.navigate('Formulate');
                     }}
+
                 >
                     <View style={{
                         backgroundColor: 'white', padding: 15, borderRadius: 25, alignItems: 'center',
