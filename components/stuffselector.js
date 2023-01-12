@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, FlatList, SectionList, StatusBar, Button } from "react-native";
-import { FeedItem } from "./animalItem";
 
 const DATA = [
   {
@@ -64,8 +63,24 @@ const DATA = [
   },
 ];
 
-const CategorySelector = ({ category, data, feedstuff, setFeedstuff }) => {
+// setState(prevState => ({
+//   jasper: {                   // object that we want to update
+//       ...prevState.jasper,    // keep all other key-value pairs
+//       name: 'something'       // update the value of specific key
+//   }
+// }))
+
+const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, errors, setErrors }) => {
   const [selected, setSelected] = useState([])
+
+  // useEffect(() => {
+  //   function updateErrors() {
+  //     setErrors({
+  //       ...error, [category]: selected.length
+  //     })
+  //   }
+  //   updateErrors()
+  // }, []);
 
   return (
     <View>
@@ -73,9 +88,11 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff }) => {
       <View>
         <View>
           {
-            selected.length == 0 ?
-              <Text style={{ color: 'red', fontSize: 26 }}>Errors: Select at least one item from this category</Text> :
-              <Text style={{ color: 'green', fontSize: 26 }}>No Errors</Text>
+            error ?
+              (selected.length == 0 ?
+                <Text style={{ color: 'red', fontSize: 26 }}>Error: Select at least one item from this category</Text> :
+                <Text style={{ color: 'green', fontSize: 26 }}>No Error</Text>
+              ) : null
           }
         </View>
         <Text>{JSON.stringify(selected)}</Text>
@@ -88,11 +105,18 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff }) => {
                   onPress={() => {
                     selected.includes(x) ?
                       (setSelected(selected.filter(j => j !== x)),
-                        setFeedstuff(feedstuff.filter(j => j !== x)))
+                        setFeedstuff(feedstuff.filter(j => j !== x)),
+                        setErrors({
+                          ...error, [category]: selected.length
+                        })
+                      )
                       :
                       (
                         setSelected([...selected, x]),
-                        setFeedstuff([...feedstuff, x])
+                        setFeedstuff([...feedstuff, x]),
+                        setErrors({
+                          ...error, [category]: selected.length
+                        })
                       )
                   }}
                 >
@@ -113,7 +137,16 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff }) => {
 
 const StuffSelector = ({ route, navigation }) => {
   const [feedstuff, setFeedstuff] = useState([]);
+  const [error, setError] = useState(false);
+  const [errors, setErrors] = useState({
+    roughages: 0,
+    dry_roughages: 0,
+    energy: 0,
+    protein: 0
+  })
   const { animal } = route.params;
+
+
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -122,6 +155,9 @@ const StuffSelector = ({ route, navigation }) => {
         <Text style={{ fontWeight: 'bold', fontSize: 16, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
         <Text>
           {JSON.stringify(feedstuff)}
+        </Text>
+        <Text>
+          {JSON.stringify(errors)}
         </Text>
       </View>
       <ScrollView>
@@ -132,6 +168,8 @@ const StuffSelector = ({ route, navigation }) => {
                 <CategorySelector
                   category={category.title} data={category.data} key={category.title}
                   feedstuff={feedstuff} setFeedstuff={setFeedstuff}
+                  error={error} setError={setError}
+                  errors={errors} setErrors={setErrors}
                 />
               )
             }
@@ -140,9 +178,12 @@ const StuffSelector = ({ route, navigation }) => {
 
       </ScrollView>
 
+      {/* show this button only when you have no error */}
       <Button
         onPress={() => {
-          navigation.navigate('Details', { stock: feedstuff });
+          error ?
+            (alert("errors found")) :
+            navigation.navigate('Details', { stock: feedstuff });
         }}
         title="Next"
         color="rgb(10, 100, 10)"
