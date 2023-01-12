@@ -83,23 +83,29 @@ const CategorySelector = () => {
   const [selected, setSelected] = useState(['Corn', 'apple'])
 
   return (
-    <ScrollView>
+    <View>
       <Text>Catery Name</Text>
       <View>
         <Text>Items List</Text>
+        <Text>{JSON.stringify(selected)}</Text>
         {
           DATA2.map(
             (x) => {
               return (
-                <TouchableOpacity
+                <TouchableOpacity key={x.id}
                   style={styles.item}
                   onPress={() => {
-                    alert("Find the bug " + x.title)
-                    selected.includes(x.title) ? alert("Already exists") : alert("Not Found")
+                    // alert("Find the bug " + x.title)
+                    // adding to arrary
+                    // setSelected([...selected, x.title])
+                    // remove from array
+                    // setSelected(selected.filter(j => j !== x.title))
+                    selected.includes(x.title) ?
+                      setSelected(selected.filter(j => j !== x.title)) :
+                      setSelected([...selected, x.title])
 
                   }}
                 >
-                  {/* <Text>{selected.includes(x.title) ? 'complete' : 'pending'}</Text> */}
                   <Text>{x.title}</Text>
                 </TouchableOpacity>
               )
@@ -109,7 +115,7 @@ const CategorySelector = () => {
       </View>
       <Text>Errors</Text>
 
-    </ScrollView>
+    </View>
   )
 }
 
