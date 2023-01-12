@@ -30,9 +30,23 @@ const ResultCheck = (props) => {
 
                 return (
                   <View key={k} style={{ borderBottomWidth: 2 }}>
-                    <Text>{k}</Text>
-                    <Text>Percentage Use: {percent_val}</Text>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{k}: {percent_val}</Text>
+                    {/* <Text>Percentage Use: {percent_val}</Text> */}
                     <Text>
+                      DM%: {curr_['DM%']}
+                      CP: {curr_['CP']}
+                      ME: {curr_['ME']}
+                      {/* ##### Provides Dry Matter {curr_['DM%'] * percent_val} */}
+                      {/* Added.{dm_a.push(curr_['DM%'] * percent_val)} */}
+                    </Text>
+                    <Text>
+                      Provides
+                      Dry Matter {curr_['DM%'] * percent_val} {dm_a.push(curr_['DM%'] * percent_val)}
+                      CP {curr_['CP'] * percent_val} {cp_a.push(curr_['CP'] * percent_val)}
+                      ME {curr_['ME'] * percent_val} {me_a.push(curr_['ME'] * percent_val)}
+                    </Text>
+                    {/* ############ */}
+                    {/* <Text>
                       DM%: {curr_['DM%']} ##### Provides Dry Matter {curr_['DM%'] * percent_val}
                       Added.{dm_a.push(curr_['DM%'] * percent_val)}
                     </Text>
@@ -43,7 +57,7 @@ const ResultCheck = (props) => {
                     <Text>
                       ME: {curr_['ME']}  ##### Provides ME {curr_['ME'] * percent_val}
                       Added.{me_a.push(curr_['ME'] * percent_val)}
-                    </Text>
+                    </Text> */}
                   </View>
                 )
               })
@@ -155,7 +169,7 @@ function DetailsScreen({ navigation, route }) {
         {
           isLoading ?
             <Image
-              style={{ width: '100%', height: 400, flex: 1, justifyContent: 'center', alignItems: "center" }}
+              style={{ width: '90%', height: 350, flex: 1, justifyContent: 'center', alignItems: "center" }}
               source={require('../assets/images/loading.gif')}
             />
             :
