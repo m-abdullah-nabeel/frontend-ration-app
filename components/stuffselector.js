@@ -64,56 +64,48 @@ const DATA = [
   },
 ];
 
-const DATA2 = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Sugar',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Corn',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Bean',
-  },
-];
-
-const CategorySelector = () => {
-  const [selected, setSelected] = useState(['Corn', 'apple'])
+const CategorySelector = ({ category, data, feedstuff, setFeedstuff }) => {
+  const [selected, setSelected] = useState([])
 
   return (
     <View>
-      <Text>Catery Name</Text>
+      <Text style={styles.header}>{category}</Text>
       <View>
-        <Text>Items List</Text>
+        <View>
+          {
+            selected.length == 0 ?
+              <Text style={{ color: 'red', fontSize: 26 }}>Errors: Select at least one item from this category</Text> :
+              <Text style={{ color: 'green', fontSize: 26 }}>No Errors</Text>
+          }
+        </View>
         <Text>{JSON.stringify(selected)}</Text>
         {
-          DATA2.map(
+          data.map(
             (x) => {
               return (
-                <TouchableOpacity key={x.id}
-                  style={styles.item}
+                <TouchableOpacity key={x}
+                  style={[styles.item, selected.includes(x) ? { backgroundColor: 'green' } : null]}
                   onPress={() => {
-                    // alert("Find the bug " + x.title)
-                    // adding to arrary
-                    // setSelected([...selected, x.title])
-                    // remove from array
-                    // setSelected(selected.filter(j => j !== x.title))
-                    selected.includes(x.title) ?
-                      setSelected(selected.filter(j => j !== x.title)) :
-                      setSelected([...selected, x.title])
-
+                    selected.includes(x) ?
+                      (setSelected(selected.filter(j => j !== x)),
+                        setFeedstuff(feedstuff.filter(j => j !== x)))
+                      :
+                      (
+                        setSelected([...selected, x]),
+                        setFeedstuff([...feedstuff, x])
+                      )
                   }}
                 >
-                  <Text>{x.title}</Text>
+                  <Text
+                    style={{ fontSize: 24, fontWeight: '500' }}
+
+                  >{x}</Text>
                 </TouchableOpacity>
               )
             }
           )
         }
       </View>
-      <Text>Errors</Text>
 
     </View>
   )
@@ -126,22 +118,37 @@ const StuffSelector = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-
-      <CategorySelector />
-
       <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 20 }}>
         <Text style={{ fontWeight: 'bold', fontSize: 32, paddingLeft: 15, color: 'white' }}>Select FeedStuffs</Text>
         <Text style={{ fontWeight: 'bold', fontSize: 16, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
+        <Text>
+          {JSON.stringify(feedstuff)}
+        </Text>
       </View>
+      <ScrollView>
+        {
+          DATA.map(
+            (category) => {
+              return (
+                <CategorySelector
+                  category={category.title} data={category.data} key={category.title}
+                  feedstuff={feedstuff} setFeedstuff={setFeedstuff}
+                />
+              )
+            }
+          )
+        }
 
-      <SectionList
+      </ScrollView>
+
+      {/* <SectionList
         sections={DATA}
         keyExtractor={(item, index) => item + index}
         renderItem={({ item }) => <FeedItem title={item} feedstuff={feedstuff} setFeedstuff={setFeedstuff} />}
         renderSectionHeader={({ section: { title } }) => (
           <Text style={styles.header}>{title}</Text>
         )}
-      />
+      /> */}
 
       <Button
         onPress={() => {
@@ -166,7 +173,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 16
   },
   item: {
-    backgroundColor: "#f9c2ff",
+    backgroundColor: "#fff",
+    borderRadius: 10,
     padding: 20,
     marginVertical: 8
   },
