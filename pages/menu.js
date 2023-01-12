@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native';
-// import Item from "./animalItem";
 import { TouchableOpacity } from "react-native"
 
 const MenuScreen = ({ navigation }) => {
@@ -9,7 +8,6 @@ const MenuScreen = ({ navigation }) => {
     return (
         <View style={{
             flex: 1,
-            // backgroundColor: "rgb(100, 10, 10)"
         }}>
 
             <View style={{ paddingBottom: 10 }} >
@@ -22,6 +20,7 @@ const MenuScreen = ({ navigation }) => {
                         backgroundColor: 'rgb(10, 100, 0)', borderRadius: 50, marginTop: 10,
                         alignContent: "center", justifyContent: 'center',
                     }}>
+
                         <Text style={{
                             fontSize: 24, fontWeight: 'bold',
                             paddingTop: 15, paddingBottom: 15, paddingLeft: 15, paddingRight: 15,

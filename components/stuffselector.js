@@ -67,51 +67,49 @@ const DATA = [
 const DATA2 = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    title: 'Sugar',
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    title: 'Corn',
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    title: 'Bean',
   },
 ];
 
-const Item = ({ title }) => (
-
-  <TouchableOpacity
-    style={styles.button}
-  // onPress={onPress}
-  >
-    <View style={styles.item}></View>
-    <Text>Press Here</Text>
-
-  </TouchableOpacity>
-
-);
-
 const CategorySelector = () => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title} />
-  );
+  const [selected, setSelected] = useState(['Corn', 'apple'])
 
   return (
-    <View>
+    <ScrollView>
       <Text>Catery Name</Text>
       <View>
         <Text>Items List</Text>
-        {DATA2.map((x) => { return (<Item title={x.title}></Item>) })}
+        {
+          DATA2.map(
+            (x) => {
+              return (
+                <TouchableOpacity
+                  style={styles.item}
+                  onPress={() => {
+                    alert("Find the bug " + x.title)
+                    selected.includes(x.title) ? alert("Already exists") : alert("Not Found")
+
+                  }}
+                >
+                  {/* <Text>{selected.includes(x.title) ? 'complete' : 'pending'}</Text> */}
+                  <Text>{x.title}</Text>
+                </TouchableOpacity>
+              )
+            }
+          )
+        }
       </View>
       <Text>Errors</Text>
-      {/* <FlatList
-        data={DATA2}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      /> */}
 
-    </View>
+    </ScrollView>
   )
 }
 

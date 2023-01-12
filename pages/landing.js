@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { Text, View, Image, Linking } from "react-native";
-import { Button, TouchableHighlight, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 const Landing = ({ navigation }) => {
     const url_uvas = "https://uvas.edu.pk";
-    const url_arass = "https://facebook.com";
+    const url_arass = "https://pvmc.gov.pk/";
 
     return (
         <View style={{ flex: 1, backgroundColor: 'rgb(100, 10, 10)' }}>

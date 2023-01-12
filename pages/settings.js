@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import { ScrollView, View, Text, StyleSheet, Linking } from "react-native"
 import YoutubePlayer from "react-native-youtube-iframe";
 
-
 const portfolioURL = "http://dr-abdullah-nabeel.web.app";
 
 const OpenURLButton = ({ url, children }) => {
@@ -78,20 +77,16 @@ function Settings() {
           </Text>
         </View>
       </View>
-      <View>
+      {/* <View>
         <Text style={styles.title}>Developer</Text>
         <View style={styles.contentContainer}>
           <Text>
-            {/* Contact Developer at */}
             <OpenURLButton url={portfolioURL}>
               Contact Developer at &nbsp;
               <Text style={{ color: 'blue' }}>dr-abdullah-nabeel.web.app</Text>
             </OpenURLButton>
           </Text>
         </View>
-      </View>
-      {/* <View style={{ flex: 1, alignItems: 'center', height: 50 }}>
-        <Text>&copy; &nbsp; CopyRight Preserved</Text>
       </View> */}
 
     </ScrollView>
