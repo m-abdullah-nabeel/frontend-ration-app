@@ -20,8 +20,7 @@ const ResultCheck = (props) => {
     if (res['status'] == 0) {
       return (
         <View>
-          <Text style={{ fontSize: 18, fontWeight: '500' }}>Available and correct results</Text>
-          {/* <Text>{JSON.stringify(res['results'])}</Text> */}
+          <Text style={{ fontSize: 18, fontWeight: '500', }}>Available and correct results</Text>
           <View>
             {
               Object.keys(res['results']).map(k => {
@@ -29,15 +28,19 @@ const ResultCheck = (props) => {
                 percent_val = Math.round(res['results'][k] * 100)
 
                 return (
-                  <View key={k} style={{ borderBottomWidth: 2 }}>
-                    <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{k}: {percent_val}</Text>
-                    {/* <Text>Percentage Use: {percent_val}</Text> */}
+                  <View key={k} style={{ borderBottomWidth: 2, borderLeftWidth: 5, borderLeftColor: 'green', }}>
+                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 4 }}>
+                      <View style={{ height: 35 }}>
+                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{k}</Text>
+                      </View>
+                      <View style={{ height: 35 }}>
+                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{percent_val}</Text>
+                      </View>
+                    </View>
                     <Text>
                       DM%: {curr_['DM%']}
                       CP: {curr_['CP']}
                       ME: {curr_['ME']}
-                      {/* ##### Provides Dry Matter {curr_['DM%'] * percent_val} */}
-                      {/* Added.{dm_a.push(curr_['DM%'] * percent_val)} */}
                     </Text>
                     <Text>
                       Provides
@@ -45,19 +48,6 @@ const ResultCheck = (props) => {
                       CP {curr_['CP'] * percent_val} {cp_a.push(curr_['CP'] * percent_val)}
                       ME {curr_['ME'] * percent_val} {me_a.push(curr_['ME'] * percent_val)}
                     </Text>
-                    {/* ############ */}
-                    {/* <Text>
-                      DM%: {curr_['DM%']} ##### Provides Dry Matter {curr_['DM%'] * percent_val}
-                      Added.{dm_a.push(curr_['DM%'] * percent_val)}
-                    </Text>
-                    <Text>
-                      CP: {curr_['CP']} ##### Provides CP {curr_['CP'] * percent_val}
-                      Added.{cp_a.push(curr_['CP'] * percent_val)}
-                    </Text>
-                    <Text>
-                      ME: {curr_['ME']}  ##### Provides ME {curr_['ME'] * percent_val}
-                      Added.{me_a.push(curr_['ME'] * percent_val)}
-                    </Text> */}
                   </View>
                 )
               })
@@ -164,7 +154,6 @@ function DetailsScreen({ navigation, route }) {
 
   return (
     <ScrollView style={{ flex: 1 }}>
-      {/* <Text>{isLoading ? "Loading..." : "Loaded"}</Text> */}
       <View>
         {
           isLoading ?
@@ -177,10 +166,9 @@ function DetailsScreen({ navigation, route }) {
         }
       </View>
 
-      <View>
-        <Text style={{ fontSize: 18, fontWeight: '500' }}>Details of Formulated Feed</Text>
+      <View style={{ flex: 1 }}>
+        <Text style={{ fontSize: 22 }}>Details of Formulated Feed</Text>
         <Text style={{ borderStyle: 'dashed', borderBottomWidth: 1, borderBottomColor: 'black' }}>{compo.length} Selected feedstuffs</Text>
-        {/* <Text>=========================================</Text> */}
         <ResultCheck result={data} />
       </View>
       <Button
