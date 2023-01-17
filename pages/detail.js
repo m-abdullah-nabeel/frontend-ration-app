@@ -16,47 +16,56 @@ const ResultCheck = (props) => {
     4: 'Numerical difficulties encountered',
   }
 
+
   if (res['available']) {
     if (res['status'] == 0) {
+
       return (
         <View>
-          <Text style={{ fontSize: 18, fontWeight: '500', }}>Available and correct results</Text>
+          {/* <Text style={{ fontSize: 18, fontWeight: '500', }}>Least Cost Feed Formulation</Text> */}
           <View>
             {
               Object.keys(res['results']).map(k => {
                 curr_ = nutrientdata.find(x => x.name == k)
                 percent_val = Math.round(res['results'][k] * 100)
+                dm_a.push(curr_['DM%'] * percent_val)
+                cp_a.push(curr_['CP'] * percent_val)
+                me_a.push(curr_['ME'] * percent_val)
 
                 return (
-                  <View key={k} style={{ borderBottomWidth: 2, borderLeftWidth: 5, borderLeftColor: 'green', }}>
+                  <View key={k} >
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 4 }}>
                       <View style={{ height: 35 }}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{k}</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '650' }}>{k}</Text>
                       </View>
                       <View style={{ height: 35 }}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{percent_val}</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '650' }}>{percent_val}</Text>
                       </View>
                     </View>
-                    <Text>
+                    {/* <Text>
                       DM%: {curr_['DM%']}
                       CP: {curr_['CP']}
                       ME: {curr_['ME']}
-                    </Text>
-                    <Text>
+                    </Text> */}
+                    {/* <Text>
                       Provides
                       Dry Matter {curr_['DM%'] * percent_val} {dm_a.push(curr_['DM%'] * percent_val)}
                       CP {curr_['CP'] * percent_val} {cp_a.push(curr_['CP'] * percent_val)}
                       ME {curr_['ME'] * percent_val} {me_a.push(curr_['ME'] * percent_val)}
-                    </Text>
+                    </Text> */}
+                    {/* {dm_a.push(curr_['DM%'] * percent_val)}
+                    {cp_a.push(curr_['CP'] * percent_val)}
+                    {me_a.push(curr_['ME'] * percent_val)} */}
                   </View>
                 )
               })
             }
           </View>
+          <Text></Text>
           <View>
-            <Text style={{ fontSize: 18, fontWeight: '500' }}>Feed's Nutrient Value per Kg</Text>
+            <Text style={{ fontSize: 22, fontWeight: '750' }}>Feed's Nutrient Value per Kg</Text>
             <Text>
-              Dry Matter per kg:&nbsp;
+              Dry Matter:&nbsp;
               {
                 (dm_a.reduce(function (x, y) {
                   return x + y;
@@ -64,7 +73,7 @@ const ResultCheck = (props) => {
               }
             </Text>
             <Text>
-              CP Sum:
+              CP&nbsp;:
               {
                 (cp_a.reduce(function (x, y) {
                   return x + y;
@@ -72,7 +81,7 @@ const ResultCheck = (props) => {
               }
             </Text>
             <Text>
-              ME Sum:
+              ME:
               {
                 (me_a.reduce(function (x, y) {
                   return x + y;
@@ -167,8 +176,9 @@ function DetailsScreen({ navigation, route }) {
       </View>
 
       <View style={{ flex: 1 }}>
-        <Text style={{ fontSize: 22 }}>Details of Formulated Feed</Text>
-        <Text style={{ borderStyle: 'dashed', borderBottomWidth: 1, borderBottomColor: 'black' }}>{compo.length} Selected feedstuffs</Text>
+        <Text style={{ fontSize: 22, fontWeight: '750' }}>Least Cost Feed Formulation</Text>
+        <Text>{compo.length} feedstuffs selected</Text>
+        <Text></Text>
         <ResultCheck result={data} />
       </View>
       <Button

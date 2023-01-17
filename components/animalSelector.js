@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Alert, Modal, Pressable } from "react-native";
+// import { Dropdown } from 'react-native-material-dropdown';
+import { Dropdown } from 'react-native-element-dropdown';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+
+
+const data = [
+  { label: 'Item 1', value: '1' },
+  { label: 'Item 2', value: '2' },
+  { label: 'Item 3', value: '3' },
+  { label: 'Item 4', value: '4' },
+  { label: 'Item 5', value: '5' },
+  { label: 'Item 6', value: '6' },
+  { label: 'Item 7', value: '7' },
+  { label: 'Item 8', value: '8' },
+];
 
 const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
   return (
@@ -18,6 +33,11 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
             <Text style={styles.modalText}>Select Body Weight</Text>
             <Text style={styles.modalText}>Select Production</Text>
             {/* <Text style={styles.modalText}>{visible}</Text> */}
+            {/* <Dropdown
+              label='Favorite Fruit'
+              data={data}
+            /> */}
+
             <Text style={styles.modalText}>{animal}</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
