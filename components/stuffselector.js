@@ -63,24 +63,8 @@ const DATA = [
   },
 ];
 
-// setState(prevState => ({
-//   jasper: {                   // object that we want to update
-//       ...prevState.jasper,    // keep all other key-value pairs
-//       name: 'something'       // update the value of specific key
-//   }
-// }))
-
 const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, errors, setErrors }) => {
   const [selected, setSelected] = useState([])
-
-  // useEffect(() => {
-  //   function updateErrors() {
-  //     setErrors({
-  //       ...error, [category]: selected.length
-  //     })
-  //   }
-  //   updateErrors()
-  // }, []);
 
   return (
     <View>

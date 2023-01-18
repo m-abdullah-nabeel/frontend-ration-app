@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Alert, Modal, Pressable } from "react-native";
 // import { Dropdown } from 'react-native-material-dropdown';
@@ -6,48 +6,134 @@ import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 
-const data = [
-  { label: 'Item 1', value: '1' },
-  { label: 'Item 2', value: '2' },
-  { label: 'Item 3', value: '3' },
-  { label: 'Item 4', value: '4' },
-  { label: 'Item 5', value: '5' },
-  { label: 'Item 6', value: '6' },
-  { label: 'Item 7', value: '7' },
-  { label: 'Item 8', value: '8' },
+const bodyWeights = [
+  { label: '300', value: 300 },
+  { label: '350', value: 350 },
+  { label: '400', value: 400 },
+  { label: '450', value: 450 },
+  { label: '500', value: 500 },
+  { label: '550', value: 550 },
+  { label: '600', value: 600 },
+  { label: '650', value: 650 },
+  { label: '700', value: 700 },
 ];
 
-const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
+const milkProduc = [
+  { label: '5', value: 5 },
+  { label: '10', value: 10 },
+  { label: '15', value: 15 },
+  { label: '20', value: 20 },
+  { label: '25', value: 25 },
+  { label: '30', value: 30 },
+  { label: '600', value: 35 },
+  { label: '650', value: 40 },
+];
+
+
+const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr }) => {
+  const [value, setValue] = useState(null);
+  const [isFocus, setIsFocus] = useState(false);
+
+  const renderLabel = () => {
+    if (value || isFocus) {
+      return (
+        <Text style={[styles.label, isFocus && { color: 'blue', fontWeight: '700' }]}>
+          {statement}
+        </Text>
+      );
+    }
+    return null;
+  };
+
+  const CheckErrs = () => {
+    try {
+      value == null ? setEmptyErr(true) : setEmptyErr(false)
+    } catch (error) {
+      console.log(error)
+      setEmptyErr(true)
+    }
+  }
+
+  useEffect(() => {
+    CheckErrs()
+    console.log("Currently the state of errors is: ")
+    console.log(emptyErr)
+  }, [value])
+
   return (
-    <View style={styles.centeredView}>
+    <View style={{ width: '80%', margin: 10 }}>
+      {renderLabel()}
+      <Dropdown
+        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+        placeholderStyle={styles.placeholderStyle}
+        selectedTextStyle={styles.selectedTextStyle}
+        inputSearchStyle={styles.inputSearchStyle}
+        iconStyle={styles.iconStyle}
+        data={data}
+        search
+        maxHeight={300}
+        labelField="label"
+        valueField="value"
+        placeholder={!isFocus ? placeholderText : '...'}
+        searchPlaceholder="Search..."
+        value={value}
+        onFocus={() => setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
+        onChange={item => {
+          setValue(item.value);
+          setIsFocus(false);
+        }}
+        renderLeftIcon={() => (
+          <AntDesign
+            style={styles.icon}
+            color={isFocus ? 'blue' : 'black'}
+            name="Safety"
+            size={20}
+          />
+        )}
+      />
+
+    </View>
+
+  )
+}
+const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
+  const [emptyErr, setEmptyErr] = useState(true)
+
+  return (
+    <View
+      // style={styles.centeredView}
+      style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}
+    >
       <Modal
         animationType="slide" transparent={true} visible={visible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
+          // Alert.alert("Modal has been closed.");
           setVisible(false);
         }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Select Age</Text>
-            <Text style={styles.modalText}>Select Body Weight</Text>
-            <Text style={styles.modalText}>Select Production</Text>
-            {/* <Text style={styles.modalText}>{visible}</Text> */}
-            {/* <Dropdown
-              label='Favorite Fruit'
-              data={data}
-            /> */}
-
+            <Text>Is it Unselected: {JSON.stringify(emptyErr)}</Text>
             <Text style={styles.modalText}>{animal}</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => {
-                setVisible(false)
-                navigation.navigate('Stuff Selector', { animal: animal });
-              }}
-            >
-              <Text style={styles.textStyle}>Go to feedstuffs</Text>
-            </Pressable>
+            {/* <Text style={styles.modalText}>Select Production</Text> */}
+            <DropdownCom data={bodyWeights} statement={"Body Weight"} placeholderText={"Select Body Weight"} emptyErr={emptyErr} setEmptyErr={setEmptyErr} />
+            <DropdownCom data={milkProduc} statement={"Milk Production"} placeholderText={"Select Milk Production"} emptyErr={emptyErr} setEmptyErr={setEmptyErr} />
+
+            {
+              emptyErr ? "" : (
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => {
+                    setVisible(false)
+                    navigation.navigate('Stuff Selector', { animal: animal });
+                  }}
+                >
+                  <Text style={styles.textStyle}>Go to feedstuffs</Text>
+                </Pressable>
+
+              )
+            }
           </View>
         </View>
       </Modal >
@@ -158,10 +244,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    // marginBottom: 9
   },
   modalView: {
-    margin: 20,
+    // margin: 20,
+    // marginBottom: 10,
+    width: "100%",
+    height: '50%',
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,

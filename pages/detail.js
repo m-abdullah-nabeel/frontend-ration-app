@@ -4,6 +4,7 @@ import nutrientdata from '../assets/data/feeds_nutrient.json';
 
 const ResultCheck = (props) => {
   const res = props.result
+  const compo = props.compo
   let dm_a = []
   let cp_a = []
   let me_a = []
@@ -22,7 +23,6 @@ const ResultCheck = (props) => {
 
       return (
         <View>
-          {/* <Text style={{ fontSize: 18, fontWeight: '500', }}>Least Cost Feed Formulation</Text> */}
           <View>
             {
               Object.keys(res['results']).map(k => {
@@ -37,6 +37,11 @@ const ResultCheck = (props) => {
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 4 }}>
                       <View style={{ height: 35 }}>
                         <Text style={{ fontSize: 24, fontWeight: '650' }}>{k}</Text>
+                      </View>
+                      <View style={{ height: 35 }}>
+                        <Text>{JSON.stringify(((compo.find(x => x.name == k)['DM%']) / 100 * percent_val) * 50)}</Text>
+                        {/* <Text>{JSON.stringify(compo.find(x => x.name == k)['DM%'] * percent_val)}</Text> */}
+                        {/* <Text>{JSON.stringify(compo.find(x => x.name == k)['DM%'])}</Text> */}
                       </View>
                       <View style={{ height: 35 }}>
                         <Text style={{ fontSize: 24, fontWeight: '650' }}>{percent_val}</Text>
@@ -179,7 +184,7 @@ function DetailsScreen({ navigation, route }) {
         <Text style={{ fontSize: 22, fontWeight: '750' }}>Least Cost Feed Formulation</Text>
         <Text>{compo.length} feedstuffs selected</Text>
         <Text></Text>
-        <ResultCheck result={data} />
+        <ResultCheck result={data} compo={compo} />
       </View>
       <Button
         title="Go to Home"
