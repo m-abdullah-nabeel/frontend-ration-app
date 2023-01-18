@@ -173,7 +173,8 @@ function DetailsScreen({ navigation, route }) {
           isLoading ?
             <Image
               style={{ width: '90%', height: 350, flex: 1, justifyContent: 'center', alignItems: "center" }}
-              source={require('../assets/images/loading.gif')}
+              // source={require('../assets/images/loading.gif')}
+              source={require('../assets/images/loading.svg')}
             />
             :
             null

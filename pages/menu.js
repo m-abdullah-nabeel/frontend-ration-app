@@ -3,13 +3,10 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from "react-native"
 
 const MenuScreen = ({ navigation }) => {
-    const image = { uri: "https://reactjs.org/logo-og.png" };
-
     return (
         <View style={{
             flex: 1,
         }}>
-
             <View style={{ paddingBottom: 10 }} >
                 <TouchableOpacity
                     onPress={() => {
@@ -35,9 +32,14 @@ const MenuScreen = ({ navigation }) => {
             }}>
                 <Text style={{
                     fontSize: 18, fontWeight: 'bold',
-                    paddingTop: 15, paddingBottom: 15, paddingLeft: 15, paddingRight: 15,
+                    paddingTop: 15, paddingLeft: 15, paddingRight: 15,
                     color: 'white'
                 }}>Want to get summer feed formula?</Text>
+                <Text style={{
+                    fontSize: 12,
+                    paddingBottom: 15, paddingLeft: 20, paddingRight: 15,
+                    color: 'white'
+                }}>Coming Soon</Text>
             </View>
             <View style={{
                 backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50, marginTop: 10,
@@ -45,38 +47,21 @@ const MenuScreen = ({ navigation }) => {
             }}>
                 <Text style={{
                     fontSize: 18, fontWeight: 'bold',
-                    paddingTop: 15, paddingBottom: 15, paddingLeft: 15, paddingRight: 15,
+                    paddingTop: 15, paddingLeft: 15, paddingRight: 15,
                     color: 'white'
                 }}>Want to get winter feed formula?</Text>
+                <Text style={{
+                    fontSize: 12,
+                    paddingBottom: 15, paddingLeft: 20, paddingRight: 15,
+                    color: 'white'
+                }}>Coming Soon</Text>
             </View>
             <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', marginBottom: 10 }}>
                 <Image
                     style={{ width: 100, height: 45 }}
                     source={require('../assets/uvas-big.png')}
                 />
-
             </View>
-            {/* Here Below is previously saved data */}
-            {/* <View style={{ flex: 1 }}>
-                <View style={{
-                    backgroundColor: 'rgb(100, 10, 10)'
-                }}>
-                    <Text>Summer Formula</Text>
-                </View>
-                <View style={{
-                    width: 100, backgroundColor: 'rgb(100, 10, 10)', color: 'white', borderRadius: 50,
-                    height: 100, alignItems: 'center', justifyContent: 'center', margin: 5, opacity: .6
-                }}>
-                    <Text style={{ color: 'white' }}>Summer Formula</Text>
-                </View>
-                <View style={{
-                    width: 100, backgroundColor: 'rgb(100, 10, 10)', color: 'white', borderRadius: 50,
-                    height: 100, alignItems: 'center', justifyContent: 'center', margin: 5, opacity: .6
-                }}>
-                    <Text style={{ color: 'white' }}>Winter Formula</Text>
-                </View>
-            </View> */}
-
         </View >
     )
 }

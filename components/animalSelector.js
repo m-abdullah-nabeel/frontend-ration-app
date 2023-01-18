@@ -25,12 +25,11 @@ const milkProduc = [
   { label: '20', value: 20 },
   { label: '25', value: 25 },
   { label: '30', value: 30 },
-  { label: '600', value: 35 },
-  { label: '650', value: 40 },
+  { label: '35', value: 35 },
+  { label: '40', value: 40 },
 ];
 
-
-const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr }) => {
+const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr, cond, setCond }) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -45,9 +44,12 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr }
     return null;
   };
 
+  console.log(cond)
+
   const CheckErrs = () => {
     try {
       value == null ? setEmptyErr(true) : setEmptyErr(false)
+      console.log(cond)
     } catch (error) {
       console.log(error)
       setEmptyErr(true)
@@ -56,9 +58,9 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr }
 
   useEffect(() => {
     CheckErrs()
-    console.log("Currently the state of errors is: ")
-    console.log(emptyErr)
-  }, [value])
+    // console.log("Currently the state of errors is: ")
+    // console.log(emptyErr)
+  }, [emptyErr, value])
 
   return (
     <View style={{ width: '80%', margin: 10 }}>
@@ -70,7 +72,7 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr }
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
         data={data}
-        search
+        // search
         maxHeight={300}
         labelField="label"
         valueField="value"
@@ -81,6 +83,8 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr }
         onBlur={() => setIsFocus(false)}
         onChange={item => {
           setValue(item.value);
+          // cond={cond} setCond={setCond}
+          // setCond()
           setIsFocus(false);
         }}
         renderLeftIcon={() => (
@@ -92,13 +96,17 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr }
           />
         )}
       />
-
     </View>
-
   )
 }
+
 const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
   const [emptyErr, setEmptyErr] = useState(true)
+  const [cond, setCond] = useState({
+    species: 'cattle',
+    bodyweight: '',
+    milkProduc: ''
+  })
 
   return (
     <View
@@ -116,9 +124,26 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
           <View style={styles.modalView}>
             <Text>Is it Unselected: {JSON.stringify(emptyErr)}</Text>
             <Text style={styles.modalText}>{animal}</Text>
-            {/* <Text style={styles.modalText}>Select Production</Text> */}
-            <DropdownCom data={bodyWeights} statement={"Body Weight"} placeholderText={"Select Body Weight"} emptyErr={emptyErr} setEmptyErr={setEmptyErr} />
-            <DropdownCom data={milkProduc} statement={"Milk Production"} placeholderText={"Select Milk Production"} emptyErr={emptyErr} setEmptyErr={setEmptyErr} />
+
+            <DropdownCom
+              data={bodyWeights}
+              statement={"Body Weight"}
+              placeholderText={"Select Body Weight"}
+              emptyErr={emptyErr}
+              setEmptyErr={setEmptyErr}
+              cond={cond}
+              setCond={setCond}
+            />
+
+            <DropdownCom
+              data={milkProduc}
+              statement={"Milk Production"}
+              placeholderText={"Select Milk Production"}
+              emptyErr={emptyErr}
+              setEmptyErr={setEmptyErr}
+              cond={cond}
+              setCond={setCond}
+            />
 
             {
               emptyErr ? "" : (
