@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Settings from "./pages/settings";
 import Landing from './pages/landing';
 import { createStackNavigator } from '@react-navigation/stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import 'react-native-gesture-handler';
 
@@ -14,7 +15,7 @@ const WelcomeStack = createStackNavigator()
 const InnerComp = () => {
   return (
     <Tab.Navigator initialRouteName="Home"
-      screenOptions={{
+      screenOptions={({ route }) => ({
         headerStyle: {
           backgroundColor: 'rgb(100, 10, 10)',
         },
@@ -23,7 +24,25 @@ const InnerComp = () => {
           fontWeight: 'light',
           alignItems: 'center'
         },
-      }}
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = focused
+              ? 'home'
+              : 'home-outline';
+          } else if (route.name === 'Settings') {
+            iconName = focused
+              ? 'settings'
+              : 'home-outline';
+          }
+          // You can return any component that you like here!
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'rgb(100, 60, 1)',
+        tabBarInactiveTintColor: 'gray',
+
+      })}
     >
       <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }} />
       <Tab.Screen name="More" component={Settings} options={{ title: 'About' }} />

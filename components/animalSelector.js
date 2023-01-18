@@ -44,11 +44,14 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr, 
     return null;
   };
 
-  console.log(cond)
+  // console.log(cond)
 
   const CheckErrs = () => {
     try {
-      value == null ? setEmptyErr(true) : setEmptyErr(false)
+      // value == null ? setEmptyErr(true) : setEmptyErr(false)
+      "" in Object.values(cond) ? setEmptyErr(true) : setEmptyErr(false)
+      console.log("The Errors boolean is as follows: ")
+      console.log("" in Object.values(cond))
       console.log(cond)
     } catch (error) {
       console.log(error)
@@ -58,8 +61,8 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr, 
 
   useEffect(() => {
     CheckErrs()
-    // console.log("Currently the state of errors is: ")
-    // console.log(emptyErr)
+    console.log("Currently the state of errors is: ")
+    console.log(emptyErr)
   }, [emptyErr, value])
 
   return (
@@ -85,6 +88,21 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr, 
           setValue(item.value);
           // cond={cond} setCond={setCond}
           // setCond()
+          if (statement == "Body Weight") {
+            setCond({
+              ...cond, // Copy the old fields
+              bodyweight: item.value // But override this one
+            });
+          }
+          else if (statement == "Milk Production") {
+            setCond({
+              ...cond, // Copy the old fields
+              milkProduc: item.value // But override this one
+            });
+          }
+          console.log(Object.values(cond))
+          console.log("" in Object.values(cond))
+
           setIsFocus(false);
         }}
         renderLeftIcon={() => (
@@ -107,6 +125,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
     bodyweight: '',
     milkProduc: ''
   })
+  console.log(cond)
 
   return (
     <View
@@ -178,11 +197,10 @@ const AnimalSelector = ({ navigation }) => {
       }}>
         <Text style={{
           color: 'white',
-          fontSize: 24, fontWeight: 'bold'
+          fontSize: 24, fontWeight: 'bold', paddingBottom: 20,
         }}>
           Select Your Animal
         </Text>
-
       </View>
 
       <View style={{
@@ -199,26 +217,26 @@ const AnimalSelector = ({ navigation }) => {
             <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
           </TouchableOpacity>
         </View>
-        <View style={styles.animal}>
+        {/* <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Camel") }}>
             <Image style={styles.image} source={require('../assets/animals/camel.png')} />
           </TouchableOpacity>
-        </View>
-        <View style={styles.animal}>
+        </View> */}
+        {/* <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Goat") }}>
             <Image style={styles.image} source={require('../assets/animals/goat.png')} />
           </TouchableOpacity>
-        </View>
-        <View style={styles.animal}>
+        </View> */}
+        {/* <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Sheep") }}>
             <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
           </TouchableOpacity>
-        </View>
-        <View style={styles.animal}>
+        </View> */}
+        {/* <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Horse") }}>
             <Image style={styles.image} source={require('../assets/animals/horse.png')} />
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} />
 

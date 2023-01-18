@@ -22,7 +22,7 @@ const Landing = ({ navigation }) => {
                     <TouchableOpacity
                         onPress={async () => await Linking.openURL(url_arass)}
                     >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5, backgroundColor: '#d3d3d3' }}>
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                             <Image
                                 style={{ width: 75, height: 40 }}
                                 source={require('../assets/arass.png')}
@@ -33,7 +33,7 @@ const Landing = ({ navigation }) => {
                     <TouchableOpacity
                         onPress={async () => await Linking.openURL(url_uvas)}
                     >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5, backgroundColor: '#d3d3d3' }}>
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 90, width: 90, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                             <Image
                                 style={{ width: 75, height: 45 }}
                                 source={require('../assets/uvas-big.png')}
