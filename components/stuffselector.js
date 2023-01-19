@@ -72,7 +72,7 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
   const [selected, setSelected] = useState([])
 
   useEffect(() => {
-    console.log("update lengths ")
+    // console.log("update lengths ")
     // console.log(catLen)
     setCatLen({
       ...catLen, [category]: selected.length
@@ -143,9 +143,9 @@ const StuffSelector = ({ route, navigation }) => {
   const { animal } = route.params;
 
   useEffect(() => {
-    console.log("check for errors")
-    console.log(Object.values(catLen))
-    console.log(Object.values(catLen).includes(0))
+    // console.log("check for errors")
+    // console.log(Object.values(catLen))
+    // console.log(Object.values(catLen).includes(0))
 
     // error logic
     Object.values(catLen).includes(0)
