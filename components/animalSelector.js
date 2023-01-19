@@ -5,7 +5,6 @@ import { Alert, Modal, Pressable } from "react-native";
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-
 const bodyWeights = [
   { label: '300', value: 300 },
   { label: '350', value: 350 },
@@ -29,7 +28,7 @@ const milkProduc = [
   { label: '40', value: 40 },
 ];
 
-const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr, cond, setCond }) => {
+const DropdownCom = ({ data, statement, placeholderText, cond, setCond }) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -43,27 +42,6 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr, 
     }
     return null;
   };
-
-  // console.log(cond)
-
-  const CheckErrs = () => {
-    try {
-      // value == null ? setEmptyErr(true) : setEmptyErr(false)
-      "" in Object.values(cond) ? setEmptyErr(true) : setEmptyErr(false)
-      console.log("The Errors boolean is as follows: ")
-      console.log("" in Object.values(cond))
-      console.log(cond)
-    } catch (error) {
-      console.log(error)
-      setEmptyErr(true)
-    }
-  }
-
-  useEffect(() => {
-    CheckErrs()
-    console.log("Currently the state of errors is: ")
-    console.log(emptyErr)
-  }, [emptyErr, value])
 
   return (
     <View style={{ width: '80%', margin: 10 }}>
@@ -86,23 +64,10 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr, 
         onBlur={() => setIsFocus(false)}
         onChange={item => {
           setValue(item.value);
-          // cond={cond} setCond={setCond}
-          // setCond()
-          if (statement == "Body Weight") {
-            setCond({
-              ...cond, // Copy the old fields
-              bodyweight: item.value // But override this one
-            });
-          }
-          else if (statement == "Milk Production") {
-            setCond({
-              ...cond, // Copy the old fields
-              milkProduc: item.value // But override this one
-            });
-          }
-          console.log(Object.values(cond))
-          console.log("" in Object.values(cond))
-
+          setCond({
+            ...cond, // Copy the old fields
+            [statement]: item.value // But override this one
+          });
           setIsFocus(false);
         }}
         renderLeftIcon={() => (
@@ -119,17 +84,29 @@ const DropdownCom = ({ data, statement, placeholderText, emptyErr, setEmptyErr, 
 }
 
 const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
-  const [emptyErr, setEmptyErr] = useState(true)
+  const [error, setError] = useState(true)
   const [cond, setCond] = useState({
     species: 'cattle',
-    bodyweight: '',
-    milkProduc: ''
+    "Body Weight": '',
+    "Milk Production": ''
   })
-  console.log(cond)
+  // console.log(cond)
+
+  useEffect(() => {
+    // uncomment this to see logs
+    // console.log(cond)
+    // console.log(Object.values(cond))
+    // console.log(Object.values(cond).includes(""))
+    // console.log("########################")
+
+    // errors logic
+    Object.values(cond).includes("")
+      ? setError(true)
+      : setError(false)
+  }, [cond])
 
   return (
     <View
-      // style={styles.centeredView}
       style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}
     >
       <Modal
@@ -141,31 +118,37 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
       >
         <View style={[styles.centeredView, { backgroundColor: "rgba(100, 100, 100, 0.2)" }]}>
           <View style={[styles.modalView, { backgroundColor: "rgba(139, 150, 150, 1)" }]}>
-            <Text>Is it Unselected: {JSON.stringify(emptyErr)}</Text>
-            <Text style={styles.modalText}>{animal}</Text>
+            {/* <Text>Errors: {JSON.stringify(error)}</Text>
+            {
+              Object.entries(cond).map(v => {
+                return (
+                  <Text key={v}>{v[0]} = {v[1]}</Text>
+                )
+              })
+            }
+            <Text>{JSON.stringify(cond)}</Text> */}
+            <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>Select Parameters of {animal}</Text>
 
             <DropdownCom
               data={bodyWeights}
+              // change statement name in above cond of errors if ever change this
               statement={"Body Weight"}
               placeholderText={"Select Body Weight"}
-              emptyErr={emptyErr}
-              setEmptyErr={setEmptyErr}
               cond={cond}
               setCond={setCond}
             />
 
             <DropdownCom
               data={milkProduc}
+              // change statement name in above cond of errors
               statement={"Milk Production"}
               placeholderText={"Select Milk Production"}
-              emptyErr={emptyErr}
-              setEmptyErr={setEmptyErr}
               cond={cond}
               setCond={setCond}
             />
 
             {
-              emptyErr ? "" : (
+              error ? "" : (
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => {
@@ -247,12 +230,6 @@ const AnimalSelector = ({ navigation }) => {
 
 export default AnimalSelector;
 
-
-
-
-
-
-
 const styles = StyleSheet.create({
   animal: {
     borderColor: 'rgb(30, 130, 30)',
@@ -293,7 +270,7 @@ const styles = StyleSheet.create({
     // margin: 20,
     // marginBottom: 10,
     width: "100%",
-    height: '50%',
+    height: '40%',
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,

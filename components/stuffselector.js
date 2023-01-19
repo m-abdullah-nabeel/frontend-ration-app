@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, FlatList, SectionList, StatusBar, Button } from "react-native";
 
+import Svg, {
+  Circle,
+} from 'react-native-svg';
+
 const DATA = [
   {
     title: "Roughages",
