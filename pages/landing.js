@@ -4,7 +4,7 @@ import { TouchableOpacity } from "react-native";
 
 const Landing = ({ navigation }) => {
     const url_uvas = "https://uvas.edu.pk";
-    const url_arass = "https://pvmc.gov.pk/";
+    const url_arass = "https://arass.org/";
 
     return (
         <View style={{ flex: 1, backgroundColor: 'rgb(120, 20, 10)' }}>

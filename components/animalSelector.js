@@ -150,15 +150,14 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
             {
               error ? "" : (
                 <Pressable
-                  style={[styles.button, styles.buttonClose]}
+                  style={[styles.button, styles.buttonClose, { margin: 10 }]}
                   onPress={() => {
                     setVisible(false)
-                    navigation.navigate('Stuff Selector', { animal: animal });
+                    navigation.navigate('Stuff Selector', { animal: animal, req_data: cond });
                   }}
                 >
                   <Text style={styles.textStyle}>Go to feedstuffs</Text>
                 </Pressable>
-
               )
             }
           </View>
@@ -264,11 +263,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // marginBottom: 9
   },
   modalView: {
-    // margin: 20,
-    // marginBottom: 10,
     width: "100%",
     height: '40%',
     backgroundColor: "white",

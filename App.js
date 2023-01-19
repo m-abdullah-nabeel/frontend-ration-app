@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from "./pages/home";
@@ -60,7 +60,7 @@ const App = () => {
           headerShown: false
         }}
       >
-        <WelcomeStack.Screen name="Landing222" component={Landing} />
+        <WelcomeStack.Screen name="Landing" component={Landing} />
         <WelcomeStack.Screen name="Formulate" component={InnerComp} />
       </WelcomeStack.Navigator>
 

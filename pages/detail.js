@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Button, StyleSheet, Image, ScrollView, Pressable } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
+import animalsReqdata from '../assets/data/nutrients_required.json';
 
 const ResultCheck = (props) => {
   const res = props.result
@@ -142,16 +143,22 @@ const ResultCheck = (props) => {
 }
 
 function DetailsScreen({ navigation, route }) {
-  const { stock } = route.params;
+  const { stock, req_data } = route.params;
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [nutReq, setNutReq] = useState([])
   const [compo, setCompo] = useState([]);
+
+  // console.log("Here is the requirement data...")
+  // console.log(req_data)
+  // console.log("Ended")
 
   const getCalculations = async () => {
     // console.log(compo)
     let reqData = {
       "feeds": compo,
-      "nut_req": [16, 2200]
+      // "nut_req": nutReq
+      "nut_req": [15, 2800]
     }
     // Run Only if Selected feedstuff's data is available
     try {
@@ -173,6 +180,7 @@ function DetailsScreen({ navigation, route }) {
       setLoading(false);
     }
   }
+
   const getCompositions = (namesList, NutrientObject) => {
     let newlist = [];
     namesList.map(
@@ -185,9 +193,42 @@ function DetailsScreen({ navigation, route }) {
     setCompo(newlist)
   }
 
+  const getNutriReq = (animalData, ReqObj) => {
+    let newlist = [];
+    let bw = animalData['Body Weight']
+    let mp = animalData['Milk Production']
+    // check species and then make a condition for each species 
+    let sp = animalData['species']
+
+    let found = ReqObj.filter(item => item.bodyweight == bw && item.milk == mp)[0]
+    console.log(found)
+    let dmi = found['dmi']
+    let cp_T = found['cp_req']
+    let me_T = found['me_req']
+    console.log(dmi)
+    console.log(cp_T)
+    console.log(me_T)
+    let cp = (Number(me_T) / Number(dmi)).toFixed(2)
+    console.log(cp)
+    newlist[0] = cp
+    // newlist.push(cp)
+    let me = (Number(cp_T) / (Number(dmi) * 1000) * 100).toFixed(2)
+    console.log(me)
+    newlist[1] = me
+    // console.log(found[])
+    // console.log("Nutrients Data")
+    // console.log(found)
+    // console.log("found")
+    setNutReq(newlist)
+  }
+
   useEffect(() => {
     getCalculations();
-  }, [compo]);
+  }, [compo, nutReq]);
+
+  useEffect(() => {
+    getNutriReq(req_data, animalsReqdata)
+  }, [])
 
   useEffect(() => {
     getCompositions(stock, nutrientdata);

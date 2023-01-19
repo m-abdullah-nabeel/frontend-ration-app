@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, FlatList, SectionList, StatusBar, Button } from "react-native";
 
-import Svg, {
-  Circle,
-} from 'react-native-svg';
-
 const DATA = [
   {
     title: "Roughages",
@@ -140,7 +136,8 @@ const StuffSelector = ({ route, navigation }) => {
     "Roughages": 0,
     "Energy Sources": 0
   })
-  const { animal } = route.params;
+  const { animal, req_data } = route.params;
+  // const { req_data } = route.params;
 
   useEffect(() => {
     // console.log("check for errors")
@@ -205,7 +202,7 @@ const StuffSelector = ({ route, navigation }) => {
               onPress={() => {
                 error ?
                   (alert("errors found")) :
-                  navigation.navigate('Details', { stock: feedstuff });
+                  navigation.navigate('Details', { stock: feedstuff, req_data: req_data });
               }}
               title="Next"
               color="rgb(10, 100, 10)"
