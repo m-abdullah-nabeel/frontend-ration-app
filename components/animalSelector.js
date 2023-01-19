@@ -130,7 +130,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
   return (
     <View
       // style={styles.centeredView}
-      style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column', backgroundColor: 'rgba(110, 30, 1, 0.5)' }}
+      style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}
     >
       <Modal
         animationType="slide" transparent={true} visible={visible}
@@ -139,8 +139,8 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
           setVisible(false);
         }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+        <View style={[styles.centeredView, { backgroundColor: "rgba(100, 100, 100, 0.2)" }]}>
+          <View style={[styles.modalView, { backgroundColor: "rgba(139, 150, 150, 1)" }]}>
             <Text>Is it Unselected: {JSON.stringify(emptyErr)}</Text>
             <Text style={styles.modalText}>{animal}</Text>
 
@@ -193,11 +193,11 @@ const AnimalSelector = ({ navigation }) => {
     <View>
       <View style={{
         backgroundColor: 'rgb(0, 100, 0)', borderRadius: 50,
-        paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20,
+        paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20, marginBottom: 10,
       }}>
         <Text style={{
           color: 'white',
-          fontSize: 24, fontWeight: 'bold', paddingBottom: 20,
+          fontSize: 24, fontWeight: 'bold', //paddingBottom: 5,
         }}>
           Select Your Animal
         </Text>
@@ -255,7 +255,7 @@ export default AnimalSelector;
 
 const styles = StyleSheet.create({
   animal: {
-    borderColor: 'black',
+    borderColor: 'rgb(30, 130, 30)',
     borderWidth: 2,
     borderRadius: 10,
     padding: 5,
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F194FF",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "rgb(130, 30, 1)",
   },
   textStyle: {
     color: "white",

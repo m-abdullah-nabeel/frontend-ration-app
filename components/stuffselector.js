@@ -47,8 +47,9 @@ const DATA = [
       "Dry dates",
       "Potato"
     ]
-  }, {
-    title: "Protein sources",
+  },
+  {
+    title: "Protein Sources",
     data: [
       "Cottonseed cake (Khal)",
       "Soybean meal",
@@ -63,8 +64,17 @@ const DATA = [
   },
 ];
 
-const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, errors, setErrors }) => {
+const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, catLen, setCatLen }) => {
   const [selected, setSelected] = useState([])
+
+  useEffect(() => {
+    console.log("update lengths ")
+    // console.log(catLen)
+    setCatLen({
+      ...catLen, [category]: selected.length
+    })
+
+  }, [selected])
 
   return (
     <View>
@@ -87,20 +97,14 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
                 <TouchableOpacity key={x}
                   style={[styles.item, selected.includes(x) ? { backgroundColor: 'green' } : null]}
                   onPress={() => {
-                    selected.includes(x) ?
-                      (setSelected(selected.filter(j => j !== x)),
-                        setFeedstuff(feedstuff.filter(j => j !== x)),
-                        setErrors({
-                          ...error, [category]: selected.length
-                        })
+                    selected.includes(x)
+                      ? (
+                        setSelected(selected.filter(j => j !== x)),
+                        setFeedstuff(feedstuff.filter(j => j !== x))
                       )
-                      :
-                      (
+                      : (
                         setSelected([...selected, x]),
-                        setFeedstuff([...feedstuff, x]),
-                        setErrors({
-                          ...error, [category]: selected.length
-                        })
+                        setFeedstuff([...feedstuff, x])
                       )
                   }}
                 >
@@ -118,30 +122,52 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
   )
 }
 
-
 const StuffSelector = ({ route, navigation }) => {
   const [feedstuff, setFeedstuff] = useState([]);
   const [error, setError] = useState(false);
-  const [errors, setErrors] = useState({
-    roughages: 0,
-    dry_roughages: 0,
-    energy: 0,
-    protein: 0
+  const [catLen, setCatLen] = useState({
+    "Dry Roughages & Crop residues": 0,
+    "Protein Sources": 0,
+    "Roughages": 0,
+    "Energy Sources": 0
   })
   const { animal } = route.params;
 
+  useEffect(() => {
+    console.log("check for errors")
+    console.log(Object.values(catLen))
+    console.log(Object.values(catLen).includes(0))
 
+    // error logic
+    Object.values(catLen).includes(0)
+      ? setError(true)
+      : setError(false)
+  }, [catLen])
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 20 }}>
-        <Text style={{ fontWeight: 'bold', fontSize: 32, paddingLeft: 15, color: 'white' }}>Select FeedStuffs</Text>
-        <Text style={{ fontWeight: 'bold', fontSize: 16, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
+      <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>
+        <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white' }}>Select FeedStuffs</Text>
+        <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
+      </View>
+      <View style={{
+        backgroundColor: 'pink',
+        padding: 10, margin: 10
+      }}>
+        <Text style={{ color: 'red', fontSize: 24 }}>Error: {JSON.stringify(error)}</Text>
+        {
+          Object.entries(catLen).map((k) => {
+            // console.log(k)
+            return (
+              <Text>{k[0]}: {k[1]}</Text>
+            )
+          })
+        }
         <Text>
-          {JSON.stringify(feedstuff)}
+          #########################
         </Text>
         <Text>
-          {JSON.stringify(errors)}
+          {JSON.stringify(feedstuff)}
         </Text>
       </View>
       <ScrollView>
@@ -153,7 +179,7 @@ const StuffSelector = ({ route, navigation }) => {
                   category={category.title} data={category.data} key={category.title}
                   feedstuff={feedstuff} setFeedstuff={setFeedstuff}
                   error={error} setError={setError}
-                  errors={errors} setErrors={setErrors}
+                  catLen={catLen} setCatLen={setCatLen}
                 />
               )
             }
@@ -163,17 +189,23 @@ const StuffSelector = ({ route, navigation }) => {
       </ScrollView>
 
       {/* show this button only when you have no error */}
-      <Button
-        onPress={() => {
-          error ?
-            (alert("errors found")) :
-            navigation.navigate('Details', { stock: feedstuff });
-        }}
-        title="Next"
-        color="rgb(10, 100, 10)"
-        style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20 }}
-        accessibilityLabel="Next to detailed"
-      />
+      {
+        error
+          ? ""
+          : (
+            <Button
+              onPress={() => {
+                error ?
+                  (alert("errors found")) :
+                  navigation.navigate('Details', { stock: feedstuff });
+              }}
+              title="Next"
+              color="rgb(10, 100, 10)"
+              style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20 }}
+              accessibilityLabel="Next to detailed"
+            />
+          )
+      }
 
     </SafeAreaView>
   )

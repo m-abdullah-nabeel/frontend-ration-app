@@ -89,43 +89,36 @@ const ResultCheck = (props) => {
               })
             }
           </View>
-          <Text></Text>
+          {/* <Text></Text> */}
           <View style={{
-            backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginBottom: 20
+            backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
           }}>
-            <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff" }}>This Feed Contains</Text>
-            <Text style={{ color: "#fff" }}>
+            <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff", fontWeight: 'bold' }}>This Feed Contains</Text>
+            {/* <Text style={{ color: "#fff" }}>
               Dry Matter:&nbsp;
               {
-                (dm_a.reduce(function (x, y) {
+                ((dm_a.reduce(function (x, y) {
                   return x + y;
-                }, 0)) / 100
+                }, 0)) / 100).toFixed(2)
               }
-            </Text>
+            </Text> */}
             <Text style={{ color: "#fff" }}>
               CP&nbsp;:
               {
-                (cp_a.reduce(function (x, y) {
+                ((cp_a.reduce(function (x, y) {
                   return x + y;
-                }, 0)) / 100
+                }, 0)) / 100).toFixed(2)
               }
             </Text>
             <Text style={{ color: "#fff" }}>
               ME:
               {
-                (me_a.reduce(function (x, y) {
+                ((me_a.reduce(function (x, y) {
                   return x + y;
-                }, 0)) / 100
+                }, 0)) / 100).toFixed(2)
               }
             </Text>
           </View>
-          {/* <Button
-            color="rgb(130, 40, 1)"
-            title="Go to Home"
-            onPress={() => {
-              navigation.navigate('Animal Selector');
-            }}
-          /> */}
 
         </View>
       )
@@ -157,7 +150,8 @@ function DetailsScreen({ navigation, route }) {
   const getCalculations = async () => {
     // console.log(compo)
     let reqData = {
-      "feeds": compo
+      "feeds": compo,
+      "nut_req": [16, 2200]
     }
     // Run Only if Selected feedstuff's data is available
     try {
