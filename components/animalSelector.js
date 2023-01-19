@@ -130,7 +130,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
   return (
     <View
       // style={styles.centeredView}
-      style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}
+      style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column', backgroundColor: 'rgba(110, 30, 1, 0.5)' }}
     >
       <Modal
         animationType="slide" transparent={true} visible={visible}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, StyleSheet, Image, ScrollView } from "react-native"
+import { View, Text, Button, StyleSheet, Image, ScrollView, Pressable } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
 
 const ResultCheck = (props) => {
   const res = props.result
   const compo = props.compo
+  const navigation = props.navigation
   let dm_a = []
   let cp_a = []
   let me_a = []
@@ -17,13 +18,37 @@ const ResultCheck = (props) => {
     4: 'Numerical difficulties encountered',
   }
 
-
   if (res['available']) {
     if (res['status'] == 0) {
 
       return (
         <View>
-          <View>
+          <View style={{
+            backgroundColor: "rgb(110, 30, 1)",
+            width: "100%",
+            borderRadius: 10,
+            marginBottom: 20
+          }}>
+            <Text style={{
+              fontSize: 18, fontWeight: 'bold', color: "#fff",
+              marginTop: 5, marginLeft: 20, marginRight: 20, marginBottom: 2,
+            }}>
+              Least Cost Feed Formulation
+            </Text>
+            <Text style={{
+              color: "#fff", fontSize: 12,
+              marginBottom: 5, marginLeft: 20, marginRight: 10,
+            }}>
+              {compo.length} feedstuffs selected
+            </Text>
+
+          </View>
+
+
+          <View style={{
+            // backgroundColor: "pink",
+            padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10
+          }}>
             {
               Object.keys(res['results']).map(k => {
                 curr_ = nutrientdata.find(x => x.name == k)
@@ -34,17 +59,15 @@ const ResultCheck = (props) => {
 
                 return (
                   <View key={k} >
-                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 4 }}>
+                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 1 }}>
                       <View style={{ height: 35 }}>
                         <Text style={{ fontSize: 24, fontWeight: '650' }}>{k}</Text>
                       </View>
-                      <View style={{ height: 35 }}>
+                      {/* <View style={{ height: 35 }}>
                         <Text>{JSON.stringify(((compo.find(x => x.name == k)['DM%']) / 100 * percent_val) * 50)}</Text>
-                        {/* <Text>{JSON.stringify(compo.find(x => x.name == k)['DM%'] * percent_val)}</Text> */}
-                        {/* <Text>{JSON.stringify(compo.find(x => x.name == k)['DM%'])}</Text> */}
-                      </View>
+                      </View> */}
                       <View style={{ height: 35 }}>
-                        <Text style={{ fontSize: 24, fontWeight: '650' }}>{percent_val}</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '650' }}>{percent_val} %</Text>
                       </View>
                     </View>
                     {/* <Text>
@@ -67,9 +90,11 @@ const ResultCheck = (props) => {
             }
           </View>
           <Text></Text>
-          <View>
-            <Text style={{ fontSize: 22, fontWeight: '750' }}>Feed's Nutrient Value per Kg</Text>
-            <Text>
+          <View style={{
+            backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginBottom: 20
+          }}>
+            <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff" }}>This Feed Contains</Text>
+            <Text style={{ color: "#fff" }}>
               Dry Matter:&nbsp;
               {
                 (dm_a.reduce(function (x, y) {
@@ -77,7 +102,7 @@ const ResultCheck = (props) => {
                 }, 0)) / 100
               }
             </Text>
-            <Text>
+            <Text style={{ color: "#fff" }}>
               CP&nbsp;:
               {
                 (cp_a.reduce(function (x, y) {
@@ -85,7 +110,7 @@ const ResultCheck = (props) => {
                 }, 0)) / 100
               }
             </Text>
-            <Text>
+            <Text style={{ color: "#fff" }}>
               ME:
               {
                 (me_a.reduce(function (x, y) {
@@ -94,6 +119,14 @@ const ResultCheck = (props) => {
               }
             </Text>
           </View>
+          {/* <Button
+            color="rgb(130, 40, 1)"
+            title="Go to Home"
+            onPress={() => {
+              navigation.navigate('Animal Selector');
+            }}
+          /> */}
+
         </View>
       )
     }
@@ -173,26 +206,22 @@ function DetailsScreen({ navigation, route }) {
           isLoading ?
             <Image
               style={{ width: '90%', height: 350, flex: 1, justifyContent: 'center', alignItems: "center" }}
-              // source={require('../assets/images/loading.gif')}
-              source={require('../assets/images/loading.svg')}
+              source={require('../assets/images/loading.gif')}
             />
             :
             null
         }
       </View>
 
-      <View style={{ flex: 1 }}>
-        <Text style={{ fontSize: 22, fontWeight: '750' }}>Least Cost Feed Formulation</Text>
-        <Text>{compo.length} feedstuffs selected</Text>
-        <Text></Text>
-        <ResultCheck result={data} compo={compo} />
-      </View>
-      <Button
+      {/* <View style={{ flex: 1 }}> */}
+      <ResultCheck result={data} compo={compo} navigate={navigation} />
+      {/* </View> */}
+      {/* <Button
         title="Go to Home"
         onPress={() => {
           navigation.navigate('Animal Selector');
         }}
-      />
+      /> */}
     </ScrollView>
   );
 }

@@ -13,7 +13,6 @@ const Landing = ({ navigation }) => {
                     style={{ width: '100%', height: 200 }}
                     source={require('../assets/logo/icon.png')}
                 />
-
                 {/* <Text style={{ fontSize: 58, fontWeight: 'bold', color: 'white', backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, paddingLeft: 20, paddingRight: 20 }}>UVA-Gro</Text> */}
             </View>
 
@@ -49,7 +48,6 @@ const Landing = ({ navigation }) => {
                     onPress={() => {
                         navigation.navigate('Formulate');
                     }}
-
                 >
                     <View style={{
                         backgroundColor: 'white', padding: 15, borderRadius: 25, alignItems: 'center',
