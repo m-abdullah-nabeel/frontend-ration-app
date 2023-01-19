@@ -84,12 +84,17 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
           {
             error ?
               (selected.length == 0 ?
-                <Text style={{ color: 'red', fontSize: 26 }}>Error: Select at least one item from this category</Text> :
-                <Text style={{ color: 'green', fontSize: 26 }}>No Error</Text>
+                <Text style={{
+                  color: 'rgb(200, 10, 10)', fontWeight: '600',
+                  fontSize: 16, margin: 10
+                }}>
+                  Select at least one item from this category
+                </Text> :
+                null
               ) : null
           }
         </View>
-        <Text>{JSON.stringify(selected)}</Text>
+        {/* <Text>{JSON.stringify(selected)}</Text> */}
         {
           data.map(
             (x) => {
@@ -109,7 +114,7 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
                   }}
                 >
                   <Text
-                    style={{ fontSize: 24, fontWeight: '500' }}
+                    style={{ fontSize: 18, fontWeight: '500' }}
                   >{x}</Text>
                 </TouchableOpacity>
               )
@@ -150,7 +155,7 @@ const StuffSelector = ({ route, navigation }) => {
         <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white' }}>Select FeedStuffs</Text>
         <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
       </View>
-      <View style={{
+      {/* <View style={{
         backgroundColor: 'pink',
         padding: 10, margin: 10
       }}>
@@ -169,7 +174,7 @@ const StuffSelector = ({ route, navigation }) => {
         <Text>
           {JSON.stringify(feedstuff)}
         </Text>
-      </View>
+      </View> */}
       <ScrollView>
         {
           DATA.map(
@@ -185,7 +190,6 @@ const StuffSelector = ({ route, navigation }) => {
             }
           )
         }
-
       </ScrollView>
 
       {/* show this button only when you have no error */}
@@ -222,13 +226,13 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: "#fff",
     borderRadius: 10,
-    padding: 20,
+    padding: 15,
     marginVertical: 8
   },
   header: {
     fontSize: 24,
     fontWeight: '500',
-    borderRadius: 50,
+    borderRadius: 20,
     padding: 10,
     paddingLeft: 20,
     backgroundColor: 'rgb(200, 200, 200)'
