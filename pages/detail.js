@@ -153,15 +153,22 @@ function DetailsScreen({ navigation, route }) {
     console.log("===================================Running Calculations===========================================")
     // check if feed and nut req arrarys have data
     // dont proceed if they are empty
-    let reqData = {
-      "feeds": compo,
-      // "nut_req": nutReq
-      "nut_req": [15, 2094.82]
-    }
+    // let reqData = {
+    //   "feeds": compo,
+    //   "nut_req": nutReq
+    //   // "nut_req": [15, 2094.82]
+    // }
     // Run Only if Selected feedstuff's data is available
     try {
-      console.log(reqData)
+
       if (compo.length > 0 && nutReq.length > 0) {
+        let reqData = {
+          "feeds": compo,
+          "nut_req": nutReq
+          // "nut_req": [15, 2094.82]
+        }
+        console.log(reqData)
+
         const response = await fetch('https://poo9ym.deta.dev/formulate', {
           method: 'POST',
           headers: {
@@ -211,10 +218,10 @@ function DetailsScreen({ navigation, route }) {
     // console.log(dmi)
     // console.log(cp_T)
     // console.log(me_T)
-    let cp = (Number(me_T) / Number(dmi)).toFixed(2)
+    let me = (Number(me_T) / Number(dmi)).toFixed(2)
     console.log(cp)
     // newlist.push(cp)
-    let me = (Number(cp_T) / (Number(dmi) * 1000) * 100).toFixed(2)
+    let cp = (Number(cp_T) / (Number(dmi) * 1000) * 100).toFixed(2)
     console.log(me)
     // console.log(found[])
     // console.log("Nutrients Data")
