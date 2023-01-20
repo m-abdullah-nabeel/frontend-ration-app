@@ -14,7 +14,7 @@ const ResultCheck = (props) => {
   let status_ = {
     0: 'Optimization terminated successfully',
     1: 'Iteration limit reached',
-    2: 'Problem appears to be infeasible',
+    2: 'The selected combination doesnt provide enough nutrients', //Problem appears to be infeasible
     3: 'Problem appears to be unbounded',
     4: 'Numerical difficulties encountered',
   }
@@ -149,12 +149,10 @@ function DetailsScreen({ navigation, route }) {
   const [nutReq, setNutReq] = useState([])
   const [compo, setCompo] = useState([]);
 
-  // console.log("Here is the requirement data...")
-  // console.log(req_data)
-  // console.log("Ended")
-
   const getCalculations = async () => {
-    // console.log(compo)
+    console.log("===================================Running Calculations===========================================")
+    // check if feed and nut req arrarys have data
+    // dont proceed if they are empty
     let reqData = {
       "feeds": compo,
       // "nut_req": nutReq
@@ -163,22 +161,28 @@ function DetailsScreen({ navigation, route }) {
     // Run Only if Selected feedstuff's data is available
     try {
       console.log(reqData)
-      const response = await fetch('https://poo9ym.deta.dev/formulate', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(reqData),
-      });
-      const json = await response.json();
-      setData(json);
-      console.log(json);
+      if (compo.length > 0 && nutReq.length > 0) {
+        const response = await fetch('https://poo9ym.deta.dev/formulate', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(reqData),
+        });
+        const json = await response.json();
+        setData(json);
+        console.log(json);
+      } else {
+        console.log("################==>Invalid Data<==##################")
+      }
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
     }
+    console.log("===================================Concluding Calculations===========================================")
+
   }
 
   const getCompositions = (namesList, NutrientObject) => {
@@ -205,9 +209,9 @@ function DetailsScreen({ navigation, route }) {
     let dmi = found['dmi']
     let cp_T = found['cp_req']
     let me_T = found['me_req']
-    console.log(dmi)
-    console.log(cp_T)
-    console.log(me_T)
+    // console.log(dmi)
+    // console.log(cp_T)
+    // console.log(me_T)
     let cp = (Number(me_T) / Number(dmi)).toFixed(2)
     console.log(cp)
     newlist[0] = cp
@@ -222,9 +226,17 @@ function DetailsScreen({ navigation, route }) {
     setNutReq(newlist)
   }
 
+  // useEffect(() => {
+  //   console.log("------------------------------------------Change Detected-----------------------------------------------------")
+  //   compo !== []
+  //     ? getCalculations()
+  //     : null
+  // }, [compo, nutReq]);
+
   useEffect(() => {
-    getCalculations();
-  }, [compo, nutReq]);
+    console.log("------------------------------------------Change Detected-----------------------------------------------------")
+    getCalculations()
+  }, [compo]);
 
   useEffect(() => {
     getNutriReq(req_data, animalsReqdata)
@@ -247,16 +259,7 @@ function DetailsScreen({ navigation, route }) {
             null
         }
       </View>
-
-      {/* <View style={{ flex: 1 }}> */}
       <ResultCheck result={data} compo={compo} navigate={navigation} />
-      {/* </View> */}
-      {/* <Button
-        title="Go to Home"
-        onPress={() => {
-          navigation.navigate('Animal Selector');
-        }}
-      /> */}
     </ScrollView>
   );
 }

@@ -137,13 +137,8 @@ const StuffSelector = ({ route, navigation }) => {
     "Energy Sources": 0
   })
   const { animal, req_data } = route.params;
-  // const { req_data } = route.params;
 
   useEffect(() => {
-    // console.log("check for errors")
-    // console.log(Object.values(catLen))
-    // console.log(Object.values(catLen).includes(0))
-
     // error logic
     Object.values(catLen).includes(0)
       ? setError(true)
@@ -156,26 +151,7 @@ const StuffSelector = ({ route, navigation }) => {
         <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white' }}>Select FeedStuffs</Text>
         <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
       </View>
-      {/* <View style={{
-        backgroundColor: 'pink',
-        padding: 10, margin: 10
-      }}>
-        <Text style={{ color: 'red', fontSize: 24 }}>Error: {JSON.stringify(error)}</Text>
-        {
-          Object.entries(catLen).map((k) => {
-            // console.log(k)
-            return (
-              <Text>{k[0]}: {k[1]}</Text>
-            )
-          })
-        }
-        <Text>
-          #########################
-        </Text>
-        <Text>
-          {JSON.stringify(feedstuff)}
-        </Text>
-      </View> */}
+
       <ScrollView>
         {
           DATA.map(
