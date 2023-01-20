@@ -156,7 +156,7 @@ function DetailsScreen({ navigation, route }) {
     let reqData = {
       "feeds": compo,
       // "nut_req": nutReq
-      "nut_req": [15, 2800]
+      "nut_req": [15, 2094.82]
     }
     // Run Only if Selected feedstuff's data is available
     try {
@@ -198,7 +198,6 @@ function DetailsScreen({ navigation, route }) {
   }
 
   const getNutriReq = (animalData, ReqObj) => {
-    let newlist = [];
     let bw = animalData['Body Weight']
     let mp = animalData['Milk Production']
     // check species and then make a condition for each species 
@@ -214,29 +213,20 @@ function DetailsScreen({ navigation, route }) {
     // console.log(me_T)
     let cp = (Number(me_T) / Number(dmi)).toFixed(2)
     console.log(cp)
-    newlist[0] = cp
     // newlist.push(cp)
     let me = (Number(cp_T) / (Number(dmi) * 1000) * 100).toFixed(2)
     console.log(me)
-    newlist[1] = me
     // console.log(found[])
     // console.log("Nutrients Data")
     // console.log(found)
     // console.log("found")
-    setNutReq(newlist)
+    setNutReq([Number(cp), Number(me)])
   }
-
-  // useEffect(() => {
-  //   console.log("------------------------------------------Change Detected-----------------------------------------------------")
-  //   compo !== []
-  //     ? getCalculations()
-  //     : null
-  // }, [compo, nutReq]);
 
   useEffect(() => {
     console.log("------------------------------------------Change Detected-----------------------------------------------------")
     getCalculations()
-  }, [compo]);
+  }, [compo, nutReq]);
 
   useEffect(() => {
     getNutriReq(req_data, animalsReqdata)
