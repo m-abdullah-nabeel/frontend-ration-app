@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView } from "react-native"
-import YoutubePlayer from "react-native-youtube-iframe";
 
 const portfolioURL = "http://dr-abdullah-nabeel.web.app";
 
@@ -33,7 +32,7 @@ const team_info = [
   {
     name: "Dr. Muhammad Abdullah Nabeel",
     role: "Others",
-    position: "Application Developer"
+    position: "Student"
   }
 ]
 
@@ -48,35 +47,55 @@ const OpenURLButton = ({ url, children }) => {
   return <Text onPress={handlePress}>{children}</Text>;
 };
 
-
 function Settings() {
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ padding: 10 }}>
+        <Text style={[styles.ptext, { alignSelf: "center" }]}>Under Development</Text>
+        <Text style={[styles.ptext, { alignSelf: "center" }]}>We are considering only CP and ME at this time</Text>
+
         <View>
           <Text style={styles.title}>Guidelines</Text>
           <View style={styles.contentContainer}>
-            <Text>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            <Text style={styles.ptext}>
+              1. Choose your animal and its parameters, it will help us identify the nutrient requirements of the animals
             </Text>
-            {/* <YoutubePlayer
-              height={200}
-              videoId={"iee2TATGMyI"}
-            /> */}
+            <Text style={styles.ptext}>
+              2. Then select the feed stuffs, you have to choose at least one feedstuff from each of given 4 categories,
+              This will save the data of available feedstuffs, we extract price and nutrient compositions of selected feedstuffs for next step.
+            </Text>
+            <Text style={styles.ptext}>
+              3. Now the next page will contain the formulas generated scientifically using linear programming,
+              This page can result into warning, if the algorithm thinks that selected feedtuffs cant meet the nutrient requirements of animal.
+              This can occur due to:
+            </Text>
+            <Text style={styles.ptext}>
+              a. If the animal requires too much nutrients ( High values of CP and ME), we are still working on it to minimize this error
+              by updating our feedstuffs
+            </Text>
+            <Text style={styles.ptext}>
+              b. If the selected feedstuffs are low in nutrients, this can be compensated by selecting more feedstuffs
+              (A use case is when the combination of even all selected feedstuffs CP doesn't sum up to the required CP keeping in mind inclusion levels etc.)
+            </Text>
+            <Text style={styles.ptext}>
+              c. Sometimes miscellaneous errors can happen and we note that error whenever any user gets this error.
+              However, probabilty of such error is low (A use case is when the user has no internet)
+            </Text>
           </View>
         </View>
+
+        {/* Project Information */}
         <View>
           <Text style={styles.title}>Project Information</Text>
           <View style={styles.contentContainer}>
-            <Text style={{ fontSize: 14, fontWeight: '500', textAlign: 'justify', }}>
+            <Text style={styles.ptext}>
               The project, sponsored by the Arass Foundation and the University of Veterinary and Animal Sciences Lahore,
-              aimed to develop a mobile app for the extension of veterinary knowledge. The app, which utilizes a least cost feed formulation algorithm,
-              allows farmers to formulate feed using available feedstuffs.
+              aimed to develop a mobile app as an extension of veterinary knowledge. The app, which utilizes a least cost feed formulation algorithm,
+              allows farmers to formulate efficient feed formulas using available feedstuffs.
               The motivation behind the project was to translate the knowledge of animal nutrition to farmers,
               particularly those in remote areas, and empower them to utilize modern technologies and
               knowledge for the profitable living of their animals. The app, which can be used on a mobile device,
-              even in remote areas, allows farmers to formulate feed on the palm of their
+              remotely, allows farmers to formulate feed on the palm of their
               hand as long as they have internet access.
             </Text>
           </View>
@@ -89,9 +108,9 @@ function Settings() {
             {
               team_info.map(
                 (k, i) => (
-                  <View key={i} style={{}}>
-                    <Text>{k.role}</Text>
-                    <Text>{k.name}</Text>
+                  <View key={i} style={{ margin: 5, borderBottomWidth: 2, borderBottomColor: 'black' }}>
+                    <Text style={{ fontWeight: 'bold' }}>{k.role}</Text>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{k.name}</Text>
                     <Text>{k.position}</Text>
                   </View>
                 )
@@ -101,10 +120,9 @@ function Settings() {
         </View>
 
         {/* Contact */}
-        <View>
+        <View style={{ marginBottom: 30 }}>
           <Text style={styles.title}>Contact Us</Text>
           <View style={styles.contentContainer}>
-            {/* <Text>Project Manager: +92 311 703 9097</Text> */}
             <Text>
               Email:
               <OpenURLButton url='mailto:2018-dvmj-007@uvas.edu.pk/'>
@@ -132,13 +150,11 @@ function Settings() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   title: {
-    // flex: 1,
     fontSize: 24,
     backgroundColor: 'rgb(100, 10, 10)',
     color: 'white',
@@ -146,11 +162,14 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     fontWeight: '500',
     borderRadius: 15,
-    // alignItems: 'center',
-    // justifyContent: 'center'
   },
   contentContainer: {
     margin: 10
+  },
+  ptext: {
+    fontSize: 14,
+    fontWeight: '500',
+    textAlign: 'justify',
   }
 });
 

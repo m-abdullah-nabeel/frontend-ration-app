@@ -1,29 +1,10 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from "react-native"
 
 const MenuScreen = ({ navigation }) => {
-    const image = { uri: "https://docs.expo.dev/static/images/tutorial/splash.png" };
-
     return (
         <View style={{ flex: 1 }}>
-
-            {/* <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
-                <View style={styles.container}>
-                    <Image style={styles.image} source={require("../assets/images/cattlefeed.jpg")} />
-
-                    <View style={styles.textContainer}>
-                        <Text style={[styles.text, { fontSize: 24 }]}>Formulate feed</Text>
-                        <Text style={[styles.text]}>Least Cost Feed Formulation</Text>
-                    </View>
-                </View>
-            </TouchableOpacity> */}
-
-            {/* <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Centered text</Text>
-            </View> */}
-
-
             <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
                 <View style={{ height: 200 }}>
                     <Image source={require("../assets/images/cattlefeed.jpg")}
@@ -54,19 +35,6 @@ const MenuScreen = ({ navigation }) => {
                 </View>
             </TouchableOpacity>
 
-            {/* <View style={{ flex: 1, height: 300, borderRadius: 50 }}>
-                <ImageBackground source={require("../assets/images/cattlefeed.jpg")} style={[styles.image, { borderRadius: 50 }]}>
-                    <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
-                        <View style={{
-                            height: "100%", alignContent: "center", justifyContent: 'center',
-                        }}>
-                            <Text style={[styles.text, { fontSize: 24 }]}>Formulate feed</Text>
-                            <Text style={[styles.text]}>Least Cost Feed Formulation</Text>
-                        </View>
-                    </TouchableOpacity>
-                </ImageBackground>
-            </View> */}
-
             <View style={{
                 backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50, marginTop: 90,
                 alignContent: "center", justifyContent: 'center',
@@ -82,6 +50,7 @@ const MenuScreen = ({ navigation }) => {
                     color: 'white'
                 }}>Coming Soon</Text>
             </View>
+
             <View style={{
                 backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50, marginTop: 10,
                 alignContent: "center", justifyContent: 'center',
@@ -97,6 +66,7 @@ const MenuScreen = ({ navigation }) => {
                     color: 'white'
                 }}>Coming Soon</Text>
             </View>
+
             <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', marginBottom: 10 }}>
                 <Image
                     style={{ width: 100, height: 45 }}
@@ -110,19 +80,6 @@ const MenuScreen = ({ navigation }) => {
 export default MenuScreen;
 
 const styles = StyleSheet.create({
-    // image: {
-    //     flex: 1,
-    //     resizeMode: 'cover',
-    //     justifyContent: 'center',
-    //     // opacity: 0.9,
-    // },
-    // text: {
-    //     color: '#ffffff',
-    //     backgroundColor: "rgba(40, 100, 0, 0.4)",
-    //     fontWeight: 'bold',
-    //     textAlign: 'center',
-    // },
-    // 
     container: {
         width: '100%',
         height: 200,
