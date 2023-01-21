@@ -8,7 +8,53 @@ const MenuScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1 }}>
 
-            <View style={{ flex: 1, height: 300, borderRadius: 50 }}>
+            {/* <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
+                <View style={styles.container}>
+                    <Image style={styles.image} source={require("../assets/images/cattlefeed.jpg")} />
+
+                    <View style={styles.textContainer}>
+                        <Text style={[styles.text, { fontSize: 24 }]}>Formulate feed</Text>
+                        <Text style={[styles.text]}>Least Cost Feed Formulation</Text>
+                    </View>
+                </View>
+            </TouchableOpacity> */}
+
+            {/* <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Centered text</Text>
+            </View> */}
+
+
+            <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
+                <View style={{ height: 200 }}>
+                    <Image source={require("../assets/images/cattlefeed.jpg")}
+                        style={{
+                            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                            justifyContent: 'center', alignItems: 'center',
+                            height: 200, width: "100%",
+                            borderRadius: 10,
+
+                            shadowOffset: { width: -2, height: 4 },
+                            shadowColor: 'red',
+                            shadowOpacity: 1,
+                            // shadowRadius: 3,
+                            // elevation: 20,
+
+                        }}
+                    />
+
+                    <View style={{
+                        position: 'absolute', top: 60, left: 60, right: 60, bottom: 60,
+                        backgroundColor: "rgba(10, 100, 10, 0.7)", borderRadius: 10,
+                        flex: 1, alignItems: "center", justifyContent: "center",
+                    }}>
+                        <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>Formulate feed</Text>
+                        <Text style={{ color: 'white', alignSelf: "center", }}>Least Cost Feed Formulation</Text>
+                    </View>
+
+                </View>
+            </TouchableOpacity>
+
+            {/* <View style={{ flex: 1, height: 300, borderRadius: 50 }}>
                 <ImageBackground source={require("../assets/images/cattlefeed.jpg")} style={[styles.image, { borderRadius: 50 }]}>
                     <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
                         <View style={{
@@ -19,28 +65,7 @@ const MenuScreen = ({ navigation }) => {
                         </View>
                     </TouchableOpacity>
                 </ImageBackground>
-            </View>
-
-            {/* <View style={{ paddingBottom: 10 }} >
-                <TouchableOpacity
-                    onPress={() => {
-                        navigation.navigate('Animal Selector');
-                    }}
-                >
-                    <View style={{
-                        backgroundColor: 'rgb(10, 100, 0)', borderRadius: 5, marginTop: 10,
-                        // height: 200,
-                        alignContent: "center", justifyContent: 'center',
-                    }}>
-
-                        <Text style={{
-                            fontSize: 24, fontWeight: 'bold',
-                            paddingTop: 15, paddingBottom: 15, paddingLeft: 15, paddingRight: 15,
-                            color: 'white'
-                        }}>Formulate your feed</Text>
-                    </View>
-                </TouchableOpacity>
-            </View > */}
+            </View> */}
 
             <View style={{
                 backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50, marginTop: 90,
@@ -85,16 +110,42 @@ const MenuScreen = ({ navigation }) => {
 export default MenuScreen;
 
 const styles = StyleSheet.create({
+    // image: {
+    //     flex: 1,
+    //     resizeMode: 'cover',
+    //     justifyContent: 'center',
+    //     // opacity: 0.9,
+    // },
+    // text: {
+    //     color: '#ffffff',
+    //     backgroundColor: "rgba(40, 100, 0, 0.4)",
+    //     fontWeight: 'bold',
+    //     textAlign: 'center',
+    // },
+    // 
+    container: {
+        width: '100%',
+        height: 200,
+        marginBottom: 25,
+        borderRadius: 15,
+        backgroundColor: '#FFFFFF',
+        overflow: 'hidden'
+    },
+
     image: {
+        width: '100%',
+        height: '70%'
+    },
+
+    textContainer: {
         flex: 1,
-        resizeMode: 'cover',
-        justifyContent: 'center',
-        // opacity: 0.9,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
+
     text: {
-        color: '#ffffff',
-        backgroundColor: "rgba(40, 100, 0, 0.4)",
         fontWeight: 'bold',
-        textAlign: 'center',
-    },
+        fontSize: 20
+    }
+
 });
