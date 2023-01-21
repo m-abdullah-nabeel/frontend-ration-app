@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Button, StyleSheet, Image, ScrollView, Pressable } from "react-native"
+import React, { useState, useEffect, useCallback } from "react";
+import { View, Text, Button, StyleSheet, Linking, Image, ScrollView, Pressable } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
 import animalsReqdata from '../assets/data/nutrients_required.json';
 
@@ -7,6 +7,8 @@ const ResultCheck = (props) => {
   const res = props.result
   const compo = props.compo
   const navigation = props.navigation
+  const bwt = props.bwt
+  const dmi_req = (bwt * 3 / 100).toFixed(2)
   let dm_a = []
   let cp_a = []
   let me_a = []
@@ -21,7 +23,7 @@ const ResultCheck = (props) => {
 
   if (res['available']) {
     if (res['status'] == 0) {
-
+      // correct results
       return (
         <View>
           <View style={{
@@ -42,14 +44,14 @@ const ResultCheck = (props) => {
             }}>
               {compo.length} feedstuffs selected
             </Text>
-
           </View>
-
 
           <View style={{
             // backgroundColor: "pink",
             padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10
           }}>
+            <Text style={{ fontWeight: 'bold', fontSize: 22, borderBottomColor: 'black', borderBottomWidth: 4 }}>Dry Matter formula</Text>
+
             {
               Object.keys(res['results']).map(k => {
                 curr_ = nutrientdata.find(x => x.name == k)
@@ -90,7 +92,8 @@ const ResultCheck = (props) => {
               })
             }
           </View>
-          {/* <Text></Text> */}
+
+          {/* this formula contains */}
           <View style={{
             backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
           }}>
@@ -104,12 +107,12 @@ const ResultCheck = (props) => {
               }
             </Text> */}
             <Text style={{ color: "#fff" }}>
-              CP&nbsp;:
+              CP:
               {
                 ((cp_a.reduce(function (x, y) {
                   return x + y;
                 }, 0)) / 100).toFixed(2)
-              }
+              } %
             </Text>
             <Text style={{ color: "#fff" }}>
               ME:
@@ -121,21 +124,84 @@ const ResultCheck = (props) => {
             </Text>
           </View>
 
+          {/* As fed basis for one animal */}
+
+          <View style={{
+            backgroundColor: "pink",
+            padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10, marginTop: 15
+          }}>
+            <Text style={{ fontWeight: 'bold', fontSize: 22 }}>As Fed Basis</Text>
+            <Text>For you {bwt} kg animal</Text>
+            <Text>Your Animal reuires {dmi_req} Kg DMI</Text>
+            {
+              Object.keys(res['results']).map(k => {
+                curr_ = nutrientdata.find(x => x.name == k)
+                percent_val = Math.round(res['results'][k] * 100)
+                dm_a.push(curr_['DM%'] * percent_val)
+                cp_a.push(curr_['CP'] * percent_val)
+                me_a.push(curr_['ME'] * percent_val)
+
+                return (
+                  <View key={k} >
+                    <View style={{
+                      flex: 1, flexDirection: 'row',
+                      // justifyContent: "flex-start",//'space-between', 
+                      justifyContent: 'space-between',
+                      borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 1
+                    }}>
+                      <View style={{ height: 25 }}>
+                        <Text style={{
+                          fontSize: 18, fontWeight: 'bold', width: 200 //</View>borderRightWidth: 2, borderRightColor: 'black', width: 100 
+                        }}>{k}</Text>
+                      </View>
+                      {/* <View style={{ height: 25 }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', borderRightWidth: 2, borderRightColor: 'black', width: 40 }}>{percent_val} %</Text>
+                      </View>
+                      <View style={{ height: 25 }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', borderRightWidth: 2, borderRightColor: 'black', width: 70 }}>{percent_val * dmi_req / 100} %</Text>
+                      </View> */}
+                      <View style={{ height: 25 }}>
+                        <Text style={{
+                          fontSize: 18, fontWeight: 'bold', //borderRightWidth: 2, borderRightColor: 'black', width: 70 
+                        }}>
+                          {
+                            ((percent_val * dmi_req / 100) / (curr_['DM%'] / 100)).toFixed(2)
+                          } Kg
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                )
+              })
+            }
+          </View>
+
+
         </View>
       )
     }
     return (
-      <View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: "center" }}>
         {/* <Text>Available but incorrect results</Text> */}
+        <Image
+          style={{ width: 35, height: 35, flex: 1, justifyContent: 'center', alignItems: "center" }}
+          source={require('../assets/images/warn.gif')}
+        />
+
         <Text style={{ fontSize: 18, fontWeight: '500' }}>{status_[res['status']]}</Text>
       </View>
     )
   }
   else {
     return (
-      <View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: "center" }}>
         {/* <Text>N/A component</Text> */}
-        <Text style={{ fontSize: 18, fontWeight: '500' }}>{res['error'] && res['error']}</Text>
+        <Image
+          style={{ width: 35, height: 35, flex: 1, justifyContent: 'center', alignItems: "center" }}
+          source={require('../assets/images/important.gif')}
+        />
+        <Text style={{ fontSize: 18, fontWeight: '500' }}>An unexpected error happened!</Text>
+        <Text >{res['error'] && res['error']}</Text>
       </View>
 
     )
@@ -148,6 +214,7 @@ function DetailsScreen({ navigation, route }) {
   const [data, setData] = useState([]);
   const [nutReq, setNutReq] = useState([])
   const [compo, setCompo] = useState([]);
+  const [bwt, setbwt] = useState(0)
 
   const getCalculations = async () => {
     console.log("===================================Running Calculations===========================================")
@@ -162,6 +229,7 @@ function DetailsScreen({ navigation, route }) {
     try {
 
       if (compo.length > 0 && nutReq.length > 0) {
+        setLoading(true)
         let reqData = {
           "feeds": compo,
           "nut_req": nutReq
@@ -180,6 +248,7 @@ function DetailsScreen({ navigation, route }) {
         const json = await response.json();
         setData(json);
         console.log(json);
+        setLoading(false);
       } else {
         console.log("################==>Invalid Data<==##################")
       }
@@ -206,6 +275,7 @@ function DetailsScreen({ navigation, route }) {
 
   const getNutriReq = (animalData, ReqObj) => {
     let bw = animalData['Body Weight']
+    setbwt(bw)
     let mp = animalData['Milk Production']
     // check species and then make a condition for each species 
     let sp = animalData['species']
@@ -249,14 +319,27 @@ function DetailsScreen({ navigation, route }) {
         {
           isLoading ?
             <Image
-              style={{ width: '90%', height: 350, flex: 1, justifyContent: 'center', alignItems: "center" }}
+              style={{ width: 70, height: 70, flex: 1, justifyContent: 'center', alignItems: "center", alignSelf: "center" }}
               source={require('../assets/images/loading.gif')}
             />
             :
-            null
+            <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} />
         }
       </View>
-      <ResultCheck result={data} compo={compo} navigate={navigation} />
+      {/* <ResultCheck result={data} compo={compo} navigate={navigation} /> */}
+
+      <View style={{
+        backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginVertical: 20, marginBottom: 30
+      }}>
+        <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff", fontWeight: 'bold' }}>Your Animal Requires</Text>
+        <Text style={{ color: "#fff" }}>
+          CP: {nutReq[0]} %
+        </Text>
+        <Text style={{ color: "#fff" }}>
+          ME: {nutReq[1]}
+        </Text>
+      </View>
+
     </ScrollView>
   );
 }

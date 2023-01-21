@@ -1,20 +1,35 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 import { TouchableOpacity } from "react-native"
 
 const MenuScreen = ({ navigation }) => {
+    const image = { uri: "https://docs.expo.dev/static/images/tutorial/splash.png" };
+
     return (
-        <View style={{
-            flex: 1,
-        }}>
-            <View style={{ paddingBottom: 10 }} >
+        <View style={{ flex: 1 }}>
+
+            <View style={{ flex: 1, height: 300, borderRadius: 50 }}>
+                <ImageBackground source={require("../assets/images/cattlefeed.jpg")} style={[styles.image, { borderRadius: 50 }]}>
+                    <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
+                        <View style={{
+                            height: "100%", alignContent: "center", justifyContent: 'center',
+                        }}>
+                            <Text style={[styles.text, { fontSize: 24 }]}>Formulate feed</Text>
+                            <Text style={[styles.text]}>Least Cost Feed Formulation</Text>
+                        </View>
+                    </TouchableOpacity>
+                </ImageBackground>
+            </View>
+
+            {/* <View style={{ paddingBottom: 10 }} >
                 <TouchableOpacity
                     onPress={() => {
                         navigation.navigate('Animal Selector');
                     }}
                 >
                     <View style={{
-                        backgroundColor: 'rgb(10, 100, 0)', borderRadius: 50, marginTop: 10,
+                        backgroundColor: 'rgb(10, 100, 0)', borderRadius: 5, marginTop: 10,
+                        // height: 200,
                         alignContent: "center", justifyContent: 'center',
                     }}>
 
@@ -25,7 +40,8 @@ const MenuScreen = ({ navigation }) => {
                         }}>Formulate your feed</Text>
                     </View>
                 </TouchableOpacity>
-            </View >
+            </View > */}
+
             <View style={{
                 backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50, marginTop: 90,
                 alignContent: "center", justifyContent: 'center',
@@ -69,22 +85,16 @@ const MenuScreen = ({ navigation }) => {
 export default MenuScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
     image: {
         flex: 1,
-        justifyContent: "center",
-        opacity: 0.5,
-        width: 200,
-        height: 90
+        resizeMode: 'cover',
+        justifyContent: 'center',
+        // opacity: 0.9,
     },
     text: {
-        color: "white",
-        fontSize: 42,
-        lineHeight: 84,
-        fontWeight: "bold",
-        textAlign: "center",
-        backgroundColor: "#000000c0"
-    }
+        color: '#ffffff',
+        backgroundColor: "rgba(40, 100, 0, 0.4)",
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
 });

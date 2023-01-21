@@ -35,7 +35,7 @@ const DropdownCom = ({ data, statement, placeholderText, cond, setCond }) => {
   const renderLabel = () => {
     if (value || isFocus) {
       return (
-        <Text style={[styles.label, isFocus && { color: 'blue', fontWeight: '700' }]}>
+        <Text style={[styles.label, isFocus && { color: 'rgb(130, 30, 1)', fontWeight: '700' }]}>
           {statement}
         </Text>
       );
@@ -47,7 +47,7 @@ const DropdownCom = ({ data, statement, placeholderText, cond, setCond }) => {
     <View style={{ width: '80%', margin: 10 }}>
       {renderLabel()}
       <Dropdown
-        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+        style={[styles.dropdown, isFocus && { borderColor: 'rgb(130, 30, 1)' }]}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
@@ -73,7 +73,7 @@ const DropdownCom = ({ data, statement, placeholderText, cond, setCond }) => {
         renderLeftIcon={() => (
           <AntDesign
             style={styles.icon}
-            color={isFocus ? 'blue' : 'black'}
+            color={isFocus ? 'rgb(130, 30, 1)' : 'black'}
             name="Safety"
             size={20}
           />
@@ -116,8 +116,8 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
           setVisible(false);
         }}
       >
-        <View style={[styles.centeredView, { backgroundColor: "rgba(100, 100, 100, 0.2)" }]}>
-          <View style={[styles.modalView, { backgroundColor: "rgba(139, 150, 150, 1)" }]}>
+        <View style={[styles.centeredView, { backgroundColor: "rgba(200, 200, 200, 0.1)" }]}>
+          <View style={[styles.modalView, { backgroundColor: "rgba(200, 200,200, 1)" }]}>
             {/* <Text>Errors: {JSON.stringify(error)}</Text>
             {
               Object.entries(cond).map(v => {
@@ -148,7 +148,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
             />
 
             {
-              error ? "" : (
+              error ? (<Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>Select Both Categories</Text>) : (
                 <Pressable
                   style={[styles.button, styles.buttonClose, { margin: 10 }]}
                   onPress={() => {
