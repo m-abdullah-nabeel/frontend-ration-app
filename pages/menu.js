@@ -2,7 +2,11 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from "react-native"
 
+// testing language
+import { useTranslation } from 'react-i18next';
+
 const MenuScreen = ({ navigation }) => {
+    const { t } = useTranslation();
     return (
         <View style={{ flex: 1 }}>
             <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
@@ -25,10 +29,11 @@ const MenuScreen = ({ navigation }) => {
 
                     <View style={{
                         position: 'absolute', top: 60, left: 60, right: 60, bottom: 60,
-                        backgroundColor: "rgba(10, 100, 10, 0.7)", borderRadius: 10,
+                        backgroundColor: "rgba(10, 100, 10, 0.5)", borderRadius: 5,
                         flex: 1, alignItems: "center", justifyContent: "center",
                     }}>
-                        <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>Formulate feed</Text>
+                        <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('feed formulate')}</Text>
+                        {/* <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>Formulate feed</Text> */}
                         <Text style={{ color: 'white', alignSelf: "center", }}>Least Cost Feed Formulation</Text>
                     </View>
 

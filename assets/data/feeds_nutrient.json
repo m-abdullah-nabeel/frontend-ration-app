@@ -3,351 +3,390 @@
         "name": "Barseem",
         "DM%": "12.5",
         "CP": "23.5",
+        "ME raw": "2.3",
         "ME": "2300",
         "cost": "5",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.1",
+        "max": "1"
     },
     {
         "name": "Maize",
         "DM%": "23.3",
         "CP": "8.9",
+        "ME raw": "2.2",
         "ME": "2200",
         "cost": "5",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.1",
+        "max": "1"
     },
     {
         "name": "Oat (Jai)",
         "DM%": "26.3",
         "CP": "14.2",
+        "ME raw": "2.3",
         "ME": "2300",
         "cost": "5",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.1",
+        "max": "1"
     },
     {
         "name": "Mustard (Sarson)",
         "DM%": "11.5",
         "CP": "23",
+        "ME raw": "2.1",
         "ME": "2100",
         "cost": "5",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.1",
+        "max": "0.4"
     },
     {
         "name": "Maize Silage",
         "DM%": "29.6",
         "CP": "9.7",
+        "ME raw": "2.3",
         "ME": "2300",
         "cost": "10",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.1",
+        "max": "1"
     },
     {
         "name": "Sugarcane",
         "DM%": "23.2",
         "CP": "4",
+        "ME raw": "2.2",
         "ME": "2200",
         "cost": "5",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.1",
+        "max": "0.5"
     },
     {
         "name": "Sugarcane  tops",
         "DM%": "26.8",
         "CP": "6.4",
+        "ME raw": "1.7",
         "ME": "1700",
         "cost": "3",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.1"
     },
     {
         "name": "Mott grass",
         "DM%": "17.9",
         "CP": "11.6",
+        "ME raw": "2.3",
         "ME": "2300",
         "cost": "5",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.1",
+        "max": "0.4"
     },
     {
         "name": "Wheat Straw (toori)",
         "DM%": "91",
         "CP": "4.8",
+        "ME raw": "1.5",
         "ME": "1500",
         "cost": "17",
         "min": "0.01",
-        "max": "0.3"
+        "max": "0.1"
     },
     {
         "name": "Rice Straw (Parali)",
         "DM%": "92.8",
         "CP": "5.5",
+        "ME raw": "1.7",
         "ME": "1700",
         "cost": "8",
         "min": "0.01",
-        "max": "0.3"
+        "max": "0.1"
     },
     {
         "name": "Millet stovers",
         "DM%": "93.1",
         "CP": "4",
+        "ME raw": "1.5",
         "ME": "1500",
         "cost": "5",
         "min": "0.01",
-        "max": "0.3"
+        "max": "0.1"
     },
     {
         "name": "Maize stovers",
         "DM%": "92.9",
         "CP": "6.2",
+        "ME raw": "1.5",
         "ME": "1500",
         "cost": "5",
         "min": "0.01",
-        "max": "0.3"
+        "max": "0.1"
     },
     {
         "name": "Sorghum stovers",
         "DM%": "85.5",
         "CP": "6.6",
+        "ME raw": "1.8",
         "ME": "1800",
         "cost": "5",
         "min": "0.01",
-        "max": "0.3"
+        "max": "0.1"
     },
     {
         "name": "Corn cobs",
         "DM%": "91.5",
         "CP": "3.7",
+        "ME raw": "1.9",
         "ME": "1900",
         "cost": "5",
         "min": "0.01",
-        "max": "0.3"
+        "max": "0.1"
     },
     {
         "name": "Rice Husk (Phakk)",
         "DM%": "91.9",
         "CP": "3.9",
+        "ME raw": "1.5",
         "ME": "1500",
         "cost": "15",
         "min": "0.01",
-        "max": "0.3"
+        "max": "0.1"
     },
     {
         "name": "Maize grain",
         "DM%": "87.3",
         "CP": "9.1",
+        "ME raw": "3.2",
         "ME": "3200",
         "cost": "75",
-        "min": "0.01",
+        "min": "0.05",
         "max": "0.3"
     },
     {
         "name": "Wheat grain",
         "DM%": "87",
         "CP": "14.4",
+        "ME raw": "3.2",
         "ME": "3200",
         "cost": "100",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.2"
     },
     {
         "name": "Millet grain",
         "DM%": "89.6",
         "CP": "9.3",
+        "ME raw": "3.1",
         "ME": "3100",
         "cost": "100",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.2"
     },
     {
         "name": "Mamni",
         "DM%": "87.5",
         "CP": "12.8",
+        "ME raw": "2.9",
         "ME": "2900",
         "cost": "50",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.2"
     },
     {
         "name": "Maize bran",
         "DM%": "89",
         "CP": "10",
+        "ME raw": "2.6",
         "ME": "2600",
         "cost": "50",
-        "min": "0.01",
+        "min": "0.05",
         "max": "0.3"
     },
     {
         "name": "Wheat Bran (Chokar)",
         "DM%": "87",
         "CP": "15.9",
+        "ME raw": "2.8",
         "ME": "2800",
         "cost": "45",
-        "min": "0.01",
+        "min": "0.05",
         "max": "0.3"
     },
     {
         "name": "Rice polish",
         "DM%": "90.2",
         "CP": "15.9",
+        "ME raw": "2.8",
         "ME": "2800",
         "cost": "30",
-        "min": "0.01",
+        "min": "0.05",
         "max": "0.3"
     },
     {
         "name": "Sugarbeet pulp",
         "DM%": "21",
         "CP": "10.7",
+        "ME raw": "2.4",
         "ME": "2400",
         "cost": "50",
-        "min": "0.01",
+        "min": "0.05",
         "max": "0.3"
     },
     {
         "name": "Apple pomace",
         "DM%": "20.8",
         "CP": "8.7",
+        "ME raw": "2.1",
         "ME": "2100",
         "cost": "20",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.1"
     },
     {
         "name": "Citrus waste",
         "DM%": "23",
         "CP": "10.3",
+        "ME raw": "2.5",
         "ME": "2500",
         "cost": "20",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.1"
     },
     {
         "name": "Channa Karra",
         "DM%": "89",
         "CP": "15.3",
+        "ME raw": "2.4",
         "ME": "2400",
         "cost": "65",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.2"
     },
     {
         "name": "Massar Karra",
         "DM%": "88.6",
         "CP": "16.8",
+        "ME raw": "2.3",
         "ME": "2300",
         "cost": "65",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.2"
     },
     {
         "name": "Mung Karra",
         "DM%": "87.9",
         "CP": "17.5",
+        "ME raw": "2.5",
         "ME": "2500",
         "cost": "65",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.2"
     },
     {
         "name": "Dry dates",
         "DM%": "84",
         "CP": "3.5",
+        "ME raw": "2.5",
         "ME": "2500",
         "cost": "20",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.09"
     },
     {
         "name": "Potato",
         "DM%": "20.6",
         "CP": "78.6",
+        "ME raw": "2.8",
         "ME": "2800",
         "cost": "20",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.2"
     },
     {
         "name": "Cottonseed cake (Khal)",
         "DM%": "92.2",
         "CP": "23.8",
+        "ME raw": "2",
         "ME": "2000",
         "cost": "100",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.2"
     },
     {
         "name": "Soybean meal",
         "DM%": "87.9",
         "CP": "48",
+        "ME raw": "2.1",
         "ME": "2100",
         "cost": "300",
-        "min": "0.01",
+        "min": "0.05",
         "max": "0.3"
     },
     {
         "name": "Canola meal",
         "DM%": "88.8",
         "CP": "39.6",
+        "ME raw": "2.5",
         "ME": "2500",
         "cost": "145",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.25"
     },
     {
         "name": "Rapeseed meal",
         "DM%": "89.9",
         "CP": "34.3",
+        "ME raw": "2.7",
         "ME": "2700",
         "cost": "130",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.25"
     },
     {
         "name": "Maize gluten meal 30%",
         "DM%": "88.3",
         "CP": "29",
+        "ME raw": "2.8",
         "ME": "2800",
         "cost": "61",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.25"
     },
     {
         "name": "Maize gluten meal 60%",
         "DM%": "90",
         "CP": "59.7",
+        "ME raw": "2.8",
         "ME": "2800",
         "cost": "40",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.25"
     },
     {
         "name": "Palm kernel cake",
         "DM%": "91.2",
         "CP": "17.8",
+        "ME raw": "2.2",
         "ME": "2200",
         "cost": "50",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.25"
     },
     {
         "name": "Sunflower meal",
         "DM%": "89",
         "CP": "32.5",
+        "ME raw": "2.1",
         "ME": "2100",
         "cost": "55",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.25"
     },
     {
         "name": "Guar meal",
         "DM%": "95",
         "CP": "40.4",
+        "ME raw": "2.7",
         "ME": "2700",
         "cost": "120",
-        "min": "0.01",
-        "max": "0.3"
+        "min": "0.05",
+        "max": "0.25"
     }
 ]

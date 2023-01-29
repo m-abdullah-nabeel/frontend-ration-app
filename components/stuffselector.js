@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, Fla
 
 const DATA = [
   {
-    title: "Roughages",
+    title: "Fodders",
     data: [
       "Barseem",
       "Maize",
@@ -13,12 +13,7 @@ const DATA = [
       "Sugarcane",
       "Sugarcane tops",
       "Mott grass",
-      "Johnson grass (Baru)"
-    ]
-  },
-  {
-    title: "Dry Roughages & Crop residues",
-    data: [
+      "Johnson grass (Baru)",
       "Wheat Straw (toori)",
       "Rice Straw (Parali)",
       "Millet stovers",
@@ -29,7 +24,7 @@ const DATA = [
     ]
   },
   {
-    title: "Energy Sources",
+    title: "Energy Supplements",
     data: [
       "Maize grain",
       "Wheat grain",
@@ -49,7 +44,7 @@ const DATA = [
     ]
   },
   {
-    title: "Protein Sources",
+    title: "Protein Supplements",
     data: [
       "Cottonseed cake (Khal)",
       "Soybean meal",
@@ -63,6 +58,70 @@ const DATA = [
     ]
   },
 ];
+
+
+// const DATA = [
+//   {
+//     title: "Roughages",
+//     data: [
+//       "Barseem",
+//       "Maize",
+//       "Oat (Jai)",
+//       "Mustard (Sarson)",
+//       "Maize Silage",
+//       "Sugarcane",
+//       "Sugarcane tops",
+//       "Mott grass",
+//       "Johnson grass (Baru)"
+//     ]
+//   },
+//   {
+//     title: "Dry Roughages & Crop residues",
+//     data: [
+//       "Wheat Straw (toori)",
+//       "Rice Straw (Parali)",
+//       "Millet stovers",
+//       "Maize stovers",
+//       "Sorghum stovers",
+//       "Corn cobs",
+//       "Rice Husk (Phakk)"
+//     ]
+//   },
+//   {
+//     title: "Energy Sources",
+//     data: [
+//       "Maize grain",
+//       "Wheat grain",
+//       "Millet grain",
+//       "Mamni",
+//       "Maize bran",
+//       "Wheat Bran (Chokar)",
+//       "Rice polish",
+//       "Sugarbeet pulp",
+//       "Apple pomace",
+//       "Citrus waste",
+//       "Channa Karra",
+//       "Massar Karra",
+//       "Mung Karra",
+//       "Dry dates",
+//       "Potato"
+//     ]
+//   },
+//   {
+//     title: "Protein Sources",
+//     data: [
+//       "Cottonseed cake (Khal)",
+//       "Soybean meal",
+//       "Canola meal",
+//       "Rapeseed meal",
+//       "Maize gluten meal 30%",
+//       "Maize gluten meal 60%",
+//       "Palm kernel cake",
+//       "Sunflower meal",
+//       "Guar meal"
+//     ]
+//   },
+// ];
 
 const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, catLen, setCatLen }) => {
   const [selected, setSelected] = useState([])
@@ -131,15 +190,23 @@ const StuffSelector = ({ route, navigation }) => {
   const [feedstuff, setFeedstuff] = useState([]);
   const [error, setError] = useState(false);
   const [catLen, setCatLen] = useState({
-    "Dry Roughages & Crop residues": 0,
-    "Protein Sources": 0,
-    "Roughages": 0,
-    "Energy Sources": 0
+    "Protein Supplements": 0,
+    "Fodders": 0,
+    "Energy Supplements": 0
   })
+  // const [catLen, setCatLen] = useState({
+  //   "Dry Roughages & Crop residues": 0,
+  //   "Protein Sources": 0,
+  //   "Roughages": 0,
+  //   "Energy Sources": 0
+  // })
   const { animal, req_data } = route.params;
 
   useEffect(() => {
     // error logic
+    console.log(catLen)
+    console.log(Object.values(catLen))
+    console.log(Object.values(catLen).includes(0))
     Object.values(catLen).includes(0)
       ? setError(true)
       : setError(false)
@@ -172,7 +239,7 @@ const StuffSelector = ({ route, navigation }) => {
       {/* show this button only when you have no error */}
       {
         error
-          ? ""
+          ? null
           : (
             <Button
               onPress={() => {

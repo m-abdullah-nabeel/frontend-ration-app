@@ -1,5 +1,9 @@
-import React, { useCallback } from "react";
-import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView } from "react-native"
+import React, { useCallback, useState } from "react";
+import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable } from "react-native"
+
+// translation
+import '../assets/i18n/i18n';
+import { useTranslation } from 'react-i18next';
 
 const portfolioURL = "http://dr-abdullah-nabeel.web.app";
 
@@ -48,11 +52,56 @@ const OpenURLButton = ({ url, children }) => {
 };
 
 function Settings() {
+  const { t, i18n } = useTranslation();
+
+  const [currentLanguage, setLanguage] = useState('en');
+
+  const changeLanguage = value => {
+    i18n
+      .changeLanguage(value)
+      .then(() => setLanguage(value))
+      .catch(err => console.log(err));
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ padding: 10 }}>
         <Text style={[styles.ptext, { alignSelf: "center" }]}>Under Development</Text>
         <Text style={[styles.ptext, { alignSelf: "center" }]}>We are considering only CP and ME at this time</Text>
+
+
+        {/* Contact */}
+        <View style={{ marginBottom: 30 }}>
+          <Text style={styles.title}>Change Language</Text>
+          <View style={styles.contentContainer}>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#33A850' }}>
+              {t('hello')}{' '}
+            </Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#33A850' }}>
+              {t('this line is translated')}
+            </Text>
+            <Pressable
+              onPress={() => changeLanguage('en')}
+              style={{
+                backgroundColor:
+                  currentLanguage === 'en' ? '#33A850' : '#d3d3d3',
+                padding: 20,
+              }}>
+              <Text>English</Text>
+            </Pressable>
+
+            <Pressable
+              onPress={() => changeLanguage('ur')}
+              style={{
+                backgroundColor:
+                  currentLanguage === 'ur' ? '#33A850' : '#d3d3d3',
+                padding: 20,
+              }}>
+              <Text>اردو</Text>
+            </Pressable>
+
+          </View>
+        </View>
 
         <View>
           <Text style={styles.title}>Guidelines</Text>

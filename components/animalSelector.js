@@ -95,6 +95,10 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
   useEffect(() => {
     // uncomment this to see logs
     // console.log(cond)
+    // console.log(cond['species'])
+    // console.log(cond['Body Weight'])
+    // console.log(cond['Milk Production'])
+    // console.log(cond)
     // console.log(Object.values(cond))
     // console.log(Object.values(cond).includes(""))
     // console.log("########################")
@@ -114,10 +118,16 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
         onRequestClose={() => {
           // Alert.alert("Modal has been closed.");
           setVisible(false);
+          setError(true);
+          setCond({
+            species: 'cattle',
+            "Body Weight": '',
+            "Milk Production": ''
+          })
         }}
       >
-        <View style={[styles.centeredView, { backgroundColor: "rgba(200, 200, 200, 0.1)" }]}>
-          <View style={[styles.modalView, { backgroundColor: "rgba(200, 200,200, 1)" }]}>
+        <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
+          <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
             {/* <Text>Errors: {JSON.stringify(error)}</Text>
             {
               Object.entries(cond).map(v => {
@@ -133,7 +143,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
               data={bodyWeights}
               // change statement name in above cond of errors if ever change this
               statement={"Body Weight"}
-              placeholderText={"Select Body Weight"}
+              placeholderText={"Body Weight (" + (cond["Body Weight"]).toString() + "Kg)"}
               cond={cond}
               setCond={setCond}
             />
@@ -142,7 +152,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
               data={milkProduc}
               // change statement name in above cond of errors
               statement={"Milk Production"}
-              placeholderText={"Select Milk Production"}
+              placeholderText={"Milk Production (" + (cond['Milk Production']).toString() + "Litres)"}
               cond={cond}
               setCond={setCond}
             />
@@ -261,14 +271,17 @@ const styles = StyleSheet.create({
   },
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: "column-reverse",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
   modalView: {
     width: "100%",
-    height: '40%',
+    height: '70%',
     backgroundColor: "white",
-    borderRadius: 20,
+    // borderRadius: 20,
+    borderTopRightRadius: 50,
+    borderTopLeftRadius: 50,
     padding: 35,
     alignItems: "center",
     shadowColor: "#000",

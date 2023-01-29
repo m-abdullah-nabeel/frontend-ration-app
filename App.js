@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from "./pages/home";
@@ -50,11 +50,9 @@ const InnerComp = () => {
   )
 }
 
-
 const App = () => {
   return (
     <NavigationContainer>
-
       <WelcomeStack.Navigator initialRouteName="MenuScreen"
         screenOptions={{
           headerShown: false

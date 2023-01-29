@@ -131,8 +131,8 @@ const ResultCheck = (props) => {
             padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10, marginTop: 15
           }}>
             <Text style={{ fontWeight: 'bold', fontSize: 22 }}>As Fed Basis</Text>
-            <Text>For you {bwt} kg animal</Text>
-            <Text>Your Animal reuires {dmi_req} Kg DMI</Text>
+            <Text>(For your {bwt} kg animal)</Text>
+            <Text>Your Animal requires {dmi_req} Kg DMI</Text>
             {
               Object.keys(res['results']).map(k => {
                 curr_ = nutrientdata.find(x => x.name == k)
