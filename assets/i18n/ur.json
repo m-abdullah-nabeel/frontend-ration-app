@@ -1,7 +1,23 @@
 {
     "translation": {
-        "hello": "ہیلو",
-        "this line is translated": "اس سطر کا ترجمہ ہے۔",
-        "feed formulate": "فیڈ تیار کریں۔"
+        "proceed landing": "آگے بڑھیں",
+        "feed formulate": "فیڈ تیار کریں",
+        "feed formulate line": "فیڈ تیار کریں",
+        "summer formula": "موسم گرما کی خوراک کا فارمولا حاصل کرنا چاہتے ہیں؟",
+        "winter formula": "موسم سرما کی خوراک کا فارمولا حاصل کرنا چاہتے ہیں؟",
+        "coming soon": "مستقبل میں جلد آ رہا ہے",
+        "select animal header": "اپنا جانور منتخب کریں",
+        "animal parameter line": "",
+        "bw select": "",
+        "milk prod select": "",
+        "animal parameter error": "دونوں زمرے منتخب کریں",
+        "animal parameter next": "آگے چارہ منتخب کریں",
+        "select fodders": "چارہ منتخب کریں",
+        "category error": "اس زمرے میں سے کم از کم ایک چارہ منتخب کریں",
+        "next": "آگے بڑھیں",
+        "error insufficient nutrients": "",
+        "animal requires line": "آپ کے جانوروں کی ضروریات",
+        "as fed details": "یہ تیار شدہ فیڈ فارمولہ فراہم کرے گا",
+        "feed composition line": "یہ تیار شدہ فیڈ فارمولہ فراہم کرے گا"
     }
 }

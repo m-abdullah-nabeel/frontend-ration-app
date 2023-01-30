@@ -1,10 +1,14 @@
 import React, { useCallback } from "react";
 import { Text, View, Image, Linking } from "react-native";
 import { TouchableOpacity } from "react-native";
+// translation
+import '../assets/i18n/i18n';
+import { useTranslation } from 'react-i18next';
 
 const Landing = ({ navigation }) => {
     const url_uvas = "https://uvas.edu.pk";
     const url_arass = "https://arass.org/";
+    const { t, i18n } = useTranslation();
 
     return (
         <View style={{ flex: 1, backgroundColor: 'rgb(120, 20, 10)' }}>
@@ -53,7 +57,7 @@ const Landing = ({ navigation }) => {
                         backgroundColor: 'white', padding: 15, borderRadius: 25, alignItems: 'center',
                     }}>
                         <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'rgb(120, 20, 10)' }}>
-                            Proceed
+                            {t('proceed landing')}
                         </Text>
                     </View>
                 </TouchableOpacity>

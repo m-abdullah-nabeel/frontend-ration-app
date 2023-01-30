@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, FlatList, SectionList, StatusBar, Button } from "react-native";
+// testing language
+import { useTranslation } from 'react-i18next';
+import { t } from "i18next";
 
 const DATA = [
   {
@@ -59,72 +62,9 @@ const DATA = [
   },
 ];
 
-
-// const DATA = [
-//   {
-//     title: "Roughages",
-//     data: [
-//       "Barseem",
-//       "Maize",
-//       "Oat (Jai)",
-//       "Mustard (Sarson)",
-//       "Maize Silage",
-//       "Sugarcane",
-//       "Sugarcane tops",
-//       "Mott grass",
-//       "Johnson grass (Baru)"
-//     ]
-//   },
-//   {
-//     title: "Dry Roughages & Crop residues",
-//     data: [
-//       "Wheat Straw (toori)",
-//       "Rice Straw (Parali)",
-//       "Millet stovers",
-//       "Maize stovers",
-//       "Sorghum stovers",
-//       "Corn cobs",
-//       "Rice Husk (Phakk)"
-//     ]
-//   },
-//   {
-//     title: "Energy Sources",
-//     data: [
-//       "Maize grain",
-//       "Wheat grain",
-//       "Millet grain",
-//       "Mamni",
-//       "Maize bran",
-//       "Wheat Bran (Chokar)",
-//       "Rice polish",
-//       "Sugarbeet pulp",
-//       "Apple pomace",
-//       "Citrus waste",
-//       "Channa Karra",
-//       "Massar Karra",
-//       "Mung Karra",
-//       "Dry dates",
-//       "Potato"
-//     ]
-//   },
-//   {
-//     title: "Protein Sources",
-//     data: [
-//       "Cottonseed cake (Khal)",
-//       "Soybean meal",
-//       "Canola meal",
-//       "Rapeseed meal",
-//       "Maize gluten meal 30%",
-//       "Maize gluten meal 60%",
-//       "Palm kernel cake",
-//       "Sunflower meal",
-//       "Guar meal"
-//     ]
-//   },
-// ];
-
 const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, catLen, setCatLen }) => {
   const [selected, setSelected] = useState([])
+  const { t } = useTranslation();
 
   useEffect(() => {
     // console.log("update lengths ")
@@ -147,7 +87,7 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
                   color: 'rgb(200, 10, 10)', fontWeight: '600',
                   fontSize: 16, margin: 10
                 }}>
-                  Select at least one item from this category
+                  {t("category error")}
                 </Text> :
                 null
               ) : null
@@ -194,12 +134,7 @@ const StuffSelector = ({ route, navigation }) => {
     "Fodders": 0,
     "Energy Supplements": 0
   })
-  // const [catLen, setCatLen] = useState({
-  //   "Dry Roughages & Crop residues": 0,
-  //   "Protein Sources": 0,
-  //   "Roughages": 0,
-  //   "Energy Sources": 0
-  // })
+
   const { animal, req_data } = route.params;
 
   useEffect(() => {
@@ -215,8 +150,8 @@ const StuffSelector = ({ route, navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>
-        <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white' }}>Select FeedStuffs</Text>
-        <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white' }}>Your Animal: {animal}</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("select fodders")}</Text>
+        <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>Your Animal: {animal}</Text>
       </View>
 
       <ScrollView>
@@ -247,7 +182,7 @@ const StuffSelector = ({ route, navigation }) => {
                   (alert("errors found")) :
                   navigation.navigate('Details', { stock: feedstuff, req_data: req_data });
               }}
-              title="Next"
+              title={t("next")}
               color="rgb(10, 100, 10)"
               style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20 }}
               accessibilityLabel="Next to detailed"

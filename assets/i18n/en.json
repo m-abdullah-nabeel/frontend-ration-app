@@ -1,7 +1,22 @@
 {
     "translation": {
-        "hello": "Hello",
-        "this line is translated": "This line is translated",
-        "feed formulate": "Formulate feed"
+        "proceed landing": "Proceed",
+        "feed formulate": "Formulate feed",
+        "summer formula": "Want to get summer feed formula?",
+        "winter formula": "Want to get winter feed formula?",
+        "coming soon": "Coming Soon",
+        "select animal header": "Select Your Animal",
+        "animal parameter line": "",
+        "bw select": "",
+        "milk prod select": "",
+        "animal parameter error": "Select Both Categories",
+        "animal parameter next": "Go to Feedstuffs",
+        "select fodders": "Select FeedStuffs",
+        "category error": "Select at least one item from this category",
+        "next": "Next",
+        "error insufficient nutrients": "",
+        "animal requires line": "Your Animal Requires",
+        "as fed details": "",
+        "feed composition line": "This Feed Contains"
     }
 }

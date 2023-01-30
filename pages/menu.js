@@ -1,9 +1,30 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from "react-native"
 
 // testing language
 import { useTranslation } from 'react-i18next';
+
+const TextInputExample = () => {
+    const [number, setNumber] = React.useState(1)
+    return (
+        <SafeAreaView>
+            <TextInput
+            // style={styles.input}
+            // onChangeText={(val) => { setNumber(val) }}
+            // onChangeText={text => setNumber(text)}
+
+            // value={number}
+            // placeholder="useless placeholder"
+            // keyboardType="numeric"
+            />
+        </SafeAreaView>
+    );
+};
+
+
+
+
 
 const MenuScreen = ({ navigation }) => {
     const { t } = useTranslation();
@@ -39,6 +60,10 @@ const MenuScreen = ({ navigation }) => {
 
                 </View>
             </TouchableOpacity>
+            {/* 
+            <View>
+                <TextInputExample />
+            </View> */}
 
             <View style={{
                 backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50, marginTop: 90,
@@ -48,12 +73,12 @@ const MenuScreen = ({ navigation }) => {
                     fontSize: 18, fontWeight: 'bold',
                     paddingTop: 15, paddingLeft: 15, paddingRight: 15,
                     color: 'white'
-                }}>Want to get summer feed formula?</Text>
+                }}>{t('summer formula')}</Text>
                 <Text style={{
                     fontSize: 12,
                     paddingBottom: 15, paddingLeft: 20, paddingRight: 15,
                     color: 'white'
-                }}>Coming Soon</Text>
+                }}>{t('coming soon')}</Text>
             </View>
 
             <View style={{
@@ -64,12 +89,12 @@ const MenuScreen = ({ navigation }) => {
                     fontSize: 18, fontWeight: 'bold',
                     paddingTop: 15, paddingLeft: 15, paddingRight: 15,
                     color: 'white'
-                }}>Want to get winter feed formula?</Text>
+                }}>{t('winter formula')}</Text>
                 <Text style={{
                     fontSize: 12,
                     paddingBottom: 15, paddingLeft: 20, paddingRight: 15,
                     color: 'white'
-                }}>Coming Soon</Text>
+                }}>{t('coming soon')}</Text>
             </View>
 
             <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', marginBottom: 10 }}>

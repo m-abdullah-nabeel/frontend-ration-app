@@ -2,8 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, Button, StyleSheet, Linking, Image, ScrollView, Pressable } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
 import animalsReqdata from '../assets/data/nutrients_required.json';
+// testing language
+import { useTranslation } from 'react-i18next';
 
 const ResultCheck = (props) => {
+  const { t } = useTranslation();
+
   const res = props.result
   const compo = props.compo
   const navigation = props.navigation
@@ -97,7 +101,7 @@ const ResultCheck = (props) => {
           <View style={{
             backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
           }}>
-            <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff", fontWeight: 'bold' }}>This Feed Contains</Text>
+            <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("feed composition line")}</Text>
             {/* <Text style={{ color: "#fff" }}>
               Dry Matter:&nbsp;
               {
@@ -106,7 +110,7 @@ const ResultCheck = (props) => {
                 }, 0)) / 100).toFixed(2)
               }
             </Text> */}
-            <Text style={{ color: "#fff" }}>
+            <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
               CP:
               {
                 ((cp_a.reduce(function (x, y) {
@@ -114,7 +118,7 @@ const ResultCheck = (props) => {
                 }, 0)) / 100).toFixed(2)
               } %
             </Text>
-            <Text style={{ color: "#fff" }}>
+            <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
               ME:
               {
                 ((me_a.reduce(function (x, y) {
@@ -215,6 +219,8 @@ function DetailsScreen({ navigation, route }) {
   const [nutReq, setNutReq] = useState([])
   const [compo, setCompo] = useState([]);
   const [bwt, setbwt] = useState(0)
+
+  const { t } = useTranslation();
 
   const getCalculations = async () => {
     console.log("===================================Running Calculations===========================================")
@@ -331,11 +337,11 @@ function DetailsScreen({ navigation, route }) {
       <View style={{
         backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginVertical: 20, marginBottom: 30
       }}>
-        <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff", fontWeight: 'bold' }}>Your Animal Requires</Text>
-        <Text style={{ color: "#fff" }}>
+        <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("animal requires line")}</Text>
+        <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
           CP: {nutReq[0]} %
         </Text>
-        <Text style={{ color: "#fff" }}>
+        <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
           ME: {nutReq[1]}
         </Text>
       </View>

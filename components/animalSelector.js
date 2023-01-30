@@ -1,9 +1,13 @@
+import { t } from "i18next";
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Alert, Modal, Pressable } from "react-native";
 // import { Dropdown } from 'react-native-material-dropdown';
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+
+// testing language
+import { useTranslation } from 'react-i18next';
 
 const bodyWeights = [
   { label: '300', value: 300 },
@@ -90,7 +94,8 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
     "Body Weight": '',
     "Milk Production": ''
   })
-  // console.log(cond)
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     // uncomment this to see logs
@@ -158,7 +163,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
             />
 
             {
-              error ? (<Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>Select Both Categories</Text>) : (
+              error ? (<Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
                 <Pressable
                   style={[styles.button, styles.buttonClose, { margin: 10 }]}
                   onPress={() => {
@@ -166,7 +171,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
                     navigation.navigate('Stuff Selector', { animal: animal, req_data: cond });
                   }}
                 >
-                  <Text style={styles.textStyle}>Go to feedstuffs</Text>
+                  <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
                 </Pressable>
               )
             }
@@ -181,6 +186,8 @@ const AnimalSelector = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
   const [species, setSpecies] = useState('')
 
+  const { t } = useTranslation();
+
   return (
     <View>
       <View style={{
@@ -188,10 +195,10 @@ const AnimalSelector = ({ navigation }) => {
         paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20, marginBottom: 10,
       }}>
         <Text style={{
-          color: 'white',
+          color: 'white', alignSelf: "center",
           fontSize: 24, fontWeight: 'bold', //paddingBottom: 5,
         }}>
-          Select Your Animal
+          {t("select animal header")}
         </Text>
       </View>
 

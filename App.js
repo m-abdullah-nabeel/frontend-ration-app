@@ -9,6 +9,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import 'react-native-gesture-handler';
 
+// redux
+import { Store } from "./redux/store/configureStore";
+import { Provider } from "react-redux";
+
+
 const Tab = createBottomTabNavigator();
 const WelcomeStack = createStackNavigator()
 
@@ -52,18 +57,18 @@ const InnerComp = () => {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <WelcomeStack.Navigator initialRouteName="MenuScreen"
-        screenOptions={{
-          headerShown: false
-        }}
-      >
-        <WelcomeStack.Screen name="Landing" component={Landing} />
-        <WelcomeStack.Screen name="Formulate" component={InnerComp} />
-      </WelcomeStack.Navigator>
-
-
-    </NavigationContainer>
+    <Provider store={Store}>
+      <NavigationContainer>
+        <WelcomeStack.Navigator initialRouteName="MenuScreen"
+          screenOptions={{
+            headerShown: false
+          }}
+        >
+          <WelcomeStack.Screen name="Landing" component={Landing} />
+          <WelcomeStack.Screen name="Formulate" component={InnerComp} />
+        </WelcomeStack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

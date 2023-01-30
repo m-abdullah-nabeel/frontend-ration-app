@@ -1,5 +1,11 @@
 import React, { useCallback, useState } from "react";
-import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable } from "react-native"
+import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable, TextInput } from "react-native"
+
+
+// redux 
+import { useSelector, useDispatch } from "react-redux";
+import { setUsername } from "../redux/actions/counts";
+
 
 // translation
 import '../assets/i18n/i18n';
@@ -63,6 +69,26 @@ function Settings() {
       .catch(err => console.log(err));
   };
 
+
+  // redux
+  // const { name } = useSelector(state => state.countReducer)
+  // const dispatch = useDispatch();
+
+  // const fetchData = () => {
+  //   try {
+  //     // dispatch(setUsername(name))
+
+  //     fetch('https://jsonplaceholder.typicode.com/todos/1')
+  //       .then(response => response.json())
+  //       .then(json => console.log(json))
+
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+  const [text, onChangeText] = React.useState('Useless Text');
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ padding: 10 }}>
@@ -70,21 +96,15 @@ function Settings() {
         <Text style={[styles.ptext, { alignSelf: "center" }]}>We are considering only CP and ME at this time</Text>
 
 
-        {/* Contact */}
-        <View style={{ marginBottom: 30 }}>
+        {/* language */}
+        <View>
           <Text style={styles.title}>Change Language</Text>
           <View style={styles.contentContainer}>
-            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#33A850' }}>
-              {t('hello')}{' '}
-            </Text>
-            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#33A850' }}>
-              {t('this line is translated')}
-            </Text>
             <Pressable
               onPress={() => changeLanguage('en')}
               style={{
                 backgroundColor:
-                  currentLanguage === 'en' ? '#33A850' : '#d3d3d3',
+                  currentLanguage === 'en' ? 'rgb(30, 130, 0)' : '#d3d3d3',
                 padding: 20,
               }}>
               <Text>English</Text>
@@ -94,12 +114,26 @@ function Settings() {
               onPress={() => changeLanguage('ur')}
               style={{
                 backgroundColor:
-                  currentLanguage === 'ur' ? '#33A850' : '#d3d3d3',
+                  currentLanguage === 'ur' ? 'rgb(30, 130, 0)' : '#d3d3d3',
                 padding: 20,
               }}>
               <Text>اردو</Text>
             </Pressable>
 
+          </View>
+        </View>
+
+        {/* redux */}
+        <View style={{ marginBottom: 30 }}>
+          <Text style={styles.title}>Redux Text Testing state</Text>
+          <View style={styles.contentContainer}>
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeText}
+              value={text}
+            />
+
+            {/* <Text>{name}</Text> */}
           </View>
         </View>
 
