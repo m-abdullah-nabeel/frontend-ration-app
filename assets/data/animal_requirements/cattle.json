@@ -1,0 +1,650 @@
+[
+    {
+        "bodyweight": "300",
+        "milk": "5",
+        "dmi": "9.079728",
+        "cp_req": "1361.9592",
+        "me_req": "15196.6",
+        "ndf_req": "2.54232384",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "350",
+        "milk": "5",
+        "dmi": "9.915766",
+        "cp_req": "1487.3649",
+        "me_req": "16487.2",
+        "ndf_req": "2.77641448",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "400",
+        "milk": "5",
+        "dmi": "10.558304",
+        "cp_req": "1583.7456",
+        "me_req": "17777.8",
+        "ndf_req": "2.95632512",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "450",
+        "milk": "5",
+        "dmi": "11.007342",
+        "cp_req": "1651.1013",
+        "me_req": "19068.4",
+        "ndf_req": "3.08205576",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "500",
+        "milk": "5",
+        "dmi": "11.26288",
+        "cp_req": "1689.432",
+        "me_req": "20359",
+        "ndf_req": "3.1536064",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "550",
+        "milk": "5",
+        "dmi": "11.324918",
+        "cp_req": "1698.7377",
+        "me_req": "21649.6",
+        "ndf_req": "3.17097704",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "600",
+        "milk": "5",
+        "dmi": "11.193456",
+        "cp_req": "1679.0184",
+        "me_req": "22940.2",
+        "ndf_req": "3.13416768",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "650",
+        "milk": "5",
+        "dmi": "10.868494",
+        "cp_req": "1630.2741",
+        "me_req": "24230.8",
+        "ndf_req": "3.04317832",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "700",
+        "milk": "5",
+        "dmi": "10.350032",
+        "cp_req": "1552.5048",
+        "me_req": "25521.4",
+        "ndf_req": "2.89800896",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "300",
+        "milk": "10",
+        "dmi": "10.498456",
+        "cp_req": "1574.7684",
+        "me_req": "21649.6",
+        "ndf_req": "2.93956768",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "350",
+        "milk": "10",
+        "dmi": "11.404282",
+        "cp_req": "1710.6423",
+        "me_req": "22940.2",
+        "ndf_req": "3.19319896",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "400",
+        "milk": "10",
+        "dmi": "12.116608",
+        "cp_req": "1817.4912",
+        "me_req": "24230.8",
+        "ndf_req": "3.39265024",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "450",
+        "milk": "10",
+        "dmi": "12.635434",
+        "cp_req": "1895.3151",
+        "me_req": "25521.4",
+        "ndf_req": "3.53792152",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "500",
+        "milk": "10",
+        "dmi": "12.96076",
+        "cp_req": "1944.114",
+        "me_req": "26812",
+        "ndf_req": "3.6290128",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "550",
+        "milk": "10",
+        "dmi": "13.092586",
+        "cp_req": "1963.8879",
+        "me_req": "28102.6",
+        "ndf_req": "3.66592408",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "600",
+        "milk": "10",
+        "dmi": "13.030912",
+        "cp_req": "1954.6368",
+        "me_req": "29393.2",
+        "ndf_req": "3.64865536",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "650",
+        "milk": "10",
+        "dmi": "12.775738",
+        "cp_req": "1916.3607",
+        "me_req": "30683.8",
+        "ndf_req": "3.57720664",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "700",
+        "milk": "10",
+        "dmi": "12.327064",
+        "cp_req": "1849.0596",
+        "me_req": "31974.4",
+        "ndf_req": "3.45157792",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "300",
+        "milk": "15",
+        "dmi": "12.917184",
+        "cp_req": "1937.5776",
+        "me_req": "28102.6",
+        "ndf_req": "3.61681152",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "350",
+        "milk": "15",
+        "dmi": "13.892798",
+        "cp_req": "2083.9197",
+        "me_req": "29393.2",
+        "ndf_req": "3.88998344",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "400",
+        "milk": "15",
+        "dmi": "14.674912",
+        "cp_req": "2201.2368",
+        "me_req": "30683.8",
+        "ndf_req": "4.10897536",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "450",
+        "milk": "15",
+        "dmi": "15.263526",
+        "cp_req": "2289.5289",
+        "me_req": "31974.4",
+        "ndf_req": "4.27378728",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "500",
+        "milk": "15",
+        "dmi": "15.65864",
+        "cp_req": "2348.796",
+        "me_req": "33265",
+        "ndf_req": "4.3844192",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "550",
+        "milk": "15",
+        "dmi": "15.860254",
+        "cp_req": "2379.0381",
+        "me_req": "34555.6",
+        "ndf_req": "4.44087112",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "600",
+        "milk": "15",
+        "dmi": "15.868368",
+        "cp_req": "2380.2552",
+        "me_req": "35846.2",
+        "ndf_req": "4.44314304",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "650",
+        "milk": "15",
+        "dmi": "15.682982",
+        "cp_req": "2352.4473",
+        "me_req": "37136.8",
+        "ndf_req": "4.39123496",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "700",
+        "milk": "15",
+        "dmi": "15.304096",
+        "cp_req": "2295.6144",
+        "me_req": "38427.4",
+        "ndf_req": "4.28514688",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "300",
+        "milk": "20",
+        "dmi": "13.335912",
+        "cp_req": "2000.3868",
+        "me_req": "34555.6",
+        "ndf_req": "3.73405536",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "350",
+        "milk": "20",
+        "dmi": "14.381314",
+        "cp_req": "2157.1971",
+        "me_req": "35846.2",
+        "ndf_req": "4.02676792",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "400",
+        "milk": "20",
+        "dmi": "15.233216",
+        "cp_req": "2284.9824",
+        "me_req": "37136.8",
+        "ndf_req": "4.26530048",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "450",
+        "milk": "20",
+        "dmi": "15.891618",
+        "cp_req": "2383.7427",
+        "me_req": "38427.4",
+        "ndf_req": "4.44965304",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "500",
+        "milk": "20",
+        "dmi": "16.35652",
+        "cp_req": "2453.478",
+        "me_req": "39718",
+        "ndf_req": "4.5798256",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "550",
+        "milk": "20",
+        "dmi": "16.627922",
+        "cp_req": "2494.1883",
+        "me_req": "41008.6",
+        "ndf_req": "4.65581816",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "600",
+        "milk": "20",
+        "dmi": "16.705824",
+        "cp_req": "2505.8736",
+        "me_req": "42299.2",
+        "ndf_req": "4.67763072",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "650",
+        "milk": "20",
+        "dmi": "16.590226",
+        "cp_req": "2488.5339",
+        "me_req": "43589.8",
+        "ndf_req": "4.64526328",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "700",
+        "milk": "20",
+        "dmi": "16.281128",
+        "cp_req": "2442.1692",
+        "me_req": "44880.4",
+        "ndf_req": "4.55871584",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "300",
+        "milk": "25",
+        "dmi": "13.75464",
+        "cp_req": "2063.196",
+        "me_req": "41008.6",
+        "ndf_req": "3.8512992",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "350",
+        "milk": "25",
+        "dmi": "14.86983",
+        "cp_req": "2230.4745",
+        "me_req": "42299.2",
+        "ndf_req": "4.1635524",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "400",
+        "milk": "25",
+        "dmi": "15.79152",
+        "cp_req": "2368.728",
+        "me_req": "43589.8",
+        "ndf_req": "4.4216256",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "450",
+        "milk": "25",
+        "dmi": "16.51971",
+        "cp_req": "2477.9565",
+        "me_req": "44880.4",
+        "ndf_req": "4.6255188",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "500",
+        "milk": "25",
+        "dmi": "17.0544",
+        "cp_req": "2558.16",
+        "me_req": "46171",
+        "ndf_req": "4.775232",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "550",
+        "milk": "25",
+        "dmi": "17.39559",
+        "cp_req": "2609.3385",
+        "me_req": "47461.6",
+        "ndf_req": "4.8707652",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "600",
+        "milk": "25",
+        "dmi": "17.54328",
+        "cp_req": "2631.492",
+        "me_req": "48752.2",
+        "ndf_req": "4.9121184",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "650",
+        "milk": "25",
+        "dmi": "17.49747",
+        "cp_req": "2624.6205",
+        "me_req": "50042.8",
+        "ndf_req": "4.8992916",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "700",
+        "milk": "25",
+        "dmi": "17.25816",
+        "cp_req": "2588.724",
+        "me_req": "51333.4",
+        "ndf_req": "4.8322848",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "300",
+        "milk": "30",
+        "dmi": "15.173368",
+        "cp_req": "2276.0052",
+        "me_req": "47461.6",
+        "ndf_req": "4.24854304",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "350",
+        "milk": "30",
+        "dmi": "16.358346",
+        "cp_req": "2453.7519",
+        "me_req": "48752.2",
+        "ndf_req": "4.58033688",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "400",
+        "milk": "30",
+        "dmi": "17.349824",
+        "cp_req": "2602.4736",
+        "me_req": "50042.8",
+        "ndf_req": "4.85795072",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "450",
+        "milk": "30",
+        "dmi": "18.147802",
+        "cp_req": "2722.1703",
+        "me_req": "51333.4",
+        "ndf_req": "5.08138456",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "500",
+        "milk": "30",
+        "dmi": "18.75228",
+        "cp_req": "2812.842",
+        "me_req": "52624",
+        "ndf_req": "5.2506384",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "550",
+        "milk": "30",
+        "dmi": "19.163258",
+        "cp_req": "2874.4887",
+        "me_req": "53914.6",
+        "ndf_req": "5.36571224",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "600",
+        "milk": "30",
+        "dmi": "19.380736",
+        "cp_req": "2907.1104",
+        "me_req": "55205.2",
+        "ndf_req": "5.42660608",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "650",
+        "milk": "30",
+        "dmi": "19.404714",
+        "cp_req": "2910.7071",
+        "me_req": "56495.8",
+        "ndf_req": "5.43331992",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "700",
+        "milk": "30",
+        "dmi": "19.235192",
+        "cp_req": "2885.2788",
+        "me_req": "57786.4",
+        "ndf_req": "5.38585376",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "300",
+        "milk": "35",
+        "dmi": "15.592096",
+        "cp_req": "2338.8144",
+        "me_req": "53914.6",
+        "ndf_req": "4.36578688",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "350",
+        "milk": "35",
+        "dmi": "16.846862",
+        "cp_req": "2527.0293",
+        "me_req": "55205.2",
+        "ndf_req": "4.71712136",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "400",
+        "milk": "35",
+        "dmi": "17.908128",
+        "cp_req": "2686.2192",
+        "me_req": "56495.8",
+        "ndf_req": "5.01427584",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "450",
+        "milk": "35",
+        "dmi": "18.775894",
+        "cp_req": "2816.3841",
+        "me_req": "57786.4",
+        "ndf_req": "5.25725032",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "500",
+        "milk": "35",
+        "dmi": "19.45016",
+        "cp_req": "2917.524",
+        "me_req": "59077",
+        "ndf_req": "5.4460448",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "550",
+        "milk": "35",
+        "dmi": "19.930926",
+        "cp_req": "2989.6389",
+        "me_req": "60367.6",
+        "ndf_req": "5.58065928",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "600",
+        "milk": "35",
+        "dmi": "20.218192",
+        "cp_req": "3032.7288",
+        "me_req": "61658.2",
+        "ndf_req": "5.66109376",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "650",
+        "milk": "35",
+        "dmi": "20.311958",
+        "cp_req": "3046.7937",
+        "me_req": "62948.8",
+        "ndf_req": "5.68734824",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "700",
+        "milk": "35",
+        "dmi": "20.212224",
+        "cp_req": "3031.8336",
+        "me_req": "64239.4",
+        "ndf_req": "5.65942272",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "300",
+        "milk": "40",
+        "dmi": "16.010824",
+        "cp_req": "2401.6236",
+        "me_req": "60367.6",
+        "ndf_req": "4.48303072",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "350",
+        "milk": "40",
+        "dmi": "17.335378",
+        "cp_req": "2600.3067",
+        "me_req": "61658.2",
+        "ndf_req": "4.85390584",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "400",
+        "milk": "40",
+        "dmi": "18.466432",
+        "cp_req": "2769.9648",
+        "me_req": "62948.8",
+        "ndf_req": "5.17060096",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "450",
+        "milk": "40",
+        "dmi": "19.403986",
+        "cp_req": "2910.5979",
+        "me_req": "64239.4",
+        "ndf_req": "5.43311608",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "500",
+        "milk": "40",
+        "dmi": "20.14804",
+        "cp_req": "3022.206",
+        "me_req": "65530",
+        "ndf_req": "5.6414512",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "550",
+        "milk": "40",
+        "dmi": "20.698594",
+        "cp_req": "3104.7891",
+        "me_req": "66820.6",
+        "ndf_req": "5.79560632",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "600",
+        "milk": "40",
+        "dmi": "21.055648",
+        "cp_req": "3158.3472",
+        "me_req": "68111.2",
+        "ndf_req": "5.89558144",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "650",
+        "milk": "40",
+        "dmi": "21.219202",
+        "cp_req": "3182.8803",
+        "me_req": "69401.8",
+        "ndf_req": "5.94137656",
+        "animal": "cattle"
+    },
+    {
+        "bodyweight": "700",
+        "milk": "40",
+        "dmi": "21.189256",
+        "cp_req": "3178.3884",
+        "me_req": "70692.4",
+        "ndf_req": "5.93299168",
+        "animal": "cattle"
+    }
+]

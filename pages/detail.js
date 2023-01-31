@@ -2,6 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, Button, StyleSheet, Linking, Image, ScrollView, Pressable } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
 import animalsReqdata from '../assets/data/nutrients_required.json';
+
+import RequirementsSheep from '../assets/data/animal_requirements/sheep.json';
+import RequirementsGoat from '../assets/data/animal_requirements/goat.json';
+import RequirementsCattle from '../assets/data/animal_requirements/cattle.json';
+import RequirementsBuffalo from '../assets/data/animal_requirements/buffalo.json';
+
 // testing language
 import { useTranslation } from 'react-i18next';
 
@@ -280,6 +286,8 @@ function DetailsScreen({ navigation, route }) {
   }
 
   const getNutriReq = (animalData, ReqObj) => {
+    console.log("=============================== gfyuagd wcwfh iaffhfu hfiuf iu iufg udhv jh subsj")
+    console.log(animalData)
     let bw = animalData['Body Weight']
     setbwt(bw)
     let mp = animalData['Milk Production']
@@ -312,6 +320,8 @@ function DetailsScreen({ navigation, route }) {
   }, [compo, nutReq]);
 
   useEffect(() => {
+    // console.log("=*+*+*+*+*+*+*+*+*++*+*+*+**+*+*+*+**+*+*+*+*+*+*+*+**+*+*++*+*+*=")
+    // console.log(animalsReqdata)
     getNutriReq(req_data, animalsReqdata)
   }, [])
 

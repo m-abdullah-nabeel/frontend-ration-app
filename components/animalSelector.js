@@ -9,7 +9,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 // testing language
 import { useTranslation } from 'react-i18next';
 
-const bodyWeights = [
+const large_ruminant_bw = [
   { label: '300', value: 300 },
   { label: '350', value: 350 },
   { label: '400', value: 400 },
@@ -21,7 +21,7 @@ const bodyWeights = [
   { label: '700', value: 700 },
 ];
 
-const milkProduc = [
+const large_ruminant_mp = [
   { label: '5', value: 5 },
   { label: '10', value: 10 },
   { label: '15', value: 15 },
@@ -30,6 +30,27 @@ const milkProduc = [
   { label: '30', value: 30 },
   { label: '35', value: 35 },
   { label: '40', value: 40 },
+];
+const small_ruminant_bw = [
+  { label: '10', value: 10 },
+  { label: '20', value: 20 },
+  { label: '30', value: 30 },
+  { label: '40', value: 40 },
+  { label: '50', value: 50 },
+  { label: '60', value: 60 },
+  { label: '70', value: 70 },
+  { label: '80', value: 80 },
+  { label: '90', value: 90 },
+  { label: '100', value: 100 },
+];
+
+const small_ruminant_mp = [
+  { label: '0', value: 0 },
+  { label: '1', value: 1 },
+  { label: '2', value: 2 },
+  { label: '3', value: 3 },
+  { label: '4', value: 4 },
+  { label: '5', value: 5 }
 ];
 
 const DropdownCom = ({ data, statement, placeholderText, cond, setCond }) => {
@@ -87,19 +108,22 @@ const DropdownCom = ({ data, statement, placeholderText, cond, setCond }) => {
   )
 }
 
-const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
+const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
   const [error, setError] = useState(true)
   const [cond, setCond] = useState({
-    species: 'cattle',
+    "species": '',
     "Body Weight": '',
     "Milk Production": ''
-  })
+  });
 
   const { t } = useTranslation();
 
   useEffect(() => {
+    console.log("####################################################")
+    console.log(input)
+    console.log("Species: " + JSON.stringify(cond['species']))
     // uncomment this to see logs
-    // console.log(cond)
+    console.log(cond)
     // console.log(cond['species'])
     // console.log(cond['Body Weight'])
     // console.log(cond['Milk Production'])
@@ -114,6 +138,17 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
       : setError(false)
   }, [cond])
 
+  useEffect(() => {
+    // setVisible(false);
+    setError(true);
+    setCond({
+      species: animal,
+      "Body Weight": '',
+      "Milk Production": ''
+    })
+  }, [visible])
+
+
   return (
     <View
       style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}
@@ -125,7 +160,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
           setVisible(false);
           setError(true);
           setCond({
-            species: 'cattle',
+            species: animal,
             "Body Weight": '',
             "Milk Production": ''
           })
@@ -145,7 +180,8 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
             <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>Select Parameters of {animal}</Text>
 
             <DropdownCom
-              data={bodyWeights}
+              // data={inputs[0]}
+              data={input[0]}
               // change statement name in above cond of errors if ever change this
               statement={"Body Weight"}
               placeholderText={"Body Weight (" + (cond["Body Weight"]).toString() + "Kg)"}
@@ -154,7 +190,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
             />
 
             <DropdownCom
-              data={milkProduc}
+              data={input[1]}
               // change statement name in above cond of errors
               statement={"Milk Production"}
               placeholderText={"Milk Production (" + (cond['Milk Production']).toString() + "Litres)"}
@@ -185,8 +221,24 @@ const OnlyModal = ({ visible, setVisible, animal, navigation }) => {
 const AnimalSelector = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
   const [species, setSpecies] = useState('')
+  const [input, setInput] = useState([])
 
   const { t } = useTranslation();
+
+  useEffect(() => {
+    console.log(JSON.stringify(species) + " is selected")
+    if (species == 'Cattle' || species == "Buffalo") {
+      console.log("A large ruminant " + JSON.stringify(species) + " is selected")
+      setInput([large_ruminant_bw, large_ruminant_mp])
+    }
+    if (species == 'Goat' || species == "Sheep") {
+      console.log("A small ruminant " + JSON.stringify(species) + " is selected")
+      setInput([small_ruminant_bw, small_ruminant_mp])
+    }
+
+  }, [species])
+
+  // console.log(species)
 
   return (
     <View>
@@ -221,23 +273,34 @@ const AnimalSelector = ({ navigation }) => {
             <Image style={styles.image} source={require('../assets/animals/camel.png')} />
           </TouchableOpacity>
         </View> */}
-        {/* <View style={styles.animal}>
+        <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Goat") }}>
             <Image style={styles.image} source={require('../assets/animals/goat.png')} />
           </TouchableOpacity>
-        </View> */}
-        {/* <View style={styles.animal}>
+        </View>
+        <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Sheep") }}>
             <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
           </TouchableOpacity>
-        </View> */}
+        </View>
         {/* <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Horse") }}>
             <Image style={styles.image} source={require('../assets/animals/horse.png')} />
           </TouchableOpacity>
         </View> */}
 
-        <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} />
+        {/* {
+          species == ''
+            ? (
+              <Text>Please Select a species first</Text>
+            )
+            : (
+              <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
+
+            )
+        } */}
+
+        <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
 
       </View>
     </View >
