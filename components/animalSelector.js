@@ -31,6 +31,7 @@ const large_ruminant_mp = [
   { label: '35', value: 35 },
   { label: '40', value: 40 },
 ];
+
 const small_ruminant_bw = [
   { label: '10', value: 10 },
   { label: '20', value: 20 },
@@ -53,7 +54,7 @@ const small_ruminant_mp = [
   { label: '5', value: 5 }
 ];
 
-const DropdownCom = ({ data, statement, placeholderText, cond, setCond }) => {
+const DropdownCom = ({ data, statement, translated, placeholderText, cond, setCond }) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -61,7 +62,8 @@ const DropdownCom = ({ data, statement, placeholderText, cond, setCond }) => {
     if (value || isFocus) {
       return (
         <Text style={[styles.label, isFocus && { color: 'rgb(130, 30, 1)', fontWeight: '700' }]}>
-          {statement}
+          {/* {statement} */}
+          {translated}
         </Text>
       );
     }
@@ -148,27 +150,29 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
     })
   }, [visible])
 
-
   return (
     <View
       style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}
     >
-      <Modal
-        animationType="slide" transparent={true} visible={visible}
-        onRequestClose={() => {
-          // Alert.alert("Modal has been closed.");
-          setVisible(false);
-          setError(true);
-          setCond({
-            species: animal,
-            "Body Weight": '',
-            "Milk Production": ''
-          })
-        }}
-      >
-        <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
-          <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
-            {/* <Text>Errors: {JSON.stringify(error)}</Text>
+      <TouchableOpacity onPress={() => { setVisible(false) }}>
+        <Modal
+          animationType="slide" transparent={true} visible={visible}
+          statusBarTranslucent={true} animated={true}
+          // onback
+          onRequestClose={() => {
+            // Alert.alert("Modal has been closed.");
+            setVisible(false);
+            setError(true);
+            setCond({
+              species: animal,
+              "Body Weight": '',
+              "Milk Production": ''
+            })
+          }}
+        >
+          <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
+            <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
+              {/* <Text>Errors: {JSON.stringify(error)}</Text>
             {
               Object.entries(cond).map(v => {
                 return (
@@ -177,43 +181,50 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
               })
             }
             <Text>{JSON.stringify(cond)}</Text> */}
-            <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>Select Parameters of {animal}</Text>
+              <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
+                {/* Select Parameters of {animal} */}
+                {t("your animal")} {t(animal)}
+              </Text>
 
-            <DropdownCom
-              // data={inputs[0]}
-              data={input[0]}
-              // change statement name in above cond of errors if ever change this
-              statement={"Body Weight"}
-              placeholderText={"Body Weight (" + (cond["Body Weight"]).toString() + "Kg)"}
-              cond={cond}
-              setCond={setCond}
-            />
+              <DropdownCom
+                // data={inputs[0]}
+                data={input[0]}
+                // change statement name in above cond of errors if ever change this
+                statement="Body Weight"
+                translated={t("Body Weight")}
+                placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
+                cond={cond}
+                setCond={setCond}
+              />
 
-            <DropdownCom
-              data={input[1]}
-              // change statement name in above cond of errors
-              statement={"Milk Production"}
-              placeholderText={"Milk Production (" + (cond['Milk Production']).toString() + "Litres)"}
-              cond={cond}
-              setCond={setCond}
-            />
+              <DropdownCom
+                data={input[1]}
+                // change statement name in above cond of errors
+                statement="Milk Production"
+                translated={t("Milk Production")}
+                placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
+                cond={cond}
+                setCond={setCond}
+              />
 
-            {
-              error ? (<Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
-                <Pressable
-                  style={[styles.button, styles.buttonClose, { margin: 10 }]}
-                  onPress={() => {
-                    setVisible(false)
-                    navigation.navigate('Stuff Selector', { animal: animal, req_data: cond });
-                  }}
-                >
-                  <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
-                </Pressable>
-              )
-            }
+              {
+                error ? (<Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
+                  <Pressable
+                    style={[styles.button, styles.buttonClose, { margin: 10 }]}
+                    onPress={() => {
+                      setVisible(false)
+                      navigation.navigate('Stuff Selector', { animal: animal, req_data: cond });
+                    }}
+                  >
+                    <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
+                  </Pressable>
+                )
+              }
+            </View>
           </View>
-        </View>
-      </Modal >
+        </Modal >
+
+      </TouchableOpacity>
     </View >
   )
 }

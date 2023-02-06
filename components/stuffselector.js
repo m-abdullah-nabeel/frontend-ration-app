@@ -77,7 +77,8 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
 
   return (
     <View>
-      <Text style={styles.header}>{category}</Text>
+      {/* <Text style={styles.header}>{category}</Text> */}
+      <Text style={styles.header}>{t(category)}</Text>
       <View>
         <View>
           {
@@ -114,7 +115,11 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
                 >
                   <Text
                     style={{ fontSize: 18, fontWeight: '500' }}
-                  >{x}</Text>
+                  >
+                    {/* {t("category error")} */}
+                    {t(x)}
+                    {/* {x} */}
+                  </Text>
                 </TouchableOpacity>
               )
             }
@@ -151,7 +156,10 @@ const StuffSelector = ({ route, navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>
         <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("select fodders")}</Text>
-        <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>Your Animal: {animal}</Text>
+        <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
+          {/* Your Animal: {animal} */}
+          {t("your animal")}: {t(animal)}
+        </Text>
       </View>
 
       <ScrollView>

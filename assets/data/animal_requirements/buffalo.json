@@ -5,8 +5,8 @@
         "dmi": "9.122433",
         "cp_req": "1368.36495",
         "me_req": "16196.6",
-        "ndf_req": "2.55428124",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "350",
@@ -14,8 +14,8 @@
         "dmi": "9.9655885",
         "cp_req": "1494.838275",
         "me_req": "17487.2",
-        "ndf_req": "2.79036478",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "400",
@@ -23,8 +23,8 @@
         "dmi": "10.615244",
         "cp_req": "1592.2866",
         "me_req": "18777.8",
-        "ndf_req": "2.97226832",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "450",
@@ -32,8 +32,8 @@
         "dmi": "11.0713995",
         "cp_req": "1660.709925",
         "me_req": "20068.4",
-        "ndf_req": "3.09999186",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "500",
@@ -41,8 +41,8 @@
         "dmi": "11.334055",
         "cp_req": "1700.10825",
         "me_req": "21359",
-        "ndf_req": "3.1735354",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "550",
@@ -50,8 +50,8 @@
         "dmi": "11.4032105",
         "cp_req": "1710.481575",
         "me_req": "22649.6",
-        "ndf_req": "3.19289894",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "600",
@@ -59,8 +59,8 @@
         "dmi": "11.278866",
         "cp_req": "1691.8299",
         "me_req": "23940.2",
-        "ndf_req": "3.15808248",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "650",
@@ -68,8 +68,8 @@
         "dmi": "10.9610215",
         "cp_req": "1644.153225",
         "me_req": "25230.8",
-        "ndf_req": "3.06908602",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "700",
@@ -77,8 +77,8 @@
         "dmi": "10.449677",
         "cp_req": "1567.45155",
         "me_req": "26521.4",
-        "ndf_req": "2.92590956",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "300",
@@ -86,8 +86,8 @@
         "dmi": "10.583866",
         "cp_req": "1587.5799",
         "me_req": "22649.6",
-        "ndf_req": "2.96348248",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "350",
@@ -95,8 +95,8 @@
         "dmi": "11.503927",
         "cp_req": "1725.58905",
         "me_req": "23940.2",
-        "ndf_req": "3.22109956",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "400",
@@ -104,8 +104,8 @@
         "dmi": "12.230488",
         "cp_req": "1834.5732",
         "me_req": "25230.8",
-        "ndf_req": "3.42453664",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "450",
@@ -113,8 +113,8 @@
         "dmi": "12.763549",
         "cp_req": "1914.53235",
         "me_req": "26521.4",
-        "ndf_req": "3.57379372",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "500",
@@ -122,8 +122,8 @@
         "dmi": "13.10311",
         "cp_req": "1965.4665",
         "me_req": "27812",
-        "ndf_req": "3.6688708",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "550",
@@ -131,8 +131,8 @@
         "dmi": "13.249171",
         "cp_req": "1987.37565",
         "me_req": "29102.6",
-        "ndf_req": "3.70976788",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "600",
@@ -140,8 +140,8 @@
         "dmi": "13.201732",
         "cp_req": "1980.2598",
         "me_req": "30393.2",
-        "ndf_req": "3.69648496",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "650",
@@ -149,8 +149,8 @@
         "dmi": "12.960793",
         "cp_req": "1944.11895",
         "me_req": "31683.8",
-        "ndf_req": "3.62902204",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "700",
@@ -158,8 +158,8 @@
         "dmi": "12.526354",
         "cp_req": "1878.9531",
         "me_req": "32974.4",
-        "ndf_req": "3.50737912",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "300",
@@ -167,8 +167,8 @@
         "dmi": "13.045299",
         "cp_req": "1956.79485",
         "me_req": "29102.6",
-        "ndf_req": "3.65268372",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "350",
@@ -176,8 +176,8 @@
         "dmi": "14.0422655",
         "cp_req": "2106.339825",
         "me_req": "30393.2",
-        "ndf_req": "3.93183434",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "400",
@@ -185,8 +185,8 @@
         "dmi": "14.845732",
         "cp_req": "2226.8598",
         "me_req": "31683.8",
-        "ndf_req": "4.15680496",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "450",
@@ -194,8 +194,8 @@
         "dmi": "15.4556985",
         "cp_req": "2318.354775",
         "me_req": "32974.4",
-        "ndf_req": "4.32759558",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "500",
@@ -203,8 +203,8 @@
         "dmi": "15.872165",
         "cp_req": "2380.82475",
         "me_req": "34265",
-        "ndf_req": "4.4442062",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "550",
@@ -212,8 +212,8 @@
         "dmi": "16.0951315",
         "cp_req": "2414.269725",
         "me_req": "35555.6",
-        "ndf_req": "4.50663682",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "600",
@@ -221,8 +221,8 @@
         "dmi": "16.124598",
         "cp_req": "2418.6897",
         "me_req": "36846.2",
-        "ndf_req": "4.51488744",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "650",
@@ -230,8 +230,8 @@
         "dmi": "15.9605645",
         "cp_req": "2394.084675",
         "me_req": "38136.8",
-        "ndf_req": "4.46895806",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "700",
@@ -239,8 +239,8 @@
         "dmi": "15.603031",
         "cp_req": "2340.45465",
         "me_req": "39427.4",
-        "ndf_req": "4.36884868",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "300",
@@ -248,8 +248,8 @@
         "dmi": "13.506732",
         "cp_req": "2026.0098",
         "me_req": "35555.6",
-        "ndf_req": "3.78188496",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "350",
@@ -257,8 +257,8 @@
         "dmi": "14.580604",
         "cp_req": "2187.0906",
         "me_req": "36846.2",
-        "ndf_req": "4.08256912",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "400",
@@ -266,8 +266,8 @@
         "dmi": "15.460976",
         "cp_req": "2319.1464",
         "me_req": "38136.8",
-        "ndf_req": "4.32907328",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "450",
@@ -275,8 +275,8 @@
         "dmi": "16.147848",
         "cp_req": "2422.1772",
         "me_req": "39427.4",
-        "ndf_req": "4.52139744",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "500",
@@ -284,8 +284,8 @@
         "dmi": "16.64122",
         "cp_req": "2496.183",
         "me_req": "40718",
-        "ndf_req": "4.6595416",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "550",
@@ -293,8 +293,8 @@
         "dmi": "16.941092",
         "cp_req": "2541.1638",
         "me_req": "42008.6",
-        "ndf_req": "4.74350576",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "600",
@@ -302,8 +302,8 @@
         "dmi": "17.047464",
         "cp_req": "2557.1196",
         "me_req": "43299.2",
-        "ndf_req": "4.77328992",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "650",
@@ -311,8 +311,8 @@
         "dmi": "16.960336",
         "cp_req": "2544.0504",
         "me_req": "44589.8",
-        "ndf_req": "4.74889408",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "700",
@@ -320,8 +320,8 @@
         "dmi": "16.679708",
         "cp_req": "2501.9562",
         "me_req": "45880.4",
-        "ndf_req": "4.67031824",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "300",
@@ -329,8 +329,8 @@
         "dmi": "13.968165",
         "cp_req": "2095.22475",
         "me_req": "42008.6",
-        "ndf_req": "3.9110862",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "350",
@@ -338,8 +338,8 @@
         "dmi": "15.1189425",
         "cp_req": "2267.841375",
         "me_req": "43299.2",
-        "ndf_req": "4.2333039",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "400",
@@ -347,8 +347,8 @@
         "dmi": "16.07622",
         "cp_req": "2411.433",
         "me_req": "44589.8",
-        "ndf_req": "4.5013416",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "450",
@@ -356,8 +356,8 @@
         "dmi": "16.8399975",
         "cp_req": "2525.999625",
         "me_req": "45880.4",
-        "ndf_req": "4.7151993",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "500",
@@ -365,8 +365,8 @@
         "dmi": "17.410275",
         "cp_req": "2611.54125",
         "me_req": "47171",
-        "ndf_req": "4.874877",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "550",
@@ -374,8 +374,8 @@
         "dmi": "17.7870525",
         "cp_req": "2668.057875",
         "me_req": "48461.6",
-        "ndf_req": "4.9803747",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "600",
@@ -383,8 +383,8 @@
         "dmi": "17.97033",
         "cp_req": "2695.5495",
         "me_req": "49752.2",
-        "ndf_req": "5.0316924",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "650",
@@ -392,8 +392,8 @@
         "dmi": "17.9601075",
         "cp_req": "2694.016125",
         "me_req": "51042.8",
-        "ndf_req": "5.0288301",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "700",
@@ -401,8 +401,8 @@
         "dmi": "17.756385",
         "cp_req": "2663.45775",
         "me_req": "52333.4",
-        "ndf_req": "4.9717878",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "300",
@@ -410,8 +410,8 @@
         "dmi": "15.429598",
         "cp_req": "2314.4397",
         "me_req": "48461.6",
-        "ndf_req": "4.32028744",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "350",
@@ -419,8 +419,8 @@
         "dmi": "16.657281",
         "cp_req": "2498.59215",
         "me_req": "49752.2",
-        "ndf_req": "4.66403868",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "400",
@@ -428,8 +428,8 @@
         "dmi": "17.691464",
         "cp_req": "2653.7196",
         "me_req": "51042.8",
-        "ndf_req": "4.95360992",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "450",
@@ -437,8 +437,8 @@
         "dmi": "18.532147",
         "cp_req": "2779.82205",
         "me_req": "52333.4",
-        "ndf_req": "5.18900116",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "500",
@@ -446,8 +446,8 @@
         "dmi": "19.17933",
         "cp_req": "2876.8995",
         "me_req": "53624",
-        "ndf_req": "5.3702124",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "550",
@@ -455,8 +455,8 @@
         "dmi": "19.633013",
         "cp_req": "2944.95195",
         "me_req": "54914.6",
-        "ndf_req": "5.49724364",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "600",
@@ -464,8 +464,8 @@
         "dmi": "19.893196",
         "cp_req": "2983.9794",
         "me_req": "56205.2",
-        "ndf_req": "5.57009488",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "650",
@@ -473,8 +473,8 @@
         "dmi": "19.959879",
         "cp_req": "2993.98185",
         "me_req": "57495.8",
-        "ndf_req": "5.58876612",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "700",
@@ -482,8 +482,8 @@
         "dmi": "19.833062",
         "cp_req": "2974.9593",
         "me_req": "58786.4",
-        "ndf_req": "5.55325736",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "300",
@@ -491,8 +491,8 @@
         "dmi": "15.891031",
         "cp_req": "2383.65465",
         "me_req": "54914.6",
-        "ndf_req": "4.44948868",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "350",
@@ -500,8 +500,8 @@
         "dmi": "17.1956195",
         "cp_req": "2579.342925",
         "me_req": "56205.2",
-        "ndf_req": "4.81477346",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "400",
@@ -509,8 +509,8 @@
         "dmi": "18.306708",
         "cp_req": "2746.0062",
         "me_req": "57495.8",
-        "ndf_req": "5.12587824",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "450",
@@ -518,8 +518,8 @@
         "dmi": "19.2242965",
         "cp_req": "2883.644475",
         "me_req": "58786.4",
-        "ndf_req": "5.38280302",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "500",
@@ -527,8 +527,8 @@
         "dmi": "19.948385",
         "cp_req": "2992.25775",
         "me_req": "60077",
-        "ndf_req": "5.5855478",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "550",
@@ -536,8 +536,8 @@
         "dmi": "20.4789735",
         "cp_req": "3071.846025",
         "me_req": "61367.6",
-        "ndf_req": "5.73411258",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "600",
@@ -545,8 +545,8 @@
         "dmi": "20.816062",
         "cp_req": "3122.4093",
         "me_req": "62658.2",
-        "ndf_req": "5.82849736",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "650",
@@ -554,8 +554,8 @@
         "dmi": "20.9596505",
         "cp_req": "3143.947575",
         "me_req": "63948.8",
-        "ndf_req": "5.86870214",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "700",
@@ -563,8 +563,8 @@
         "dmi": "20.909739",
         "cp_req": "3136.46085",
         "me_req": "65239.4",
-        "ndf_req": "5.85472692",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "300",
@@ -572,8 +572,8 @@
         "dmi": "16.352464",
         "cp_req": "2452.8696",
         "me_req": "61367.6",
-        "ndf_req": "4.57868992",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "350",
@@ -581,8 +581,8 @@
         "dmi": "17.733958",
         "cp_req": "2660.0937",
         "me_req": "62658.2",
-        "ndf_req": "4.96550824",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "400",
@@ -590,8 +590,8 @@
         "dmi": "18.921952",
         "cp_req": "2838.2928",
         "me_req": "63948.8",
-        "ndf_req": "5.29814656",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "450",
@@ -599,8 +599,8 @@
         "dmi": "19.916446",
         "cp_req": "2987.4669",
         "me_req": "65239.4",
-        "ndf_req": "5.57660488",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "500",
@@ -608,8 +608,8 @@
         "dmi": "20.71744",
         "cp_req": "3107.616",
         "me_req": "66530",
-        "ndf_req": "5.8008832",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "550",
@@ -617,8 +617,8 @@
         "dmi": "21.324934",
         "cp_req": "3198.7401",
         "me_req": "67820.6",
-        "ndf_req": "5.97098152",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "600",
@@ -626,8 +626,8 @@
         "dmi": "21.738928",
         "cp_req": "3260.8392",
         "me_req": "69111.2",
-        "ndf_req": "6.08689984",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "650",
@@ -635,8 +635,8 @@
         "dmi": "21.959422",
         "cp_req": "3293.9133",
         "me_req": "70401.8",
-        "ndf_req": "6.14863816",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     },
     {
         "bodyweight": "700",
@@ -644,7 +644,7 @@
         "dmi": "21.986416",
         "cp_req": "3297.9624",
         "me_req": "71692.4",
-        "ndf_req": "6.15619648",
-        "animal": "buffalo"
+        "ndf_req": "0.28",
+        "animal": "Buffalo"
     }
 ]

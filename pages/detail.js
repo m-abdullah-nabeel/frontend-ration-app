@@ -44,15 +44,15 @@ const ResultCheck = (props) => {
           }}>
             <Text style={{
               fontSize: 18, fontWeight: 'bold', color: "#fff",
-              marginTop: 5, marginLeft: 20, marginRight: 20, marginBottom: 2,
+              marginTop: 5, marginLeft: 20, marginRight: 20, marginBottom: 2, alignSelf: "center"
             }}>
               Least Cost Feed Formulation
             </Text>
             <Text style={{
               color: "#fff", fontSize: 12,
-              marginBottom: 5, marginLeft: 20, marginRight: 10,
+              marginBottom: 5, marginLeft: 20, marginRight: 10, alignSelf: "center"
             }}>
-              {compo.length} feedstuffs selected
+              {compo.length} {t("feedstuffs")}
             </Text>
           </View>
 
@@ -60,7 +60,9 @@ const ResultCheck = (props) => {
             // backgroundColor: "pink",
             padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10
           }}>
-            <Text style={{ fontWeight: 'bold', fontSize: 22, borderBottomColor: 'black', borderBottomWidth: 4 }}>Dry Matter formula</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 22, borderBottomColor: 'black', borderBottomWidth: 4 }}>
+              {t("Dry Matter Formula")}
+            </Text>
 
             {
               Object.keys(res['results']).map(k => {
@@ -74,7 +76,10 @@ const ResultCheck = (props) => {
                   <View key={k} >
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 1 }}>
                       <View style={{ height: 35 }}>
-                        <Text style={{ fontSize: 24, fontWeight: '650' }}>{k}</Text>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', width: 200 }}>
+                          {/* {k} */}
+                          {t(k)}
+                        </Text>
                       </View>
                       {/* <View style={{ height: 35 }}>
                         <Text>{JSON.stringify(((compo.find(x => x.name == k)['DM%']) / 100 * percent_val) * 50)}</Text>
@@ -117,7 +122,7 @@ const ResultCheck = (props) => {
               }
             </Text> */}
             <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
-              CP:
+              {t("CP")}:
               {
                 ((cp_a.reduce(function (x, y) {
                   return x + y;
@@ -125,7 +130,7 @@ const ResultCheck = (props) => {
               } %
             </Text>
             <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
-              ME:
+              {t("ME")}:
               {
                 ((me_a.reduce(function (x, y) {
                   return x + y;
@@ -140,9 +145,11 @@ const ResultCheck = (props) => {
             backgroundColor: "pink",
             padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10, marginTop: 15
           }}>
-            <Text style={{ fontWeight: 'bold', fontSize: 22 }}>As Fed Basis</Text>
-            <Text>(For your {bwt} kg animal)</Text>
-            <Text>Your Animal requires {dmi_req} Kg DMI</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 22, borderBottomColor: 'black', borderBottomWidth: 4 }}>
+              {t("As Fed Basis")}
+            </Text>
+            {/* <Text>(For your {bwt} kg animal)</Text>
+            <Text>Your Animal requires {dmi_req} Kg DMI</Text> */}
             {
               Object.keys(res['results']).map(k => {
                 curr_ = nutrientdata.find(x => x.name == k)
@@ -162,7 +169,10 @@ const ResultCheck = (props) => {
                       <View style={{ height: 25 }}>
                         <Text style={{
                           fontSize: 18, fontWeight: 'bold', width: 200 //</View>borderRightWidth: 2, borderRightColor: 'black', width: 100 
-                        }}>{k}</Text>
+                        }}>
+                          {/* {k} */}
+                          {t(k)}
+                        </Text>
                       </View>
                       {/* <View style={{ height: 25 }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', borderRightWidth: 2, borderRightColor: 'black', width: 40 }}>{percent_val} %</Text>
@@ -285,9 +295,24 @@ function DetailsScreen({ navigation, route }) {
     setCompo(newlist)
   }
 
-  const getNutriReq = (animalData, ReqObj) => {
-    console.log("=============================== gfyuagd wcwfh iaffhfu hfiuf iu iufg udhv jh subsj")
+  const getNutriReq = (animalData) => {
+    console.log("=============================== Animal Data ==================================")
     console.log(animalData)
+    console.log(animalData['species'])
+
+    let ReqObj;
+    if (animalData['species'] == "Cattle") {
+      ReqObj = RequirementsCattle
+    }
+    if (animalData['species'] == "Buffalo") {
+      ReqObj = RequirementsBuffalo
+    }
+    if (animalData['species'] == "Sheep") {
+      ReqObj = RequirementsSheep
+    }
+    if (animalData['species'] == "Goat") {
+      ReqObj = RequirementsGoat
+    }
     let bw = animalData['Body Weight']
     setbwt(bw)
     let mp = animalData['Milk Production']
@@ -320,9 +345,7 @@ function DetailsScreen({ navigation, route }) {
   }, [compo, nutReq]);
 
   useEffect(() => {
-    // console.log("=*+*+*+*+*+*+*+*+*++*+*+*+**+*+*+*+**+*+*+*+*+*+*+*+**+*+*++*+*+*=")
-    // console.log(animalsReqdata)
-    getNutriReq(req_data, animalsReqdata)
+    getNutriReq(req_data)
   }, [])
 
   useEffect(() => {
@@ -347,13 +370,22 @@ function DetailsScreen({ navigation, route }) {
       <View style={{
         backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginVertical: 20, marginBottom: 30
       }}>
-        <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("animal requires line")}</Text>
-        <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
-          CP: {nutReq[0]} %
+        <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>
+          {t("animal requires line")}
         </Text>
-        <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
-          ME: {nutReq[1]}
+        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+          {t("CP")}: {nutReq[0]} %
         </Text>
+        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+          {t("ME")}: {nutReq[1]}
+        </Text>
+        {/* <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+          {t("Body Weight")}: {bwt}
+        </Text> */}
+        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+          {t("Dry Matter Intake")}: {(bwt * 3 / 100)}
+        </Text>
+        {/* bwt */}
       </View>
 
     </ScrollView>

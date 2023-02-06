@@ -5,8 +5,8 @@
         "dmi": "0.24",
         "cp_req": "78",
         "me_req": "596.96",
-        "ndf_req": "0.0984",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "20",
@@ -14,8 +14,8 @@
         "dmi": "0.46",
         "cp_req": "93",
         "me_req": "671.58",
-        "ndf_req": "0.1886",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "30",
@@ -23,8 +23,8 @@
         "dmi": "0.66",
         "cp_req": "107",
         "me_req": "746.2",
-        "ndf_req": "0.2706",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "40",
@@ -32,8 +32,8 @@
         "dmi": "0.84",
         "cp_req": "119",
         "me_req": "820.82",
-        "ndf_req": "0.3444",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "50",
@@ -42,7 +42,7 @@
         "cp_req": "131",
         "me_req": "895.44",
         "ndf_req": "0.41",
-        "animal": "goat"
+        "animal": "Goat"
     },
     {
         "bodyweight": "60",
@@ -50,8 +50,8 @@
         "dmi": "1.08",
         "cp_req": "142",
         "me_req": "970.06",
-        "ndf_req": "0.4428",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "70",
@@ -59,8 +59,8 @@
         "dmi": "1.19",
         "cp_req": "153",
         "me_req": "1119.3",
-        "ndf_req": "0.4879",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "80",
@@ -68,8 +68,8 @@
         "dmi": "1.28",
         "cp_req": "163",
         "me_req": "1193.92",
-        "ndf_req": "0.5248",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "90",
@@ -77,8 +77,8 @@
         "dmi": "1.35",
         "cp_req": "173",
         "me_req": "1268.54",
-        "ndf_req": "0.5535",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "100",
@@ -86,17 +86,17 @@
         "dmi": "1.44",
         "cp_req": "183",
         "me_req": "1343.16",
-        "ndf_req": "0.5904",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
-        "bodyweight": "10",
+        "bodyweight": "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
         "milk": "1",
         "dmi": "0.43",
         "cp_req": "78",
         "me_req": "2140",
-        "ndf_req": "0.1763",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "20",
@@ -104,8 +104,8 @@
         "dmi": "0.72",
         "cp_req": "93",
         "me_req": "2720",
-        "ndf_req": "0.2952",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "30",
@@ -113,8 +113,8 @@
         "dmi": "0.98",
         "cp_req": "107",
         "me_req": "3230",
-        "ndf_req": "0.4018",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "40",
@@ -122,8 +122,8 @@
         "dmi": "1.21",
         "cp_req": "119",
         "me_req": "3700",
-        "ndf_req": "0.4961",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "50",
@@ -131,8 +131,8 @@
         "dmi": "1.43",
         "cp_req": "131",
         "me_req": "4140",
-        "ndf_req": "0.5863",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "60",
@@ -140,8 +140,8 @@
         "dmi": "1.64",
         "cp_req": "142",
         "me_req": "4560",
-        "ndf_req": "0.6724",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "70",
@@ -149,8 +149,8 @@
         "dmi": "1.84",
         "cp_req": "153",
         "me_req": "4960",
-        "ndf_req": "0.7544",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "80",
@@ -158,8 +158,8 @@
         "dmi": "2.03",
         "cp_req": "163",
         "me_req": "5340",
-        "ndf_req": "0.8323",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "90",
@@ -167,8 +167,8 @@
         "dmi": "2.22",
         "cp_req": "173",
         "me_req": "5720",
-        "ndf_req": "0.9102",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "100",
@@ -176,8 +176,8 @@
         "dmi": "2.41",
         "cp_req": "183",
         "me_req": "6100",
-        "ndf_req": "0.9881",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "10",
@@ -185,8 +185,8 @@
         "dmi": "0.5",
         "cp_req": "133",
         "me_req": "3420",
-        "ndf_req": "0.205",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "20",
@@ -195,7 +195,7 @@
         "cp_req": "148",
         "me_req": "4000",
         "ndf_req": "0.41",
-        "animal": "goat"
+        "animal": "Goat"
     },
     {
         "bodyweight": "30",
@@ -203,8 +203,8 @@
         "dmi": "1.5",
         "cp_req": "162",
         "me_req": "4510",
-        "ndf_req": "0.615",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "40",
@@ -212,8 +212,8 @@
         "dmi": "2",
         "cp_req": "174",
         "me_req": "4980",
-        "ndf_req": "0.82",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "50",
@@ -221,8 +221,8 @@
         "dmi": "2.5",
         "cp_req": "186",
         "me_req": "5420",
-        "ndf_req": "1.025",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "60",
@@ -230,8 +230,8 @@
         "dmi": "3",
         "cp_req": "197",
         "me_req": "5840",
-        "ndf_req": "1.23",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "70",
@@ -239,8 +239,8 @@
         "dmi": "3.5",
         "cp_req": "208",
         "me_req": "6240",
-        "ndf_req": "1.435",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "80",
@@ -248,8 +248,8 @@
         "dmi": "4",
         "cp_req": "218",
         "me_req": "6620",
-        "ndf_req": "1.64",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "90",
@@ -257,8 +257,8 @@
         "dmi": "4.5",
         "cp_req": "228",
         "me_req": "7000",
-        "ndf_req": "1.845",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "100",
@@ -266,8 +266,8 @@
         "dmi": "5",
         "cp_req": "238",
         "me_req": "7380",
-        "ndf_req": "2.05",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "10",
@@ -275,8 +275,8 @@
         "dmi": "0.5",
         "cp_req": "188",
         "me_req": "4700",
-        "ndf_req": "0.205",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "20",
@@ -285,7 +285,7 @@
         "cp_req": "203",
         "me_req": "5280",
         "ndf_req": "0.41",
-        "animal": "goat"
+        "animal": "Goat"
     },
     {
         "bodyweight": "30",
@@ -293,8 +293,8 @@
         "dmi": "1.5",
         "cp_req": "217",
         "me_req": "5790",
-        "ndf_req": "0.615",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "40",
@@ -302,8 +302,8 @@
         "dmi": "2",
         "cp_req": "229",
         "me_req": "6260",
-        "ndf_req": "0.82",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "50",
@@ -311,8 +311,8 @@
         "dmi": "2.5",
         "cp_req": "241",
         "me_req": "6700",
-        "ndf_req": "1.025",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "60",
@@ -320,8 +320,8 @@
         "dmi": "3",
         "cp_req": "252",
         "me_req": "7120",
-        "ndf_req": "1.23",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "70",
@@ -329,8 +329,8 @@
         "dmi": "3.5",
         "cp_req": "263",
         "me_req": "7520",
-        "ndf_req": "1.435",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "80",
@@ -338,8 +338,8 @@
         "dmi": "4",
         "cp_req": "273",
         "me_req": "7900",
-        "ndf_req": "1.64",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "90",
@@ -347,8 +347,8 @@
         "dmi": "4.5",
         "cp_req": "283",
         "me_req": "8280",
-        "ndf_req": "1.845",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "100",
@@ -356,8 +356,8 @@
         "dmi": "5",
         "cp_req": "293",
         "me_req": "8660",
-        "ndf_req": "2.05",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "10",
@@ -365,8 +365,8 @@
         "dmi": "0.6",
         "cp_req": "243",
         "me_req": "5980",
-        "ndf_req": "0.246",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "20",
@@ -374,8 +374,8 @@
         "dmi": "1.2",
         "cp_req": "258",
         "me_req": "6560",
-        "ndf_req": "0.492",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "30",
@@ -383,8 +383,8 @@
         "dmi": "1.8",
         "cp_req": "272",
         "me_req": "7070",
-        "ndf_req": "0.738",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "40",
@@ -392,8 +392,8 @@
         "dmi": "2.4",
         "cp_req": "284",
         "me_req": "7540",
-        "ndf_req": "0.984",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "50",
@@ -401,8 +401,8 @@
         "dmi": "3",
         "cp_req": "296",
         "me_req": "7980",
-        "ndf_req": "1.23",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "60",
@@ -410,8 +410,8 @@
         "dmi": "3.6",
         "cp_req": "307",
         "me_req": "8400",
-        "ndf_req": "1.476",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "70",
@@ -419,8 +419,8 @@
         "dmi": "4.2",
         "cp_req": "318",
         "me_req": "8800",
-        "ndf_req": "1.722",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "80",
@@ -428,8 +428,8 @@
         "dmi": "4.8",
         "cp_req": "328",
         "me_req": "9180",
-        "ndf_req": "1.968",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "90",
@@ -437,8 +437,8 @@
         "dmi": "5.4",
         "cp_req": "338",
         "me_req": "9560",
-        "ndf_req": "2.214",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "100",
@@ -446,8 +446,8 @@
         "dmi": "6",
         "cp_req": "348",
         "me_req": "9940",
-        "ndf_req": "2.46",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "10",
@@ -455,8 +455,8 @@
         "dmi": "0.7",
         "cp_req": "298",
         "me_req": "7260",
-        "ndf_req": "0.287",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "20",
@@ -464,8 +464,8 @@
         "dmi": "1.4",
         "cp_req": "313",
         "me_req": "7840",
-        "ndf_req": "0.574",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "30",
@@ -473,8 +473,8 @@
         "dmi": "2.1",
         "cp_req": "327",
         "me_req": "8350",
-        "ndf_req": "0.861",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "40",
@@ -482,8 +482,8 @@
         "dmi": "2.8",
         "cp_req": "339",
         "me_req": "8820",
-        "ndf_req": "1.148",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "50",
@@ -491,8 +491,8 @@
         "dmi": "3.5",
         "cp_req": "351",
         "me_req": "9260",
-        "ndf_req": "1.435",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "60",
@@ -500,8 +500,8 @@
         "dmi": "4.2",
         "cp_req": "362",
         "me_req": "9680",
-        "ndf_req": "1.722",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "70",
@@ -509,8 +509,8 @@
         "dmi": "4.9",
         "cp_req": "373",
         "me_req": "10080",
-        "ndf_req": "2.009",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "80",
@@ -518,8 +518,8 @@
         "dmi": "5.6",
         "cp_req": "383",
         "me_req": "10460",
-        "ndf_req": "2.296",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "90",
@@ -527,8 +527,8 @@
         "dmi": "6.3",
         "cp_req": "393",
         "me_req": "10840",
-        "ndf_req": "2.583",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     },
     {
         "bodyweight": "100",
@@ -536,7 +536,7 @@
         "dmi": "7",
         "cp_req": "403",
         "me_req": "11220",
-        "ndf_req": "2.87",
-        "animal": "goat"
+        "ndf_req": "0.41",
+        "animal": "Goat"
     }
 ]
