@@ -112,7 +112,7 @@ const ResultCheck = (props) => {
           <View style={{
             backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
           }}>
-            <Text style={{ fontSize: 22, fontWeight: '750', color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("feed composition line")}</Text>
+            <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("feed composition line")}</Text>
             {/* <Text style={{ color: "#fff" }}>
               Dry Matter:&nbsp;
               {
@@ -121,7 +121,7 @@ const ResultCheck = (props) => {
                 }, 0)) / 100).toFixed(2)
               }
             </Text> */}
-            <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
+            <Text style={{ color: "#fff", fontSize: 22, fontWeight: '600', alignSelf: "center" }}>
               {t("CP")}:
               {
                 ((cp_a.reduce(function (x, y) {
@@ -129,7 +129,7 @@ const ResultCheck = (props) => {
                 }, 0)) / 100).toFixed(2)
               } %
             </Text>
-            <Text style={{ color: "#fff", fontSize: 28, fontWeight: '900', alignSelf: "center" }}>
+            <Text style={{ color: "#fff", fontSize: 22, fontWeight: '600', alignSelf: "center" }}>
               {t("ME")}:
               {
                 ((me_a.reduce(function (x, y) {
