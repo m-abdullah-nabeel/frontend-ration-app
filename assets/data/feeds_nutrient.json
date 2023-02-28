@@ -239,7 +239,7 @@
         "ME": "2800",
         "cost": "30",
         "min": "0.05",
-        "max": "0.3"
+        "max": "0.20"
     },
     {
         "name": "Sugarbeet pulp",
