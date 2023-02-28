@@ -36,11 +36,13 @@ const InnerComp = () => {
             iconName = focused
               ? 'home'
               : 'home-outline';
-          } else if (route.name === 'Settings') {
-            iconName = focused
-              ? 'settings'
-              : 'home-outline';
           }
+          else
+            if (route.name === 'More') {
+              iconName = focused
+                ? 'menu'
+                : 'menu-outline';
+            }
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },

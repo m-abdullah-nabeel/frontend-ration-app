@@ -380,6 +380,17 @@ function DetailsScreen({ navigation, route }) {
             <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} calDMI={calDMI} />
         }
       </View>
+      <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: "row", alignSelf: 'center', alignItems: 'center', marginBottom: 10, marginTop: 10 }}>
+        <Image
+          style={{ width: 100, height: 45 }}
+          source={require('../assets/uvas-big.png')}
+        />
+        <Image
+          style={{ width: 100, height: 45 }}
+          source={require('../assets/arass.png')}
+        />
+
+      </View>
       {/* <ResultCheck result={data} compo={compo} navigate={navigation} /> */}
 
       {/* <View style={{
