@@ -87,7 +87,7 @@ function Settings() {
   //   }
   // }
 
-  const [text, onChangeText] = React.useState('Useless Text');
+  const [text, onChangeText] = React.useState('Text under testing');
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
