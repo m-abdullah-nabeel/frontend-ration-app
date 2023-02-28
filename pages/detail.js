@@ -18,7 +18,8 @@ const ResultCheck = (props) => {
   const compo = props.compo
   const navigation = props.navigation
   const bwt = props.bwt
-  const dmi_req = (bwt * 3 / 100).toFixed(2)
+  // const dmi_req = props.calDMI
+  const dmi_req = (bwt * 2 / 100).toFixed(2)
   let dm_a = []
   let cp_a = []
   let me_a = []
@@ -54,6 +55,15 @@ const ResultCheck = (props) => {
             }}>
               {compo.length} {t("feedstuffs")}
             </Text>
+          </View>
+
+          <View style={{
+            backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 1, marginBottom: 10
+          }}>
+            <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>
+              {t("feed composition line")}
+            </Text>
+
           </View>
 
           <View style={{
@@ -109,18 +119,18 @@ const ResultCheck = (props) => {
           </View>
 
           {/* this formula contains */}
-          <View style={{
+          {/* <View style={{
             backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
           }}>
             <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("feed composition line")}</Text>
-            {/* <Text style={{ color: "#fff" }}>
+            <Text style={{ color: "#fff" }}>
               Dry Matter:&nbsp;
               {
                 ((dm_a.reduce(function (x, y) {
                   return x + y;
                 }, 0)) / 100).toFixed(2)
               }
-            </Text> */}
+            </Text>
             <Text style={{ color: "#fff", fontSize: 22, fontWeight: '600', alignSelf: "center" }}>
               {t("CP")}:
               {
@@ -137,7 +147,7 @@ const ResultCheck = (props) => {
                 }, 0)) / 100).toFixed(2)
               }
             </Text>
-          </View>
+          </View> */}
 
           {/* As fed basis for one animal */}
 
@@ -174,6 +184,7 @@ const ResultCheck = (props) => {
                           {t(k)}
                         </Text>
                       </View>
+                      {/* comeented below */}
                       {/* <View style={{ height: 25 }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', borderRightWidth: 2, borderRightColor: 'black', width: 40 }}>{percent_val} %</Text>
                       </View>
@@ -235,6 +246,7 @@ function DetailsScreen({ navigation, route }) {
   const [nutReq, setNutReq] = useState([])
   const [compo, setCompo] = useState([]);
   const [bwt, setbwt] = useState(0)
+  const [calDMI, setCalDMI] = useState(0)
 
   const { t } = useTranslation();
 
@@ -327,16 +339,19 @@ function DetailsScreen({ navigation, route }) {
     // console.log(dmi)
     // console.log(cp_T)
     // console.log(me_T)
+    setCalDMI(dmi)
     let me = (Number(me_T) / Number(dmi)).toFixed(2)
+    console.log('cp')
     console.log(cp)
     // newlist.push(cp)
     let cp = (Number(cp_T) / (Number(dmi) * 1000) * 100).toFixed(2)
+    console.log('me')
     console.log(me)
     // console.log(found[])
     // console.log("Nutrients Data")
     // console.log(found)
     // console.log("found")
-    setNutReq([Number(cp), Number(me)])
+    setNutReq([Number(cp), Number(me), 28])
   }
 
   useEffect(() => {
@@ -362,12 +377,12 @@ function DetailsScreen({ navigation, route }) {
               source={require('../assets/images/loading.gif')}
             />
             :
-            <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} />
+            <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} calDMI={calDMI} />
         }
       </View>
       {/* <ResultCheck result={data} compo={compo} navigate={navigation} /> */}
 
-      <View style={{
+      {/* <View style={{
         backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginVertical: 20, marginBottom: 30
       }}>
         <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>
@@ -379,14 +394,16 @@ function DetailsScreen({ navigation, route }) {
         <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
           {t("ME")}: {nutReq[1]}
         </Text>
-        {/* <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
-          {t("Body Weight")}: {bwt}
-        </Text> */}
         <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
-          {t("Dry Matter Intake")}: {(bwt * 3 / 100)}
+          {t("Body Weight")}: {bwt}
         </Text>
-        {/* bwt */}
-      </View>
+        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+          {t("Dry Matter Intake")}: {(bwt * 2 / 100)}
+        </Text>
+        <Text>
+          {t("Dry Matter Intake")}: {calDMI}
+        </Text>
+      </View> */}
 
     </ScrollView>
   );

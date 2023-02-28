@@ -147,9 +147,17 @@ const StuffSelector = ({ route, navigation }) => {
     console.log(catLen)
     console.log(Object.values(catLen))
     console.log(Object.values(catLen).includes(0))
-    Object.values(catLen).includes(0)
+    console.log("Error: " + (Object.values(catLen).includes(0) || Object.values(catLen).includes(1)))
+    const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
+    check2stuffsSelected()
       ? setError(true)
       : setError(false)
+
+
+
+    // Object.values(catLen).includes(0)
+    //   ? setError(true)
+    //   : setError(false)
   }, [catLen])
 
   return (

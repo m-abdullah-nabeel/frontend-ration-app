@@ -17,8 +17,8 @@ const large_ruminant_bw = [
   { label: '500', value: 500 },
   { label: '550', value: 550 },
   { label: '600', value: 600 },
-  { label: '650', value: 650 },
-  { label: '700', value: 700 },
+  // { label: '650', value: 650 },
+  // { label: '700', value: 700 },
 ];
 
 const large_ruminant_mp = [
@@ -26,10 +26,10 @@ const large_ruminant_mp = [
   { label: '10', value: 10 },
   { label: '15', value: 15 },
   { label: '20', value: 20 },
-  { label: '25', value: 25 },
-  { label: '30', value: 30 },
-  { label: '35', value: 35 },
-  { label: '40', value: 40 },
+  // { label: '25', value: 25 },
+  // { label: '30', value: 30 },
+  // { label: '35', value: 35 },
+  // { label: '40', value: 40 },
 ];
 
 const small_ruminant_bw = [
