@@ -208,7 +208,8 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
               />
 
               {
-                error ? (<Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
+                error ? (<
+                  Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
                   <Pressable
                     style={[styles.button, styles.buttonClose, { margin: 10 }]}
                     onPress={() => {

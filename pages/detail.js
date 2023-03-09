@@ -23,6 +23,7 @@ const ResultCheck = (props) => {
   let dm_a = []
   let cp_a = []
   let me_a = []
+  let ndf_a = []
 
   let status_ = {
     0: 'Optimization terminated successfully',
@@ -98,20 +99,19 @@ const ResultCheck = (props) => {
                         <Text style={{ fontSize: 24, fontWeight: '650' }}>{percent_val} %</Text>
                       </View>
                     </View>
-                    {/* <Text>
+                    <Text>
                       DM%: {curr_['DM%']}
                       CP: {curr_['CP']}
                       ME: {curr_['ME']}
-                    </Text> */}
-                    {/* <Text>
+                      NDF: {curr_['NDF']}
+                    </Text>
+                    <Text>
                       Provides
                       Dry Matter {curr_['DM%'] * percent_val} {dm_a.push(curr_['DM%'] * percent_val)}
                       CP {curr_['CP'] * percent_val} {cp_a.push(curr_['CP'] * percent_val)}
                       ME {curr_['ME'] * percent_val} {me_a.push(curr_['ME'] * percent_val)}
-                    </Text> */}
-                    {/* {dm_a.push(curr_['DM%'] * percent_val)}
-                    {cp_a.push(curr_['CP'] * percent_val)}
-                    {me_a.push(curr_['ME'] * percent_val)} */}
+                    </Text>
+
                   </View>
                 )
               })
@@ -119,7 +119,7 @@ const ResultCheck = (props) => {
           </View>
 
           {/* this formula contains */}
-          {/* <View style={{
+          <View style={{
             backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
           }}>
             <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("feed composition line")}</Text>
@@ -147,7 +147,7 @@ const ResultCheck = (props) => {
                 }, 0)) / 100).toFixed(2)
               }
             </Text>
-          </View> */}
+          </View>
 
           {/* As fed basis for one animal */}
 

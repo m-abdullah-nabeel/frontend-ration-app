@@ -7,6 +7,8 @@ import { t } from "i18next";
 const DATA = [
   {
     title: "Fodders",
+    min_selection: 2,
+    cat_msg: "Select at least 2",
     data: [
       "Barseem",
       "Maize",
@@ -28,6 +30,8 @@ const DATA = [
   },
   {
     title: "Energy Supplements",
+    min_selection: 1,
+    cat_msg: "Select at least 1",
     data: [
       "Maize grain",
       "Wheat grain",
@@ -48,6 +52,8 @@ const DATA = [
   },
   {
     title: "Protein Supplements",
+    min_selection: 1,
+    cat_msg: "Select at least 1",
     data: [
       "Cottonseed cake (Khal)",
       "Soybean meal",
@@ -62,7 +68,7 @@ const DATA = [
   },
 ];
 
-const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, catLen, setCatLen }) => {
+const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, catLen, setCatLen, min_selection, cat_msg }) => {
   const [selected, setSelected] = useState([])
   const { t } = useTranslation();
 
@@ -75,10 +81,45 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
 
   }, [selected])
 
+
+  useEffect(() => {
+    // error logic
+    // console.log(catLen)
+    console.log("\n=====> catLen: ")
+    console.log(catLen)
+    console.log(Object.values(catLen))
+    // console.log(Object.values(catLen).includes(0))
+    // console.log("Error: " + (Object.values(catLen).includes(0) || Object.values(catLen).includes(1)))
+
+    console.log("\n\nError Explanation: ")
+    Object.values(catLen).map((i, k) => {
+      // console.log(i)
+      // console.log("This field's error is: ")
+      console.log(String(k + 1) + ". Selected: " + String(i) + ". This field's error is: " + String(!(i >= min_selection)) + " The minimum should be: " + String(min_selection) + " & currently selected: " + String(i))
+      // console.log(i < min_selection)
+      // console.log(i >= min_selection)
+    })
+
+
+    // const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
+    const check2stuffsSelected = () => (Object.values(catLen).includes(0))
+    check2stuffsSelected()
+      ? setError(true)
+      : setError(false)
+  }, [catLen])
+
+
   return (
     <View>
       {/* <Text style={styles.header}>{category}</Text> */}
       <Text style={styles.header}>{t(category)}</Text>
+      <Text style={{
+        color: 'rgb(200, 10, 10)', fontWeight: '600',
+        fontSize: 16, margin: 10
+      }}>
+        {String(min_selection) + ". " + String(cat_msg)}
+        {/* {} */}
+      </Text>
       <View>
         <View>
           {
@@ -131,7 +172,7 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
   )
 }
 
-const StuffSelector = ({ route, navigation }) => {
+const StuffSelector = ({ route, navigation, min_selection, cat_msg }) => {
   const [feedstuff, setFeedstuff] = useState([]);
   const [error, setError] = useState(false);
   const [catLen, setCatLen] = useState({
@@ -142,23 +183,25 @@ const StuffSelector = ({ route, navigation }) => {
 
   const { animal, req_data } = route.params;
 
-  useEffect(() => {
-    // error logic
-    console.log(catLen)
-    console.log(Object.values(catLen))
-    console.log(Object.values(catLen).includes(0))
-    console.log("Error: " + (Object.values(catLen).includes(0) || Object.values(catLen).includes(1)))
-    const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
-    check2stuffsSelected()
-      ? setError(true)
-      : setError(false)
+  const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
 
+  // useEffect(() => {
+  //   // error logic
+  //   console.log(catLen)
+  //   console.log("catLen: " + catLen)
+  //   console.log(catLen)
+  //   console.log(Object.values(catLen))
+  //   console.log(Object.values(catLen).includes(0))
+  //   console.log("Error: " + (Object.values(catLen).includes(0) || Object.values(catLen).includes(1)))
+  //   const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
+  //   check2stuffsSelected()
+  //     ? setError(true)
+  //     : setError(false)
 
-
-    // Object.values(catLen).includes(0)
-    //   ? setError(true)
-    //   : setError(false)
-  }, [catLen])
+  //   // Object.values(catLen).includes(0)
+  //   //   ? setError(true)
+  //   //   : setError(false)
+  // }, [catLen])
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -177,6 +220,7 @@ const StuffSelector = ({ route, navigation }) => {
               return (
                 <CategorySelector
                   category={category.title} data={category.data} key={category.title}
+                  min_selection={category.min_selection} cat_msg={category.cat_msg}
                   feedstuff={feedstuff} setFeedstuff={setFeedstuff}
                   error={error} setError={setError}
                   catLen={catLen} setCatLen={setCatLen}
