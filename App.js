@@ -22,7 +22,8 @@ const InnerComp = () => {
     <Tab.Navigator initialRouteName="Home"
       screenOptions={({ route }) => ({
         headerStyle: {
-          backgroundColor: 'rgb(100, 10, 10)',
+          backgroundColor: 'rgba(153, 0, 0, 0.9)',
+          // borderColor: 'yellow', borderWidth: 5
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -49,10 +50,13 @@ const InnerComp = () => {
         tabBarActiveTintColor: 'rgb(100, 60, 1)',
         tabBarInactiveTintColor: 'gray',
 
+        // headerShown: false,
+
+
       })}
     >
       <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }} />
-      <Tab.Screen name="More" component={Settings} options={{ title: 'About' }} />
+      <Tab.Screen name="More" component={Settings} options={{ title: 'More' }} />
     </Tab.Navigator>
   )
 }

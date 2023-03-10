@@ -38,9 +38,9 @@ const Landing = ({ navigation }) => {
                 {/* <Text style={{ fontSize: 58, fontWeight: 'bold', color: 'white', backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, paddingLeft: 20, paddingRight: 20 }}>UVA-Gro</Text> */}
             </View>
 
-            <View style={{ flex: 2, justifyContent: 'center', paddingLeft: 35, paddingRight: 35, borderColor: "black", borderWidth: 1 }}>
+            <View style={{ flex: 2, justifyContent: 'center', borderColor: "black", borderWidth: 1 }}>
 
-                <View style={{ flex: 2, width: '100%', justifyContent: 'space-around', borderColor: "black", borderWidth: 1 }}>
+                <View style={{ flex: 2, width: '100%', justifyContent: 'space-around', borderColor: "black", borderWidth: 1, paddingLeft: 35, paddingRight: 35, }}>
                     <TouchableOpacity
                         onPress={() => {
                             navigation.navigate('Formulate');
@@ -58,11 +58,21 @@ const Landing = ({ navigation }) => {
                 </View>
 
                 {/* Sponsors Logo */}
-                <View style={{ flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around', borderColor: "black", borderWidth: 1 }}>
+                <View style={{
+                    flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
+                    borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)'
+                }}>
 
-                    <Text style={{ color: 'white', borderBottomColor: "white", borderBottomWidth: 1, fontSize: 18, fontWeight: 'bold' }}>
-                        Our Partners:
-                    </Text>
+                    <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                        <Text style={{
+                            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold', borderBottomWidth: 2,
+                            // borderBottomColor: "white", borderBottomWidth: 4, color: 'white', fontSize: 18, fontWeight: 'bold', 
+                        }}>
+                            Our Partners
+                        </Text>
+
+                    </View>
+
                     <TouchableOpacity
                         onPress={async () => await Linking.openURL(url_arass)}
                     >

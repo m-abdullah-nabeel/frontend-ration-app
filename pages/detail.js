@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { View, Text, Button, StyleSheet, Linking, Image, ScrollView, Pressable } from "react-native"
+import { View, Text, Button, TouchableOpacity, Linking, Image, ScrollView, Pressable } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
 import animalsReqdata from '../assets/data/nutrients_required.json';
 
@@ -42,11 +42,11 @@ const ResultCheck = (props) => {
             backgroundColor: "rgb(110, 30, 1)",
             width: "100%",
             borderRadius: 10,
-            marginBottom: 20
+            padding: 20
           }}>
             <Text style={{
-              fontSize: 18, fontWeight: 'bold', color: "#fff",
-              marginTop: 5, marginLeft: 20, marginRight: 20, marginBottom: 2, alignSelf: "center"
+              fontSize: 18, fontWeight: 'bold', color: "#fff", alignSelf: "center",
+              // marginTop: 5, marginLeft: 20, marginRight: 20, marginBottom: 2,
             }}>
               Least Cost Feed Formulation
             </Text>
@@ -369,18 +369,19 @@ function DetailsScreen({ navigation, route }) {
 
   return (
     <ScrollView style={{ flex: 1 }}>
-      <View>
+      <View style={{ margin: 1 }}>
         {
           isLoading ?
             <Image
-              style={{ width: 70, height: 70, flex: 1, justifyContent: 'center', alignItems: "center", alignSelf: "center" }}
+              style={{ width: '100%', height: 300, flex: 1, justifyContent: 'center', alignItems: "center", alignSelf: "center" }}
               source={require('../assets/images/loading.gif')}
             />
             :
             <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} calDMI={calDMI} />
         }
       </View>
-      <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: "row", alignSelf: 'center', alignItems: 'center', marginBottom: 10, marginTop: 10 }}>
+
+      {/* <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: "row", alignSelf: 'center', alignItems: 'center', marginBottom: 10, marginTop: 10 }}>
         <Image
           style={{ width: 100, height: 45 }}
           source={require('../assets/uvas-big.png')}
@@ -389,8 +390,45 @@ function DetailsScreen({ navigation, route }) {
           style={{ width: 100, height: 45 }}
           source={require('../assets/arass.png')}
         />
+      </View> */}
+      <View style={{
+        flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
+        borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50
+      }}>
+
+        <View style={{ backgroundColor: 'white', borderRadius: 5, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+          <Text style={{
+            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold', borderBottomWidth: 2,
+          }}>
+            Our Partners
+          </Text>
+
+        </View>
+
+        <TouchableOpacity
+          onPress={async () => await Linking.openURL(url_arass)}
+        >
+          <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+            <Image
+              style={{ width: 50, height: 27 }}
+              source={require('../assets/arass.png')}
+            />
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={async () => await Linking.openURL(url_uvas)}
+        >
+          <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+            <Image
+              style={{ width: 50, height: 23 }}
+              source={require('../assets/uvas-big.png')}
+            />
+          </View>
+        </TouchableOpacity>
 
       </View>
+
       {/* <ResultCheck result={data} compo={compo} navigate={navigation} /> */}
 
       {/* <View style={{
