@@ -1,10 +1,17 @@
 import React, { useCallback, useState } from "react";
-import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable, TextInput } from "react-native"
+import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable, TextInput, Alert } from "react-native"
 
+import { Dropdown } from 'react-native-element-dropdown';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 // redux 
 import { useSelector, useDispatch } from "react-redux";
 import { setUsername } from "../redux/actions/counts";
+
+const data = [
+  { label: 'English', value: 'en' },
+  { label: 'اردو', value: 'ur' },
+];
 
 
 // translation
@@ -57,36 +64,54 @@ const OpenURLButton = ({ url, children }) => {
   return <Text onPress={handlePress}>{children}</Text>;
 };
 
-function Settings() {
+
+const LanguageChanger = () => {
   const { t, i18n } = useTranslation();
-
-  const [currentLanguage, setLanguage] = useState('en');
-
+  const [value, setValue] = useState('ur');
+  const [isFocus, setIsFocus] = useState(false);
   const changeLanguage = value => {
     i18n
       .changeLanguage(value)
-      .then(() => setLanguage(value))
+      .then(() => setValue(value))
       .catch(err => console.log(err));
   };
 
+  return (
+    <View>
+      <Text style={styles.title}>Change Language</Text>
+      <View style={[styles.container, { width: 100, margin: 10 }]}>
+        <Dropdown
+          style={[styles.dropdown, isFocus && { borderColor: 'blue', }, { backgroundColor: 'orange' }]}
+          selectedTextStyle={styles.selectedTextStyle}
+          data={data}
+          labelField="label"
+          valueField="value"
+          // placeholder={value}
+          value={value}
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(false)}
+          onChange={item => {
+            // setValue(item.value);
+            setIsFocus(false);
+            changeLanguage(item.value)
+            // Alert.alert(String(item.label))
+          }}
+          renderLeftIcon={() => (
+            <MaterialIcons
+              style={styles.icon}
+              color={isFocus ? 'rgb(120, 10, 10)' : 'rgb(10, 120, 10)'}
+              name="language"
+              size={20}
+            />
 
-  // redux
-  // const { name } = useSelector(state => state.countReducer)
-  // const dispatch = useDispatch();
+          )}
+        />
+      </View>
+    </View>
+  )
+}
 
-  // const fetchData = () => {
-  //   try {
-  //     // dispatch(setUsername(name))
-
-  //     fetch('https://jsonplaceholder.typicode.com/todos/1')
-  //       .then(response => response.json())
-  //       .then(json => console.log(json))
-
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
+function Settings() {
   const [text, onChangeText] = React.useState('Text under testing');
 
   return (
@@ -95,33 +120,7 @@ function Settings() {
         <Text style={[styles.ptext, { alignSelf: "center" }]}>Under Development</Text>
         <Text style={[styles.ptext, { alignSelf: "center" }]}>We are considering only CP and ME at this time</Text>
 
-
-        {/* language */}
-        <View>
-          <Text style={styles.title}>Change Language</Text>
-          <View style={styles.contentContainer}>
-            <Pressable
-              onPress={() => changeLanguage('en')}
-              style={{
-                backgroundColor:
-                  currentLanguage === 'en' ? 'rgb(30, 130, 0)' : '#d3d3d3',
-                padding: 20,
-              }}>
-              <Text>English</Text>
-            </Pressable>
-
-            <Pressable
-              onPress={() => changeLanguage('ur')}
-              style={{
-                backgroundColor:
-                  currentLanguage === 'ur' ? 'rgb(30, 130, 0)' : '#d3d3d3',
-                padding: 20,
-              }}>
-              <Text>اردو</Text>
-            </Pressable>
-
-          </View>
-        </View>
+        <LanguageChanger />
 
         {/* redux */}
         <View style={{ marginBottom: 30 }}>
@@ -253,7 +252,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     textAlign: 'justify',
-  }
+  },
+  dropdown: {
+    height: 50,
+    backgroundColor: 'red',
+    borderColor: 'gray',
+    borderWidth: 0.5,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    textAlign: 'center'
+  },
+  selectedTextStyle: {
+    fontSize: 12,
+    backgroundColor: 'yellow',
+    textAlign: 'center'
+  },
+
 });
 
 
