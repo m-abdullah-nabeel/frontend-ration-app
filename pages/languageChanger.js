@@ -5,12 +5,12 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import '../assets/i18n/i18n';
 import { useTranslation } from 'react-i18next';
 
-const LanguageChanger = () => {
-    const data = [
-        { label: 'English', value: 'en' },
-        { label: 'اردو', value: 'ur' },
-    ];
+const data = [
+    { label: 'English', value: 'en' },
+    { label: 'اردو', value: 'ur' },
+];
 
+const LanguageChanger = () => {
     const { t, i18n } = useTranslation();
     const [value, setValue] = useState('ur');
     const [isFocus, setIsFocus] = useState(false);
@@ -30,15 +30,12 @@ const LanguageChanger = () => {
                     data={data}
                     labelField="label"
                     valueField="value"
-                    // placeholder={value}
                     value={value}
                     onFocus={() => setIsFocus(true)}
                     onBlur={() => setIsFocus(false)}
                     onChange={item => {
-                        // setValue(item.value);
                         setIsFocus(false);
                         changeLanguage(item.value)
-                        // Alert.alert(String(item.label))
                     }}
                     renderLeftIcon={() => (
                         <MaterialIcons
@@ -66,7 +63,6 @@ const styles = StyleSheet.create({
     },
     selectedTextStyle: {
         fontSize: 12,
-        // backgroundColor: 'yellow',
         textAlign: 'center'
     },
 });

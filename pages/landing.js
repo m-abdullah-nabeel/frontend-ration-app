@@ -29,12 +29,10 @@ const Landing = ({ navigation }) => {
         // <View style={{ flex: 1, backgroundColor: 'rgb(200, 200, 200)' }}>
         // colors reversed
         // <View style={{ flex: 1, backgroundColor: 'rgb(10, 150, 10)' }}>
-        // <SafeAreaView>
         <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)' }}>
-            <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', paddingTop: 50, borderColor: "black", borderWidth: 1 }}>
+            <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
                 <View style={{
                     position: 'absolute', top: StatusBar.currentHeight, left: windowWidth - 105, right: 5, bottom: 0,
-                    // marginTop: StatusBar.currentHeight
                 }}>
                     <LanguageChanger />
                 </View>
@@ -55,8 +53,8 @@ const Landing = ({ navigation }) => {
                 </View>
             </View>
 
-            <View style={{ flex: 2, justifyContent: 'center', borderColor: "black", borderWidth: 1 }}>
-                <View style={{ flex: 2, width: '100%', justifyContent: 'space-around', borderColor: "black", borderWidth: 1, paddingLeft: 35, paddingRight: 35, }}>
+            <View style={{ flex: 2, justifyContent: 'center', paddingLeft: 35, paddingRight: 35, }}>
+                <View style={{ flex: 2, width: '100%', justifyContent: 'space-around', }}>
                     <TouchableOpacity
                         onPress={() => {
                             navigation.navigate('Formulate');
@@ -76,7 +74,7 @@ const Landing = ({ navigation }) => {
                 {/* Sponsors Logo */}
                 <View style={{
                     flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
-                    borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)'
+                    backgroundColor: 'rgb(10, 100, 10)'
                 }}>
 
                     <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
@@ -114,8 +112,6 @@ const Landing = ({ navigation }) => {
                 </View>
             </View>
         </SafeAreaView >
-
-        // </SafeAreaView>
     )
 }
 
