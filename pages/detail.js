@@ -82,6 +82,7 @@ const ResultCheck = (props) => {
                 dm_a.push(curr_['DM%'] * percent_val)
                 cp_a.push(curr_['CP'] * percent_val)
                 me_a.push(curr_['ME'] * percent_val)
+                ndf_a.push(curr_['NDF'] * percent_val)
 
                 return (
                   <View key={k} >
@@ -110,6 +111,7 @@ const ResultCheck = (props) => {
                       Dry Matter {curr_['DM%'] * percent_val} {dm_a.push(curr_['DM%'] * percent_val)}
                       CP {curr_['CP'] * percent_val} {cp_a.push(curr_['CP'] * percent_val)}
                       ME {curr_['ME'] * percent_val} {me_a.push(curr_['ME'] * percent_val)}
+                      NDF {curr_['NDF'] * percent_val} {ndf_a.push(curr_['NDF'] * percent_val)}
                     </Text>
 
                   </View>
@@ -143,6 +145,14 @@ const ResultCheck = (props) => {
               {t("ME")}:
               {
                 ((me_a.reduce(function (x, y) {
+                  return x + y;
+                }, 0)) / 100).toFixed(2)
+              }
+            </Text>
+            <Text style={{ color: "#fff", fontSize: 22, fontWeight: '600', alignSelf: "center" }}>
+              {t("NDF")}:
+              {
+                ((ndf_a.reduce(function (x, y) {
                   return x + y;
                 }, 0)) / 100).toFixed(2)
               }

@@ -22,7 +22,8 @@ const InnerComp = () => {
     <Tab.Navigator initialRouteName="Home"
       screenOptions={({ route }) => ({
         headerStyle: {
-          backgroundColor: 'rgba(153, 0, 0, 0.9)',
+          // backgroundColor: 'rgba(153, 20, 10, 0.8)',
+          backgroundColor: 'rgba(10, 120, 10, 1)',
           // borderColor: 'yellow', borderWidth: 5
         },
         headerTintColor: '#fff',

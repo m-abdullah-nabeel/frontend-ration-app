@@ -19,13 +19,14 @@ const Landing = ({ navigation }) => {
         // <View style={{ flex: 1, backgroundColor: 'rgb(200, 200, 200)' }}>
         // colors reversed
         // <View style={{ flex: 1, backgroundColor: 'rgb(10, 150, 10)' }}>
-        <View style={{ flex: 1, backgroundColor: 'rgb(10, 100, 10)' }}>
+        <View style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)' }}>
             <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', paddingTop: 50, borderColor: "black", borderWidth: 1 }}>
                 <View
                     style={{
                         width: 250, height: 250,
                         borderRadius: 125, alignSelf: 'center', justifyContent: 'center', alignItems: 'center',
-                        borderColor: "black", borderWidth: 1, backgroundColor: "rgb(153, 0, 0)",
+                        borderColor: "black", borderWidth: 1,
+                        backgroundColor: "rgba(255, 255, 255, 1)",
                     }}>
                     <Image
                         // style={{ width: 250, height: 250, backgroundColor: "rgb(10, 150, 10)", borderRadius: 150 }}

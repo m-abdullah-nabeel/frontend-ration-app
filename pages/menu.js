@@ -9,6 +9,7 @@ const MenuScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1 }}>
 
+            {/* classic one */}
             {/* <View style={{ flex: 1, borderColor: 'black', borderWidth: 0.5 }}>
                 <View style={{
                     backgroundColor: 'rgba(10, 100, 0, 0.7)', borderRadius: 50,
@@ -46,6 +47,86 @@ const MenuScreen = ({ navigation }) => {
 
             <View style={{ flex: 1, borderColor: 'black', borderWidth: 0.5, flexDirection: 'row', justifyContent: "space-evenly" }}>
                 <View style={{
+                    height: '95%', backgroundColor: 'red',
+                    backgroundColor: 'rgba(10, 100, 0, 0.5)', borderRadius: 10,
+                    alignContent: "center", justifyContent: 'center', width: '50%', margin: 4
+                }}>
+                    <Image source={require("../assets/images/summerFeed.jpg")}
+                        style={{
+                            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                            justifyContent: 'center', alignItems: 'center',
+                            height: '100%', width: "100%",
+                            borderRadius: 10,
+                        }}
+                    />
+
+                    <View style={{
+                        position: 'absolute', top: 5, left: 5, right: 5, bottom: 5,
+                        backgroundColor: "rgba(10, 100, 10, 0.5)", borderRadius: 5,
+                        flex: 1, alignItems: "center", justifyContent: "center",
+                    }}>
+                        {/* <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 14 }}>hjwbdnk</Text> */}
+                        <Text style={{
+                            fontSize: 18, fontWeight: 'bold',
+                            // paddingTop: 15, paddingLeft: 15, paddingRight: 15,
+                            padding: 15,
+
+                            color: 'white'
+                        }}>{t('summer formula')}</Text>
+                        <Text style={{
+                            fontSize: 12,
+                            fontWeight: "bold", alignSelf: 'center',
+                            // paddingBottom: 15, paddingLeft: 20, paddingRight: 15,
+                            color: 'white', textAlign: 'center',
+                            borderBottomColor: 'white', borderBottomWidth: 2,
+                            // borderColor: 'white', borderWidth: 2, padding: 2
+                        }}>{t('coming soon')}</Text>
+                    </View>
+
+                </View>
+
+                <View style={{
+                    height: '95%', backgroundColor: 'red',
+                    backgroundColor: 'rgba(10, 100, 0, 0.5)', borderRadius: 10,
+                    alignContent: "center", justifyContent: 'center', width: '50%', margin: 4
+                }}>
+                    <Image source={require("../assets/images/winterFeed.jpg")}
+                        style={{
+                            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                            justifyContent: 'center', alignItems: 'center',
+                            height: '100%', width: "100%",
+                            borderRadius: 10,
+                        }}
+                    />
+
+                    <View style={{
+                        position: 'absolute', top: 5, left: 5, right: 5, bottom: 5,
+                        backgroundColor: "rgba(10, 100, 10, 0.5)", borderRadius: 5,
+                        flex: 1, alignItems: "center", justifyContent: "center",
+                    }}>
+                        {/* <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 14 }}>hjwbdnk</Text> */}
+                        <Text style={{
+                            fontSize: 18, fontWeight: 'bold',
+                            // paddingTop: 15, paddingLeft: 15, paddingRight: 15,
+                            padding: 15,
+                            color: 'white'
+                        }}>{t('winter formula')}</Text>
+                        <Text style={{
+                            fontSize: 12,
+                            // paddingBottom: 15, paddingLeft: 20, paddingRight: 15,
+                            color: 'white',
+                            borderBottomWidth: 2, fontWeight: "bold", borderBottomColor: 'white',
+                            alignSelf: 'center',
+                            borderColor: 'white', borderWidth: 2, padding: 2,
+                        }}>{t('coming soon')}</Text>
+                    </View>
+
+                </View>
+            </View>
+
+            {/* Without pictures */}
+            {/* <View style={{ flex: 1, borderColor: 'black', borderWidth: 0.5, flexDirection: 'row', justifyContent: "space-evenly" }}>
+                <View style={{
                     backgroundColor: 'rgba(10, 100, 0, 0.5)', borderRadius: 10,
                     alignContent: "center", justifyContent: 'center', width: '50%', margin: 1
                 }}>
@@ -82,47 +163,46 @@ const MenuScreen = ({ navigation }) => {
                     }}>{t('coming soon')}</Text>
                 </View>
 
-            </View>
+            </View> */}
 
-            <View style={{ flex: 1, borderColor: 'black', borderWidth: 0.5, justifyContent: "center" }}>
+            {/* least cost formulation */}
+            <View style={{ flex: 1, borderColor: 'black', borderWidth: 0.5, justifyContent: "center", }}>
                 <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
-                    <View style={{ height: 200 }}>
+                    <View style={{ height: '100%', }}>
                         <Image source={require("../assets/images/cattlefeed.jpg")}
                             style={{
                                 position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                                justifyContent: 'center', alignItems: 'center',
-                                height: 200, width: "100%",
+                                // justifyContent: 'center', alignItems: 'center',
+                                height: '100%', width: "100%", opacity: 0.9,
                                 borderRadius: 10,
 
-                                shadowOffset: { width: -2, height: 4 },
-                                shadowColor: 'red',
-                                shadowOpacity: 1,
-                                // shadowRadius: 3,
-                                // elevation: 20,
-
+                                // shadowOffset: { width: -2, height: 4 },
+                                // shadowColor: 'red',
+                                // shadowOpacity: 1,
+                                // elevation: 1,
                             }}
                         />
 
                         <View style={{
                             position: 'absolute', top: 60, left: 60, right: 60, bottom: 60,
-                            backgroundColor: "rgba(10, 100, 10, 0.5)", borderRadius: 5,
+                            backgroundColor: "rgba(10, 100, 10, 0.8)", borderRadius: 5,
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
                             <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('feed formulate')}</Text>
-                            {/* <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>Formulate feed</Text> */}
-                            <Text style={{ color: 'white', alignSelf: "center", }}>Least Cost Feed Formulation</Text>
+                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold' }}>Least Cost Feed Formulation</Text>
                         </View>
 
                     </View>
                 </TouchableOpacity>
             </View>
 
+            {/* sponsors displayed */}
             <View style={{ flex: 1, borderColor: 'black', borderWidth: 0.25, justifyContent: "flex-end" }}>
-                <View style={{ flex: 3 }}></View>
-
                 <View style={{
-                    flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
-                    borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50
+                    backgroundColor: 'rgb(10, 100, 10)',
+                    width: '100%', height: 50,
+                    flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
+                    borderColor: "black", borderWidth: 1,
                 }}>
 
                     <View style={{ backgroundColor: 'white', borderRadius: 5, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
