@@ -68,18 +68,14 @@ const MenuScreen = ({ navigation }) => {
                         {/* <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 14 }}>hjwbdnk</Text> */}
                         <Text style={{
                             fontSize: 18, fontWeight: 'bold',
-                            // paddingTop: 15, paddingLeft: 15, paddingRight: 15,
                             padding: 15,
-
                             color: 'white'
                         }}>{t('summer formula')}</Text>
                         <Text style={{
                             fontSize: 12,
                             fontWeight: "bold", alignSelf: 'center',
-                            // paddingBottom: 15, paddingLeft: 20, paddingRight: 15,
                             color: 'white', textAlign: 'center',
-                            borderBottomColor: 'white', borderBottomWidth: 2,
-                            // borderColor: 'white', borderWidth: 2, padding: 2
+                            borderColor: 'white', borderWidth: 2, padding: 2
                         }}>{t('coming soon')}</Text>
                     </View>
 
@@ -172,14 +168,8 @@ const MenuScreen = ({ navigation }) => {
                         <Image source={require("../assets/images/cattlefeed.jpg")}
                             style={{
                                 position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                                // justifyContent: 'center', alignItems: 'center',
                                 height: '100%', width: "100%", opacity: 0.9,
                                 borderRadius: 10,
-
-                                // shadowOffset: { width: -2, height: 4 },
-                                // shadowColor: 'red',
-                                // shadowOpacity: 1,
-                                // elevation: 1,
                             }}
                         />
 

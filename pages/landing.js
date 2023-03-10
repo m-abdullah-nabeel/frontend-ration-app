@@ -1,11 +1,21 @@
 import React, { useCallback } from "react";
 import { Text, View, Image, Linking } from "react-native";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, SafeAreaView, StatusBar } from "react-native";
 // translation
 import '../assets/i18n/i18n';
 import { useTranslation } from 'react-i18next';
+import LanguageChanger from './languageChanger';
+
+import { Dimensions } from 'react-native';
+
 
 const Landing = ({ navigation }) => {
+    const windowWidth = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height;
+
+    console.log("Device Dimensions: ")
+    console.log(windowWidth, windowHeight)
+
     const url_uvas = "https://uvas.edu.pk";
     const url_arass = "https://arass.org/";
     const { t, i18n } = useTranslation();
@@ -19,8 +29,15 @@ const Landing = ({ navigation }) => {
         // <View style={{ flex: 1, backgroundColor: 'rgb(200, 200, 200)' }}>
         // colors reversed
         // <View style={{ flex: 1, backgroundColor: 'rgb(10, 150, 10)' }}>
-        <View style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)' }}>
+        // <SafeAreaView>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)' }}>
             <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', paddingTop: 50, borderColor: "black", borderWidth: 1 }}>
+                <View style={{
+                    position: 'absolute', top: StatusBar.currentHeight, left: windowWidth - 105, right: 5, bottom: 0,
+                    // marginTop: StatusBar.currentHeight
+                }}>
+                    <LanguageChanger />
+                </View>
                 <View
                     style={{
                         width: 250, height: 250,
@@ -36,11 +53,9 @@ const Landing = ({ navigation }) => {
                     />
 
                 </View>
-                {/* <Text style={{ fontSize: 58, fontWeight: 'bold', color: 'white', backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, paddingLeft: 20, paddingRight: 20 }}>UVA-Gro</Text> */}
             </View>
 
             <View style={{ flex: 2, justifyContent: 'center', borderColor: "black", borderWidth: 1 }}>
-
                 <View style={{ flex: 2, width: '100%', justifyContent: 'space-around', borderColor: "black", borderWidth: 1, paddingLeft: 35, paddingRight: 35, }}>
                     <TouchableOpacity
                         onPress={() => {
@@ -97,37 +112,10 @@ const Landing = ({ navigation }) => {
                     </TouchableOpacity>
 
                 </View>
-
             </View>
+        </SafeAreaView >
 
-            {/* <View style={{ alignItems: 'center', justifyContent: 'flex-end', borderColor: "black", borderWidth: 1 }}>
-                <View style={{ flex: -1, width: '100%', flexDirection: 'row', justifyContent: 'space-around' }}>
-                    <TouchableOpacity
-                        onPress={async () => await Linking.openURL(url_arass)}
-                    >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 50, width: 80, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                            <Image
-                                style={{ width: 65, height: 33 }}
-                                source={require('../assets/arass.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={async () => await Linking.openURL(url_uvas)}
-                    >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 50, width: 80, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                            <Image
-                                style={{ width: 65, height: 40 }}
-                                source={require('../assets/uvas-big.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
-
-                </View>
-            </View> */}
-
-        </View >
+        // </SafeAreaView>
     )
 }
 

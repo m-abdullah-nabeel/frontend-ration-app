@@ -1,22 +1,10 @@
 import React, { useCallback, useState } from "react";
 import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable, TextInput, Alert } from "react-native"
-
-import { Dropdown } from 'react-native-element-dropdown';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import LanguageChanger from './languageChanger';
 
 // redux 
 import { useSelector, useDispatch } from "react-redux";
 import { setUsername } from "../redux/actions/counts";
-
-const data = [
-  { label: 'English', value: 'en' },
-  { label: 'اردو', value: 'ur' },
-];
-
-
-// translation
-import '../assets/i18n/i18n';
-import { useTranslation } from 'react-i18next';
 
 const portfolioURL = "http://dr-abdullah-nabeel.web.app";
 
@@ -63,53 +51,6 @@ const OpenURLButton = ({ url, children }) => {
 
   return <Text onPress={handlePress}>{children}</Text>;
 };
-
-
-const LanguageChanger = () => {
-  const { t, i18n } = useTranslation();
-  const [value, setValue] = useState('ur');
-  const [isFocus, setIsFocus] = useState(false);
-  const changeLanguage = value => {
-    i18n
-      .changeLanguage(value)
-      .then(() => setValue(value))
-      .catch(err => console.log(err));
-  };
-
-  return (
-    <View>
-      <Text style={styles.title}>Change Language</Text>
-      <View style={[styles.container, { width: 100, margin: 10 }]}>
-        <Dropdown
-          style={[styles.dropdown, isFocus && { borderColor: 'blue', }, { backgroundColor: 'orange' }]}
-          selectedTextStyle={styles.selectedTextStyle}
-          data={data}
-          labelField="label"
-          valueField="value"
-          // placeholder={value}
-          value={value}
-          onFocus={() => setIsFocus(true)}
-          onBlur={() => setIsFocus(false)}
-          onChange={item => {
-            // setValue(item.value);
-            setIsFocus(false);
-            changeLanguage(item.value)
-            // Alert.alert(String(item.label))
-          }}
-          renderLeftIcon={() => (
-            <MaterialIcons
-              style={styles.icon}
-              color={isFocus ? 'rgb(120, 10, 10)' : 'rgb(10, 120, 10)'}
-              name="language"
-              size={20}
-            />
-
-          )}
-        />
-      </View>
-    </View>
-  )
-}
 
 function Settings() {
   const [text, onChangeText] = React.useState('Text under testing');
