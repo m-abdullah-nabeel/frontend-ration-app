@@ -81,45 +81,28 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
 
   }, [selected])
 
-
   useEffect(() => {
     // error logic
-    // console.log(catLen)
-    console.log("\n=====> catLen: ")
+    console.log(catLen)
+    console.log("catLen: " + catLen)
     console.log(catLen)
     console.log(Object.values(catLen))
-    // console.log(Object.values(catLen).includes(0))
-    // console.log("Error: " + (Object.values(catLen).includes(0) || Object.values(catLen).includes(1)))
-
-    console.log("\n\nError Explanation: ")
-    Object.values(catLen).map((i, k) => {
-      // console.log(i)
-      // console.log("This field's error is: ")
-      console.log(String(k + 1) + ". Selected: " + String(i) + ". This field's error is: " + String(!(i >= min_selection)) + " The minimum should be: " + String(min_selection) + " & currently selected: " + String(i))
-      // console.log(i < min_selection)
-      // console.log(i >= min_selection)
-    })
-
-
+    console.log(Object.values(catLen).includes(0))
+    console.log("Error: " + (Object.values(catLen).includes(0) || Object.values(catLen).includes(1)))
     // const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
     const check2stuffsSelected = () => (Object.values(catLen).includes(0))
     check2stuffsSelected()
       ? setError(true)
       : setError(false)
-  }, [catLen])
 
+    // Object.values(catLen).includes(0)
+    //   ? setError(true)
+    //   : setError(false)
+  }, [catLen])
 
   return (
     <View>
-      {/* <Text style={styles.header}>{category}</Text> */}
       <Text style={styles.header}>{t(category)}</Text>
-      <Text style={{
-        color: 'rgb(200, 10, 10)', fontWeight: '600',
-        fontSize: 16, margin: 10
-      }}>
-        {String(min_selection) + ". " + String(cat_msg)}
-        {/* {} */}
-      </Text>
       <View>
         <View>
           {
@@ -155,11 +138,9 @@ const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setE
                   }}
                 >
                   <Text
-                    style={{ fontSize: 18, fontWeight: '500' }}
+                    style={{ fontSize: 18, fontWeight: 'bold' }}
                   >
-                    {/* {t("category error")} */}
                     {t(x)}
-                    {/* {x} */}
                   </Text>
                 </TouchableOpacity>
               )
@@ -183,8 +164,7 @@ const StuffSelector = ({ route, navigation, min_selection, cat_msg }) => {
 
   const { animal, req_data } = route.params;
 
-  const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
-
+  // const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
   // useEffect(() => {
   //   // error logic
   //   console.log(catLen)
@@ -208,7 +188,6 @@ const StuffSelector = ({ route, navigation, min_selection, cat_msg }) => {
       <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>
         <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("select fodders")}</Text>
         <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
-          {/* Your Animal: {animal} */}
           {t("your animal")}: {t(animal)}
         </Text>
       </View>
@@ -270,7 +249,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 24,
-    fontWeight: '500',
+    fontWeight: '800',
     borderRadius: 20,
     padding: 10,
     paddingLeft: 20,

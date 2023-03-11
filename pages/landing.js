@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Text, View, Image, Linking } from "react-native";
-import { TouchableOpacity, SafeAreaView, StatusBar } from "react-native";
+import { TouchableOpacity, StatusBar } from "react-native";
 // translation
 import '../assets/i18n/i18n';
 import { useTranslation } from 'react-i18next';
@@ -29,7 +29,7 @@ const Landing = ({ navigation }) => {
         // <View style={{ flex: 1, backgroundColor: 'rgb(200, 200, 200)' }}>
         // colors reversed
         // <View style={{ flex: 1, backgroundColor: 'rgb(10, 150, 10)' }}>
-        <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)' }}>
+        <View style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)' }}>
             <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
                 <View style={{
                     position: 'absolute', top: StatusBar.currentHeight, left: windowWidth - 105, right: 5, bottom: 0,
@@ -111,7 +111,7 @@ const Landing = ({ navigation }) => {
 
                 </View>
             </View>
-        </SafeAreaView >
+        </View >
     )
 }
 
