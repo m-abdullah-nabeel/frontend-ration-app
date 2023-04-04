@@ -19,8 +19,8 @@ const ResultCheck = (props) => {
   const compo = props.compo
   const navigation = props.navigation
   const bwt = props.bwt
-  // const dmi_req = props.calDMI
-  const dmi_req = (bwt * 2 / 100).toFixed(2)
+  const dmi_req = props.calDMI
+  // const dmi_req = (bwt * 2 / 100).toFixed(2)
   let dm_a = []
   let cp_a = []
   let me_a = []
@@ -68,69 +68,50 @@ const ResultCheck = (props) => {
               {t("Dry Matter Formula")}
             </Text>
 
-            {console.log("==========>\n==========>\n==========>\n==========>\n==========>\n==========>\n")}
-            {console.log("Starting Debugging for incorrect as fed results")}
-            {
-              console.log("Results (DM Basis): " + JSON.stringify(res['results']))
-            }
             {
               Object.keys(res['results']).map((k, y) => {
                 curr_ = nutrientdata.find(x => x.name == k)
                 percent_val = Math.round(res['results'][k] * 100)
 
-
-                dm_a.push(curr_['DM%'] * percent_val * curr_['DM%'] / 100)
-                cp_a.push(curr_['CP'] * percent_val * curr_['DM%'] / 100)
-                me_a.push(curr_['ME'] * percent_val * curr_['DM%'] / 100)
-                ndf_a.push(curr_['NDF'] * percent_val * curr_['DM%'] / 100)
-
-
-                // dm_a.push(curr_['DM%'] * percent_val)
-                // cp_a.push(curr_['CP'] * percent_val)
-                // me_a.push(curr_['ME'] * percent_val)
-                // ndf_a.push(curr_['NDF'] * percent_val)
-
-                console.log(String(y) + ". " + JSON.stringify(curr_) + String(percent_val))
-
-                console.log(
-                  curr_['DM%'] * percent_val,
-                  curr_['CP'] * percent_val,
-                  curr_['ME'] * percent_val,
-                  curr_['NDF'] * percent_val
-                )
+                {/* Adding Dry Matter */ }
+                let dm_feedStuff = Number(((dmi_req * percent_val / 100)).toFixed(2))
+                dm_a.push(dm_feedStuff)
+                {/* Adding CP */ }
+                let cp_feedStuff = Number(((dmi_req * percent_val / 100) * (curr_['CP'] / 100)).toFixed(2))
+                cp_a.push(cp_feedStuff)
+                {/* Adding ME */ }
+                let me_feedStuff = Number(((dmi_req * percent_val / 100) * (curr_['ME'])).toFixed(2))
+                me_a.push(me_feedStuff)
+                {/* Adding NDF */ }
+                let ndf_feedStuff = Number(((dmi_req * percent_val / 100) * (curr_['NDF'] / 100)).toFixed(2))
+                ndf_a.push(ndf_feedStuff)
 
                 return (
                   <View key={k} >
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 1 }}>
                       <View style={{ height: 35 }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', width: 200 }}>
-                          {/* {k} */}
                           {t(k)}
                         </Text>
                       </View>
-                      {/* <View style={{ height: 35 }}>
-                        <Text>{JSON.stringify(((compo.find(x => x.name == k)['DM%']) / 100 * percent_val) * 50)}</Text>
-                      </View> */}
+
                       <View style={{ height: 35 }}>
                         <Text style={{ fontSize: 24, fontWeight: '650' }}>{percent_val} %</Text>
                       </View>
                     </View>
                     <Text style={{ backgroundColor: 'red' }}>
-                      DM%: {curr_['DM%']}
-                      CP: {curr_['CP']}
-                      ME: {curr_['ME']}
-                      NDF: {curr_['NDF']}
+                      Composition |
+                      DM% = {curr_['DM%']} %,
+                      CP = {curr_['CP']} %,
+                      ME = {curr_['ME']} kcal,
+                      NDF = {curr_['NDF']} %,
                     </Text>
                     <Text style={{ backgroundColor: 'green' }}>
-                      Provides
-                      Dry Matter {curr_['DM%'] * percent_val}
-                      {/* {dm_a.push(curr_['DM%'] * percent_val)} */}
-                      CP {curr_['CP'] * percent_val}
-                      {/* {cp_a.push(curr_['CP'] * percent_val)} */}
-                      ME {curr_['ME'] * percent_val}
-                      {/* {me_a.push(curr_['ME'] * percent_val)} */}
-                      NDF {curr_['NDF'] * percent_val}
-                      {/* {ndf_a.push(curr_['NDF'] * percent_val)} */}
+                      Provides |
+                      Dry Matter = {dm_feedStuff} ,
+                      CP = {cp_feedStuff} ,
+                      ME = {me_feedStuff} ,
+                      NDF = {ndf_feedStuff}
                     </Text>
                   </View>
                 )
@@ -143,37 +124,65 @@ const ResultCheck = (props) => {
             backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
           }}>
             <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("feed composition line")}</Text>
-            <Text style={{ color: "#fff" }}>
+            <Text style={{ color: "#fff", alignSelf: "center" }}>
               Dry Matter:&nbsp;
               {
-                ((dm_a.reduce(function (x, y) {
-                  return x + y;
-                }, 0)) / 100).toFixed(2)
-              }
+                dm_a.reduce(function (x, y) { return x + y; }, 0).toFixed(2)
+              } KG
             </Text>
-            <Text style={{ color: "#fff", fontSize: 22, fontWeight: '600', alignSelf: "center", backgroundColor: 'blue' }}>
+            <Text style={{ color: "#fff", alignSelf: "center" }}>
+              Total CP =
+              {
+                (
+                  cp_a.reduce(function (x, y) { return x + y }, 0)
+                ).toFixed(2)
+              } kg per total dm
+            </Text>
+            <Text style={{ color: "#fff", alignSelf: "center" }}>
               {t("CP")}:
               {
-                ((cp_a.reduce(function (x, y) {
-                  return x + y;
-                }, 0)) / 100).toFixed(2)
-              } %
+                (
+                  cp_a.reduce(function (x, y) { return x + y }, 0) * 100
+                  /
+                  dm_a.reduce(function (x, y) { return x + y }, 0)
+                ).toFixed(2)
+              } % per kg dm
             </Text>
-            <Text style={{ color: "#fff", fontSize: 22, fontWeight: '600', alignSelf: "center" }}>
+            <Text style={{ color: "#fff", alignSelf: "center" }}>
+              Total ME =
+              {
+                (
+                  me_a.reduce(function (x, y) { return x + y; }, 0)
+                ).toFixed(2)
+              } kg per total diet
+            </Text>
+            <Text style={{ color: "#fff", alignSelf: "center" }}>
               {t("ME")}:
               {
-                ((me_a.reduce(function (x, y) {
-                  return x + y;
-                }, 0)) / 100).toFixed(2)
-              }
+                (
+                  me_a.reduce(function (x, y) { return x + y; }, 0)
+                  /
+                  dm_a.reduce(function (x, y) { return x + y }, 0)
+                ).toFixed(2)
+              } kcal per kg dm
             </Text>
-            <Text style={{ color: "#fff", fontSize: 22, fontWeight: '600', alignSelf: "center" }}>
+            <Text style={{ color: "#fff", alignSelf: "center" }}>
+              Total NDF =
+              {
+                (
+                  ndf_a.reduce(function (x, y) { return x + y; }, 0)
+                ).toFixed(2)
+              } % per kg dm
+            </Text>
+            <Text style={{ color: "#fff", alignSelf: "center" }}>
               {t("NDF")}:
               {
-                ((ndf_a.reduce(function (x, y) {
-                  return x + y;
-                }, 0)) / 100).toFixed(2)
-              }
+                (
+                  ndf_a.reduce(function (x, y) { return x + y; }, 0) * 100
+                  /
+                  dm_a.reduce(function (x, y) { return x + y }, 0)
+                ).toFixed(2)
+              } kg per total dm
             </Text>
           </View>
 
@@ -186,15 +195,10 @@ const ResultCheck = (props) => {
             <Text style={{ fontWeight: 'bold', fontSize: 22, borderBottomColor: 'black', borderBottomWidth: 4 }}>
               {t("As Fed Basis")}
             </Text>
-            {/* <Text>(For your {bwt} kg animal)</Text>
-            <Text>Your Animal requires {dmi_req} Kg DMI</Text> */}
             {
               Object.keys(res['results']).map(k => {
                 curr_ = nutrientdata.find(x => x.name == k)
                 percent_val = Math.round(res['results'][k] * 100)
-                // dm_a.push(curr_['DM%'] * percent_val)
-                // cp_a.push(curr_['CP'] * percent_val)
-                // me_a.push(curr_['ME'] * percent_val)
 
                 return (
                   <View key={k} >
@@ -211,15 +215,15 @@ const ResultCheck = (props) => {
                         </Text>
                       </View>
 
-                      {/* <View style={{ height: 25 }}>
-                        <Text style={{
-                          fontSize: 18, fontWeight: 'bold', //borderRightWidth: 2, borderRightColor: 'black', width: 70 
-                        }}>
+
+                      <View style={{ height: 25 }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
                           {
-                            ((percent_val * dmi_req / 100) / (curr_['DM%'] / 100)).toFixed(2)
+                            (((percent_val / 100) * dmi_req) / (curr_['DM%'] / 100)).toFixed(2)
                           } Kg
                         </Text>
-                      </View> */}
+                      </View>
+
 
                       <View style={{ height: 25 }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
@@ -228,6 +232,7 @@ const ResultCheck = (props) => {
                           } Kg
                         </Text>
                       </View>
+
                     </View>
                   </View>
                 )
@@ -432,31 +437,22 @@ function DetailsScreen({ navigation, route }) {
         <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>
           {t("animal requires line")}
         </Text>
-        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+        <Text style={{ color: "#fff", fontSize: 16, fontWeight: '400', alignSelf: "center" }}>
           {t("CP")}: {nutReqShow[0]} Grams
         </Text>
-        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+        <Text style={{ color: "#fff", fontSize: 16, fontWeight: '400', alignSelf: "center" }}>
           {t("ME")}: {nutReqShow[1]} kcal
         </Text>
-        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+        <Text style={{ color: "#fff", fontSize: 16, fontWeight: '400', alignSelf: "center" }}>
           {t("NDF")}: {(nutReqShow[2] / 100) * calDMI} Kilos
         </Text>
-        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+        <Text style={{ color: "#fff", fontSize: 16, fontWeight: '400', alignSelf: "center" }}>
           {t("Body Weight")}: {bwt} KG
         </Text>
-        <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
+        <Text style={{ color: "#fff", fontSize: 16, fontWeight: '400', alignSelf: "center" }}>
           {t("Dry Matter Intake")}: {calDMI} KG
         </Text>
 
-        {/* <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
-          {t("Dry Matter Intake")}: {JSON.stringify(nutReq)}
-        </Text> */}
-        {/* <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600', alignSelf: "center" }}>
-          {t("Dry Matter Intake")}: {(bwt * 2 / 100)}
-        </Text>
-        <Text>
-          {t("Dry Matter Intake")}: {calDMI}
-        </Text> */}
       </View>
 
       {/* sponsors display */}
