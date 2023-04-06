@@ -1,11 +1,15 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TextInput, SafeAreaView } from 'react-native';
+import { View, Text, Image, StyleSheet, Linking, TextInput, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from "react-native"
 import { useTranslation } from 'react-i18next';
 
 
 const MenuScreen = ({ navigation }) => {
     const { t } = useTranslation();
+
+    const url_uvas = "https://uvas.edu.pk";
+    const url_arass = "https://arass.org/";
+
     return (
         <View style={{ flex: 1 }}>
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: "space-evenly" }}>

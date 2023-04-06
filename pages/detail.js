@@ -274,6 +274,10 @@ function DetailsScreen({ navigation, route }) {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
+  const url_uvas = "https://uvas.edu.pk";
+  const url_arass = "https://arass.org/";
+
+
   console.log("Device Dimensions: ")
   console.log(windowWidth, windowHeight)
 
