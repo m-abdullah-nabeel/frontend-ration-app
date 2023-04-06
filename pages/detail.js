@@ -211,7 +211,7 @@ const ResultCheck = (props) => {
                     }}>
                       <View style={{ height: 25 }}>
                         <Text style={{
-                          fontSize: 18, fontWeight: 'bold', width: 100
+                          fontSize: 18, fontWeight: 'bold', width: 180
                         }}>
                           {t(k)}
                         </Text>
