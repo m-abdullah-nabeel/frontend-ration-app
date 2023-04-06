@@ -99,7 +99,8 @@ const ResultCheck = (props) => {
                         <Text style={{ fontSize: 24, fontWeight: '650' }}>{percent_val} %</Text>
                       </View>
                     </View>
-                    <Text style={{ backgroundColor: 'red' }}>
+                    {/* This section is developer mode only */}
+                    {/* <Text style={{ backgroundColor: 'red' }}>
                       Composition |
                       DM% = {curr_['DM%']} %,
                       CP = {curr_['CP']} %,
@@ -112,15 +113,16 @@ const ResultCheck = (props) => {
                       CP = {cp_feedStuff} ,
                       ME = {me_feedStuff} ,
                       NDF = {ndf_feedStuff}
-                    </Text>
+                    </Text> */}
                   </View>
                 )
               })
             }
           </View>
 
+          {/* This section is developer mode only */}
           {/* this formula contains / nutrient composition of feed */}
-          <View style={{
+          {/* <View style={{
             backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
           }}>
             <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("feed composition line")}</Text>
@@ -184,7 +186,7 @@ const ResultCheck = (props) => {
                 ).toFixed(2)
               } kg per total dm
             </Text>
-          </View>
+          </View> */}
 
           {/* As fed basis for one animal */}
 
@@ -215,20 +217,10 @@ const ResultCheck = (props) => {
                         </Text>
                       </View>
 
-
                       <View style={{ height: 25 }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
                           {
                             (((percent_val / 100) * dmi_req) / (curr_['DM%'] / 100)).toFixed(2)
-                          } Kg
-                        </Text>
-                      </View>
-
-
-                      <View style={{ height: 25 }}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
-                          {
-                            ((percent_val * 100) / (curr_['DM%'] * dmi_req)).toFixed(2)
                           } Kg
                         </Text>
                       </View>
@@ -430,8 +422,9 @@ function DetailsScreen({ navigation, route }) {
         }
       </View>
 
+      {/* This section is developer mode only */}
       {/* animal requirements */}
-      <View style={{
+      {/* <View style={{
         backgroundColor: "rgba(10, 120, 10, 0.9)", borderRadius: 10, padding: 10, marginVertical: 20, marginBottom: 30
       }}>
         <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>
@@ -453,12 +446,12 @@ function DetailsScreen({ navigation, route }) {
           {t("Dry Matter Intake")}: {calDMI} KG
         </Text>
 
-      </View>
+      </View> */}
 
       {/* sponsors display */}
       <View style={{
         flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
-        borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50
+        borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50, marginTop: 20
       }}>
 
         <View style={{ backgroundColor: 'white', borderRadius: 5, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
