@@ -21,14 +21,6 @@ const Landing = ({ navigation }) => {
     const { t, i18n } = useTranslation();
 
     return (
-        // base color
-        // <View style={{ flex: 1, backgroundColor: 'rgba(120, 20, 10, 1)' }}>
-        // better colors with green focused more
-        // <View style={{ flex: 1, backgroundColor: 'rgb(153, 0, 0)' }}>
-        // white background
-        // <View style={{ flex: 1, backgroundColor: 'rgb(200, 200, 200)' }}>
-        // colors reversed
-        // <View style={{ flex: 1, backgroundColor: 'rgb(10, 150, 10)' }}>
         <View style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)' }}>
             <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
                 <View style={{
