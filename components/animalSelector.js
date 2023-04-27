@@ -151,9 +151,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
   }, [visible])
 
   return (
-    <View
-      style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}
-    >
+    <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}>
       <TouchableOpacity onPress={() => { setVisible(false) }}>
         <Modal
           animationType="slide" transparent={true} visible={visible}
@@ -172,17 +170,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
         >
           <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
             <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
-              {/* <Text>Errors: {JSON.stringify(error)}</Text>
-            {
-              Object.entries(cond).map(v => {
-                return (
-                  <Text key={v}>{v[0]} = {v[1]}</Text>
-                )
-              })
-            }
-            <Text>{JSON.stringify(cond)}</Text> */}
               <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
-                {/* Select Parameters of {animal} */}
                 {t("your animal")} {t(animal)}
               </Text>
 
@@ -224,7 +212,6 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
             </View>
           </View>
         </Modal >
-
       </TouchableOpacity>
     </View >
   )
@@ -280,11 +267,6 @@ const AnimalSelector = ({ navigation }) => {
             <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
           </TouchableOpacity>
         </View>
-        {/* <View style={styles.animal}>
-          <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Camel") }}>
-            <Image style={styles.image} source={require('../assets/animals/camel.png')} />
-          </TouchableOpacity>
-        </View> */}
         <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Goat") }}>
             <Image style={styles.image} source={require('../assets/animals/goat.png')} />
@@ -295,22 +277,6 @@ const AnimalSelector = ({ navigation }) => {
             <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
           </TouchableOpacity>
         </View>
-        {/* <View style={styles.animal}>
-          <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Horse") }}>
-            <Image style={styles.image} source={require('../assets/animals/horse.png')} />
-          </TouchableOpacity>
-        </View> */}
-
-        {/* {
-          species == ''
-            ? (
-              <Text>Please Select a species first</Text>
-            )
-            : (
-              <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
-
-            )
-        } */}
 
         <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
 

@@ -8,49 +8,22 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 // testing language
 import { useTranslation } from 'react-i18next';
 
-const large_ruminant_bw = [
-    { label: '300', value: 300 },
+const fixed_formula_spcs = [
+    { label: 'Cattle', value: 'Cattle' },
+    { label: 'Buffalo', value: 'Buffalo' },
+];
+
+const fixed_formula_bw = [
     { label: '350', value: 350 },
     { label: '400', value: 400 },
     { label: '450', value: 450 },
-    { label: '500', value: 500 },
-    { label: '550', value: 550 },
-    { label: '600', value: 600 },
-    // { label: '650', value: 650 },
-    // { label: '700', value: 700 },
 ];
 
-const large_ruminant_mp = [
+const fixed_formula_mp = [
     { label: '5', value: 5 },
     { label: '10', value: 10 },
     { label: '15', value: 15 },
     { label: '20', value: 20 },
-    // { label: '25', value: 25 },
-    // { label: '30', value: 30 },
-    // { label: '35', value: 35 },
-    // { label: '40', value: 40 },
-];
-
-const small_ruminant_bw = [
-    { label: '10', value: 10 },
-    { label: '20', value: 20 },
-    { label: '30', value: 30 },
-    { label: '40', value: 40 },
-    { label: '50', value: 50 },
-    { label: '60', value: 60 },
-    { label: '70', value: 70 },
-    { label: '80', value: 80 },
-    { label: '90', value: 90 },
-    { label: '100', value: 100 },
-];
-
-const small_ruminant_mp = [
-    { label: '0', value: 0 },
-    { label: '1', value: 1 },
-    { label: '2', value: 2 },
-    { label: '3', value: 3 },
-    { label: '4', value: 4 },
-    { label: '5', value: 5 }
 ];
 
 const DropdownCom = ({ data, statement, translated, placeholderText, cond, setCond }) => {
@@ -143,7 +116,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
         // setVisible(false);
         setError(true);
         setCond({
-            species: animal,
+            "species": '',
             "Body Weight": '',
             "Milk Production": ''
         })
@@ -169,15 +142,30 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                         })
                     }}
                 >
-                    {/* <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
+                    <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
                         <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
-                            <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
+                            {/* <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
                                 {t("your animal")} {t(animal)}
+                            </Text> */}
+                            <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
+                                select parameters
                             </Text>
 
                             <DropdownCom
                                 // data={inputs[0]}
-                                data={input[0]}
+                                data={fixed_formula_spcs}
+                                // change statement name in above cond of errors if ever change this
+                                statement="species"
+                                translated="Select Species"
+                                // translated={t("Body Weight")}
+                                placeholderText="Made to Select Cattle or Buffalo"
+                                // placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
+                                cond={cond}
+                                setCond={setCond}
+                            />
+
+                            <DropdownCom
+                                data={fixed_formula_bw}
                                 // change statement name in above cond of errors if ever change this
                                 statement="Body Weight"
                                 translated={t("Body Weight")}
@@ -187,7 +175,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                             />
 
                             <DropdownCom
-                                data={input[1]}
+                                data={fixed_formula_mp}
                                 // change statement name in above cond of errors
                                 statement="Milk Production"
                                 translated={t("Milk Production")}
@@ -211,7 +199,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                                 )
                             }
                         </View>
-                    </View> */}
+                    </View>
                 </Modal >
 
             </TouchableOpacity>
@@ -226,18 +214,18 @@ const FixedFormulaSelector = ({ navigation }) => {
 
     const { t } = useTranslation();
 
-    useEffect(() => {
-        console.log(JSON.stringify(species) + " is selected")
-        if (species == 'Cattle' || species == "Buffalo") {
-            console.log("A large ruminant " + JSON.stringify(species) + " is selected")
-            setInput([large_ruminant_bw, large_ruminant_mp])
-        }
-        if (species == 'Goat' || species == "Sheep") {
-            console.log("A small ruminant " + JSON.stringify(species) + " is selected")
-            setInput([small_ruminant_bw, small_ruminant_mp])
-        }
+    // useEffect(() => {
+    //     console.log(JSON.stringify(species) + " is selected")
+    //     if (species == 'Cattle' || species == "Buffalo") {
+    //         console.log("A large ruminant " + JSON.stringify(species) + " is selected")
+    //         setInput([large_ruminant_bw, large_ruminant_mp])
+    //     }
+    //     if (species == 'Goat' || species == "Sheep") {
+    //         console.log("A small ruminant " + JSON.stringify(species) + " is selected")
+    //         setInput([small_ruminant_bw, small_ruminant_mp])
+    //     }
 
-    }, [species])
+    // }, [species])
 
     // console.log(species)
 
@@ -256,12 +244,12 @@ const FixedFormulaSelector = ({ navigation }) => {
                     {/* {t("select animal header")} */}
                     Get Fixed Ration Formula
                 </Text>
+
             </View>
 
-            <View style={{ flex: 2 }}>
-
+            <View style={{ flex: 3 }}>
                 <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
-                    <TouchableOpacity onPress={() => { Alert.alert("Opening Modal") }}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
                         <View style={{ height: '100%', }}>
                             <Image source={require("../assets/images/summerFeed.jpg")}
                                 style={{
@@ -295,7 +283,7 @@ const FixedFormulaSelector = ({ navigation }) => {
                 </View>
 
                 <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
-                    <TouchableOpacity onPress={() => { Alert.alert("Opening Modal") }}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
                         <View style={{ height: '100%', }}>
                             <Image source={require("../assets/images/winterFeed.jpg")}
                                 style={{
@@ -332,10 +320,11 @@ const FixedFormulaSelector = ({ navigation }) => {
                         </View>
                     </TouchableOpacity>
                 </View>
-
             </View>
 
             <View style={{ flex: 1 }}></View>
+
+            <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
         </View >
     )
 }
