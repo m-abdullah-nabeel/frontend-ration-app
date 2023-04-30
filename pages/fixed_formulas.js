@@ -35,10 +35,6 @@ function Fixed_Formulas({ route }) {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView style={{ margin: 10, marginTop: 0 }}>
-                {/* <Text>
-                    Results Found:
-                    {fixedRes && JSON.stringify(fixedRes[0]) !== '{}' && fixedRes.length}
-                </Text> */}
                 <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>
                     <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("Your Fixed Formula")}</Text>
                     <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
@@ -64,17 +60,25 @@ function Fixed_Formulas({ route }) {
                                         <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
                                             <Text style={{ fontSize: 14, fontWeight: '800', width: 200 }}>
                                                 {/* {t(k)} */}
+                                                {/* {t("Barseem")} */}
+                                                {console.log(t(`${k.split("(kg)")[0].split("(grams)")[0]}`))}
                                                 {
-                                                    k.includes("(kg)") ?
-                                                        t(k.split("(kg)")[0])
-                                                        :
-                                                        (k.includes("(grams)") ? t(k.split("(grams)")[0]) : k)
+                                                    t(k.split("(kg)")[0].split("(grams)")[0])
                                                 }
                                             </Text>
                                         </View>
 
                                         <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
-                                            <Text style={{ fontSize: 14, fontWeight: '800', width: 100 }}>{fixedRes[0][k]}</Text>
+                                            <Text style={{ fontSize: 14, fontWeight: '800', width: 100 }}>
+                                                {fixedRes[0][k]}
+                                                {
+                                                    k.includes("(kg)") ?
+                                                        " Kg" :
+                                                        k.includes("(grams") ?
+                                                            " Grams" :
+                                                            "  "
+                                                }
+                                            </Text>
                                         </View>
                                     </View>
 
