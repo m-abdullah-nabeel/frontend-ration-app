@@ -68,11 +68,11 @@ const MenuScreen = ({ navigation }) => {
                     borderColor: "black", borderWidth: 1,
                 }}>
 
-                    <View style={{ backgroundColor: 'white', borderRadius: 5, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                    <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                         <Text style={{
-                            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold', borderBottomWidth: 2,
+                            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold',
                         }}>
-                            Our Partners
+                            Visit Our Team
                         </Text>
 
                     </View>
@@ -80,7 +80,7 @@ const MenuScreen = ({ navigation }) => {
                     <TouchableOpacity
                         onPress={async () => await Linking.openURL(url_arass)}
                     >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                             <Image
                                 style={{ width: 50, height: 27 }}
                                 source={require('../assets/arass.png')}
@@ -91,14 +91,13 @@ const MenuScreen = ({ navigation }) => {
                     <TouchableOpacity
                         onPress={async () => await Linking.openURL(url_uvas)}
                     >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                             <Image
                                 style={{ width: 50, height: 23 }}
                                 source={require('../assets/uvas-big.png')}
                             />
                         </View>
                     </TouchableOpacity>
-
                 </View>
 
                 {/* <View style={{ flexDirection: "row", alignSelf: 'center', alignItems: 'center', }}>

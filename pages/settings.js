@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable, TextInput, Alert, Image } from "react-native"
+import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, TouchableOpacity, TextInput, Alert, Image } from "react-native"
 
 // redux 
 // import { useSelector, useDispatch } from "react-redux";
@@ -205,6 +205,59 @@ function Settings() {
             </Text>
           </View>
         </View> */}
+
+        {/* sponsors displayed */}
+        <View style={{ flex: 1, justifyContent: "flex-end" }}>
+          <View style={{
+            backgroundColor: 'rgb(10, 100, 10)',
+            width: '100%', height: 50, marginBottom: 10,
+            flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
+            borderColor: "black", borderWidth: 1,
+          }}>
+            <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+              <Text style={{
+                alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold',
+              }}>
+                Visit Our Team
+              </Text>
+
+            </View>
+
+            <TouchableOpacity
+              onPress={async () => await Linking.openURL(url_arass)}
+            >
+              <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                <Image
+                  style={{ width: 50, height: 27 }}
+                  source={require('../assets/arass.png')}
+                />
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={async () => await Linking.openURL(url_uvas)}
+            >
+              <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                <Image
+                  style={{ width: 50, height: 23 }}
+                  source={require('../assets/uvas-big.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          {/* <View style={{ flexDirection: "row", alignSelf: 'center', alignItems: 'center', }}>
+                    <Image
+                        style={{ width: 100, height: 45 }}
+                        source={require('../assets/uvas-big.png')}
+                    />
+                    <Image
+                        style={{ width: 100, height: 45 }}
+                        source={require('../assets/arass.png')}
+                    />
+                </View> */}
+        </View>
+
 
       </ScrollView>
 

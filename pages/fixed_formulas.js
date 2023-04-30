@@ -42,7 +42,7 @@ function Fixed_Formulas({ route }) {
                     </Text>
                 </View>
 
-                <View style={{ backgroundColor: "orange", opacity: 0.7, padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10 }}>
+                <View style={{ backgroundColor: "pink", opacity: 0.7, padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10 }}>
                     <View>
                         {
                             fixedRes && JSON.stringify(fixedRes[0]) !== '{}'
@@ -94,18 +94,18 @@ function Fixed_Formulas({ route }) {
                     borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50, marginTop: 20
                 }}>
 
-                    <View style={{ backgroundColor: 'white', borderRadius: 5, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                    <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                         <Text style={{
-                            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold', borderBottomWidth: 2,
+                            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold',
                         }}>
-                            Our Partners
+                            Visit Our Team
                         </Text>
                     </View>
 
                     <TouchableOpacity
                         onPress={async () => await Linking.openURL(url_arass)}
                     >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                             <Image
                                 style={{ width: 50, height: 27 }}
                                 source={require('../assets/arass.png')}
@@ -116,7 +116,7 @@ function Fixed_Formulas({ route }) {
                     <TouchableOpacity
                         onPress={async () => await Linking.openURL(url_uvas)}
                     >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                             <Image
                                 style={{ width: 50, height: 23 }}
                                 source={require('../assets/uvas-big.png')}

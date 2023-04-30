@@ -29,7 +29,7 @@ const ResultCheck = (props) => {
   let status_ = {
     0: 'Optimization terminated successfully',
     1: 'Iteration limit reached',
-    2: 'The selected combination doesnt provide enough nutrients', //Problem appears to be infeasible
+    2: 'The selected combination does not provide enough nutrients', //Problem appears to be infeasible
     3: 'Problem appears to be unbounded',
     4: 'Numerical difficulties encountered',
   }
@@ -41,7 +41,7 @@ const ResultCheck = (props) => {
         <View>
           {/* red block */}
           <View style={{
-            backgroundColor: "rgba(153, 10, 10, 0.8)",
+            backgroundColor: "rgba(153, 150, 10, 1)",
             borderRadius: 10, padding: 10, margin: 5, alignSelf: "center", width: "100%",
           }}>
             <Text style={{
@@ -241,6 +241,7 @@ const ResultCheck = (props) => {
           style={{ width: '100%', height: 300, flex: 1, justifyContent: 'center', alignItems: "center" }}
           source={require('../assets/images/warn.gif')}
         />
+        <Text style={{ fontSize: 18, fontWeight: '500' }}>Go back and select a different combination.</Text>
         <Text style={{ fontSize: 18, fontWeight: '500' }}>{status_[res['status']]}</Text>
       </View>
     )
@@ -253,6 +254,7 @@ const ResultCheck = (props) => {
           style={{ width: '100%', height: 300, flex: 1, justifyContent: 'center', alignItems: "center" }}
           source={require('../assets/images/important.gif')}
         />
+        <Text style={{ fontSize: 18, fontWeight: '500' }}>Try again...</Text>
         <Text style={{ fontSize: 18, fontWeight: '500' }}>An unexpected error happened!</Text>
         <Text >{res['error'] && res['error']}</Text>
       </View>
@@ -458,18 +460,18 @@ function DetailsScreen({ navigation, route }) {
         borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50, marginTop: 20
       }}>
 
-        <View style={{ backgroundColor: 'white', borderRadius: 5, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
           <Text style={{
-            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold', borderBottomWidth: 2,
+            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold',
           }}>
-            Our Partners
+            Visit Our Team
           </Text>
         </View>
 
         <TouchableOpacity
           onPress={async () => await Linking.openURL(url_arass)}
         >
-          <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+          <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
             <Image
               style={{ width: 50, height: 27 }}
               source={require('../assets/arass.png')}
@@ -480,7 +482,7 @@ function DetailsScreen({ navigation, route }) {
         <TouchableOpacity
           onPress={async () => await Linking.openURL(url_uvas)}
         >
-          <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+          <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
             <Image
               style={{ width: 50, height: 23 }}
               source={require('../assets/uvas-big.png')}
