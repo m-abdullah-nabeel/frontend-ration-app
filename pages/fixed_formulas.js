@@ -1,19 +1,19 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable, TextInput, Alert } from "react-native"
+import React, { useEffect, useState } from "react";
+import { ScrollView, View, Text, Linking, SafeAreaView, TouchableOpacity, Image } from "react-native"
 import FixedFormulaLibrary from '../assets/data/fixed_formulas/_combined.json';
+import { useTranslation } from 'react-i18next';
 
 function Fixed_Formulas({ route }) {
-    const [fixedRes, setFixedRes] = useState([])
+    const [fixedRes, setFixedRes] = useState();
     const { details } = route.params;
+    const { t } = useTranslation();
+
     console.log("details on the results page: ")
     console.log(details)
 
-    const getNutriReq = (animalData) => {
+    const findFixedFormula = (animalData) => {
         console.log("=============================== Animal Data ==================================")
         console.log(animalData)
-        // console.log(animalData)
-
-        // console.log(animalData['species'])
 
         let bw = animalData['Body Weight']
         let mp = animalData['Milk Production']
@@ -27,68 +27,97 @@ function Fixed_Formulas({ route }) {
     }
 
     useEffect(() => {
-        getNutriReq(details)
-    }, [])
+        findFixedFormula(details)
+    }, [details])
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <ScrollView style={{ padding: 10 }}>
-                <Text>
-                    fixed formulas are here
-                </Text>
-                <Text>
-                    Results Found:  {0 || fixedRes.length}
-                </Text>
-                {fixedRes.map(i => (
-                    <View key={JSON.stringify(i["Main Fodder"])}>
-                        <Text style={{ fontWeight: 'bold' }}>Formula temp identication: {JSON.stringify(i["Main Fodder"])}</Text>
-                        <Text></Text>
-                        <Text>Formula details: {JSON.stringify(i)}</Text>
+            <ScrollView style={{ margin: 10, marginTop: 0 }}>
+                {/* <Text>
+                    Results Found:
+                    {fixedRes && JSON.stringify(fixedRes[0]) !== '{}' && fixedRes.length}
+                </Text> */}
+                <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("Your Fixed Formula")}</Text>
+                    <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
+                        {t("Details")}
+                    </Text>
+                </View>
+
+                <View style={{ backgroundColor: "orange", opacity: 0.7, padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10 }}>
+                    {/* <Text>Hello {typeof (fixedRes)}</Text>
+                    <Text>{JSON.stringify(fixedRes)}</Text> */}
+                    {/* <View>
+                        {
+                            fixedRes && JSON.stringify(fixedRes[0]) !== '{}' && console.log(Object.keys(fixedRes[0]))
+                        }
+                    </View> */}
+                    <View>
+                        {
+                            fixedRes && JSON.stringify(fixedRes[0]) !== '{}' && Object.keys(fixedRes[0]).map((k, i) => (
+                                <View key={i}
+                                    style={{
+                                        flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: "center",
+                                        borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 1,
+                                    }}
+                                >
+                                    <View style={{ height: 35, alignItems: "center" }}>
+                                        <Text style={{ fontSize: 14, fontWeight: 'normal', width: 200 }}>
+                                            {t(k)}
+                                        </Text>
+                                    </View>
+
+                                    <View style={{ height: 35 }}>
+                                        <Text style={{ fontSize: 14, fontWeight: '650', width: 100 }}>{fixedRes[0][k]}</Text>
+                                    </View>
+                                </View>
+
+                            ))
+                        }
                     </View>
-                ))}
+
+                </View>
+
+                {/* sponsors display */}
+                <View style={{
+                    flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
+                    borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50, marginTop: 20
+                }}>
+
+                    <View style={{ backgroundColor: 'white', borderRadius: 5, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                        <Text style={{
+                            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold', borderBottomWidth: 2,
+                        }}>
+                            Our Partners
+                        </Text>
+                    </View>
+
+                    <TouchableOpacity
+                        onPress={async () => await Linking.openURL(url_arass)}
+                    >
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                            <Image
+                                style={{ width: 50, height: 27 }}
+                                source={require('../assets/arass.png')}
+                            />
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={async () => await Linking.openURL(url_uvas)}
+                    >
+                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 70, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+                            <Image
+                                style={{ width: 50, height: 23 }}
+                                source={require('../assets/uvas-big.png')}
+                            />
+                        </View>
+                    </TouchableOpacity>
+                </View>
 
             </ScrollView>
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    title: {
-        fontSize: 24,
-        backgroundColor: 'rgb(100, 10, 10)',
-        color: 'white',
-        padding: 5,
-        paddingLeft: 15,
-        fontWeight: '500',
-        borderRadius: 15,
-    },
-    contentContainer: {
-        margin: 10
-    },
-    ptext: {
-        fontSize: 14,
-        fontWeight: '500',
-        textAlign: 'justify',
-    },
-    dropdown: {
-        height: 50,
-        backgroundColor: 'red',
-        borderColor: 'gray',
-        borderWidth: 0.5,
-        borderRadius: 8,
-        paddingHorizontal: 8,
-        textAlign: 'center'
-    },
-    selectedTextStyle: {
-        fontSize: 12,
-        backgroundColor: 'yellow',
-        textAlign: 'center'
-    },
-
-});
-
 
 export default Fixed_Formulas;

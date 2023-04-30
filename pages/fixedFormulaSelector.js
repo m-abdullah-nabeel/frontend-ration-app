@@ -170,11 +170,8 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                 >
                     <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
                         <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
-                            {/* <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
-                                {t("your animal")} {t(animal)}
-                            </Text> */}
                             <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
-                                select parameters for {animal}
+                                {t("your animal")} {t(animal)}
                             </Text>
 
                             <DropdownCom
@@ -207,7 +204,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                                             navigation.navigate('Fixed Feedstuffs', { details: cond });
                                         }}
                                     >
-                                        <Text style={styles.textStyle}>{t("Select Fixed Feedstuffs")}</Text>
+                                        <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
                                     </Pressable>
                                 )
                             }
@@ -240,27 +237,36 @@ const FixedFormulaSelector = ({ navigation }) => {
 
     return (
         <View style={{ flex: 1, }}>
-            <View
-                style={{
-                    backgroundColor: 'rgb(0, 100, 0)', borderRadius: 50,
-                    paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20, marginBottom: 10,
-                }}
-            >
+            <View style={{
+                backgroundColor: 'rgb(0, 100, 0)', borderRadius: 50,
+                paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20, marginBottom: 10,
+            }}>
                 <Text style={{
                     color: 'white', alignSelf: "center",
-                    fontSize: 24, fontWeight: 'bold'
+                    fontSize: 24, fontWeight: 'bold', //paddingBottom: 5,
                 }}>
-                    {/* {t("select animal header")} */}
-                    Get Fixed Ration Formula
+                    {t("select animal header")}
                 </Text>
-
             </View>
 
-            <View style={{ flex: 3 }}>
-                <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
+            <View style={{ flex: 3, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={styles.animal}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
+                        <Image style={styles.image} source={require('../assets/animals/cow.png')} />
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.animal}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
+                        <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
+                    </TouchableOpacity>
+                </View>
+
+
+                {/* <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
                     <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
                         <View style={{ height: '100%', }}>
-                            <Image source={require("../assets/images/summerFeed.jpg")}
+                            <Image source={require("../assets/animals/cow.png")}
                                 style={{
                                     position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
                                     justifyContent: 'center', alignItems: 'center',
@@ -327,7 +333,7 @@ const FixedFormulaSelector = ({ navigation }) => {
                             </View>
                         </View>
                     </TouchableOpacity>
-                </View>
+                </View> */}
             </View>
 
             <View style={{ flex: 1 }}></View>

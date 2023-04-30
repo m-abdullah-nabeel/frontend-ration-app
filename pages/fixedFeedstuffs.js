@@ -24,31 +24,38 @@ const FixedStuffSelector = ({ route, navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("select fodders")}</Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("select main fodder")}</Text>
                 <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
-                    {t("your animal")}: {t(details["species"])}
+                    {t("your animal")} {t(details["species"])}
                 </Text>
             </View>
 
             <View>
                 {
-                    FixedFeedStuffs.map(i => (
-                        <View key={i}>
-                            <Pressable
-                                style={[styles.button, styles.buttonClose, { margin: 10 }]}
-                                onPress={() => {
-                                    setFodder(i)
-                                    navigation.navigate('Fixed Formula Display', { details: details });
-                                    console.log("details==========")
-                                    console.log(details)
-                                }}
-                            >
-                                <Text style={styles.textStyle}>{t(i)}</Text>
-                            </Pressable>
+                    FixedFeedStuffs.map(
+                        (x) => {
+                            return (
+                                <TouchableOpacity key={x}
+                                    style={[styles.item]}
+                                    onPress={() => {
+                                        setFodder(x)
+                                        navigation.navigate('Fixed Formula Display', { details: details });
+                                        console.log("details==========")
+                                        console.log(details)
+                                    }}
 
-                        </View>
-                    ))
+                                >
+                                    <Text
+                                        style={{ fontSize: 18, fontWeight: 'bold' }}
+                                    >
+                                        {t(x)}
+                                    </Text>
+                                </TouchableOpacity>
+                            )
+                        }
+                    )
                 }
+
 
             </View>
 

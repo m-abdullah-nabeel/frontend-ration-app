@@ -164,25 +164,6 @@ const StuffSelector = ({ route, navigation, min_selection, cat_msg }) => {
 
   const { animal, req_data } = route.params;
 
-  // const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
-  // useEffect(() => {
-  //   // error logic
-  //   console.log(catLen)
-  //   console.log("catLen: " + catLen)
-  //   console.log(catLen)
-  //   console.log(Object.values(catLen))
-  //   console.log(Object.values(catLen).includes(0))
-  //   console.log("Error: " + (Object.values(catLen).includes(0) || Object.values(catLen).includes(1)))
-  //   const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
-  //   check2stuffsSelected()
-  //     ? setError(true)
-  //     : setError(false)
-
-  //   // Object.values(catLen).includes(0)
-  //   //   ? setError(true)
-  //   //   : setError(false)
-  // }, [catLen])
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>

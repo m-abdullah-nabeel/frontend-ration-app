@@ -24,8 +24,8 @@ const MenuScreen = ({ navigation }) => {
                         />
 
                         <View style={{
-                            position: 'absolute', top: 60, left: 60, right: 60, bottom: 60,
-                            backgroundColor: "rgba(10, 100, 10, 0.8)", borderRadius: 5,
+                            position: 'absolute', top: 5, left: 5, right: 5, bottom: 5,
+                            backgroundColor: "rgba(10, 100, 10, 0.5)", borderRadius: 5,
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
                             <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('Get Fixed Formulas')}</Text>
