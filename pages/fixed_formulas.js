@@ -7,6 +7,8 @@ function Fixed_Formulas({ route }) {
     const [fixedRes, setFixedRes] = useState();
     const { details } = route.params;
     const { t } = useTranslation();
+    const DataToRemove = new Set(["Body weight", "Milk (lit)", "Species", "Main Fodder", "Season"]);
+
 
     console.log("details on the results page: ")
     console.log(details)
@@ -47,31 +49,36 @@ function Fixed_Formulas({ route }) {
                 <View style={{ backgroundColor: "orange", opacity: 0.7, padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10 }}>
                     <View>
                         {
-                            fixedRes && JSON.stringify(fixedRes[0]) !== '{}' && Object.keys(fixedRes[0]).map((k, i) => (
-                                <View key={i}
-                                    style={{
-                                        flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: "center",
-                                        borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 1,
-                                    }}
-                                >
-                                    <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
-                                        <Text style={{ fontSize: 14, fontWeight: '800', width: 200 }}>
-                                            {/* {t(k)} */}
-                                            {
-                                                k.includes("(kg)") ?
-                                                    t(k.split("(kg)")[0])
-                                                    :
-                                                    (k.includes("(grams)") ? t(k.split("(grams)")[0]) : k)
-                                            }
-                                        </Text>
+                            fixedRes && JSON.stringify(fixedRes[0]) !== '{}'
+                            && Object.keys(fixedRes[0])
+                                .filter((name) => {
+                                    return !DataToRemove.has(name);
+                                })
+                                .map((k, i) => (
+                                    <View key={i}
+                                        style={{
+                                            flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: "center",
+                                            borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 1,
+                                        }}
+                                    >
+                                        <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
+                                            <Text style={{ fontSize: 14, fontWeight: '800', width: 200 }}>
+                                                {/* {t(k)} */}
+                                                {
+                                                    k.includes("(kg)") ?
+                                                        t(k.split("(kg)")[0])
+                                                        :
+                                                        (k.includes("(grams)") ? t(k.split("(grams)")[0]) : k)
+                                                }
+                                            </Text>
+                                        </View>
+
+                                        <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
+                                            <Text style={{ fontSize: 14, fontWeight: '800', width: 100 }}>{fixedRes[0][k]}</Text>
+                                        </View>
                                     </View>
 
-                                    <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
-                                        <Text style={{ fontSize: 14, fontWeight: '800', width: 100 }}>{fixedRes[0][k]}</Text>
-                                    </View>
-                                </View>
-
-                            ))
+                                ))
                         }
                     </View>
 
