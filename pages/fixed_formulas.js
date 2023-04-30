@@ -18,10 +18,10 @@ function Fixed_Formulas({ route }) {
         let bw = animalData['Body Weight']
         let mp = animalData['Milk Production']
         let sp = animalData['species']
-        let ss = animalData['Season']
+        let ss = animalData['Main Fodder']
 
         let found = FixedFormulaLibrary
-            .filter(item => item["Body weight"] == bw && item["Milk (lit)"] == mp && item["Species"] == sp && item["Season"] == ss)
+            .filter(item => item["Body weight"] == bw && item["Milk (lit)"] == mp && item["Species"] == sp && item["Main Fodder"] == ss)
         console.log(found)
         setFixedRes(found)
     }

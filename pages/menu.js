@@ -28,8 +28,8 @@ const MenuScreen = ({ navigation }) => {
                             backgroundColor: "rgba(10, 100, 10, 0.8)", borderRadius: 5,
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
-                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('feed formulate')}</Text>
-                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', }}>Fixed Formulas Hasil Karen</Text>
+                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('Get Fixed Formulas')}</Text>
+                            {/* <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', }}>Fixed Formulas Hasil Karen</Text> */}
                         </View>
                     </View>
                 </TouchableOpacity>

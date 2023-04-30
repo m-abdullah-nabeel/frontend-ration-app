@@ -93,12 +93,11 @@ const DropdownCom = ({ data, statement, translated, placeholderText, cond, setCo
     )
 }
 
-const OnlyModal = ({ visible, setVisible, animal, navigation, season }) => {
+const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
     const [error, setError] = useState(true)
-    const [input, setInput] = useState([])
+    // const [input, setInput] = useState([])
     const [cond, setCond] = useState({
-        "Season": season,
-        "species": '',
+        "species": animal,
         "Body Weight": '',
         "Milk Production": ''
     });
@@ -121,30 +120,29 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, season }) => {
             : setError(false)
     }, [cond])
 
-    useEffect(() => {
-        // console.log(JSON.stringify(species) + " is Changed as species")
-        if (species == 'Cattle') {
-            console.log("Species: " + JSON.stringify(species) + " is selected")
-            setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
-        }
-        if (species == 'Buffalo') {
-            console.log("Species: " + JSON.stringify(species) + " is selected")
-            setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
-        }
+    // useEffect(() => {
+    //     // console.log(JSON.stringify(species) + " is Changed as species")
+    //     if (species == 'Cattle') {
+    //         console.log("Species: " + JSON.stringify(species) + " is selected")
+    //         setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
+    //     }
+    //     if (species == 'Buffalo') {
+    //         console.log("Species: " + JSON.stringify(species) + " is selected")
+    //         setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
+    //     }
 
-        setCond({
-            ...cond, // Copy the old fields
-            "Milk Production": '',   // But override this one
-            "Body Weight": ''  // But override this one
-        });
+    //     setCond({
+    //         ...cond, // Copy the old fields
+    //         "Milk Production": '',   // But override this one
+    //         "Body Weight": ''  // But override this one
+    //     });
 
-    }, [species])
+    // }, [species])
 
     useEffect(() => {
         setError(true);
         setCond({
-            "Season": season,
-            "species": '',
+            "species": animal,
             "Body Weight": '',
             "Milk Production": ''
         })
@@ -164,7 +162,6 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, season }) => {
                         setVisible(false);
                         setError(true);
                         setCond({
-                            "Season": season,
                             species: animal,
                             "Body Weight": '',
                             "Milk Production": ''
@@ -177,50 +174,28 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, season }) => {
                                 {t("your animal")} {t(animal)}
                             </Text> */}
                             <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
-                                select parameters
+                                select parameters for {animal}
                             </Text>
 
                             <DropdownCom
-                                // data={inputs[0]}
-                                data={fixed_formula_spcs}
+                                data={input[0]}
                                 // change statement name in above cond of errors if ever change this
-                                statement="species"
-                                translated="Select Species"
-                                // translated={t("Body Weight")}
-                                placeholderText="Made to Select Cattle or Buffalo"
-                                // placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
+                                statement="Body Weight"
+                                translated={t("Body Weight")}
+                                placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
                                 cond={cond}
                                 setCond={setCond}
                             />
 
-                            {
-                                cond['species'] == '' ?
-                                    null :
-                                    (
-                                        <>
-                                            <DropdownCom
-                                                data={input[0]}
-                                                // change statement name in above cond of errors if ever change this
-                                                statement="Body Weight"
-                                                translated={t("Body Weight")}
-                                                placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
-                                                cond={cond}
-                                                setCond={setCond}
-                                            />
-
-                                            <DropdownCom
-                                                data={input[1]}
-                                                // change statement name in above cond of errors
-                                                statement="Milk Production"
-                                                translated={t("Milk Production")}
-                                                placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
-                                                cond={cond}
-                                                setCond={setCond}
-                                            />
-
-                                        </>
-                                    )
-                            }
+                            <DropdownCom
+                                data={input[1]}
+                                // change statement name in above cond of errors
+                                statement="Milk Production"
+                                translated={t("Milk Production")}
+                                placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
+                                cond={cond}
+                                setCond={setCond}
+                            />
 
                             {
                                 error ? (<
@@ -229,11 +204,10 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, season }) => {
                                         style={[styles.button, styles.buttonClose, { margin: 10 }]}
                                         onPress={() => {
                                             setVisible(false)
-                                            navigation.navigate('Fixed Formula Display', { details: cond });
+                                            navigation.navigate('Fixed Feedstuffs', { details: cond });
                                         }}
                                     >
-                                        {/* <Text style={styles.textStyle}>{t("animal parameter next")}</Text> */}
-                                        <Text style={styles.textStyle}>{t("Show Formulas")}</Text>
+                                        <Text style={styles.textStyle}>{t("Select Fixed Feedstuffs")}</Text>
                                     </Pressable>
                                 )
                             }
@@ -249,9 +223,20 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, season }) => {
 const FixedFormulaSelector = ({ navigation }) => {
     const [visible, setVisible] = useState(false);
     const [species, setSpecies] = useState('')
-    const [season, setSeason] = useState("")
+    const [input, setInput] = useState([])
 
     const { t } = useTranslation();
+
+    useEffect(() => {
+        if (species == 'Cattle') {
+            console.log("Species: " + JSON.stringify(species) + " is selected")
+            setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
+        }
+        if (species == 'Buffalo') {
+            console.log("Species: " + JSON.stringify(species) + " is selected")
+            setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
+        }
+    }, [species])
 
     return (
         <View style={{ flex: 1, }}>
@@ -273,7 +258,7 @@ const FixedFormulaSelector = ({ navigation }) => {
 
             <View style={{ flex: 3 }}>
                 <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle"), setSeason("Summer") }}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
                         <View style={{ height: '100%', }}>
                             <Image source={require("../assets/images/summerFeed.jpg")}
                                 style={{
@@ -293,7 +278,7 @@ const FixedFormulaSelector = ({ navigation }) => {
                                     fontSize: 18, fontWeight: 'bold',
                                     padding: 15,
                                     color: 'white'
-                                }}>{t('summer formula')}</Text>
+                                }}>{t('Cattle')}</Text>
                                 <Text style={{
                                     fontSize: 12,
                                     fontWeight: "bold", alignSelf: 'center',
@@ -303,11 +288,10 @@ const FixedFormulaSelector = ({ navigation }) => {
                             </View>
                         </View>
                     </TouchableOpacity>
-
                 </View>
 
                 <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle"), setSeason("Winter") }}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
                         <View style={{ height: '100%', }}>
                             <Image source={require("../assets/images/winterFeed.jpg")}
                                 style={{
@@ -331,7 +315,7 @@ const FixedFormulaSelector = ({ navigation }) => {
                                         padding: 15,
                                         color: 'white'
                                     }}
-                                >{t('winter formula')}</Text>
+                                >{t('Buffalo')}</Text>
                                 <Text style={{
                                     fontSize: 12,
                                     color: 'white',
@@ -348,7 +332,7 @@ const FixedFormulaSelector = ({ navigation }) => {
 
             <View style={{ flex: 1 }}></View>
 
-            <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} season={season} />
+            <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
         </View >
     )
 }
