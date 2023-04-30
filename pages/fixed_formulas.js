@@ -7,7 +7,7 @@ function Fixed_Formulas({ route }) {
     const [fixedRes, setFixedRes] = useState();
     const { details } = route.params;
     const { t } = useTranslation();
-    const DataToRemove = new Set(["Body weight", "Milk (lit)", "Species", "Main Fodder", "Season"]);
+    const DataToRemove = new Set(["Body Weight", "Milk (lit)", "Species", "Main Fodder", "Season"]);
 
 
     console.log("details on the results page: ")
@@ -23,7 +23,7 @@ function Fixed_Formulas({ route }) {
         let ss = animalData['Main Fodder']
 
         let found = FixedFormulaLibrary
-            .filter(item => item["Body weight"] == bw && item["Milk (lit)"] == mp && item["Species"] == sp && item["Main Fodder"] == ss)
+            .filter(item => item["Body Weight"] == bw && item["Milk (lit)"] == mp && item["Species"] == sp && item["Main Fodder"] == ss)
         console.log(found)
         setFixedRes(found)
     }
