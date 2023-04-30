@@ -45,13 +45,6 @@ function Fixed_Formulas({ route }) {
                 </View>
 
                 <View style={{ backgroundColor: "orange", opacity: 0.7, padding: 10, borderColor: 'green', borderWidth: 3, borderRadius: 10 }}>
-                    {/* <Text>Hello {typeof (fixedRes)}</Text>
-                    <Text>{JSON.stringify(fixedRes)}</Text> */}
-                    {/* <View>
-                        {
-                            fixedRes && JSON.stringify(fixedRes[0]) !== '{}' && console.log(Object.keys(fixedRes[0]))
-                        }
-                    </View> */}
                     <View>
                         {
                             fixedRes && JSON.stringify(fixedRes[0]) !== '{}' && Object.keys(fixedRes[0]).map((k, i) => (
@@ -61,14 +54,20 @@ function Fixed_Formulas({ route }) {
                                         borderBottomColor: 'rgb(120, 30, 0)', borderBottomWidth: 1,
                                     }}
                                 >
-                                    <View style={{ height: 35, alignItems: "center" }}>
-                                        <Text style={{ fontSize: 14, fontWeight: 'normal', width: 200 }}>
-                                            {t(k)}
+                                    <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
+                                        <Text style={{ fontSize: 14, fontWeight: '800', width: 200 }}>
+                                            {/* {t(k)} */}
+                                            {
+                                                k.includes("(kg)") ?
+                                                    t(k.split("(kg)")[0])
+                                                    :
+                                                    (k.includes("(grams)") ? t(k.split("(grams)")[0]) : k)
+                                            }
                                         </Text>
                                     </View>
 
-                                    <View style={{ height: 35 }}>
-                                        <Text style={{ fontSize: 14, fontWeight: '650', width: 100 }}>{fixedRes[0][k]}</Text>
+                                    <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
+                                        <Text style={{ fontSize: 14, fontWeight: '800', width: 100 }}>{fixedRes[0][k]}</Text>
                                     </View>
                                 </View>
 
