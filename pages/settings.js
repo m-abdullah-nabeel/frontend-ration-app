@@ -1,45 +1,13 @@
 import React, { useCallback, useState } from "react";
-import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable, TextInput, Alert } from "react-native"
-import LanguageChanger from './languageChanger';
+import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, Pressable, TextInput, Alert, Image } from "react-native"
 
 // redux 
-import { useSelector, useDispatch } from "react-redux";
-import { setUsername } from "../redux/actions/counts";
+// import { useSelector, useDispatch } from "react-redux";
+// import { setUsername } from "../redux/actions/counts";
 
-const portfolioURL = "http://dr-abdullah-nabeel.web.app";
+// const portfolioURL = "http://dr-abdullah-nabeel.web.app";
 
-const team_info = [
-  {
-    name: "Dr. Mubarik Mahmood",
-    role: "Principal Investigator",
-    position: "Assistant Professor, Animal Nutrition, UVAS, Lahore subcampus, Jhang"
-  },
-  {
-    name: "Dr. Nasrullah Khan",
-    role: "Co-Principal Investigator",
-    position: "Associate Professor, University of the Punjab, Lahore"
-  },
-  {
-    name: "Dr. Muhammad Zafar Ullah Khan",
-    role: "Industrial Partner",
-    position: "Director ARASS PVT Ltd, Lahore"
-  },
-  {
-    name: "Ms. Kanwal Refique",
-    role: "Others",
-    position: "Lecturer Poultry Production,UVAS, Lahore subcampus, Jhang"
-  },
-  {
-    name: "Mr. Abdul Ayaz Khan",
-    role: "Others",
-    position: "Lecturer, IT, UVAS, Lahore subcampus, Jhang"
-  },
-  {
-    name: "Dr. Muhammad Abdullah Nabeel",
-    role: "Others",
-    position: "Student"
-  }
-]
+let testLoc = "abdullah.jpg"
 
 const OpenURLButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
@@ -58,13 +26,8 @@ function Settings() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ padding: 10 }}>
-        <Text style={[styles.ptext, { alignSelf: "center" }]}>Under Development</Text>
-        <Text style={[styles.ptext, { alignSelf: "center" }]}>We are considering only CP and ME at this time</Text>
-
-        <LanguageChanger />
-
         {/* redux */}
-        <View style={{ marginBottom: 30 }}>
+        {/* <View style={{ marginBottom: 30 }}>
           <Text style={styles.title}>Redux Text Testing state</Text>
           <View style={styles.contentContainer}>
             <TextInput
@@ -73,9 +36,9 @@ function Settings() {
               value={text}
             />
 
-            {/* <Text>{name}</Text> */}
+            <Text>{name}</Text>
           </View>
-        </View>
+        </View> */}
 
         <View>
           <Text style={styles.title}>Guidelines</Text>
@@ -84,26 +47,30 @@ function Settings() {
               1. Choose your animal and its parameters, it will help us identify the nutrient requirements of the animals
             </Text>
             <Text style={styles.ptext}>
-              2. Then select the feed stuffs, you have to choose at least one feedstuff from each of given 4 categories,
-              This will save the data of available feedstuffs, we extract price and nutrient compositions of selected feedstuffs for next step.
-            </Text>
-            <Text style={styles.ptext}>
-              3. Now the next page will contain the formulas generated scientifically using linear programming,
-              This page can result into warning, if the algorithm thinks that selected feedtuffs cant meet the nutrient requirements of animal.
-              This can occur due to:
-            </Text>
-            <Text style={styles.ptext}>
-              a. If the animal requires too much nutrients ( High values of CP and ME), we are still working on it to minimize this error
-              by updating our feedstuffs
-            </Text>
-            <Text style={styles.ptext}>
-              b. If the selected feedstuffs are low in nutrients, this can be compensated by selecting more feedstuffs
-              (A use case is when the combination of even all selected feedstuffs CP doesn't sum up to the required CP keeping in mind inclusion levels etc.)
-            </Text>
-            <Text style={styles.ptext}>
-              c. Sometimes miscellaneous errors can happen and we note that error whenever any user gets this error.
-              However, probabilty of such error is low (A use case is when the user has no internet)
-            </Text>
+              How to use this application
+              Please follow these steps for proper utilization of the application
+              Open UVA-gro Application.
+              You will see the following screen
+              If you want to get fixed formula, click the tab "Get fixed feed formulas". Then follow these steps
+              Step 1: Select season
+              Step 2: Select your animal
+              Step 3: Select weight and milk production level of your animal
+              Step 4: Select main fodders you have
+              Step 5: Relevant formula will appear on the screen
+
+              If you want to get new formula by selecting your own feed ingredients, then follow these steps
+
+              Step 1: Click on the tab "formulate feed"
+              Step 2: Select your animal
+              Step 3: Select body weight and milk production level of your animal
+              Step 4: Screen will appear from where you can select feed ingredients from 4 different categories. Select at least one ingredient from each category by scrolling down
+              Step 5: Screen will appear with your required formulae based upon dry matter and as fed.
+              Step 6: Use as fed formula fo feed your animal
+
+              Please keep in mind some basic rules to properly use this application.
+              1. Select ingredients wisely, for example, it is better to select at least one succulent fodder along with one dry roughage for better results. Selection of too many dry roughages only or succulent fodders only may disturb the formula results.
+              2. As body weight and milk production of your animal increases, try to increase the number of ingredients from each category.
+              3. We are hoping for the best results based on least cost, however, 100% is not possible. In case of any problem please contact our team members via email or phone call.            </Text>
           </View>
         </View>
 
@@ -127,23 +94,95 @@ function Settings() {
         {/* Team */}
         <View>
           <Text style={styles.title}>Team</Text>
-          <View style={styles.contentContainer}>
-            {
-              team_info.map(
-                (k, i) => (
-                  <View key={i} style={{ margin: 5, borderBottomWidth: 2, borderBottomColor: 'black' }}>
-                    <Text style={{ fontWeight: 'bold' }}>{k.role}</Text>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{k.name}</Text>
-                    <Text>{k.position}</Text>
-                  </View>
-                )
-              )
-            }
+          <View style={[styles.contentContainer]}>
+            <View
+              style={{
+                height: 140, borderRadius: 10, flexDirection: 'row', justifyContent: "space-between",
+                borderBottomColor: 'grey', borderBottomWidth: 1
+              }}
+            >
+              <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
+                <Image
+                  style={{ width: 100, height: 100, borderRadius: 100 }}
+                  source={require("../assets/images/team/mubarik.jpg")}
+                />
+              </View>
+
+              <View style={{ flex: 1, justifyContent: "center", }}>
+                <Text style={{ fontWeight: '600' }}>Principal Investigator</Text>
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Dr. Mubarik Mahmood</Text>
+                <Text style={{ fontSize: 12 }}>Assistant Professor, Animal Nutrition, UVAS, Lahore subcampus, Jhang</Text>
+              </View>
+            </View>
+          </View>
+          <View style={[styles.contentContainer]}>
+            <View
+              style={{
+                height: 140, borderRadius: 10, flexDirection: 'row', justifyContent: "space-between",
+                borderBottomColor: 'grey', borderBottomWidth: 1
+              }}
+            >
+              <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
+                <Image
+                  style={{ width: 100, height: 100, borderRadius: 100 }}
+                  source={require("../assets/images/team/nasrullah.jpg")}
+                />
+              </View>
+
+              <View style={{ flex: 1, justifyContent: "center", }}>
+                <Text style={{ fontWeight: '600' }}>Co-Principal Investigator</Text>
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Dr. Nasrullah Khan</Text>
+                <Text style={{ fontSize: 12 }}>Associate Professor, University of the Punjab, Lahore</Text>
+              </View>
+            </View>
+          </View>
+          <View style={[styles.contentContainer]}>
+            <View
+              style={{
+                height: 140, borderRadius: 10, flexDirection: 'row', justifyContent: "space-between",
+                borderBottomColor: 'grey', borderBottomWidth: 1
+              }}
+            >
+              <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
+                <Image
+                  style={{ width: 100, height: 100, borderRadius: 100 }}
+                  source={require("../assets/images/team/zafarullah.jpg")}
+                />
+              </View>
+
+              <View style={{ flex: 1, justifyContent: "center", }}>
+                <Text style={{ fontWeight: '600' }}>Industrial Partner</Text>
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Dr. Muhammad Zafar Ullah Khan</Text>
+                <Text style={{ fontSize: 12 }}>Director ARASS PVT Ltd, Lahore</Text>
+              </View>
+            </View>
+          </View>
+
+          <View style={[styles.contentContainer]}>
+            <View
+              style={{
+                height: 140, borderRadius: 10, flexDirection: 'row', justifyContent: "space-between",
+                borderBottomColor: 'grey', borderBottomWidth: 1
+              }}
+            >
+              <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
+                <Image
+                  style={{ width: 100, height: 100, borderRadius: 100 }}
+                  source={require("../assets/images/team/" + String(testLoc))}
+                />
+              </View>
+
+              <View style={{ flex: 1, justifyContent: "center", }}>
+                <Text style={{ fontWeight: '600' }}>Others</Text>
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Dr. Muhammad Abdullah Nabeel</Text>
+                <Text style={{ fontSize: 12 }}>Student</Text>
+              </View>
+            </View>
           </View>
         </View>
 
         {/* Contact */}
-        <View style={{ marginBottom: 30 }}>
+        {/* <View style={{ marginBottom: 30 }}>
           <Text style={styles.title}>Contact Us</Text>
           <View style={styles.contentContainer}>
             <Text>
@@ -165,7 +204,7 @@ function Settings() {
               </OpenURLButton>
             </Text>
           </View>
-        </View>
+        </View> */}
 
       </ScrollView>
 
