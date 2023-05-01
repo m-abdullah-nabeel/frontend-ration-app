@@ -168,14 +168,14 @@ function Settings() {
               <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
                 <Image
                   style={{ width: 100, height: 100, borderRadius: 100 }}
-                  source={require("../assets/images/team/" + String(testLoc))}
+                  source={require("../assets/images/team/abdullah.jpg")}
                 />
               </View>
 
               <View style={{ flex: 1, justifyContent: "center", }}>
-                <Text style={{ fontWeight: '600' }}>Others</Text>
+                <Text style={{ fontWeight: '600' }}>App Developer</Text>
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Dr. Muhammad Abdullah Nabeel</Text>
-                <Text style={{ fontSize: 12 }}>Student</Text>
+                {/* <Text style={{ fontSize: 12 }}>Student</Text> */}
               </View>
             </View>
           </View>
@@ -214,19 +214,19 @@ function Settings() {
             flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
             borderColor: "black", borderWidth: 1,
           }}>
-            <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+            {/* <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
               <Text style={{
                 alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold',
               }}>
                 Visit Our Team
               </Text>
 
-            </View>
+            </View> */}
 
             <TouchableOpacity
               onPress={async () => await Linking.openURL(url_arass)}
             >
-              <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+              <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                 <Image
                   style={{ width: 50, height: 27 }}
                   source={require('../assets/arass.png')}
@@ -237,7 +237,7 @@ function Settings() {
             <TouchableOpacity
               onPress={async () => await Linking.openURL(url_uvas)}
             >
-              <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
+              <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                 <Image
                   style={{ width: 50, height: 23 }}
                   source={require('../assets/uvas-big.png')}
