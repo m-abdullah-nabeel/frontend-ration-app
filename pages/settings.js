@@ -40,73 +40,6 @@ function Settings() {
           </View>
         </View> */}
 
-        <View>
-          <Text style={styles.title}>Guidelines</Text>
-          <View style={styles.contentContainer}>
-            <View>
-              <Text style={{ borderColor: 'grey', borderWidth: 2, fontSize: 18, fontWeight: 'bold' }}>
-                How to use this application
-              </Text>
-              <Text style={[styles.ptext, { borderColor: 'grey', borderWidth: 2 }]}>
-                Please follow these steps for proper utilization of the application
-                Open UVA-gro Application.
-                You will see the following screen
-                If you want to get fixed formula, click the tab "Get fixed feed formulas". Then follow these steps
-                Step 1: Select season
-                Step 2: Select your animal
-                Step 3: Select weight and milk production level of your animal
-                Step 4: Select main fodders you have
-                Step 5: Relevant formula will appear on the screen
-              </Text>
-            </View>
-
-            <View>
-              <Text style={{ borderColor: 'grey', borderWidth: 2, fontSize: 18, fontWeight: 'bold' }}>
-                If you want to get new formula by selecting your own feed ingredients, then follow these steps
-              </Text>
-
-              <Text style={[styles.ptext, { borderColor: 'grey', borderWidth: 2 }]}>
-                Step 1: Click on the tab "formulate feed"
-                Step 2: Select your animal
-                Step 3: Select body weight and milk production level of your animal
-                Step 4: Screen will appear from where you can select feed ingredients from 4 different categories. Select at least one ingredient from each category by scrolling down
-                Step 5: Screen will appear with your required formulae based upon dry matter and as fed.
-                Step 6: Use as fed formula fo feed your animal
-              </Text>
-            </View>
-
-            <View>
-              <Text style={{ borderColor: 'grey', borderWidth: 2, fontSize: 18, fontWeight: 'bold' }}>
-                Please keep in mind some basic rules to properly use this application.
-              </Text>
-
-              <Text style={[styles.ptext, { borderColor: 'grey', borderWidth: 2 }]}>
-                1. Select ingredients wisely, for example, it is better to select at least one succulent fodder along with one dry roughage for better results. Selection of too many dry roughages only or succulent fodders only may disturb the formula results.
-                2. As body weight and milk production of your animal increases, try to increase the number of ingredients from each category.
-                3. We are hoping for the best results based on least cost, however, 100% is not possible. In case of any problem please contact our team members via email or phone call.
-              </Text>
-            </View>
-
-          </View>
-        </View>
-
-        {/* Project Information */}
-        <View>
-          <Text style={styles.title}>Project Information</Text>
-          <View style={styles.contentContainer}>
-            <Text style={styles.ptext}>
-              The project, sponsored by the Arass Foundation and the University of Veterinary and Animal Sciences Lahore,
-              aimed to develop a mobile app as an extension of veterinary knowledge. The app, which utilizes a least cost feed formulation algorithm,
-              allows farmers to formulate efficient feed formulas using available feedstuffs.
-              The motivation behind the project was to translate the knowledge of animal nutrition to farmers,
-              particularly those in remote areas, and empower them to utilize modern technologies and
-              knowledge for the profitable living of their animals. The app, which can be used on a mobile device,
-              remotely, allows farmers to formulate feed on the palm of their
-              hand as long as they have internet access.
-            </Text>
-          </View>
-        </View>
-
         {/* Team */}
         <View>
           <Text style={styles.title}>Team</Text>
@@ -194,6 +127,108 @@ function Settings() {
                 <Text style={{ fontSize: 12 }}>Tech Lead, CyberSecure Solutions</Text>
               </View>
             </View>
+          </View>
+        </View>
+
+
+        {/* Guidelines */}
+        <View>
+          <Text style={styles.title}>Guidelines</Text>
+          <View style={styles.contentContainer}>
+            <View>
+              <Text style={{ borderBottomColor: 'grey', borderBottomWidth: 2, alignSelf: "center", marginBottom: 5, fontSize: 18, fontWeight: 'bold' }}>
+                How to use this application
+              </Text>
+              <Text style={[styles.ptext, { fontSize: 14, fontWeight: 'bold' }]}>
+                Please follow these steps for proper utilization of the application:
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Open UVA-gro Application.
+                {/* You will see the following screen */}
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                If you want to get fixed formula, click the tab "Get fixed feed formulas". Then follow these steps
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 1: Select your animal
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 2: Select weight and milk production level of your animal
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 3: Select main fodders you have
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 4: Relevant formula will appear on the screen
+              </Text>
+              <Image
+                style={{ width: 250, height: 625, alignSelf: "center" }}
+                source={require("../assets/images/demo/Fixed.jpg")}
+              />
+            </View>
+
+            <View>
+              <Text style={{ borderBottomColor: 'grey', borderBottomWidth: 2, alignSelf: "center", marginBottom: 5, fontSize: 14, fontWeight: 'bold' }}>
+                If you want to get new formula by selecting your own feed ingredients, then follow these steps
+              </Text>
+
+              <Text style={[styles.ptext, {}]}>
+                Step 1: Click on the tab "formulate feed"
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 2: Select your animal
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 3: Select body weight and milk production level of your animal
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 4: Screen will appear from where you can select feed ingredients from 4 different categories. Select at least one ingredient from each category by scrolling down
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 5: Screen will appear with your required formulae based upon dry matter and as fed.
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                Step 6: Use as fed formula fo feed your animal
+              </Text>
+              <Image
+                style={{ width: 250, height: 625, alignSelf: "center" }}
+                source={require("../assets/images/demo/LeastCost.jpg")}
+              />
+            </View>
+
+            <View>
+              <Text style={{ borderBottomColor: 'grey', borderBottomWidth: 2, alignSelf: "center", marginBottom: 5, fontSize: 14, fontWeight: 'bold' }}>
+                Please keep in mind some basic rules to properly use this application.
+              </Text>
+
+              <Text style={[styles.ptext, {}]}>
+                1. Select ingredients wisely, for example, it is better to select at least one succulent fodder along with one dry roughage for better results. Selection of too many dry roughages only or succulent fodders only may disturb the formula results.
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                2. As body weight and milk production of your animal increases, try to increase the number of ingredients from each category.
+              </Text>
+              <Text style={[styles.ptext, {}]}>
+                3. We are hoping for the best results based on least cost, however, 100% is not possible. In case of any problem please contact our team members via email or phone call.
+              </Text>
+            </View>
+
+          </View>
+        </View>
+
+        {/* Project Information */}
+        <View>
+          <Text style={styles.title}>Project Information</Text>
+          <View style={styles.contentContainer}>
+            <Text style={styles.ptext}>
+              The project, sponsored by the Arass Foundation and the University of Veterinary and Animal Sciences Lahore,
+              aimed to develop a mobile app as an extension of veterinary knowledge. The app, which utilizes a least cost feed formulation algorithm,
+              allows farmers to formulate efficient feed formulas using available feedstuffs.
+              The motivation behind the project was to translate the knowledge of animal nutrition to farmers,
+              particularly those in remote areas, and empower them to utilize modern technologies and
+              knowledge for the profitable living of their animals. The app, which can be used on a mobile device,
+              remotely, allows farmers to formulate feed on the palm of their
+              hand as long as they have internet access.
+            </Text>
           </View>
         </View>
 
