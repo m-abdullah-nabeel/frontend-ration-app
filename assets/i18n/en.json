@@ -83,6 +83,7 @@
         "Sorghum based": "Sorghum",
         "Maize Silage based": "Maize Silage",
         "Your Fixed Formula": "Your Fixed Formula",
-        "Details": "Details"
+        "Details": "Details",
+        "retry combination": "Your combination is not feasible, go back and try a different combination."
     }
 }

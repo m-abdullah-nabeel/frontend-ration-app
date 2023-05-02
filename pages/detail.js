@@ -238,11 +238,11 @@ const ResultCheck = (props) => {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: "center" }}>
         <Image
-          style={{ width: '100%', height: 300, flex: 1, justifyContent: 'center', alignItems: "center" }}
+          style={{ width: 100, height: 100, flex: 1, justifyContent: 'center', alignItems: "center" }}
           source={require('../assets/images/warn.gif')}
         />
-        <Text style={{ fontSize: 18, fontWeight: '500' }}>Go back and select a different combination.</Text>
-        <Text style={{ fontSize: 18, fontWeight: '500' }}>{status_[res['status']]}</Text>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', padding: 20, color: 'rgba(200, 50, 50, 1)' }}>{(t("retry combination")).toUpperCase()}</Text>
+        {/* <Text style={{ fontSize: 18, fontWeight: '500' }}>{status_[res['status']]}</Text> */}
       </View>
     )
   }
