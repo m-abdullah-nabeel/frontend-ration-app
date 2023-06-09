@@ -25,7 +25,23 @@ const DATA = [
       "Maize stovers",
       "Sorghum stovers",
       "Corn cobs",
-      "Rice Husk (Phakk)"
+      "Rice Husk (Phakk)",
+      "Barseem Hay",
+      "Lucerne Hay",
+      "Cowpea Hay",
+      "Millet Straw",
+      "Cowpea Mature",
+      "Fenugreek Early Vegetative",
+      "Sorghum Silage",
+      "Rhodes Grass",
+      "Alfalfa (Lucerne)",
+      "Napier grass",
+      "Rye grass",
+      "Millet",
+      "Barley",
+      "Sorghum",
+      "Jantar",
+      "Cow pea (Rawanhan)"
     ]
   },
   {
@@ -47,7 +63,15 @@ const DATA = [
       "Massar Karra",
       "Mung Karra",
       "Dry dates",
-      "Potato"
+      "Potato",
+      "Sorghum Grains",
+      "Barley Grains",
+      "Oats Grains",
+      "Rice Grains",
+      "Millet Grains",
+      "Cane Molasses",
+      "Sugarcane Bagasse"
+
     ]
   },
   {
@@ -63,7 +87,8 @@ const DATA = [
       "Maize gluten meal 60%",
       "Palm kernel cake",
       "Sunflower meal",
-      "Guar meal"
+      "Guar meal",
+      "Linseed meal"
     ]
   },
 ];

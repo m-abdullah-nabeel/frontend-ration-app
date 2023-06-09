@@ -24,8 +24,8 @@ const MenuScreen = ({ navigation }) => {
                         />
 
                         <View style={{
-                            position: 'absolute', top: 10, left: 10, right: 10, bottom: 10,
-                            backgroundColor: "rgba(10, 100, 10, 0.4)", borderRadius: 5,
+                            position: 'absolute', top: 50, left: 50, right: 50, bottom: 50,
+                            backgroundColor: "rgba(10, 100, 10, 0.6)", borderRadius: 5,
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
                             <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('Get Fixed Formulas')}</Text>
@@ -48,7 +48,7 @@ const MenuScreen = ({ navigation }) => {
                         />
 
                         <View style={{
-                            position: 'absolute', top: 60, left: 60, right: 60, bottom: 60,
+                            position: 'absolute', top: 50, left: 50, right: 50, bottom: 50,
                             backgroundColor: "rgba(10, 100, 10, 0.8)", borderRadius: 5,
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
