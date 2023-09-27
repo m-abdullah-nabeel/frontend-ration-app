@@ -256,7 +256,10 @@ const ResultCheck = (props) => {
         />
         <Text style={{ fontSize: 18, fontWeight: '500' }}>Try again...</Text>
         <Text style={{ fontSize: 18, fontWeight: '500' }}>An unexpected error happened!</Text>
-        <Text >{res['error'] && res['error']}</Text>
+        <Text >{res['error'] && JSON.stringify(res['error'])}</Text>
+        {
+          console.log(res['error'])
+        }
       </View>
 
     )
@@ -306,7 +309,9 @@ function DetailsScreen({ navigation, route }) {
         }
         console.log(reqData)
 
-        const response = await fetch('https://poo9ym.deta.dev/formulate', {
+        // previous URL => 'https://poo9ym.deta.dev/formulate'
+
+        const response = await fetch('https://uvagro_api-1-q3381312.deta.app/formulate', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
