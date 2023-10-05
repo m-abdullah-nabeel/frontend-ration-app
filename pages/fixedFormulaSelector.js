@@ -37,6 +37,25 @@ const fixed_formula_mp_buffalo = [
     { label: '20', value: 20 },
 ];
 
+// here new
+const local_bw = [
+    { label: '400', value: 400 },
+    { label: '450', value: 450 },
+    { label: '500', value: 500 },
+];
+
+const cat_origin = [
+    { label: 'local', value: 'local' },
+    { label: 'imported', value: 'imported' },
+];
+
+const imported_bw = [
+    { label: '600', value: 600 },
+    { label: '650', value: 650 },
+    { label: '700', value: 700 },
+    { label: '750', value: 750 }
+];
+
 const DropdownCom = ({ data, statement, translated, placeholderText, cond, setCond }) => {
     const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
@@ -174,7 +193,78 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                                 {t("your animal")} {t(animal)}
                             </Text>
 
-                            <DropdownCom
+                            <Text>
+                                {animal==='dry_period'
+                                    ?
+                                    (
+                                        <View>
+                                            <DropdownCom
+                                                data={cat_origin}
+                                                // change statement name in above cond of errors if ever change this
+                                                statement="Animal Origin"
+                                                translated={t("Animal Origin")}
+                                                cond={cond}
+                                                setCond={setCond}
+                                                />
+                                                <DropdownCom
+                                                data={
+                                                    cond["Animal Origin"] == 'local'
+                                                    ? local_bw
+                                                    : imported_bw
+                                                }
+                                                // change statement name in above cond of errors if ever change this
+                                                statement="Body Weight"
+                                                translated={t("Body Weight")}
+                                                placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
+                                                cond={cond}
+                                                setCond={setCond}
+                                            />
+                                            <Pressable
+                                                style={[styles.button, styles.buttonClose, { margin: 10 }]}
+                                                onPress={() => {
+                                                    setVisible(false)
+                                                    console.log({ details: cond })
+                                                    console.log({ details: cond })
+                                                    console.log({ details: cond })
+                                                    setCond(cond)
+                                                    navigation.navigate('Fixed Feedstuffs', { details: cond });
+                                                }}
+                                            >
+                                                <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
+                                            </Pressable>
+
+                                        </View>
+                                )
+      
+                                    :
+                                (
+                                    <View>                                 
+                                        <DropdownCom
+                                            data={input[0]}
+                                            // change statement name in above cond of errors if ever change this
+                                            statement="Body Weight"
+                                            translated={t("Body Weight")}
+                                            placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
+                                            cond={cond}
+                                            setCond={setCond}
+                                        />
+            
+                                        <DropdownCom
+                                            data={input[1]}
+                                            // change statement name in above cond of errors
+                                            statement="Milk Production"
+                                            translated={t("Milk Production")}
+                                            placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
+                                            cond={cond}
+                                            setCond={setCond}
+                                        />
+                                    </View>
+    
+                                )
+                                }
+                            </Text>
+
+                            {/* <DropdownCom
                                 data={input[0]}
                                 // change statement name in above cond of errors if ever change this
                                 statement="Body Weight"
@@ -192,7 +282,7 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                                 placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
                                 cond={cond}
                                 setCond={setCond}
-                            />
+                            /> */}
 
                             {
                                 error ? (<
@@ -229,9 +319,14 @@ const FixedFormulaSelector = ({ navigation }) => {
             console.log("Species: " + JSON.stringify(species) + " is selected")
             setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
         }
+        // Before weaning after weaning dry period closeup
         if (species == 'Buffalo') {
             console.log("Species: " + JSON.stringify(species) + " is selected")
             setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
+        }
+        if (species == 'dry_period') {
+            console.log("Species: " + JSON.stringify(species) + " is selected")
+            setInput([cat_origin, fixed_formula_mp_buffalo])
         }
     }, [species])
 
@@ -259,6 +354,34 @@ const FixedFormulaSelector = ({ navigation }) => {
                 <View style={styles.animal}>
                     <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
                         <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.animal}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("before_weaning") }}>
+                        <Image style={styles.image} source={require('../assets/animals/baby_calf-removebg-preview.png')} />
+                        <Text>Before Weaning</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.animal}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("after_weaning") }}>
+                        <Image style={styles.image} source={require('../assets/animals/calf.png')} />
+                        <Text>After Weaning</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.animal}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("dry_period") }}>
+                        <Image style={styles.image} source={require('../assets/animals/dry-removebg-preview.png')} />
+                        <Text>Dry Period</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.animal}>
+                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Closeup") }}>
+                        <Image style={styles.image} source={require('../assets/animals/closeup-removebg-preview.png')} />
+                        <Text>closeup</Text>
                     </TouchableOpacity>
                 </View>
 

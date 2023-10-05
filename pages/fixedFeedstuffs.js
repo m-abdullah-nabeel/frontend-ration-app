@@ -18,6 +18,7 @@ const FixedStuffSelector = ({ route, navigation }) => {
 
     useEffect(() => {
         details["Main Fodder"] = fodder
+        console.log(details)
 
     }, [fodder])
 

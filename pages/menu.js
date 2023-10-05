@@ -59,6 +59,30 @@ const MenuScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
 
+            {/* Prepared special formulas for cattle */}
+            {/* <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
+                    <View style={{ height: '100%', }}>
+                        <Image source={require("../assets/images/cattlefeed.jpg")}
+                            style={{
+                                position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                                height: '100%', width: "100%", opacity: 0.9,
+                                borderRadius: 10,
+                            }}
+                        />
+
+                        <View style={{
+                            position: 'absolute', top: 50, left: 50, right: 50, bottom: 50,
+                            backgroundColor: "rgba(10, 100, 10, 0.8)", borderRadius: 5,
+                            flex: 1, alignItems: "center", justifyContent: "center",
+                        }}>
+                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('Special Formulas')}</Text>
+                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold' }}>Least Cost Feed Formulation</Text>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+            </View> */}
+
             {/* sponsors displayed */}
             <View style={{ flex: 1, justifyContent: "flex-end" }}>
                 <View style={{

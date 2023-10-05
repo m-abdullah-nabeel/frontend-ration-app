@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, View, Text, Linking, SafeAreaView, TouchableOpacity, Image } from "react-native"
 import FixedFormulaLibrary from '../assets/data/fixed_formulas/_combined.json';
+import StagedFixedFormulaLibrary from '../assets/data/fixed_formulas/stages_of_cattle.json';
 import { useTranslation } from 'react-i18next';
 
 function Fixed_Formulas({ route }) {
@@ -21,12 +22,28 @@ function Fixed_Formulas({ route }) {
         let mp = animalData['Milk Production']
         let sp = animalData['species']
         let ss = animalData['Main Fodder']
+        let ao = animalData['Animal Origin']
 
-        let found = FixedFormulaLibrary
+        if (sp==="dry_period") {
+            console.log("Dry Period Search for Feed Formula")
+            let found = StagedFixedFormulaLibrary
+            .filter(item => Number(item["Body Weight"]) == Number(bw) && item["Animal Origin"] == ao && item["species"].toLowerCase() == sp.toLowerCase() && item["Main Fodder"].toLowerCase() == ss.toLowerCase())
+
+            console.log(bw, ao, sp, ss)
+
+            console.log("found: ")
+            console.log(found)
+            setFixedRes(found)
+        }
+        else {
+            console.log("General Search for Feed Formula")
+            let found = FixedFormulaLibrary
             .filter(item => item["Body Weight"] == bw && item["Milk (lit)"] == mp && item["Species"] == sp && item["Main Fodder"] == ss)
-        console.log(found)
-        setFixedRes(found)
+            console.log(found)
+            setFixedRes(found)
+        }
     }
+
 
     useEffect(() => {
         findFixedFormula(details)
@@ -59,9 +76,6 @@ function Fixed_Formulas({ route }) {
                                     >
                                         <View style={{ height: 35, flex: 1, justifyContent: "center", alignItems: "flex-start" }}>
                                             <Text style={{ fontSize: 14, fontWeight: '800', width: 200 }}>
-                                                {/* {t(k)} */}
-                                                {/* {t("Barseem")} */}
-                                                {/* {console.log(t(`${k.split("(kg)")[0].split("(grams)")[0]}`))} */}
                                                 {
                                                     t(k.split("(kg)")[0].split("(grams)")[0])
                                                 }
@@ -85,7 +99,15 @@ function Fixed_Formulas({ route }) {
                                 ))
                         }
                     </View>
-
+{/* <View>
+    <Text>
+        Test
+        {
+            JSON.stringify(fixedRes)
+            // JSON.stringify(StagedFixedFormulaLibrary)
+        }
+    </Text>
+</View> */}
                 </View>
 
                 {/* sponsors display */}

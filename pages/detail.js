@@ -260,6 +260,9 @@ const ResultCheck = (props) => {
         {
           console.log(res['error'])
         }
+        {
+          console.log(JSON.stringify(res['error']))
+        }
       </View>
 
     )
@@ -310,8 +313,10 @@ function DetailsScreen({ navigation, route }) {
         console.log(reqData)
 
         // previous URL => 'https://poo9ym.deta.dev/formulate'
+        // https://jsonplaceholder.typicode.com/posts
+        // https://uvagro_api-1-q3381312.deta.app/formulate
 
-        const response = await fetch('https://uvagro_api-1-q3381312.deta.app/formulate', {
+        const response = await fetch('172.16.1.135/formulate', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -319,20 +324,38 @@ function DetailsScreen({ navigation, route }) {
           },
           body: JSON.stringify(reqData),
         });
+
+        // const response = await fetch('https://reqres.in/api/users', {
+        //   method: 'POST',
+        //   // method: 'GET',
+        //   headers: {
+        //     Accept: 'application/json',
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: {
+        //     "name": "morpheus",
+        //     "job": "leader"
+        // }
+        // ,
+        // });
+
         const json = await response.json();
         setData(json);
+        console.log("Here is the JSON response: ");
         console.log(json);
+        console.log("JSON response ends!");
         setLoading(false);
       } else {
         console.log("################==>Invalid Data<==##################")
       }
     } catch (error) {
-      console.error(error);
+      console.error("Errors Details: ", error);
+      console.log("Errors Details: ", JSON.stringify(error));
+      console.log("Errors: ", error.toString());
     } finally {
       setLoading(false);
     }
-    console.log("===================================Concluding Calculations===========================================")
-
+    console.log("=================Concluding Calculations===================")
   }
 
   const getCompositions = (namesList, NutrientObject) => {
