@@ -9,8 +9,6 @@ function Fixed_Formulas({ route }) {
     const { details } = route.params;
     const { t } = useTranslation();
     const DataToRemove = new Set(["Body Weight", "Milk (lit)", "Species", "Main Fodder", "Season"]);
-
-
     console.log("details on the results page: ")
     console.log(details)
 
@@ -43,7 +41,6 @@ function Fixed_Formulas({ route }) {
             setFixedRes(found)
         }
     }
-
 
     useEffect(() => {
         findFixedFormula(details)
@@ -99,15 +96,6 @@ function Fixed_Formulas({ route }) {
                                 ))
                         }
                     </View>
-{/* <View>
-    <Text>
-        Test
-        {
-            JSON.stringify(fixedRes)
-            // JSON.stringify(StagedFixedFormulaLibrary)
-        }
-    </Text>
-</View> */}
                 </View>
 
                 {/* sponsors display */}

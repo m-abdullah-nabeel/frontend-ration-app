@@ -310,19 +310,16 @@ function DetailsScreen({ navigation, route }) {
           "nut_req": nutReq
           // "nut_req": [15, 2094.82]
         }
+        console.log("reqData")
         console.log(reqData)
 
-        // previous URL => 'https://poo9ym.deta.dev/formulate'
-        // https://jsonplaceholder.typicode.com/posts
-        // https://uvagro_api-1-q3381312.deta.app/formulate
-
-        const response = await fetch('172.16.1.135/formulate', {
+        const response = await fetch('https://uvagro_api-1-q3381312.deta.app/formulate', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(reqData),
+          body: reqData,
         });
 
         // const response = await fetch('https://reqres.in/api/users', {
