@@ -358,28 +358,36 @@ const FixedFormulaSelector = ({ navigation }) => {
                 </View>
 
                 <View style={styles.animal}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("before_weaning") }}>
+                    <TouchableOpacity 
+                    // onPress={() => { setVisible(true), setSpecies("before_weaning") }}
+                    >
                         <Image style={styles.image} source={require('../assets/animals/baby_calf-removebg-preview.png')} />
                         <Text>Before Weaning</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.animal}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("after_weaning") }}>
+                    <TouchableOpacity 
+                    // onPress={() => { setVisible(true), setSpecies("after_weaning") }}
+                    >
                         <Image style={styles.image} source={require('../assets/animals/calf.png')} />
                         <Text>After Weaning</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.animal}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("dry_period") }}>
+                    <TouchableOpacity 
+                    // onPress={() => { setVisible(true), setSpecies("dry_period") }}
+                    >
                         <Image style={styles.image} source={require('../assets/animals/dry-removebg-preview.png')} />
                         <Text>Dry Period</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.animal}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Closeup") }}>
+                    <TouchableOpacity 
+                    // onPress={() => { setVisible(true), setSpecies("Closeup") }}
+                    >
                         <Image style={styles.image} source={require('../assets/animals/closeup-removebg-preview.png')} />
                         <Text>closeup</Text>
                     </TouchableOpacity>

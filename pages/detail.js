@@ -12,6 +12,9 @@ import RequirementsBuffalo from '../assets/data/animal_requirements/buffalo.json
 // testing language
 import { useTranslation } from 'react-i18next';
 
+const url_uvas = "https://uvas.edu.pk";
+const url_arass = "https://arass.org/";
+
 const ResultCheck = (props) => {
   const { t } = useTranslation();
 
