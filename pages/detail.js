@@ -289,55 +289,41 @@ function DetailsScreen({ navigation, route }) {
   const url_arass = "https://arass.org/";
 
 
-  console.log("Device Dimensions: ")
-  console.log(windowWidth, windowHeight)
+  // console.log("Device Dimensions: ")
+  // console.log(windowWidth, windowHeight)
+
+  const url_backend_render = 'https://uva-gro-backend-api.onrender.com/formulate/'
+  // const url_backend_deta = 'https://uvagro_api-1-q3381312.deta.app/formulate/'
+  const url_backend_localhost = 'http://127.0.0.1:8000/formulate/'
 
   const { t } = useTranslation();
 
-  const getCalculations = async () => {
-    console.log("===================================Running Calculations===========================================")
-    // check if feed and nut req arrarys have data
-    // dont proceed if they are empty
-    // let reqData = {
-    //   "feeds": compo,
-    //   "nut_req": nutReq
-    //   // "nut_req": [15, 2094.82]
-    // }
-    // Run Only if Selected feedstuff's data is available
+  const getCalculations = async (reqUrl) => {
+    console.log("Running Calculations")
     try {
-
       if (compo.length > 0 && nutReq.length > 0) {
         setLoading(true)
         let reqData = {
           "feeds": compo,
           "nut_req": nutReq
-          // "nut_req": [15, 2094.82]
         }
         console.log("reqData")
         console.log(reqData)
 
-        const response = await fetch('https://uvagro_api-1-q3381312.deta.app/formulate', {
+
+        const response = await fetch(reqUrl, {
           method: 'POST',
           headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          // "Content-type": "application/json; charset=UTF-8",
+          'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+          // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
           },
-          body: reqData,
-        });
-
-        // const response = await fetch('https://reqres.in/api/users', {
-        //   method: 'POST',
-        //   // method: 'GET',
-        //   headers: {
-        //     Accept: 'application/json',
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: {
-        //     "name": "morpheus",
-        //     "job": "leader"
-        // }
-        // ,
-        // });
+          // body: reqData,
+          body: JSON.stringify(reqData),
+      });
 
         const json = await response.json();
         setData(json);
@@ -346,16 +332,14 @@ function DetailsScreen({ navigation, route }) {
         console.log("JSON response ends!");
         setLoading(false);
       } else {
-        console.log("################==>Invalid Data<==##################")
+        console.log("Invalid Data")
       }
     } catch (error) {
       console.error("Errors Details: ", error);
-      console.log("Errors Details: ", JSON.stringify(error));
-      console.log("Errors: ", error.toString());
     } finally {
       setLoading(false);
     }
-    console.log("=================Concluding Calculations===================")
+    console.log("Concluding Calculations")
   }
 
   const getCompositions = (namesList, NutrientObject) => {
@@ -371,9 +355,9 @@ function DetailsScreen({ navigation, route }) {
   }
 
   const getNutriReq = (animalData) => {
-    console.log("=============================== Animal Data ==================================")
-    console.log(animalData)
-    console.log(animalData['species'])
+    // console.log("=============================== Animal Data ==================================")
+    // console.log(animalData)
+    // console.log(animalData['species'])
 
     let ReqObj;
     if (animalData['species'] == "Cattle") {
@@ -431,7 +415,9 @@ function DetailsScreen({ navigation, route }) {
 
   useEffect(() => {
     console.log("------------------------------------------Change Detected-----------------------------------------------------")
-    getCalculations()
+    console.log(nutReqShow)
+    getCalculations(url_backend_render)
+
   }, [compo, nutReq]);
 
   useEffect(() => {

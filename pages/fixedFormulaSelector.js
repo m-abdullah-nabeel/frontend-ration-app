@@ -307,12 +307,17 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
     )
 }
 
-const FixedFormulaSelector = ({ navigation }) => {
+const FixedFormulaSelector = ({ route, navigation }) => {
     const [visible, setVisible] = useState(false);
     const [species, setSpecies] = useState('')
     const [input, setInput] = useState([])
 
     const { t } = useTranslation();
+
+    // const {animal_type} = params.route
+    const { animal_type } = route.params;
+    console.log("++++++++++++++++++++++++++++++++++++++")
+    console.log(animal_type)
 
     useEffect(() => {
         if (species == 'Cattle') {
@@ -345,126 +350,65 @@ const FixedFormulaSelector = ({ navigation }) => {
             </View>
 
             <View style={{ flex: 3, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-                <View style={styles.animal}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
-                        <Image style={styles.image} source={require('../assets/animals/cow.png')} />
-                    </TouchableOpacity>
-                </View>
 
-                <View style={styles.animal}>
+                {
+                    animal_type !== 'cattle'? null :
+                    <>
+                        <View style={styles.animal}>
+                            <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
+                                <Image style={styles.image} source={require('../assets/animals/cow.png')} />
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.animal}>
+                            <TouchableOpacity 
+                            // onPress={() => { setVisible(true), setSpecies("before_weaning") }}
+                            >
+                                <Image style={styles.image} source={require('../assets/animals/baby_calf-removebg-preview.png')} />
+                                <Text>Before Weaning</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.animal}>
+                            <TouchableOpacity 
+                            // onPress={() => { setVisible(true), setSpecies("after_weaning") }}
+                            >
+                                <Image style={styles.image} source={require('../assets/animals/calf.png')} />
+                                <Text>After Weaning</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.animal}>
+                            <TouchableOpacity 
+                            onPress={() => { setVisible(true), setSpecies("dry_period") }}
+                            >
+                                <Image style={styles.image} source={require('../assets/animals/dry-removebg-preview.png')} />
+                                <Text>Dry Period</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.animal}>
+                            <TouchableOpacity 
+                            // onPress={() => { setVisible(true), setSpecies("Closeup") }}
+                            >
+                                <Image style={styles.image} source={require('../assets/animals/closeup-removebg-preview.png')} />
+                                <Text>closeup</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                    </>
+                }
+
+                {
+                    animal_type !== 'buffalo' ? null :
+                    <View style={styles.animal}>
                     <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
                         <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
                     </TouchableOpacity>
                 </View>
+                    
+                }
 
-                <View style={styles.animal}>
-                    <TouchableOpacity 
-                    // onPress={() => { setVisible(true), setSpecies("before_weaning") }}
-                    >
-                        <Image style={styles.image} source={require('../assets/animals/baby_calf-removebg-preview.png')} />
-                        <Text>Before Weaning</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.animal}>
-                    <TouchableOpacity 
-                    // onPress={() => { setVisible(true), setSpecies("after_weaning") }}
-                    >
-                        <Image style={styles.image} source={require('../assets/animals/calf.png')} />
-                        <Text>After Weaning</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.animal}>
-                    <TouchableOpacity 
-                    // onPress={() => { setVisible(true), setSpecies("dry_period") }}
-                    >
-                        <Image style={styles.image} source={require('../assets/animals/dry-removebg-preview.png')} />
-                        <Text>Dry Period</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.animal}>
-                    <TouchableOpacity 
-                    // onPress={() => { setVisible(true), setSpecies("Closeup") }}
-                    >
-                        <Image style={styles.image} source={require('../assets/animals/closeup-removebg-preview.png')} />
-                        <Text>closeup</Text>
-                    </TouchableOpacity>
-                </View>
-
-
-                {/* <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
-                        <View style={{ height: '100%', }}>
-                            <Image source={require("../assets/animals/cow.png")}
-                                style={{
-                                    position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                                    justifyContent: 'center', alignItems: 'center',
-                                    height: '100%', width: "100%",
-                                    borderRadius: 10,
-                                }}
-                            />
-
-                            <View style={{
-                                position: 'absolute', top: 5, left: 5, right: 5, bottom: 5,
-                                backgroundColor: "rgba(10, 100, 10, 0.5)", borderRadius: 5,
-                                flex: 1, alignItems: "center", justifyContent: "center",
-                            }}>
-                                <Text style={{
-                                    fontSize: 18, fontWeight: 'bold',
-                                    padding: 15,
-                                    color: 'white'
-                                }}>{t('Cattle')}</Text>
-                                <Text style={{
-                                    fontSize: 12,
-                                    fontWeight: "bold", alignSelf: 'center',
-                                    color: 'white', textAlign: 'center',
-                                    borderColor: 'white', borderWidth: 2, padding: 2
-                                }}>{t('coming soon')}</Text>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
-                        <View style={{ height: '100%', }}>
-                            <Image source={require("../assets/images/winterFeed.jpg")}
-                                style={{
-                                    position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                                    justifyContent: 'center', alignItems: 'center',
-                                    height: '100%', width: "100%",
-                                    borderRadius: 10,
-                                }}
-                            />
-
-                            <View
-                                style={{
-                                    position: 'absolute', top: 5, left: 5, right: 5, bottom: 5,
-                                    backgroundColor: "rgba(10, 100, 10, 0.5)", borderRadius: 5,
-                                    flex: 1, alignItems: "center", justifyContent: "center",
-                                }}
-                            >
-                                <Text
-                                    style={{
-                                        fontSize: 18, fontWeight: 'bold',
-                                        padding: 15,
-                                        color: 'white'
-                                    }}
-                                >{t('Buffalo')}</Text>
-                                <Text style={{
-                                    fontSize: 12,
-                                    color: 'white',
-                                    borderBottomWidth: 2, fontWeight: "bold", borderBottomColor: 'white',
-                                    alignSelf: 'center',
-                                    borderColor: 'white', borderWidth: 2, padding: 2,
-                                }}
-                                >{t('coming soon')}</Text>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                </View> */}
             </View>
 
             <View style={{ flex: 1 }}></View>

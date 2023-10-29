@@ -2,18 +2,18 @@ import React from "react";
 import { View, Text, Image, StyleSheet, Linking, TextInput, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from "react-native"
 import { useTranslation } from 'react-i18next';
-
+import SponsorsDisplay from "./sposorsDisplay"
 
 const MenuScreen = ({ navigation }) => {
     const { t } = useTranslation();
 
-    const url_uvas = "https://uvas.edu.pk";
-    const url_arass = "https://arass.org/";
+    // const url_uvas = "https://uvas.edu.pk";
+    // const url_arass = "https://arass.org/";
 
     return (
         <View style={{ flex: 1 }}>
             <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
-                <TouchableOpacity onPress={() => { navigation.navigate('Fixed Formula Selector') }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Specie Selector') }}>
                     <View style={{ height: '100%', }}>
                         <Image source={require("../assets/images/winterFeed.jpg")}
                             style={{
@@ -84,22 +84,13 @@ const MenuScreen = ({ navigation }) => {
             </View> */}
 
             {/* sponsors displayed */}
-            <View style={{ flex: 1, justifyContent: "flex-end" }}>
+            {/* <View style={{ flex: 1, justifyContent: "flex-end" }}>
                 <View style={{
                     backgroundColor: 'rgb(10, 100, 10)',
                     width: '100%', height: 50,
                     flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
                     borderColor: "black", borderWidth: 1,
                 }}>
-
-                    {/* <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 105, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                        <Text style={{
-                            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold',
-                        }}>
-                            Visit Our Team
-                        </Text>
-
-                    </View> */}
 
                     <TouchableOpacity
                         onPress={async () => await Linking.openURL(url_arass)}
@@ -124,17 +115,9 @@ const MenuScreen = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
 
-                {/* <View style={{ flexDirection: "row", alignSelf: 'center', alignItems: 'center', }}>
-                    <Image
-                        style={{ width: 100, height: 45 }}
-                        source={require('../assets/uvas-big.png')}
-                    />
-                    <Image
-                        style={{ width: 100, height: 45 }}
-                        source={require('../assets/arass.png')}
-                    />
-                </View> */}
-            </View>
+            </View> */}
+
+            <SponsorsDisplay/>
         </View >
     )
 }

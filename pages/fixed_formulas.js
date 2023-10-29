@@ -3,6 +3,8 @@ import { ScrollView, View, Text, Linking, SafeAreaView, TouchableOpacity, Image 
 import FixedFormulaLibrary from '../assets/data/fixed_formulas/_combined.json';
 import StagedFixedFormulaLibrary from '../assets/data/fixed_formulas/stages_of_cattle.json';
 import { useTranslation } from 'react-i18next';
+import SponsorsDisplay from "./sposorsDisplay";
+
 
 function Fixed_Formulas({ route }) {
     const [fixedRes, setFixedRes] = useState();
@@ -102,41 +104,7 @@ function Fixed_Formulas({ route }) {
                 </View>
 
                 {/* sponsors display */}
-                <View style={{
-                    flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
-                    borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50, marginTop: 20
-                }}>
-
-                    {/* <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                        <Text style={{
-                            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold',
-                        }}>
-                            Visit Our Team
-                        </Text>
-                    </View> */}
-
-                    <TouchableOpacity
-                        onPress={async () => await Linking.openURL(url_arass)}
-                    >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                            <Image
-                                style={{ width: 50, height: 27 }}
-                                source={require('../assets/arass.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={async () => await Linking.openURL(url_uvas)}
-                    >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                            <Image
-                                style={{ width: 50, height: 23 }}
-                                source={require('../assets/uvas-big.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
-                </View>
+                <SponsorsDisplay/>
 
             </ScrollView>
         </SafeAreaView>

@@ -26,19 +26,6 @@ function Settings() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ padding: 10 }}>
-        {/* redux */}
-        {/* <View style={{ marginBottom: 30 }}>
-          <Text style={styles.title}>Redux Text Testing state</Text>
-          <View style={styles.contentContainer}>
-            <TextInput
-              style={styles.input}
-              onChangeText={onChangeText}
-              value={text}
-            />
-
-            <Text>{name}</Text>
-          </View>
-        </View> */}
 
         {/* Team */}
         <View>
