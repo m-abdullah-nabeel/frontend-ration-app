@@ -44,10 +44,7 @@ const local_bw = [
     { label: '500', value: 500 },
 ];
 
-const cat_origin = [
-    { label: 'local', value: 'local' },
-    { label: 'imported', value: 'imported' },
-];
+const breed_data = ['Local', "Imported"];
 
 const imported_bw = [
     { label: '600', value: 600 },
@@ -56,7 +53,34 @@ const imported_bw = [
     { label: '750', value: 750 }
 ];
 
-const DropdownCom = ({ data, statement, translated, placeholderText, cond, setCond }) => {
+const feed_categories_based_on_feedstuffs = [
+    'Maize fodder based',
+    'Sorghum fodder based',
+    'Barseem fodder based',
+    'Alfalfa fodder based',
+    'Corn silage based'
+]
+
+const before_weaning_local_wt = [20,25,30]
+const before_weaning_imported_wt = [40,50,60,70,80]
+
+const calf_wt_after_weaning_local = [40,60,80,100,130,160,190]
+const calf_wt_after_weaning_imported = [100,150,200,250,300,350,400,450,500,550,600]
+
+const drycow_local_wt = [400,450,500]
+const drycow_imported_wt = [600,650,700,750]
+
+const closeup_local_wt = [400,450,500]
+const closeup_imported_wt = [600,650,700,750]
+
+
+const prepare_dropdown_data = (data_array) => {
+    const dropdown_data = data_array.map(value => ({ label: value.toString().toUpperCase(), value }));
+    // console.log(dropdown_data);
+    return dropdown_data
+}
+
+const DropdownData = ({ data, statement, translated, placeholderText, inputCheck, setInputCheck }) => {
     const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
 
@@ -93,8 +117,8 @@ const DropdownCom = ({ data, statement, translated, placeholderText, cond, setCo
                 onBlur={() => setIsFocus(false)}
                 onChange={item => {
                     setValue(item.value);
-                    setCond({
-                        ...cond, // Copy the old fields
+                    setInputCheck({
+                        ...inputCheck, // Copy the old fields
                         [statement]: item.value // But override this one
                     });
                     setIsFocus(false);
@@ -112,41 +136,46 @@ const DropdownCom = ({ data, statement, translated, placeholderText, cond, setCo
     )
 }
 
+
 const OnlyModal = ({ visible, setVisible, animal, navigation, input, stage }) => {
     const [error, setError] = useState(true)
     // const [input, setInput] = useState([])
-    const [cond, setCond] = useState({
-        "species": animal,
-        "Body Weight": '',
-        "Milk Production": ''
-    });
+    // const [inputData, setInputData] = useState([])
+    const [inputData, setInputData] = useState({
+        'breed': breed_data, 
+        'weight': ['Please Select Breed First'], 
+        'major_feedstuff': feed_categories_based_on_feedstuffs
+    })
+    const [inputCheck, setInputCheck] = useState({'breed': null, 'weight': null, 'major_feedstuff':null})
+
+    useEffect(()=>{
+        if (inputCheck['breed'] == 'local') {
+            alert("Local")
+            // setInputData()
+        }
+        if (inputCheck['breed'] == 'imported') {
+            alert("Imported")
+        }
+
+    }, [inputCheck])
+
 
     const { t } = useTranslation();
-    let species = JSON.stringify(cond['species'])
 
-    useEffect(() => {
-        console.log("####################################################")
-        console.log("input: ")
-        console.log(input)
-        console.log("Species: " + JSON.stringify(cond['species']))
-        // uncomment this to see logs
-        console.log(cond)
-        species = cond['species']
-
-        // errors logic
-        Object.values(cond).includes("")
-            ? setError(true)
-            : setError(false)
-    }, [cond])
-
-    useEffect(() => {
-        setError(true);
-        setCond({
-            "species": animal,
-            "Body Weight": '',
-            "Milk Production": ''
-        })
-    }, [visible])
+    
+    useEffect(()=>{
+        function hasEmptyValues(obj) {
+            for (const key in obj) {
+              if (obj[key] === null || obj[key] === '' || obj[key] === undefined) {
+                return true; // Return true if any key has an empty, null, or undefined value
+              }
+            }
+            return false; // Return false if all keys have non-empty, non-null, and defined values
+          }
+        
+          setError(hasEmptyValues(inputCheck))
+        
+    }, [inputCheck])
 
     return (
         <View
@@ -161,11 +190,6 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input, stage }) =>
                         // Alert.alert("Modal has been closed.");
                         setVisible(false);
                         setError(true);
-                        setCond({
-                            species: animal,
-                            "Body Weight": '',
-                            "Milk Production": ''
-                        })
                     }}
                 >
                     <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
@@ -178,83 +202,62 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input, stage }) =>
                             </Text>
 
                             <Text>
-                                {animal==='dry_period'
-                                    ?
-                                    (
-                                        <View>
-                                            <DropdownCom
-                                                data={cat_origin}
-                                                // change statement name in above cond of errors if ever change this
-                                                statement="Animal Origin"
-                                                translated={t("Animal Origin")}
-                                                cond={cond}
-                                                setCond={setCond}
+                                <View>
+                                {
+                                    Object.keys(inputData).map((item)=>{
+                                        return (
+                                            <Text>
+                                                {/* {JSON.stringify(item)}
+                                                ==============
+                                                {JSON.stringify(inputData[item])}
+                                                ==============------------ */}
+                                                <DropdownData
+                                                    data={prepare_dropdown_data(inputData[item])}
+                                                    statement="Testing !!"
+                                                    translated={t("Testing")}
+                                                    placeholderText={item}
+                                                    inputCheck={inputCheck} setInputCheck={setInputCheck}
                                                 />
-                                                <DropdownCom
-                                                data={
-                                                    cond["Animal Origin"] == 'local'
-                                                    ? local_bw
-                                                    : imported_bw
-                                                }
-                                                // change statement name in above cond of errors if ever change this
-                                                statement="Body Weight"
-                                                translated={t("Body Weight")}
-                                                placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
-                                                cond={cond}
-                                                setCond={setCond}
-                                            />
-                                            <Pressable
-                                                style={[styles.button, styles.buttonClose, { margin: 10 }]}
-                                                onPress={() => {
-                                                    setVisible(false)
-                                                    console.log({ details: cond })
-                                                    console.log({ details: cond })
-                                                    console.log({ details: cond })
-                                                    setCond(cond)
-                                                    navigation.navigate('Fixed Feedstuffs', { details: cond });
-                                                }}
-                                            >
-                                                <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
-                                            </Pressable>
-                                        </View>
-                                )
-      
-                                    :
-                                (
-                                    <View>                                 
-                                        <DropdownCom
-                                            data={input[0]}
-                                            // change statement name in above cond of errors if ever change this
-                                            statement="Body Weight"
-                                            translated={t("Body Weight")}
-                                            placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
-                                            cond={cond}
-                                            setCond={setCond}
-                                        />
-            
-                                        <DropdownCom
-                                            data={input[1]}
-                                            // change statement name in above cond of errors
-                                            statement="Milk Production"
-                                            translated={t("Milk Production")}
-                                            placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
-                                            cond={cond}
-                                            setCond={setCond}
-                                        />
-                                    </View>
-    
-                                )
+
+                                            </Text>
+                                        )
+                                    })
                                 }
+                                </View>
+                                <View>     
+                                    <Text>
+                                    inputData
+                                    {
+                                        JSON.stringify(inputData)
+                                    }    
+                                    </Text>   
+
+                                    <Text>
+                                    Input Check
+                                    {
+                                        JSON.stringify(inputCheck)
+                                    }    
+                                    </Text>   
+
+                                    {/* <DropdownData
+                                        data={prepare_dropdown_data(closeup_local_wt)}
+                                        statement="Testing !!"
+                                        translated={t("Testing")}
+                                        placeholderText={t("Body Weight") + " (" + (["Body Weight"]).toString() + "Kg)"}
+                                        inputCheck={inputCheck} setInputCheck={setInputCheck}
+                                    /> */}
+
+                                </View>
                             </Text>
 
                             {
-                                error ? (<
-                                    Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
+                                error ? (
+                                    <Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
                                     <Pressable
                                         style={[styles.button, styles.buttonClose, { margin: 10 }]}
                                         onPress={() => {
                                             setVisible(false)
-                                            navigation.navigate('Fixed Feedstuffs', { details: cond });
+                                            navigation.navigate('Fixed Feedstuffs', { details: '' });
                                         }}
                                     >
                                         <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
@@ -323,7 +326,7 @@ const FixedFormulaSelector = ({ route, navigation }) => {
             {
                 stages_of_cattle.map((stage)=>{
                     return (
-                        <AnimalTile ainmalSpecies={"Cattle"} stage={stage} navigation={navigation} route={route}/>
+                        <AnimalTile key={stage} ainmalSpecies={"Cattle"} stage={stage} navigation={navigation} route={route}/>
                     )
                 })
             }
@@ -345,14 +348,14 @@ const FixedFormulaSelector = ({ route, navigation }) => {
     )
 }
 
-export default FixedFormulaSelector;
-
 const AnimalTile = ({ainmalSpecies, stage, navigation, route}) => {
     const [visible, setVisible] = useState(false);
     const [species, setSpecies] = useState('')
     const [input, setInput] = useState([])
+    const picture = require(`../assets/animals/cow.png`)
 
     const { animal_type } = route.params;
+    console.log('animal_type')
     console.log(animal_type)
 
     useEffect(() => {
@@ -360,28 +363,20 @@ const AnimalTile = ({ainmalSpecies, stage, navigation, route}) => {
             console.log("Species: " + JSON.stringify(species) + " is selected")
             setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
         }
-        // Before weaning after weaning dry period closeup
         if (species == 'Buffalo') {
             console.log("Species: " + JSON.stringify(species) + " is selected")
             setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
         }
-        if (species == 'dry_period') {
-            console.log("Species: " + JSON.stringify(species) + " is selected")
-            setInput([cat_origin, fixed_formula_mp_buffalo])
-        }
     }, [species])
-
-    const picture = require(`../assets/animals/cow.png`)
 
     return (
         <View style={styles.animal}>
-            <TouchableOpacity onPress={() => { setVisible(true), setSpecies(props.species) }}>
+            <TouchableOpacity onPress={() => { setVisible(true), setSpecies(species) }}>
                 <Image style={styles.image} source={picture} />
                 <Text>{stage}</Text>
             </TouchableOpacity>
             <OnlyModal visible={visible} setVisible={setVisible} stage={stage} navigation={navigation} animal={species} input={input} />
         </View>
-
     )
 }
 
@@ -460,3 +455,5 @@ const styles = StyleSheet.create({
         textAlign: "center"
     }
 })
+
+export default FixedFormulaSelector;
