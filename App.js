@@ -7,12 +7,14 @@ import Landing from './pages/landing';
 import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+// fonts
+import { useFonts } from 'expo-font';
+
 import 'react-native-gesture-handler';
 
 // redux
 import { Store } from "./redux/store/configureStore";
 import { Provider } from "react-redux";
-
 
 const Tab = createBottomTabNavigator();
 const WelcomeStack = createStackNavigator()
@@ -63,6 +65,15 @@ const InnerComp = () => {
 }
 
 const App = () => {
+  const [fontsLoaded] = useFonts({
+    'nastaliq-regular': 'https://fonts.googleapis.com/css2?family=Salsa&display=swap',
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+
   return (
     <Provider store={Store}>
       <NavigationContainer>

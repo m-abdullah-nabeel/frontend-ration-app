@@ -6,12 +6,12 @@ import SponsorsDisplay from "../pages/sposorsDisplay"
 
 
 const SpecieSelector = ({ navigation }) => {
-
-
     const { t } = useTranslation();
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ 
+            flex: 1 
+        }}>
 
             <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
                 <TouchableOpacity onPress={() => { navigation.navigate('Fixed Formula Selector', {animal_type: 'cattle'}) }}>

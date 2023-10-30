@@ -14,9 +14,6 @@ function Fixed_Formulas({ route }) {
     console.log("details on the results page: ")
     console.log(details)
 
-    const url_uvas = "https://uvas.edu.pk";
-    const url_arass = "https://arass.org/";
-
     const findFixedFormula = (animalData) => {
         console.log("=============================== Animal Data ==================================")
         console.log(animalData)

@@ -294,7 +294,7 @@ function DetailsScreen({ navigation, route }) {
 
   const url_backend_render = 'https://uva-gro-backend-api.onrender.com/formulate/'
   // const url_backend_deta = 'https://uvagro_api-1-q3381312.deta.app/formulate/'
-  const url_backend_localhost = 'http://127.0.0.1:8000/formulate/'
+  // const url_backend_localhost = 'http://127.0.0.1:8000/formulate/'
 
   const { t } = useTranslation();
 
@@ -309,7 +309,6 @@ function DetailsScreen({ navigation, route }) {
         }
         console.log("reqData")
         console.log(reqData)
-
 
         const response = await fetch(reqUrl, {
           method: 'POST',

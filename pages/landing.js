@@ -53,7 +53,7 @@ const Landing = ({ navigation }) => {
                         <View style={{
                             backgroundColor: 'white', padding: 15, borderRadius: 25, alignItems: 'center',
                         }}>
-                            <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'rgb(120, 20, 10)' }}>
+                            <Text style={{ fontFamily: 'nastaliq-regular', fontSize: 24, fontWeight: 'bold', color: 'rgb(120, 20, 10)' }}>
                                 {t('proceed landing')}
                             </Text>
                         </View>

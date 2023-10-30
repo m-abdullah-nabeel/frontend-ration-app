@@ -112,7 +112,7 @@ const DropdownCom = ({ data, statement, translated, placeholderText, cond, setCo
     )
 }
 
-const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
+const OnlyModal = ({ visible, setVisible, animal, navigation, input, stage }) => {
     const [error, setError] = useState(true)
     // const [input, setInput] = useState([])
     const [cond, setCond] = useState({
@@ -138,25 +138,6 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
             ? setError(true)
             : setError(false)
     }, [cond])
-
-    // useEffect(() => {
-    //     // console.log(JSON.stringify(species) + " is Changed as species")
-    //     if (species == 'Cattle') {
-    //         console.log("Species: " + JSON.stringify(species) + " is selected")
-    //         setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
-    //     }
-    //     if (species == 'Buffalo') {
-    //         console.log("Species: " + JSON.stringify(species) + " is selected")
-    //         setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
-    //     }
-
-    //     setCond({
-    //         ...cond, // Copy the old fields
-    //         "Milk Production": '',   // But override this one
-    //         "Body Weight": ''  // But override this one
-    //     });
-
-    // }, [species])
 
     useEffect(() => {
         setError(true);
@@ -189,8 +170,11 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                 >
                     <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
                         <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
-                            <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
+                        <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
                                 {t("your animal")} {t(animal)}
+                            </Text>
+                            <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
+                                {stage}
                             </Text>
 
                             <Text>
@@ -232,7 +216,6 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                                             >
                                                 <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
                                             </Pressable>
-
                                         </View>
                                 )
       
@@ -264,26 +247,6 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
                                 }
                             </Text>
 
-                            {/* <DropdownCom
-                                data={input[0]}
-                                // change statement name in above cond of errors if ever change this
-                                statement="Body Weight"
-                                translated={t("Body Weight")}
-                                placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
-                                cond={cond}
-                                setCond={setCond}
-                            />
-
-                            <DropdownCom
-                                data={input[1]}
-                                // change statement name in above cond of errors
-                                statement="Milk Production"
-                                translated={t("Milk Production")}
-                                placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
-                                cond={cond}
-                                setCond={setCond}
-                            /> */}
-
                             {
                                 error ? (<
                                     Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
@@ -307,16 +270,22 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
     )
 }
 
+const stages_of_cattle = [
+    'before_weaning',
+    'after_weaning',
+    'dry_period',
+    'closeup'
+]
+
 const FixedFormulaSelector = ({ route, navigation }) => {
     const [visible, setVisible] = useState(false);
     const [species, setSpecies] = useState('')
+    const [stage, setStage] = useState('')
     const [input, setInput] = useState([])
 
     const { t } = useTranslation();
 
-    // const {animal_type} = params.route
     const { animal_type } = route.params;
-    console.log("++++++++++++++++++++++++++++++++++++++")
     console.log(animal_type)
 
     useEffect(() => {
@@ -351,74 +320,70 @@ const FixedFormulaSelector = ({ route, navigation }) => {
 
             <View style={{ flex: 3, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
 
-                {
-                    animal_type !== 'cattle'? null :
-                    <>
-                        <View style={styles.animal}>
-                            <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
-                                <Image style={styles.image} source={require('../assets/animals/cow.png')} />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={styles.animal}>
-                            <TouchableOpacity 
-                            // onPress={() => { setVisible(true), setSpecies("before_weaning") }}
-                            >
-                                <Image style={styles.image} source={require('../assets/animals/baby_calf-removebg-preview.png')} />
-                                <Text>Before Weaning</Text>
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={styles.animal}>
-                            <TouchableOpacity 
-                            // onPress={() => { setVisible(true), setSpecies("after_weaning") }}
-                            >
-                                <Image style={styles.image} source={require('../assets/animals/calf.png')} />
-                                <Text>After Weaning</Text>
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={styles.animal}>
-                            <TouchableOpacity 
-                            onPress={() => { setVisible(true), setSpecies("dry_period") }}
-                            >
-                                <Image style={styles.image} source={require('../assets/animals/dry-removebg-preview.png')} />
-                                <Text>Dry Period</Text>
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={styles.animal}>
-                            <TouchableOpacity 
-                            // onPress={() => { setVisible(true), setSpecies("Closeup") }}
-                            >
-                                <Image style={styles.image} source={require('../assets/animals/closeup-removebg-preview.png')} />
-                                <Text>closeup</Text>
-                            </TouchableOpacity>
-                        </View>
-
-                    </>
-                }
+            {
+                stages_of_cattle.map((stage)=>{
+                    return (
+                        <AnimalTile ainmalSpecies={"Cattle"} stage={stage} navigation={navigation} route={route}/>
+                    )
+                })
+            }
 
                 {
                     animal_type !== 'buffalo' ? null :
                     <View style={styles.animal}>
-                    <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
-                        <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
-                    </TouchableOpacity>
-                </View>
-                    
+                        <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
+                            <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
+                        </TouchableOpacity>
+                    </View>   
                 }
-
             </View>
 
             <View style={{ flex: 1 }}></View>
 
-            <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
+            {/* <OnlyModal visible={visible} setVisible={setVisible} stage={stage} navigation={navigation} animal={species} input={input} /> */}
         </View >
     )
 }
 
 export default FixedFormulaSelector;
+
+const AnimalTile = ({ainmalSpecies, stage, navigation, route}) => {
+    const [visible, setVisible] = useState(false);
+    const [species, setSpecies] = useState('')
+    const [input, setInput] = useState([])
+
+    const { animal_type } = route.params;
+    console.log(animal_type)
+
+    useEffect(() => {
+        if (species == 'Cattle') {
+            console.log("Species: " + JSON.stringify(species) + " is selected")
+            setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
+        }
+        // Before weaning after weaning dry period closeup
+        if (species == 'Buffalo') {
+            console.log("Species: " + JSON.stringify(species) + " is selected")
+            setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
+        }
+        if (species == 'dry_period') {
+            console.log("Species: " + JSON.stringify(species) + " is selected")
+            setInput([cat_origin, fixed_formula_mp_buffalo])
+        }
+    }, [species])
+
+    const picture = require(`../assets/animals/cow.png`)
+
+    return (
+        <View style={styles.animal}>
+            <TouchableOpacity onPress={() => { setVisible(true), setSpecies(props.species) }}>
+                <Image style={styles.image} source={picture} />
+                <Text>{stage}</Text>
+            </TouchableOpacity>
+            <OnlyModal visible={visible} setVisible={setVisible} stage={stage} navigation={navigation} animal={species} input={input} />
+        </View>
+
+    )
+}
 
 const styles = StyleSheet.create({
     animal: {
