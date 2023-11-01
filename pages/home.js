@@ -3,6 +3,9 @@ import { SafeAreaView, StyleSheet, StatusBar, Button } from 'react-native';
 import AnimalSelector from "../components/animalSelector";
 import SpecieSelector from "../components/specieSelector";
 import FixedFormulaSelector from "./fixedFormulaSelector";
+import FixedFormulaInputs from "./LifeStagesFeeding";
+import LifeStagesResults from "./lifeStageResults"
+
 import Fixed_Formulas from "./fixed_formulas";
 import FixedStuffSelector from "./fixedFeedstuffs";
 import StuffSelector from "../components/stuffselector";
@@ -24,6 +27,8 @@ const Home = ({ navigation }) => {
         <HomeStack.Screen name="Specie Selector" component={SpecieSelector} />
         <HomeStack.Screen name="Animal Selector" component={AnimalSelector} />
         <HomeStack.Screen name="Fixed Formula Selector" component={FixedFormulaSelector} />
+        <HomeStack.Screen name="Fixed Formula Inputs" component={FixedFormulaInputs} />
+        <HomeStack.Screen name="Life Stages Formulas" component={LifeStagesResults} />
         <HomeStack.Screen name="Fixed Formula Display" component={Fixed_Formulas} />
         <HomeStack.Screen name="Fixed Feedstuffs" component={FixedStuffSelector} />
         <HomeStack.Screen name="Details" component={DetailsScreen} />

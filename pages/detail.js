@@ -293,7 +293,7 @@ function DetailsScreen({ navigation, route }) {
   // console.log(windowWidth, windowHeight)
 
   const url_backend_render = 'https://uva-gro-backend-api.onrender.com/formulate/'
-  // const url_backend_deta = 'https://uvagro_api-1-q3381312.deta.app/formulate/'
+  // const url_backend_cloud_run = 'https://uva-gro-backend-nmoxvxzfrq-el.a.run.app/formulate/'
   // const url_backend_localhost = 'http://127.0.0.1:8000/formulate/'
 
   const { t } = useTranslation();
