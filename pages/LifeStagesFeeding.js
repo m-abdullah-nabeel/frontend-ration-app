@@ -99,6 +99,10 @@ const formula_type = [
 const FixedFormulaInputs = ({ route, navigation }) => {
   // get a list of inputs
     const { stage, animal } = route.params;
+
+    // const animal = route.params.animal.animal
+    // const stage = route.params.stage.stage
+
     console.log(stage, animal)
 
     const [breed, setBreed] = useState(null);
@@ -133,7 +137,7 @@ const FixedFormulaInputs = ({ route, navigation }) => {
     return (
         <View>
             <Text>
-                Hello Inputs
+                Hello Inputs {JSON.stringify(stage)}
             </Text>
             <View>
               <Dropdown
@@ -177,7 +181,9 @@ const FixedFormulaInputs = ({ route, navigation }) => {
                   <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
                 )}
               />
-              <Dropdown
+              {
+                stage && stage.stage!=='before_weaning' ?
+                <Dropdown
                 style={styles.dropdown}
                 placeholderStyle={styles.placeholderStyle}
                 selectedTextStyle={styles.selectedTextStyle}
@@ -198,6 +204,8 @@ const FixedFormulaInputs = ({ route, navigation }) => {
                   <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
                 )}
               />
+                  : null
+              }
 
               <Button
                 onPress={handleSubmit}

@@ -12,7 +12,8 @@ const LifeStagesResults = ({ route, navigation }) => {
 
     console.log(stage, animal, breed, weight, feed)
 
-    const [formula, setFormula] = useState()
+    const [formula, setFormula] = useState(null)
+    const [calStarter, setCalfStarter] = useState(null)
 
     // find the formula
     const formula_finder = () => {
@@ -23,7 +24,7 @@ const LifeStagesResults = ({ route, navigation }) => {
             console.log(fodderSelect)
             let breedSelect = fodderSelect[[breed]]
             console.log(breedSelect)
-            const WeightSelect = breedSelect.filter(item => item["Calf weight (kg)"] == weight);
+            const WeightSelect = breedSelect.filter(item => item["Body Weight"] == weight);
             console.log(WeightSelect[0])
     
             return WeightSelect[0];    
@@ -33,20 +34,30 @@ const LifeStagesResults = ({ route, navigation }) => {
             console.log(stageSelect)
             let breedSelect = stageSelect[[breed]]
             console.log(breedSelect)
-            const WeightSelect = breedSelect.filter(item => item["Body weight"] == weight);
+            const WeightSelect = breedSelect.filter(item => item["Body Weight"] == weight);
             console.log(WeightSelect[0])
     
             return WeightSelect[0];    
-
         }
     }
 
+    const calf_starter = () => {
+        if (stage==='before_weaning') {
+            let stageSelect = formulas_at_diff_stages[[stage]]
+            console.log(stageSelect)
+            let CalfStarter = stageSelect['calf_starter']
+            console.log(CalfStarter)
+    
+            return CalfStarter[0];    
+        }
+
+    }
 
     useEffect(()=>{
-        if (stage !== 'before_weaning') {
-            setFormula(formula_finder())
-        }
-        
+        setFormula(formula_finder()) 
+        if (stage==='before_weaning') {
+            setCalfStarter(calf_starter())
+        }       
     }, [])
 
     return (
@@ -71,6 +82,20 @@ const LifeStagesResults = ({ route, navigation }) => {
                     )
                 })}
 
+            </View>
+            <View>
+                <Text>
+                    Calf Starter ----------------
+                </Text>
+                {
+                    calStarter && Object.keys(calStarter).map((i)=>{
+                        return (
+                            <Text>
+                                {i}: {calf_starter[[i]]}
+                            </Text>
+                        )
+                    })
+                }
             </View>
             
         </View>

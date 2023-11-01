@@ -2,46 +2,57 @@
     "before_weaning": {
         "local": [
             {
-                "Body weight": "20",
+                "Body Weight": "20",
                 "MIlk (lit/d)": "2.411",
                 "Calf starter (g/d)": "240.2"
             },
             {
-                "Body weight": "25",
+                "Body Weight": "25",
                 "MIlk (lit/d)": "2.521 ",
                 "Calf starter (g/d)": "285.1 "
             },
             {
-                "Body weight": "30",
+                "Body Weight": "30",
                 "MIlk (lit/d)": "2.979 ",
                 "Calf starter (g/d)": "336.9"
             }
         ], 
         "imported": [
             {
-                "Body weight": "40",
+                "Body Weight": "40",
                 "MIlk (lit/d)": "3.438 ",
                 "Calf starter (g/d)": "388.7 "
             },
             {
-                "Body weight": "50",
+                "Body Weight": "50",
                 "MIlk (lit/d)": "3.896 ",
                 "Calf starter (g/d)": "440.6 "
             },
             {
-                "Body weight": "60",
+                "Body Weight": "60",
                 "MIlk (lit/d)": "4.354 ",
                 "Calf starter (g/d)": "492.4 "
             },
             {
-                "Body weight": "70",
+                "Body Weight": "70",
                 "MIlk (lit/d)": "4.813 ",
                 "Calf starter (g/d)": "544.2 "
             },
             {
-                "Body weight": "80",
+                "Body Weight": "80",
                 "MIlk (lit/d)": "5.271 ",
                 "Calf starter (g/d)": "596.1"
+            }
+        ],
+        "calf_starter": [
+            {
+                "Calf Starter Formula": "",
+                "Corn": "22 parts",
+                "Wheat": "15 parts",
+                "SBM": "25 parts",
+                "CM": " 10 parts",
+                "WB": "23 parts",
+                "Mol": "5 parts"
             }
         ]
     },
@@ -49,7 +60,7 @@
         "maize": {
             "local": [
                 {
-                    "Calf weight (kg)": "40",
+                    "Body Weight": "40",
                     "Maize fodder": "1.5",
                     "Wheat straw": "0.5",
                     "Corn grain": "0.25",
@@ -62,7 +73,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "60",
+                    "Body Weight": "60",
                     "Maize fodder": "1.75",
                     "Wheat straw": "0.5",
                     "Corn grain": "0.4",
@@ -75,7 +86,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "80",
+                    "Body Weight": "80",
                     "Maize fodder": "3",
                     "Wheat straw": "0.75",
                     "Corn grain": "0.75",
@@ -88,7 +99,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Maize fodder": "5",
                     "Wheat straw": "1",
                     "Corn grain": "1",
@@ -101,7 +112,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "130",
+                    "Body Weight": "130",
                     "Maize fodder": "8",
                     "Wheat straw": "1.25",
                     "Corn grain": "1",
@@ -114,7 +125,7 @@
                     "Mineral mixture": "0.04"
                 },
                 {
-                    "Calf weight (kg)": "160",
+                    "Body Weight": "160",
                     "Maize fodder": "9",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.25",
@@ -127,7 +138,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "190",
+                    "Body Weight": "190",
                     "Maize fodder": "11",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -142,7 +153,7 @@
             ],
             "imported": [
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Maize fodder": "2.5",
                     "Wheat straw": "1",
                     "Corn grain": "1",
@@ -156,7 +167,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "150",
+                    "Body Weight": "150",
                     "Maize fodder": "3.25",
                     "Wheat straw": "1.25",
                     "Corn grain": "1",
@@ -170,7 +181,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "200",
+                    "Body Weight": "200",
                     "Maize fodder": "4",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.25",
@@ -184,7 +195,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "250",
+                    "Body Weight": "250",
                     "Maize fodder": "6",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -198,7 +209,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "300",
+                    "Body Weight": "300",
                     "Maize fodder": "7",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.5",
@@ -212,7 +223,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "350",
+                    "Body Weight": "350",
                     "Maize fodder": "8.5",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.6",
@@ -226,7 +237,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "400",
+                    "Body Weight": "400",
                     "Maize fodder": "12",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -240,7 +251,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "450",
+                    "Body Weight": "450",
                     "Maize fodder": "14",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -254,7 +265,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "500",
+                    "Body Weight": "500",
                     "Maize fodder": "16",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -268,7 +279,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "550",
+                    "Body Weight": "550",
                     "Maize fodder": "18",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -282,7 +293,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "600",
+                    "Body Weight": "600",
                     "Maize fodder": "20",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -300,7 +311,7 @@
         "sorghum": {
             "local": [
                 {
-                    "Calf weight (kg)": "40",
+                    "Body Weight": "40",
                     "Sorghum fodder": "1.5",
                     "Wheat straw": "0.5",
                     "Corn grain": "0.25",
@@ -311,7 +322,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "60",
+                    "Body Weight": "60",
                     "Sorghum fodder": "1.75",
                     "Wheat straw": "0.5",
                     "Corn grain": "0.4",
@@ -322,7 +333,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "80",
+                    "Body Weight": "80",
                     "Sorghum fodder": "3",
                     "Wheat straw": "0.75",
                     "Corn grain": "0.75",
@@ -333,7 +344,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Sorghum fodder": "5",
                     "Wheat straw": "1",
                     "Corn grain": "1",
@@ -344,7 +355,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "130",
+                    "Body Weight": "130",
                     "Sorghum fodder": "8",
                     "Wheat straw": "1.25",
                     "Corn grain": "1",
@@ -355,7 +366,7 @@
                     "Mineral mixture": "0.04"
                 },
                 {
-                    "Calf weight (kg)": "160",
+                    "Body Weight": "160",
                     "Sorghum fodder": "9",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.25",
@@ -366,7 +377,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "190",
+                    "Body Weight": "190",
                     "Sorghum fodder": "11",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -379,7 +390,7 @@
             ],
             "imported": [
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Sorghum fodder": "2.5",
                     "Wheat straw": "1",
                     "Corn grain": "1",
@@ -393,7 +404,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "150",
+                    "Body Weight": "150",
                     "Sorghum fodder": "3.25",
                     "Wheat straw": "1.25",
                     "Corn grain": "1",
@@ -407,7 +418,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "200",
+                    "Body Weight": "200",
                     "Sorghum fodder": "4",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.25",
@@ -421,7 +432,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "250",
+                    "Body Weight": "250",
                     "Sorghum fodder": "6",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -435,7 +446,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "300",
+                    "Body Weight": "300",
                     "Sorghum fodder": "7",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.5",
@@ -449,7 +460,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "350",
+                    "Body Weight": "350",
                     "Sorghum fodder": "8.5",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.6",
@@ -463,7 +474,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "400",
+                    "Body Weight": "400",
                     "Sorghum fodder": "12",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -477,7 +488,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "450",
+                    "Body Weight": "450",
                     "Sorghum fodder": "14",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -491,7 +502,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "500",
+                    "Body Weight": "500",
                     "Sorghum fodder": "16",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -505,7 +516,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "550",
+                    "Body Weight": "550",
                     "Sorghum fodder": "18",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -519,7 +530,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "600",
+                    "Body Weight": "600",
                     "Sorghum fodder": "20",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -537,7 +548,7 @@
         "barseem": {
             "local": [
                 {
-                    "Calf weight (kg)": "40",
+                    "Body Weight": "40",
                     "Barseem fodder": "1",
                     "Wheat straw": "1",
                     "Corn grain": "0.25",
@@ -548,7 +559,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "60",
+                    "Body Weight": "60",
                     "Barseem fodder": "1.5",
                     "Wheat straw": "1.25",
                     "Corn grain": "0.4",
@@ -559,7 +570,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "80",
+                    "Body Weight": "80",
                     "Barseem fodder": "2",
                     "Wheat straw": "1",
                     "Corn grain": "1",
@@ -570,7 +581,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Barseem fodder": "4",
                     "Wheat straw": "1",
                     "Corn grain": "1.25",
@@ -581,7 +592,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "130",
+                    "Body Weight": "130",
                     "Barseem fodder": "5",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -592,7 +603,7 @@
                     "Mineral mixture": "0.04"
                 },
                 {
-                    "Calf weight (kg)": "160",
+                    "Body Weight": "160",
                     "Barseem fodder": "7",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -603,7 +614,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "190",
+                    "Body Weight": "190",
                     "Barseem fodder": "9",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.5",
@@ -616,7 +627,7 @@
             ],
             "imported": [
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Barseem fodder": "2.5",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.25",
@@ -630,7 +641,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "150",
+                    "Body Weight": "150",
                     "Barseem fodder": "3.25",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.25",
@@ -644,7 +655,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "200",
+                    "Body Weight": "200",
                     "Barseem fodder": "6",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -658,7 +669,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "250",
+                    "Body Weight": "250",
                     "Barseem fodder": "7",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.5",
@@ -672,7 +683,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "300",
+                    "Body Weight": "300",
                     "Barseem fodder": "9",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.6",
@@ -686,7 +697,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "350",
+                    "Body Weight": "350",
                     "Barseem fodder": "11",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.7",
@@ -700,7 +711,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "400",
+                    "Body Weight": "400",
                     "Barseem fodder": "13",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.7",
@@ -714,7 +725,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "450",
+                    "Body Weight": "450",
                     "Barseem fodder": "14",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -728,7 +739,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "500",
+                    "Body Weight": "500",
                     "Barseem fodder": "16",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -742,7 +753,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "550",
+                    "Body Weight": "550",
                     "Barseem fodder": "18",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -756,7 +767,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "600",
+                    "Body Weight": "600",
                     "Barseem fodder": "20",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -774,7 +785,7 @@
         "alfalfa": {
             "local": [
                 {
-                    "Calf weight (kg)": "40",
+                    "Body Weight": "40",
                     "Alfalfa fodder": "1",
                     "Wheat straw": "1",
                     "Corn grain": "0.25",
@@ -785,7 +796,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "60",
+                    "Body Weight": "60",
                     "Alfalfa fodder": "1.5",
                     "Wheat straw": "1",
                     "Corn grain": "0.35",
@@ -796,7 +807,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "80",
+                    "Body Weight": "80",
                     "Alfalfa fodder": "2",
                     "Wheat straw": "1",
                     "Corn grain": "0.5",
@@ -807,7 +818,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Alfalfa fodder": "4",
                     "Wheat straw": "1.25",
                     "Corn grain": "0.8",
@@ -818,7 +829,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "130",
+                    "Body Weight": "130",
                     "Alfalfa fodder": "6",
                     "Wheat straw": "1.25",
                     "Corn grain": "1",
@@ -829,7 +840,7 @@
                     "Mineral mixture": "0.04"
                 },
                 {
-                    "Calf weight (kg)": "160",
+                    "Body Weight": "160",
                     "Alfalfa fodder": "8",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -840,7 +851,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "190",
+                    "Body Weight": "190",
                     "Alfalfa fodder": "10",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -853,7 +864,7 @@
             ],
             "imported": [
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Alfalfa fodder": "2.5",
                     "Wheat straw": "1",
                     "Corn grain": "1.1",
@@ -867,7 +878,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "150",
+                    "Body Weight": "150",
                     "Alfalfa fodder": "3.25",
                     "Wheat straw": "1",
                     "Corn grain": "1.1",
@@ -881,7 +892,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "200",
+                    "Body Weight": "200",
                     "Alfalfa fodder": "6",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -895,7 +906,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "250",
+                    "Body Weight": "250",
                     "Alfalfa fodder": "7",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -909,7 +920,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "300",
+                    "Body Weight": "300",
                     "Alfalfa fodder": "9.5",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.6",
@@ -923,7 +934,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "350",
+                    "Body Weight": "350",
                     "Alfalfa fodder": "11",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.6",
@@ -937,7 +948,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "400",
+                    "Body Weight": "400",
                     "Alfalfa fodder": "13",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.7",
@@ -951,7 +962,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "450",
+                    "Body Weight": "450",
                     "Alfalfa fodder": "14",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.8",
@@ -965,7 +976,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "500",
+                    "Body Weight": "500",
                     "Alfalfa fodder": "16",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -979,7 +990,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "550",
+                    "Body Weight": "550",
                     "Alfalfa fodder": "18",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -993,7 +1004,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "600",
+                    "Body Weight": "600",
                     "Alfalfa fodder": "20",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -1011,7 +1022,7 @@
         "corn": {
             "local": [
                 {
-                    "Calf weight (kg)": "40",
+                    "Body Weight": "40",
                     "Corn silage": "1",
                     "Wheat straw": "0.75",
                     "Corn grain": "0.25",
@@ -1022,7 +1033,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "60",
+                    "Body Weight": "60",
                     "Corn silage": "1.5",
                     "Wheat straw": "1",
                     "Corn grain": "0.35",
@@ -1033,7 +1044,7 @@
                     "Mineral mixture": "0.02"
                 },
                 {
-                    "Calf weight (kg)": "80",
+                    "Body Weight": "80",
                     "Corn silage": "2",
                     "Wheat straw": "1",
                     "Corn grain": "0.5",
@@ -1044,7 +1055,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Corn silage": "2.5",
                     "Wheat straw": "1.25",
                     "Corn grain": "0.8",
@@ -1055,7 +1066,7 @@
                     "Mineral mixture": "0.03"
                 },
                 {
-                    "Calf weight (kg)": "130",
+                    "Body Weight": "130",
                     "Corn silage": "5",
                     "Wheat straw": "1.25",
                     "Corn grain": "1",
@@ -1066,7 +1077,7 @@
                     "Mineral mixture": "0.04"
                 },
                 {
-                    "Calf weight (kg)": "160",
+                    "Body Weight": "160",
                     "Corn silage": "7",
                     "Wheat straw": "1.25",
                     "Corn grain": "",
@@ -1077,7 +1088,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "190",
+                    "Body Weight": "190",
                     "Corn silage": "10",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -1090,7 +1101,7 @@
             ],
             "imported": [
                 {
-                    "Calf weight (kg)": "100",
+                    "Body Weight": "100",
                     "Corn silage": "1",
                     "Wheat straw": "1",
                     "Corn grain": "1.1",
@@ -1104,7 +1115,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "150",
+                    "Body Weight": "150",
                     "Corn silage": "3",
                     "Wheat straw": "1",
                     "Corn grain": "1.1",
@@ -1118,7 +1129,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Calf weight (kg)": "200",
+                    "Body Weight": "200",
                     "Corn silage": "5",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -1132,7 +1143,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "250",
+                    "Body Weight": "250",
                     "Corn silage": "6",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.5",
@@ -1146,7 +1157,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "300",
+                    "Body Weight": "300",
                     "Corn silage": "8",
                     "Wheat straw": "1.25",
                     "Corn grain": "1.6",
@@ -1160,7 +1171,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "350",
+                    "Body Weight": "350",
                     "Corn silage": "9",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.6",
@@ -1174,7 +1185,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "400",
+                    "Body Weight": "400",
                     "Corn silage": "10",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.7",
@@ -1188,7 +1199,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "450",
+                    "Body Weight": "450",
                     "Corn silage": "11",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.8",
@@ -1202,7 +1213,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "500",
+                    "Body Weight": "500",
                     "Corn silage": "12.5",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -1216,7 +1227,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "550",
+                    "Body Weight": "550",
                     "Corn silage": "13",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -1230,7 +1241,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Calf weight (kg)": "600",
+                    "Body Weight": "600",
                     "Corn silage": "14",
                     "Wheat straw": "1.5",
                     "Corn grain": "2.5",
@@ -1251,7 +1262,7 @@
         "corn": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Maize silage": "16",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.3",
@@ -1263,7 +1274,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Maize silage": "19",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.3",
@@ -1275,7 +1286,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Maize silage": "22",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.3",
@@ -1289,7 +1300,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Maize silage": "23",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.3",
@@ -1301,7 +1312,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Maize silage": "25",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.4",
@@ -1313,7 +1324,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Maize silage": "25",
                     "Wheat straw": "2",
                     "Corn grain": "0.5",
@@ -1325,7 +1336,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Maize silage": "27",
                     "Wheat straw": "2",
                     "Corn grain": "0.75",
@@ -1341,7 +1352,7 @@
         "sorghum": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Sorghum fodder": "19",
                     "Wheat straw": "2",
                     "Corn grain": "0.4",
@@ -1353,7 +1364,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Sorghum fodder": "21",
                     "Wheat straw": "2",
                     "Corn grain": "0.4",
@@ -1365,7 +1376,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Sorghum fodder": "23",
                     "Wheat straw": "2",
                     "Corn grain": "0.4",
@@ -1379,7 +1390,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Sorghum fodder": "23",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -1391,7 +1402,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Sorghum fodder": "25",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -1403,7 +1414,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Sorghum fodder": "28",
                     "Wheat straw": "2",
                     "Corn grain": "0.75",
@@ -1415,7 +1426,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Sorghum fodder": "30",
                     "Wheat straw": "2",
                     "Corn grain": "0.75",
@@ -1431,7 +1442,7 @@
         "barseem": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Barseem fodder": "20",
                     "Wheat straw": "3",
                     "Corn grain": "1",
@@ -1444,7 +1455,7 @@
                     "Soda bicarb": "0.03"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Barseem fodder": "21",
                     "Wheat straw": "3",
                     "Corn grain": "1.25",
@@ -1457,7 +1468,7 @@
                     "Soda bicarb": "0.03"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Barseem fodder": "23",
                     "Wheat straw": "3",
                     "Corn grain": "1.5",
@@ -1472,7 +1483,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Barseem fodder": "25",
                     "Oat fodder": "0",
                     "Wheat straw": "3",
@@ -1486,7 +1497,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Barseem fodder": "25",
                     "Oat fodder": "0",
                     "Wheat straw": "3",
@@ -1500,7 +1511,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Barseem fodder": "30",
                     "Oat fodder": "0",
                     "Wheat straw": "3",
@@ -1514,7 +1525,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Barseem fodder": "30",
                     "Oat fodder": "0",
                     "Wheat straw": "3",
@@ -1532,7 +1543,7 @@
         "alfalfa": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Alfalfa fodder": "16",
                     "Wheat straw": "2",
                     "Corn grain": "0.3",
@@ -1545,7 +1556,7 @@
                     "Soda bicarb": "0"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Alfalfa fodder": "18",
                     "Wheat straw": "2",
                     "Corn grain": "0.3",
@@ -1558,7 +1569,7 @@
                     "Soda bicarb": "0"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Alfalfa fodder": "21",
                     "Wheat straw": "2",
                     "Corn grain": "0.3",
@@ -1573,7 +1584,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Alfalfa fodder": "23",
                     "Oat fodder": "0",
                     "Wheat straw": "1.5",
@@ -1586,7 +1597,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Alfalfa fodder": "24",
                     "Oat fodder": "0",
                     "Wheat straw": "2",
@@ -1599,7 +1610,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Alfalfa fodder": "26",
                     "Oat fodder": "0",
                     "Wheat straw": "2",
@@ -1612,7 +1623,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Alfalfa fodder": "28",
                     "Oat fodder": "0",
                     "Wheat straw": "2",
@@ -1629,7 +1640,7 @@
         "maize": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Maize fodder": "19",
                     "Wheat straw": "2",
                     "Corn grain": "0.4",
@@ -1641,7 +1652,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Maize fodder": "21",
                     "Wheat straw": "2",
                     "Corn grain": "0.4",
@@ -1653,7 +1664,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Maize fodder": "23",
                     "Wheat straw": "2",
                     "Corn grain": "0.4",
@@ -1667,7 +1678,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Maize fodder": "23",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -1679,7 +1690,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Maize fodder": "25",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -1691,7 +1702,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Maize fodder": "28",
                     "Wheat straw": "2",
                     "Corn grain": "0.75",
@@ -1703,7 +1714,7 @@
                     "Mineral mixture": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Maize fodder": "30",
                     "Wheat straw": "2",
                     "Corn grain": "0.75",
@@ -1722,7 +1733,7 @@
         "maize": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Maize fodder": "18",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.3",
@@ -1737,7 +1748,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Maize fodder": "21",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -1752,7 +1763,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Maize fodder": "23",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -1769,7 +1780,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Maize fodder": "22",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.2",
@@ -1784,7 +1795,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Maize fodder": "24",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.25",
@@ -1799,7 +1810,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Maize fodder": "26",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.5",
@@ -1814,7 +1825,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Maize fodder": "26",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -1833,7 +1844,7 @@
         "sorghum": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Sorgum fodder": "18",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.3",
@@ -1848,7 +1859,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Sorgum fodder": "21",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -1863,7 +1874,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Sorgum fodder": "23",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -1880,7 +1891,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Sorghum fodder": "22",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.2",
@@ -1895,7 +1906,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Sorghum fodder": "24",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.25",
@@ -1910,7 +1921,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Sorghum fodder": "26",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.5",
@@ -1925,7 +1936,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Sorghum fodder": "26",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
@@ -1944,7 +1955,7 @@
         "barseem": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Barseem fodder": "18",
                     "Wheat straw": "2.5",
                     "Corn grain": "0.5",
@@ -1960,7 +1971,7 @@
                     "Buffer/Soda": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Barseem fodder": "23",
                     "Wheat straw": "3",
                     "Corn grain": "0.7",
@@ -1976,7 +1987,7 @@
                     "Buffer/Soda": "0.07"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Barseem fodder": "25",
                     "Wheat straw": "3",
                     "Corn grain": "0.75",
@@ -1994,7 +2005,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Barseem fodder": "22",
                     "Wheat straw": "3",
                     "Corn grain": "2",
@@ -2010,7 +2021,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Barseem fodder": "24",
                     "Wheat straw": "3",
                     "Corn grain": "2",
@@ -2026,7 +2037,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Barseem fodder": "25",
                     "Wheat straw": "3",
                     "Corn grain": "2",
@@ -2042,7 +2053,7 @@
                     "Soda bicarb": "0.1"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Barseem fodder": "28",
                     "Wheat straw": "3",
                     "Corn grain": "2",
@@ -2062,7 +2073,7 @@
         "alfalfa": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Alfalfa fodder": "18",
                     "Wheat straw": "2.5",
                     "Corn grain": "0.5",
@@ -2078,7 +2089,7 @@
                     "Buffer/Soda": "0.07"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Alfalfa fodder": "19",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.5",
@@ -2094,7 +2105,7 @@
                     "Buffer/Soda": "0.07"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Alfalfa fodder": "22",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.7",
@@ -2112,7 +2123,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Alfalfa fodder": "22",
                     "Wheat straw": "3",
                     "Corn grain": "0.75",
@@ -2128,7 +2139,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Alfalfa fodder": "24",
                     "Wheat straw": "1",
                     "Corn grain": "0.75",
@@ -2144,7 +2155,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Alfalfa fodder": "25",
                     "Wheat straw": "1",
                     "Corn grain": "1",
@@ -2160,7 +2171,7 @@
                     "Soda bicarb": "0.05"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Alfalfa fodder": "28",
                     "Wheat straw": "1",
                     "Corn grain": "1",
@@ -2180,7 +2191,7 @@
         "corn": {
             "local": [
                 {
-                    "Cow weight (kg)": "400",
+                    "Body Weight": "400",
                     "Maize silage": "16",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.3",
@@ -2195,7 +2206,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "450",
+                    "Body Weight": "450",
                     "Maize silage": "20",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.4",
@@ -2210,7 +2221,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "500",
+                    "Body Weight": "500",
                     "Maize silage": "22",
                     "Wheat straw": "1.5",
                     "Corn grain": "0.4",
@@ -2227,7 +2238,7 @@
             ],
             "imported": [
                 {
-                    "Cow weight (kg)": "600",
+                    "Body Weight": "600",
                     "Maize silage": "21",
                     "Wheat straw": "1.5",
                     "Corn grain": "1",
@@ -2242,7 +2253,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "650",
+                    "Body Weight": "650",
                     "Maize silage": "24",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.25",
@@ -2257,7 +2268,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "700",
+                    "Body Weight": "700",
                     "Maize silage": "26",
                     "Wheat straw": "1.5",
                     "Corn grain": "1.5",
@@ -2272,7 +2283,7 @@
                     "MgSO4": "0.06"
                 },
                 {
-                    "Cow weight (kg)": "750",
+                    "Body Weight": "750",
                     "Maize silage": "26",
                     "Wheat straw": "1.5",
                     "Corn grain": "2",
