@@ -18,30 +18,23 @@ function Fixed_Formulas({ route }) {
         console.log("=============================== Animal Data ==================================")
         console.log(animalData)
 
-        let bw = animalData['Body Weight']
-        let mp = animalData['Milk Production']
-        let sp = animalData['species']
-        let ss = animalData['Main Fodder']
-        let ao = animalData['Animal Origin']
+        // let bw = animalData['Body Weight']
+        // let mp = animalData['Milk Production']
+        // let sp = animalData['species']
+        // let ss = animalData['Main Fodder']
 
-        if (sp==="dry_period") {
-            console.log("Dry Period Search for Feed Formula")
-            let found = StagedFixedFormulaLibrary
-            .filter(item => Number(item["Body Weight"]) == Number(bw) && item["Animal Origin"] == ao && item["species"].toLowerCase() == sp.toLowerCase() && item["Main Fodder"].toLowerCase() == ss.toLowerCase())
+        let bw = animalData['Body Weight']['weight']
+        let mp = animalData['Milk Production']['milk']
+        let sp = animalData['species']['animal']
+        let ss = animalData['Main Fodder']['feed']
 
-            console.log(bw, ao, sp, ss)
+        console.log(bw, mp, sp, ss)
 
-            console.log("found: ")
-            console.log(found)
-            setFixedRes(found)
-        }
-        else {
-            console.log("General Search for Feed Formula")
-            let found = FixedFormulaLibrary
-            .filter(item => item["Body Weight"] == bw && item["Milk (lit)"] == mp && item["Species"] == sp && item["Main Fodder"] == ss)
-            console.log(found)
-            setFixedRes(found)
-        }
+        console.log("General Search for Feed Formula")
+        let found = FixedFormulaLibrary
+        .filter(item => item["Body Weight"] == bw && item["Milk (lit)"] == mp && item["Species"] == sp && item["Main Fodder"] == ss)
+        console.log(found)
+        setFixedRes(found)
     }
 
     useEffect(() => {
