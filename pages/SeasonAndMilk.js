@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, Button} from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useTranslation } from 'react-i18next';
+
+import { Avatar, Card, Text as TextPaper, Button as ButtonPaper } from 'react-native-paper';
 
 const animal_data = [
   { label: 'Cattle', value: 'Cattle' },
@@ -47,14 +50,36 @@ const feed_data = {
 
 
 const SeasonAndMilk = ({ route, navigation }) => {
+    const { t } = useTranslation();
     const [animal, setAnimal] = useState(null);
     const [weight, setWeight] = useState(null);
     const [feed, setFeed] = useState(null);
     const [milk, setMilk] = useState(null);
     const [season, setSeason] = useState(null)
+
+    const [complete, setComplete] = useState(false)
   
     const [filtered_wt_data, setFiltered_wt_Data] = useState([{ label: 'Please Select a Breed First', value: null }])
     const [filtered_season_data, setFiltered_season_Data] = useState([{ label: 'Please Select a Season First', value: null }])
+
+    useEffect(()=>{
+      if (
+        animal === null ||
+        weight === null ||
+        feed === null ||
+        milk === null ||
+        season === null ||
+        animal === undefined ||
+        weight === undefined ||
+        feed === undefined ||
+        milk === undefined ||
+        season === undefined
+      ) {
+        setComplete(false)
+        console.log(animal, weight, feed, milk, season)
+      } else { setComplete(true) }
+
+    }, [animal, weight, feed, milk, season])
 
     useEffect(()=>{
       if (animal !== null) {
@@ -107,9 +132,18 @@ const SeasonAndMilk = ({ route, navigation }) => {
 
     return (
         <View>
-            <Text>
-                Hello Inputs 
-            </Text>
+          <View>
+            <Card mode="outlined" style={{marginHorizontal: 15}}>
+              <Card.Cover source={require("../assets/images/summerFeed.jpg")} />
+              <Card.Content>
+                <Card.Title title={t('Seasonal Feed Optimizer')} titleVariant='headlineSmall' titleStyle={{fontWeight: "bold", alignSelf: "center"}}/>
+                <TextPaper>
+                Pre-formulated recipies based on season, seasonal fodders animal body weight and milk production.
+                </TextPaper>
+              </Card.Content>
+            </Card>
+
+          </View>
             <View>
               <Dropdown
                 style={styles.dropdown}
@@ -216,12 +250,15 @@ const SeasonAndMilk = ({ route, navigation }) => {
                 )}
               />
 
-              <Button
-                onPress={handleSubmit}
-                title="Next"
-                color="#841584"
-                accessibilityLabel="Next to get pre-formulated feed formula"
-              />
+              <ButtonPaper 
+              style={{margin: 15}} icon="send" 
+              buttonColor="rgba(10, 60, 10, 1)"
+              mode="contained" disabled={!complete}
+              onPress={handleSubmit}
+              >
+                Next
+              </ButtonPaper>
+
             </View>
         </View>
     )

@@ -7,7 +7,7 @@ const SponsorsDisplay = () => {
     const url_arass = "https://arass.org/";
 
     return (
-        <View style={{ flex: 1, justifyContent: "flex-end" }}>
+        <View>
             <View style={{
                 backgroundColor: 'rgb(10, 100, 10)',
                 width: '100%', height: 50,

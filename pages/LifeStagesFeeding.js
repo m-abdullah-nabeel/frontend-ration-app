@@ -3,6 +3,9 @@ import { StyleSheet, View, Text, Button} from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
+import { Button as ButtonPaper } from 'react-native-paper';
+import { Avatar, Card, Text as TextPaper } from 'react-native-paper';
+
 const breed_data = [
   { label: 'Local Breed', value: 'local' },
   { label: 'Imported Breed', value: 'imported' }
@@ -96,20 +99,64 @@ const formula_type = [
   { label: 'Corn silage based', value: 'corn' },
 ];
 
+// repeat from previous page
+const before_weaning_pic = require('../assets/images/before-weaning.jpeg');
+const after_weaning_pic = require('../assets/images/after-weaning.jpg');
+const faroff_dry_pic = require('../assets/images/faroff_dry.jpg');
+const closeup_dry_pic = require('../assets/images/closeup.jpg');
+
+const stages_of_cattle_data = {
+    before_weaning: { 
+      label: 'Before Weaning', value: 'before_weaning', picture: before_weaning_pic,
+      description: "Before weaning, young cattle rely on their mother's milk for nourishment and gradually learn to graze and explore their surroundings. This early stage is crucial for their growth and development."
+     },
+    after_weaning: { 
+      label: 'After Weaning', value: 'after_weaning', picture: after_weaning_pic,
+      description: "After weaning, nutrition management becomes vital for young cattle as they transition from relying on their mother's milk to consuming solid food. Proper nutrition ensures their continued growth, health, and development, setting the foundation for their future well-being"
+     },
+    faroff_dry: { 
+      label: 'Faroff Dry Period', value: 'faroff_dry', picture: faroff_dry_pic,
+      description: 'During the early dry period, often referred to as "faroff," dairy cows are not lactating. Proper nutrition management is crucial at this stage to maintain their body condition and prepare them for the upcoming lactation cycle. Adequate nutrition ensures that cows stay healthy and can produce milk efficiently in the next lactation phase.'
+     },
+    closeup_dry: { 
+      label: 'Closeup Dry Period', value: 'closeup_dry', picture: closeup_dry_pic,
+      description: "In the late dry period, known as closeup, dairy cows are on the verge of calving. Nutrition management during this phase is critical to support the cow's health, prepare for the calving process, and ensure a smooth transition into the next lactation cycle. Adequate care and nutrition are essential for both the cow and the calf's well-being."
+     }
+}
+
 const FixedFormulaInputs = ({ route, navigation }) => {
   // get a list of inputs
     const { stage, animal } = route.params;
-
-    // const animal = route.params.animal.animal
-    // const stage = route.params.stage.stage
-
-    console.log(stage, animal)
+    console.log(stage, animal, stage_data)
+    const stage_data = stages_of_cattle_data[[stage.stage]]
+    console.log(stage_data)
+    const picture = stage_data.picture
 
     const [breed, setBreed] = useState(null);
     const [weight, setWeight] = useState(null);
     const [feed, setFeed] = useState(null);
   
+    const [complete, setComplete] = useState(false)
+
     const [filtered_wt_data, setFiltered_wt_Data] = useState([{ label: 'Please Select a Breed First', value: null }])
+  
+    useEffect(() => {
+      if (stage.stage=='before_weaning') {
+        // Only check weight and breed
+        if (weight === null || breed === null || weight === undefined || breed === undefined) {
+          setComplete(false);
+        } else {
+          setComplete(true);
+        }
+      } else {
+        // Check all three states
+        if (weight === null || breed === null || feed === null || weight === undefined || breed === undefined || feed === undefined) {
+          setComplete(false);
+        } else {
+          setComplete(true);
+        }
+      }
+    }, [stage, breed, weight, feed]);
   
     useEffect(()=>{
       if (breed !== null && stage !==null) {
@@ -136,9 +183,21 @@ const FixedFormulaInputs = ({ route, navigation }) => {
 
     return (
         <View>
-            <Text>
-                Hello Inputs {JSON.stringify(stage)}
-            </Text>
+          <Card mode='outlined' style={{marginHorizontal: 15, 
+          // backgroundColor: "rgba(10, 100, 10, 0.6)"
+        }}>
+            <Card.Cover source={picture} />
+            <Card.Content>
+            {/* <Text>
+                Hello Inputs {JSON.stringify(stage)} {JSON.stringify(stage_data)} 
+            </Text> */}
+            <Card.Title title={stage_data.label} titleVariant='headlineMedium' titleStyle={{fontWeight: "bold", alignSelf: "center"}}/>
+            <TextPaper>
+              {stage_data.description}
+            </TextPaper>
+
+            </Card.Content>
+          </Card>
             <View>
               <Dropdown
                 style={styles.dropdown}
@@ -207,12 +266,15 @@ const FixedFormulaInputs = ({ route, navigation }) => {
                   : null
               }
 
-              <Button
-                onPress={handleSubmit}
-                title="Next"
-                color="#841584"
-                accessibilityLabel="Next to get pre-formulated feed formula"
-              />
+              <ButtonPaper style={{margin: 15}}
+              icon="send" mode="contained" 
+              disabled={!complete}
+              onPress={handleSubmit}
+              buttonColor='rgba(10, 60, 10, 1)'
+              >
+                Next
+              </ButtonPaper>
+
             </View>
         </View>
     )

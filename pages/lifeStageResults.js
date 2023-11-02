@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Button} from 'react-native';
+import { StyleSheet, View, Image, Text, Button, ScrollView} from 'react-native';
+import { DataTable } from 'react-native-paper';
+import SponsorsDisplay from "./sposorsDisplay"
+
+// import { Avatar, Button, Card, Text } from 'react-native-paper';
+import { Card, Avatar } from 'react-native-paper';
 
 const formulas_at_diff_stages = require('../assets/data/stages/formulas_at_diff_stages.json');
 
@@ -11,6 +16,7 @@ const LifeStagesResults = ({ route, navigation }) => {
     let feed = route.params.feed.feed
 
     console.log(stage, animal, breed, weight, feed)
+    const DataToRemove = new Set(["Body Weight", "Milk (lit)", "Species", "Main Fodder", "Season", "Calf Starter Formula"]);
 
     const [formula, setFormula] = useState(null)
     const [calStarter, setCalfStarter] = useState(null)
@@ -50,7 +56,6 @@ const LifeStagesResults = ({ route, navigation }) => {
     
             return CalfStarter[0];    
         }
-
     }
 
     useEffect(()=>{
@@ -60,9 +65,23 @@ const LifeStagesResults = ({ route, navigation }) => {
         }       
     }, [])
 
+    const LeftContent = props => <Image
+        style={{width: 90, height: 90}}
+        source={require('../assets/logo/icon.png')}
+    />
+
     return (
-        <View>
-            <Text>
+        <ScrollView>
+            <Card>
+                <Card.Title 
+                title="Here is your feed recipie" 
+                right={LeftContent} 
+                titleVariant='headlineMedium' titleStyle={{fontWeight: "bold"}}
+                subtitle="UVA-gro"
+                />
+            </Card>
+
+            {/* <Text>
                 Hi LifeStagesResults
                 Your details: 
                 Species: {animal}
@@ -70,35 +89,56 @@ const LifeStagesResults = ({ route, navigation }) => {
                 Breed: {breed}
                 Weight: {weight}
                 Feed: {feed}
-            </Text>
-            <View>
-                {formula && Object.keys(formula).map((i)=>{
-                    return (
-                        <View key={i}>
-                            <Text>
-                                {i}: {formula[[i]]}
-                            </Text>
-                        </View>
-                    )
-                })}
+            </Text> */}
 
-            </View>
             <View>
-                <Text>
-                    Calf Starter ----------------
-                </Text>
-                {
-                    calStarter && Object.keys(calStarter).map((i)=>{
-                        return (
-                            <Text>
-                                {i}: {calf_starter[[i]]}
-                            </Text>
-                        )
+                <DataTable>
+                    <DataTable.Header style={{backgroundColor: "rgba(10, 90, 10, 1)"}}>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>Feedstuffs</DataTable.Title>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}} numeric>Amount / Quantity</DataTable.Title>
+                    </DataTable.Header>
+
+                    {formula && Object.keys(formula)
+                    .filter((name) => {
+                        return !DataToRemove.has(name);
                     })
+                    .map((item) => (
+                        <DataTable.Row key={item}>
+                            <DataTable.Cell>{item}</DataTable.Cell>
+                            <DataTable.Cell numeric>{formula[[item]]}</DataTable.Cell>
+                            {/* <DataTable.Cell numeric>{item.fat}</DataTable.Cell> */}
+                        </DataTable.Row>
+                    ))}
+
+                </DataTable>
+                <Text style={{padding: 5}}>All the values are given in Kg, unless mentioned.</Text>
+                {
+                    stage==='before_weaning' && 
+                    <>
+                    <Text style={{fontWeight: "bold", fontSize: 24}}>Calf Starter Formula</Text>
+                    <DataTable>
+                    <DataTable.Header style={{backgroundColor: "rgba(10, 90, 10, 1)"}}>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>Feedstuffs</DataTable.Title>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>Amount / Quantity</DataTable.Title>
+                    </DataTable.Header>
+
+                    {calStarter && Object.keys(calStarter)
+                    .filter((name) => {
+                        return !DataToRemove.has(name);
+                    })
+                    .map((item) => (
+                        <DataTable.Row key={item}>
+                            <DataTable.Cell>{item}</DataTable.Cell>
+                            <DataTable.Cell>{calStarter[[item]]}</DataTable.Cell>
+                        </DataTable.Row>
+                    ))}
+
+                    </DataTable>
+                    </>
                 }
-            </View>
-            
-        </View>
+            </View>  
+            <SponsorsDisplay/>          
+        </ScrollView>
     )
 }
 
