@@ -1,11 +1,12 @@
 import { t } from "i18next";
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import { Alert, Modal, Pressable } from "react-native";
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // testing language
 import { useTranslation } from 'react-i18next';
+import { Avatar, Button, Card, Text as TextPaper } from 'react-native-paper';
 
 const stages_of_cattle = [
     'before_weaning',
@@ -41,7 +42,7 @@ const FixedFormulaSelector = ({ route, navigation }) => {
     }, [species])
 
     return (
-        <View style={{ flex: 1, }}>
+        <ScrollView>
             <View style={{
                 backgroundColor: 'rgb(0, 100, 0)', borderRadius: 50,
                 paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20, marginBottom: 10,
@@ -54,7 +55,6 @@ const FixedFormulaSelector = ({ route, navigation }) => {
                 </Text>
             </View>
 
-            <View style={{ flex: 3, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
 
             {
                 stages_of_cattle.map((stage)=>{
@@ -64,18 +64,19 @@ const FixedFormulaSelector = ({ route, navigation }) => {
                 })
             }
 
-                {
-                    animal_type !== 'buffalo' ? null :
-                    <View style={styles.animal}>
-                        <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
-                            <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
-                        </TouchableOpacity>
-                    </View>   
-                }
-            </View>
 
-            <View style={{ flex: 1 }}></View>
-        </View >
+
+            {/* <View style={{ flex: 3, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+            {
+                stages_of_cattle.map((stage)=>{
+                    return (
+                        <AnimalTile key={stage} ainmalSpecies={"Cattle"} stage={stage} navigation={navigation} route={route}/>
+                    )
+                })
+            }
+            </View> */}
+
+        </ScrollView >
     )
 }
 
@@ -89,29 +90,46 @@ const AnimalTile = ({ainmalSpecies, stage, navigation, route}) => {
     console.log('animal_type')
     console.log(animal_type)
 
-    useEffect(() => {
-        if (species == 'Cattle') {
-            console.log("Species: " + JSON.stringify(species) + " is selected")
-            setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
-        }
-        if (species == 'Buffalo') {
-            console.log("Species: " + JSON.stringify(species) + " is selected")
-            setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
-        }
-    }, [species])
+    // useEffect(() => {
+    //     if (species == 'Cattle') {
+    //         console.log("Species: " + JSON.stringify(species) + " is selected")
+    //         setInput([fixed_formula_bw_cattle, fixed_formula_mp_cattle])
+    //     }
+    //     if (species == 'Buffalo') {
+    //         console.log("Species: " + JSON.stringify(species) + " is selected")
+    //         setInput([fixed_formula_bw_buffalo, fixed_formula_mp_buffalo])
+    //     }
+    // }, [species])
 
     return (
-        <View style={styles.animal}>
-            <TouchableOpacity onPress={() => { 
-                
-                navigation.navigate('Fixed Formula Inputs', { 
-                    stage:{stage}, animal:{species}
-                 })
-                setSpecies(species) }}>
-                <Image style={styles.image} source={picture} />
-                <Text>{stage}</Text>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={() => { 
+            navigation.navigate('Fixed Formula Inputs', { 
+                stage:{stage}, animal:{species}
+                })
+            setSpecies(species) }}>
+            <Card mode="outlined" style={{marginVertical: 2, backgroundColor: "rgba(10, 100, 10, 0.8)"}}>
+                <Card.Cover source={require("../assets/images/winterFeed.jpg")} />
+                <Card.Content>
+                    <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('feed formulate')}</Text>
+                    <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold' }}>Least Cost Feed Formulation</Text>
+                    {/* <TextPaper style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }} variant="titleLarge">{t(stage)}</TextPaper>
+                    <TextPaper style={{ color: 'white', alignSelf: "center", fontWeight: 'bold' }} variant="bodyMedium">Card content</TextPaper> */}
+                </Card.Content>
+
+                {/* <Card.Title 
+                title={stage} 
+                titleStyle={{color: 'green', paddingTop: 25, alignSelf: "center", fontWeight: 'bold', fontSize: 28}}
+                /> */}
+                {/* <Card.Content>
+                    <TextPaper variant="titleLarge">{t('Get Fixed Formula for Cattle')}</TextPaper>
+                    <TextPaper variant="bodyMedium">Card content</TextPaper>
+                </Card.Content> */}
+            </Card>
+
+            {/*                 
+            <Image style={styles.image} source={picture} />
+             */}
+        </TouchableOpacity>
     )
 }
 

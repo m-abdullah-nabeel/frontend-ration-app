@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Linking, TextInput, SafeAreaView } from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Linking, TextInput, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from "react-native"
 import { useTranslation } from 'react-i18next';
 import SponsorsDisplay from "./sposorsDisplay"
+
+import { Avatar, Button, Card, Text } from 'react-native-paper';
 
 const MenuScreen = ({ navigation }) => {
     const { t } = useTranslation();
@@ -11,8 +13,8 @@ const MenuScreen = ({ navigation }) => {
     // const url_arass = "https://arass.org/";
 
     return (
-        <View style={{ flex: 1 }}>
-            <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
+        <ScrollView style={{ flex: 1 }}>
+            {/* <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
                 <TouchableOpacity onPress={() => { navigation.navigate('Specie Selector') }}>
                     <View style={{ height: '100%', }}>
                         <Image source={require("../assets/images/winterFeed.jpg")}
@@ -29,14 +31,50 @@ const MenuScreen = ({ navigation }) => {
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
                             <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('Get Fixed Formulas')}</Text>
-                            {/* <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', }}>Fixed Formulas Hasil Karen</Text> */}
                         </View>
                     </View>
                 </TouchableOpacity>
-            </View>
+            </View> */}
+
+            <Card theme={{ colors: { primary: 'green' } }} style={{marginVertical:2}} mode="contained">
+                <TouchableOpacity onPress={() => { navigation.navigate('Specie Selector') }}>
+                    <Card.Cover 
+                    source={require("../assets/images/winterFeed.jpg")}
+                    // style={{
+                    //     position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                    //     height: '100%', width: "100%", opacity: 0.9,
+                    //     borderRadius: 10,
+                    // }}
+                    />
+
+                    <View style={{
+                        position: 'absolute', top: 50, left: 50, right: 50, bottom: 50,
+                        backgroundColor: "rgba(10, 100, 10, 0.6)", borderRadius: 5,
+                        flex: 1, alignItems: "center", justifyContent: "center",
+                    }}>
+                        <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('Get Fixed Formulas')}</Text>
+                    </View>
+                </TouchableOpacity>
+            </Card>
 
             {/* least cost formulation */}
-            <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
+            <Card theme={{ colors: { primary: 'green' } }} mode="contained" style={{marginVertical:2}}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
+                    <Card.Cover 
+                    source={require("../assets/images/cattlefeed.jpg")}
+                    />
+                        <View style={{
+                            position: 'absolute', top: 50, left: 50, right: 50, bottom: 50,
+                            backgroundColor: "rgba(10, 100, 10, 0.8)", borderRadius: 5,
+                            flex: 1, alignItems: "center", justifyContent: "center",
+                        }}>
+                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('feed formulate')}</Text>
+                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold' }}>Least Cost Feed Formulation</Text>
+                        </View>
+                </TouchableOpacity>
+            </Card>
+
+            {/* <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
                 <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
                     <View style={{ height: '100%', }}>
                         <Image source={require("../assets/images/cattlefeed.jpg")}
@@ -57,68 +95,10 @@ const MenuScreen = ({ navigation }) => {
                         </View>
                     </View>
                 </TouchableOpacity>
-            </View>
-
-            {/* Prepared special formulas for cattle */}
-            {/* <View style={{ flex: 1, justifyContent: "center", padding: 2 }}>
-                <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
-                    <View style={{ height: '100%', }}>
-                        <Image source={require("../assets/images/cattlefeed.jpg")}
-                            style={{
-                                position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                                height: '100%', width: "100%", opacity: 0.9,
-                                borderRadius: 10,
-                            }}
-                        />
-
-                        <View style={{
-                            position: 'absolute', top: 50, left: 50, right: 50, bottom: 50,
-                            backgroundColor: "rgba(10, 100, 10, 0.8)", borderRadius: 5,
-                            flex: 1, alignItems: "center", justifyContent: "center",
-                        }}>
-                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('Special Formulas')}</Text>
-                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold' }}>Least Cost Feed Formulation</Text>
-                        </View>
-                    </View>
-                </TouchableOpacity>
             </View> */}
 
-            {/* sponsors displayed */}
-            {/* <View style={{ flex: 1, justifyContent: "flex-end" }}>
-                <View style={{
-                    backgroundColor: 'rgb(10, 100, 10)',
-                    width: '100%', height: 50,
-                    flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
-                    borderColor: "black", borderWidth: 1,
-                }}>
-
-                    <TouchableOpacity
-                        onPress={async () => await Linking.openURL(url_arass)}
-                    >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                            <Image
-                                style={{ width: 50, height: 27 }}
-                                source={require('../assets/arass.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={async () => await Linking.openURL(url_uvas)}
-                    >
-                        <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                            <Image
-                                style={{ width: 50, height: 23 }}
-                                source={require('../assets/uvas-big.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
-                </View>
-
-            </View> */}
-
-            <SponsorsDisplay/>
-        </View >
+            {/* <SponsorsDisplay/> */}
+        </ScrollView >
     )
 }
 
