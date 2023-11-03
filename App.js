@@ -59,7 +59,7 @@ const InnerComp = () => {
       })}
     >
       <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }} />
-      <Tab.Screen name="More" component={Settings} options={{ title: 'More' }} />
+      <Tab.Screen name="More" component={Settings} options={{ title: 'About' }} />
     </Tab.Navigator>
   )
 }

@@ -8,6 +8,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 // testing language
 import { useTranslation } from 'react-i18next';
+import { ScrollView } from "react-native-gesture-handler";
 
 const large_ruminant_bw = [
   { label: '300', value: 300 },
@@ -240,7 +241,7 @@ const AnimalSelector = ({ navigation }) => {
   // console.log(species)
 
   return (
-    <View>
+    <ScrollView>
       <View style={{
         backgroundColor: 'rgb(0, 100, 0)', borderRadius: 50,
         paddingLeft: 20, paddingTop: 15, paddingBottom: 15, paddingRight: 20, marginBottom: 10,
@@ -281,7 +282,7 @@ const AnimalSelector = ({ navigation }) => {
         <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
 
       </View>
-    </View >
+    </ScrollView >
   )
 }
 

@@ -115,7 +115,7 @@ const LifeStagesResults = ({ route, navigation }) => {
                 {
                     stage==='before_weaning' && 
                     <>
-                    <Text style={{fontWeight: "bold", fontSize: 24}}>Calf Starter Formula</Text>
+                    <Text style={{fontWeight: "bold", fontSize: 24, alignSelf: "center", margin: 10}}>Calf Starter Formula</Text>
                     <DataTable>
                     <DataTable.Header style={{backgroundColor: "rgba(10, 90, 10, 1)"}}>
                         <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>Feedstuffs</DataTable.Title>
@@ -137,7 +137,9 @@ const LifeStagesResults = ({ route, navigation }) => {
                     </>
                 }
             </View>  
-            <SponsorsDisplay/>          
+            <View style={{marginTop: 10}}>
+                <SponsorsDisplay/>    
+            </View>          
         </ScrollView>
     )
 }

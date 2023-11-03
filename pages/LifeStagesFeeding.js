@@ -5,6 +5,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 
 import { Button as ButtonPaper } from 'react-native-paper';
 import { Avatar, Card, Text as TextPaper } from 'react-native-paper';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const breed_data = [
   { label: 'Local Breed', value: 'local' },
@@ -182,7 +183,7 @@ const FixedFormulaInputs = ({ route, navigation }) => {
     }
 
     return (
-        <View>
+        <ScrollView>
           <Card mode='outlined' style={{marginHorizontal: 15, 
           // backgroundColor: "rgba(10, 100, 10, 0.6)"
         }}>
@@ -267,16 +268,16 @@ const FixedFormulaInputs = ({ route, navigation }) => {
               }
 
               <ButtonPaper style={{margin: 15}}
-              icon="send" mode="contained" 
-              disabled={!complete}
-              onPress={handleSubmit}
-              buttonColor='rgba(10, 60, 10, 1)'
+                icon="send" mode="contained" 
+                disabled={!complete}
+                onPress={handleSubmit}
+                buttonColor="rgba(10, 60, 10, 1)"
               >
-                Next
+                {complete?"Next":"Please fill all inputs above"}
               </ButtonPaper>
 
             </View>
-        </View>
+        </ScrollView>
     )
 }
 

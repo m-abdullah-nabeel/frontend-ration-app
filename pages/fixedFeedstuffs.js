@@ -23,7 +23,7 @@ const FixedStuffSelector = ({ route, navigation }) => {
     }, [fodder])
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
             <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 10, marginBottom: 10 }}>
                 <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("select main fodder")}</Text>
                 <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
@@ -60,7 +60,7 @@ const FixedStuffSelector = ({ route, navigation }) => {
 
             </View>
 
-        </SafeAreaView>
+        </ScrollView>
     )
 }
 

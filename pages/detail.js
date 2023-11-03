@@ -2,7 +2,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, Button, TouchableOpacity, Linking, Image, ScrollView, Pressable } from "react-native"
 import nutrientdata from '../assets/data/feeds_nutrient.json';
 import animalsReqdata from '../assets/data/nutrients_required.json';
-import { Dimensions } from 'react-native';
+import { ActivityIndicator, Dimensions } from 'react-native';
+
+import SponsorsDisplay from "./sposorsDisplay";
 
 import RequirementsSheep from '../assets/data/animal_requirements/sheep.json';
 import RequirementsGoat from '../assets/data/animal_requirements/goat.json';
@@ -12,8 +14,8 @@ import RequirementsBuffalo from '../assets/data/animal_requirements/buffalo.json
 // testing language
 import { useTranslation } from 'react-i18next';
 
-const url_uvas = "https://uvas.edu.pk";
-const url_arass = "https://arass.org/";
+const windowHeight = Dimensions.get('window').height;
+
 
 const ResultCheck = (props) => {
   const { t } = useTranslation();
@@ -99,7 +101,7 @@ const ResultCheck = (props) => {
                       </View>
 
                       <View style={{ height: 35 }}>
-                        <Text style={{ fontSize: 24, fontWeight: '650' }}>{percent_val} %</Text>
+                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{percent_val} %</Text>
                       </View>
                     </View>
                     {/* This section is developer mode only */}
@@ -282,16 +284,6 @@ function DetailsScreen({ navigation, route }) {
   const [bwt, setbwt] = useState(0)
   const [calDMI, setCalDMI] = useState(0)
 
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
-
-  const url_uvas = "https://uvas.edu.pk";
-  const url_arass = "https://arass.org/";
-
-
-  // console.log("Device Dimensions: ")
-  // console.log(windowWidth, windowHeight)
-
   const url_backend_render = 'https://uva-gro-backend-api.onrender.com/formulate/'
   // const url_backend_cloud_run = 'https://uva-gro-backend-nmoxvxzfrq-el.a.run.app/formulate/'
   // const url_backend_localhost = 'http://127.0.0.1:8000/formulate/'
@@ -432,12 +424,18 @@ function DetailsScreen({ navigation, route }) {
       <View style={{ margin: 1 }}>
         {
           isLoading ?
-            <Image
-              style={{ width: '100%', height: 300, flex: 1, justifyContent: 'center', alignItems: "center", alignSelf: "center" }}
-              source={require('../assets/images/loading.gif')}
-            />
-            :
-            <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} calDMI={calDMI} />
+          <View style={{height: windowHeight * 0.8, flex: 1, alignItems: 'center', justifyContent: "center", borderWidth: 1,}}>
+            <View>
+              <ActivityIndicator animating size={100} color="green" />
+            </View>
+          </View>
+                  :
+            <>
+              <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} calDMI={calDMI} />
+              <View style={{marginTop: 10}}>
+                <SponsorsDisplay />
+              </View>
+            </>
         }
       </View>
 
@@ -464,45 +462,7 @@ function DetailsScreen({ navigation, route }) {
         <Text style={{ color: "#fff", fontSize: 16, fontWeight: '400', alignSelf: "center" }}>
           {t("Dry Matter Intake")}: {calDMI} KG
         </Text>
-
       </View> */}
-
-      {/* sponsors display */}
-      <View style={{
-        flex: 1, width: '100%', flexDirection: 'row', alignItems: "center", justifyContent: 'space-around',
-        borderColor: "black", borderWidth: 1, backgroundColor: 'rgb(10, 100, 10)', height: 50, marginTop: 20
-      }}>
-
-        {/* <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 100, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-          <Text style={{
-            alignSelf: 'center', padding: 3, fontSize: 12, textAlign: "center", fontWeight: 'bold',
-          }}>
-            Visit Our Team
-          </Text>
-        </View> */}
-
-        <TouchableOpacity
-          onPress={async () => await Linking.openURL(url_arass)}
-        >
-          <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-            <Image
-              style={{ width: 50, height: 27 }}
-              source={require('../assets/arass.png')}
-            />
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={async () => await Linking.openURL(url_uvas)}
-        >
-          <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-            <Image
-              style={{ width: 50, height: 23 }}
-              source={require('../assets/uvas-big.png')}
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
 
     </ScrollView>
   );

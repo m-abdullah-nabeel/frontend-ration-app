@@ -5,6 +5,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { useTranslation } from 'react-i18next';
 
 import { Avatar, Card, Text as TextPaper, Button as ButtonPaper } from 'react-native-paper';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const animal_data = [
   { label: 'Cattle', value: 'Cattle' },
@@ -131,7 +132,7 @@ const SeasonAndMilk = ({ route, navigation }) => {
     }
 
     return (
-        <View>
+        <ScrollView>
           <View>
             <Card mode="outlined" style={{marginHorizontal: 15}}>
               <Card.Cover source={require("../assets/images/summerFeed.jpg")} />
@@ -256,11 +257,11 @@ const SeasonAndMilk = ({ route, navigation }) => {
               mode="contained" disabled={!complete}
               onPress={handleSubmit}
               >
-                Next
+                {complete?"Next": "Please fill all above fields."}
               </ButtonPaper>
 
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
