@@ -169,13 +169,13 @@ function Settings() {
                 Step 3: Select body weight and milk production level of your animal
               </Text>
               <Text style={[styles.ptext, {}]}>
-                Step 4: Screen will appear from where you can select feed ingredients from 4 different categories. Select at least one ingredient from each category by scrolling down
+                Step 4: Screen will appear from where you can select feed ingredients from 3 different categories. Select at first two ingredients from each category by scrolling down
               </Text>
               <Text style={[styles.ptext, {}]}>
-                Step 5: Screen will appear with your required formulae based upon dry matter and as fed.
+                Step 5: Screen will appear with your required BASE formulae as dry matter and as fed.
               </Text>
               <Text style={[styles.ptext, {}]}>
-                Step 6: Use as fed formula fo feed your animal
+                Step 6: Now go back and experiment with various feedstuffs available and get the formula of your choice.
               </Text>
               <Image
                 style={{ width: 250, height: 625, alignSelf: "center" }}

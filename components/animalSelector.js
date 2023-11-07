@@ -122,19 +122,10 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    console.log("####################################################")
     console.log(input)
     console.log("Species: " + JSON.stringify(cond['species']))
     // uncomment this to see logs
     console.log(cond)
-    // console.log(cond['species'])
-    // console.log(cond['Body Weight'])
-    // console.log(cond['Milk Production'])
-    // console.log(cond)
-    // console.log(Object.values(cond))
-    // console.log(Object.values(cond).includes(""))
-    // console.log("########################")
-
     // errors logic
     Object.values(cond).includes("")
       ? setError(true)
@@ -153,67 +144,66 @@ const OnlyModal = ({ visible, setVisible, animal, navigation, input }) => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'column' }}>
-      <TouchableOpacity onPress={() => { setVisible(false) }}>
+      {/* <TouchableOpacity onPress={() => { setVisible(!visible) }}> */}
         <Modal
-          animationType="slide" transparent={true} visible={visible}
-          statusBarTranslucent={true} animated={true}
-          // onback
-          onRequestClose={() => {
-            // Alert.alert("Modal has been closed.");
-            setVisible(false);
-            setError(true);
-            setCond({
-              species: animal,
-              "Body Weight": '',
-              "Milk Production": ''
-            })
-          }}
-        >
-          <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
-            <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
-              <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
-                {t("your animal")} {t(animal)}
-              </Text>
+            animationType="fade" transparent={true} visible={visible}
+            statusBarTranslucent={true}
+            onRequestClose={() => {
+              // Alert.alert("Modal has been closed.");
+              setVisible(false);
+              setError(true);
+              setCond({
+                species: animal,
+                "Body Weight": '',
+                "Milk Production": ''
+              })
+            }}
+          >
+              <View style={[styles.centeredView, { backgroundColor: "rgba(50, 50, 50, 0.5)" }]}>
+                <View style={[styles.modalView, { backgroundColor: "rgba(255, 255, 255, 1)" }]}>
+                  <Text style={[styles.modalText, { fontSize: 18, fontWeight: 'bold' }]}>
+                    {t("your animal")} {t(animal)}
+                  </Text>
 
-              <DropdownCom
-                // data={inputs[0]}
-                data={input[0]}
-                // change statement name in above cond of errors if ever change this
-                statement="Body Weight"
-                translated={t("Body Weight")}
-                placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
-                cond={cond}
-                setCond={setCond}
-              />
+                  <DropdownCom
+                    // data={inputs[0]}
+                    data={input[0]}
+                    // change statement name in above cond of errors if ever change this
+                    statement="Body Weight"
+                    translated={t("Body Weight")}
+                    placeholderText={t("Body Weight") + " (" + (cond["Body Weight"]).toString() + "Kg)"}
+                    cond={cond}
+                    setCond={setCond}
+                  />
 
-              <DropdownCom
-                data={input[1]}
-                // change statement name in above cond of errors
-                statement="Milk Production"
-                translated={t("Milk Production")}
-                placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
-                cond={cond}
-                setCond={setCond}
-              />
+                  <DropdownCom
+                    data={input[1]}
+                    // change statement name in above cond of errors
+                    statement="Milk Production"
+                    translated={t("Milk Production")}
+                    placeholderText={t("Milk Production") + " (" + (cond['Milk Production']).toString() + "Litres)"}
+                    cond={cond}
+                    setCond={setCond}
+                  />
 
-              {
-                error ? (<
-                  Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
-                  <Pressable
-                    style={[styles.button, styles.buttonClose, { margin: 10 }]}
-                    onPress={() => {
-                      setVisible(false)
-                      navigation.navigate('Stuff Selector', { animal: animal, req_data: cond });
-                    }}
-                  >
-                    <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
-                  </Pressable>
-                )
-              }
-            </View>
-          </View>
+                  {
+                    error ? (<
+                      Text style={[styles.textStyle, { marginTop: 30, color: "red" }]}>{t("animal parameter error")}</Text>) : (
+                      <Pressable
+                        style={[styles.button, styles.buttonClose, { margin: 10 }]}
+                        onPress={() => {
+                          setVisible(false)
+                          navigation.navigate('Stuff Selector', { animal: animal, req_data: cond });
+                        }}
+                      >
+                        <Text style={styles.textStyle}>{t("animal parameter next")}</Text>
+                      </Pressable>
+                    )
+                  }
+                </View>
+              </View>
         </Modal >
-      </TouchableOpacity>
+      {/* </TouchableOpacity> */}
     </View >
   )
 }
@@ -268,7 +258,8 @@ const AnimalSelector = ({ navigation }) => {
             <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
           </TouchableOpacity>
         </View>
-        <View style={styles.animal}>
+
+        {/* <View style={[styles.animal]}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Goat") }}>
             <Image style={styles.image} source={require('../assets/animals/goat.png')} />
           </TouchableOpacity>
@@ -277,7 +268,34 @@ const AnimalSelector = ({ navigation }) => {
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Sheep") }}>
             <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
           </TouchableOpacity>
+        </View> */}
+
+        <View style={styles.animal}>
+            <Image style={styles.image} source={require('../assets/animals/goat.png')} />
+            <View style={{
+                        position: 'absolute', //top: 10, left: 10, right: 10, bottom: 10,
+                        bottom: 10, left: 10, right: 10, 
+                        padding: 5,
+                        backgroundColor: "rgba(10, 140, 10, 0.7)", borderRadius: 5,
+                        flex: 1, alignItems: "center", justifyContent: "center",
+                    }}>
+                <Text style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="titleLarge">{t('coming soon')}</Text>
+            </View>
         </View>
+
+        <View style={styles.animal}>
+            <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
+            <View style={{
+                        position: 'absolute', //top: 10, left: 10, right: 10, bottom: 10,
+                        bottom: 10, left: 10, right: 10, 
+                        padding: 5,
+                        backgroundColor: "rgba(10, 140, 10, 0.7)", borderRadius: 5,
+                        flex: 1, alignItems: "center", justifyContent: "center",
+                    }}>
+                <Text style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="titleLarge">{t('coming soon')}</Text>
+            </View>
+        </View>
+
 
         <OnlyModal visible={visible} setVisible={setVisible} navigation={navigation} animal={species} input={input} />
 
@@ -326,11 +344,11 @@ const styles = StyleSheet.create({
   },
   modalView: {
     width: "100%",
-    height: '70%',
+    height: '60%',
     backgroundColor: "white",
     // borderRadius: 20,
-    borderTopRightRadius: 50,
-    borderTopLeftRadius: 50,
+    borderTopRightRadius: 25,
+    borderTopLeftRadius: 25,
     padding: 35,
     alignItems: "center",
     shadowColor: "#000",
@@ -346,9 +364,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
   },
   buttonClose: {
     backgroundColor: "rgb(130, 30, 1)",

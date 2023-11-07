@@ -93,6 +93,7 @@ const DATA = [
   },
 ];
 
+
 const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, catLen, setCatLen, min_selection, cat_msg }) => {
   const [selected, setSelected] = useState([])
   const { t } = useTranslation();
@@ -184,7 +185,7 @@ const StuffSelector = ({ route, navigation, min_selection, cat_msg }) => {
   const [catLen, setCatLen] = useState({
     "Protein Supplements": 0,
     "Fodders": 0,
-    "Energy Supplements": 0
+    "Energy Supplements": 0,
   })
 
   const { animal, req_data } = route.params;

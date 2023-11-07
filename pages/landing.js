@@ -24,7 +24,7 @@ const Landing = ({ navigation }) => {
         <View style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)' }}>
             <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
                 <View style={{
-                    position: 'absolute', top: StatusBar.currentHeight, left: windowWidth - 105, right: 5, bottom: 0,
+                    position: 'absolute', top: StatusBar.currentHeight+5, right: 10, //bottom: 0, //left: windowWidth - 110, 
                 }}>
                     <LanguageChanger />
                 </View>
@@ -53,7 +53,7 @@ const Landing = ({ navigation }) => {
                         <View style={{
                             backgroundColor: 'white', padding: 15, borderRadius: 25, alignItems: 'center',
                         }}>
-                            <Text style={{ fontFamily: 'nastaliq-regular', fontSize: 24, fontWeight: 'bold', color: 'rgb(120, 20, 10)' }}>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'rgb(120, 20, 10)' }}>
                                 {t('proceed landing')}
                             </Text>
                         </View>

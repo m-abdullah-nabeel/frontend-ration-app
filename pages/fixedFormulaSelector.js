@@ -101,8 +101,8 @@ const AnimalTile = ({ainmalSpecies, stage, navigation, route}) => {
                             backgroundColor: "rgba(10, 70, 10, 0.5)", borderRadius: 5,
                             // flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
-                    <Text style={{color: "white", fontWeight: "bold", textAlign: "center", fontSize: 24}}>{stage_value.label}</Text>
-                    <TextPaper style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="bodyMedium">Feed formulas for {stage_value.label} animals</TextPaper>
+                    <Text style={{color: "white", fontWeight: "bold", textAlign: "center", fontSize: 24}}>{t(`${stage_value.label}`)}</Text>
+                    <TextPaper style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="bodyMedium">{t("fixed_list_stat")} {t(`${stage_value.label}`)}</TextPaper>
                 </Card.Content>
             </Card>
         </TouchableOpacity>

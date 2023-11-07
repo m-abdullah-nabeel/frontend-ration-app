@@ -24,7 +24,7 @@ const SpecieSelector = ({ navigation }) => {
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
                         <TextPaper style={{color: "white", fontWeight: "bold"}} variant="titleLarge">{t('Stage-Based Feed Formulator')}</TextPaper>
-                        <TextPaper style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="bodyMedium">Pre-formulated recipies based on stages of an animal's lifecycle.</TextPaper>
+                        <TextPaper style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="bodyMedium">{t('stage-based-description')}</TextPaper>
                 </Card.Content>
                 {/* <Card.Content>
                     <TextPaper style={{color: "rgba(10, 70, 10, 1)", fontWeight: "bold"}} variant="titleLarge">{t('Seasonal and Animal Profile Formulas')}</TextPaper>
@@ -43,7 +43,7 @@ const SpecieSelector = ({ navigation }) => {
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
                     <TextPaper style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="titleLarge">{t('Seasonal Feed Optimizer')}</TextPaper>
-                    <TextPaper style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="bodyMedium">Pre-formulated recipies based on season, seasonal fodders animal body weight and milk production.</TextPaper>
+                    <TextPaper style={{color: "white", fontWeight: "bold", textAlign: "center"}} variant="bodyMedium">{t('season-based-description')}</TextPaper>
                 </Card.Content>
             </Card>
             </TouchableOpacity>

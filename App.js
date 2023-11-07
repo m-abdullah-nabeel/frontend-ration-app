@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from "./pages/home";
@@ -15,6 +15,12 @@ import 'react-native-gesture-handler';
 // redux
 import { Store } from "./redux/store/configureStore";
 import { Provider } from "react-redux";
+import { SafeAreaView, View } from "react-native";
+import { StatusBar } from 'expo-status-bar';
+
+import Entypo from '@expo/vector-icons/Entypo';
+import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
 
 const Tab = createBottomTabNavigator();
 const WelcomeStack = createStackNavigator()
@@ -52,10 +58,7 @@ const InnerComp = () => {
         },
         tabBarActiveTintColor: 'rgb(100, 60, 1)',
         tabBarInactiveTintColor: 'gray',
-
         // headerShown: false,
-
-
       })}
     >
       <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }} />
@@ -65,28 +68,24 @@ const InnerComp = () => {
 }
 
 const App = () => {
-  const [fontsLoaded] = useFonts({
-    'nastaliq-regular': 'https://fonts.googleapis.com/css2?family=Salsa&display=swap',
-  });
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
-
   return (
-    <Provider store={Store}>
-      <NavigationContainer>
-        <WelcomeStack.Navigator initialRouteName="MenuScreen"
-          screenOptions={{
-            headerShown: false
-          }}
-        >
-          <WelcomeStack.Screen name="Landing" component={Landing} />
-          <WelcomeStack.Screen name="Formulate" component={InnerComp} />
-        </WelcomeStack.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <>
+      <StatusBar style="light" />
+
+      <Provider store={Store}>
+        <NavigationContainer>
+          <WelcomeStack.Navigator initialRouteName="MenuScreen"
+            screenOptions={{
+              headerShown: false
+            }}
+          >
+            <WelcomeStack.Screen name="Landing" component={Landing} />
+            <WelcomeStack.Screen name="Formulate" component={InnerComp} />
+          </WelcomeStack.Navigator>
+        </NavigationContainer>
+      </Provider>
+
+    </>
   );
 }
 

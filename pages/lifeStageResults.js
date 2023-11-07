@@ -3,6 +3,8 @@ import { StyleSheet, View, Image, Text, Button, ScrollView} from 'react-native';
 import { DataTable } from 'react-native-paper';
 import SponsorsDisplay from "./sposorsDisplay"
 
+import { useTranslation } from 'react-i18next';
+
 // import { Avatar, Button, Card, Text } from 'react-native-paper';
 import { Card, Avatar } from 'react-native-paper';
 
@@ -14,6 +16,8 @@ const LifeStagesResults = ({ route, navigation }) => {
     let breed = route.params.breed.breed
     let weight = route.params.weight.weight
     let feed = route.params.feed.feed
+
+    const { t, i18n } = useTranslation();
 
     console.log(stage, animal, breed, weight, feed)
     const DataToRemove = new Set(["Body Weight", "Milk (lit)", "Species", "Main Fodder", "Season", "Calf Starter Formula"]);
@@ -74,7 +78,7 @@ const LifeStagesResults = ({ route, navigation }) => {
         <ScrollView>
             <Card>
                 <Card.Title 
-                title="Here is your feed recipie" 
+                title={t("Recipie")} 
                 right={LeftContent} 
                 titleVariant='headlineMedium' titleStyle={{fontWeight: "bold"}}
                 subtitle="UVA-gro"
@@ -94,8 +98,8 @@ const LifeStagesResults = ({ route, navigation }) => {
             <View>
                 <DataTable>
                     <DataTable.Header style={{backgroundColor: "rgba(10, 90, 10, 1)"}}>
-                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>Feedstuffs</DataTable.Title>
-                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}} numeric>Amount / Quantity</DataTable.Title>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>{t("feedstuffs")}</DataTable.Title>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}} numeric>{t("Amount / Quantity")}</DataTable.Title>
                     </DataTable.Header>
 
                     {formula && Object.keys(formula)
@@ -104,22 +108,22 @@ const LifeStagesResults = ({ route, navigation }) => {
                     })
                     .map((item) => (
                         <DataTable.Row key={item}>
-                            <DataTable.Cell>{item}</DataTable.Cell>
-                            <DataTable.Cell numeric>{formula[[item]]}</DataTable.Cell>
+                            <DataTable.Cell>{t(item)}</DataTable.Cell>
+                            <DataTable.Cell numeric>{formula[[item]]} </DataTable.Cell>
                             {/* <DataTable.Cell numeric>{item.fat}</DataTable.Cell> */}
                         </DataTable.Row>
                     ))}
 
                 </DataTable>
-                <Text style={{padding: 5}}>All the values are given in Kg, unless mentioned.</Text>
+                <Text style={{padding: 5, color: "red"}}>* {t("unit_statement")}</Text>
                 {
                     stage==='before_weaning' && 
                     <>
-                    <Text style={{fontWeight: "bold", fontSize: 24, alignSelf: "center", margin: 10}}>Calf Starter Formula</Text>
+                    <Text style={{fontWeight: "bold", fontSize: 24, alignSelf: "center", margin: 10}}>{t("Calf Starter Formula")}</Text>
                     <DataTable>
                     <DataTable.Header style={{backgroundColor: "rgba(10, 90, 10, 1)"}}>
-                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>Feedstuffs</DataTable.Title>
-                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>Amount / Quantity</DataTable.Title>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>{t("feedstuffs")}</DataTable.Title>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>{t("Amount / Quantity")}</DataTable.Title>
                     </DataTable.Header>
 
                     {calStarter && Object.keys(calStarter)
@@ -128,8 +132,8 @@ const LifeStagesResults = ({ route, navigation }) => {
                     })
                     .map((item) => (
                         <DataTable.Row key={item}>
-                            <DataTable.Cell>{item}</DataTable.Cell>
-                            <DataTable.Cell>{calStarter[[item]]}</DataTable.Cell>
+                            <DataTable.Cell>{t(item)}</DataTable.Cell>
+                            <DataTable.Cell>{calStarter[[item]]} {t("parts")}</DataTable.Cell>
                         </DataTable.Row>
                     ))}
 

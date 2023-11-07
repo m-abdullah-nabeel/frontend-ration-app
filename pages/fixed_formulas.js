@@ -55,7 +55,7 @@ function Fixed_Formulas({ route }) {
             <ScrollView style={{ margin: 10, marginTop: 0 }}>
                 <Card>
                     <Card.Title 
-                    title="Here is your feed recipie" 
+                    title={t("Recipie")} 
                     right={LeftContent} 
                     titleVariant='headlineSmall' titleStyle={{fontWeight: "bold"}}
                     subtitle="UVA-gro"
@@ -71,8 +71,8 @@ function Fixed_Formulas({ route }) {
 
                 <DataTable>
                     <DataTable.Header style={{backgroundColor: "rgba(10, 90, 10, 1)"}}>
-                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>Feedstuffs</DataTable.Title>
-                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}} numeric>Amount / Quantity</DataTable.Title>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}}>{t("feedstuffs")}</DataTable.Title>
+                        <DataTable.Title textStyle={{color: 'white', fontWeight: "bold"}} numeric>{t("Amount / Quantity")}</DataTable.Title>
                     </DataTable.Header>
 
                     {fixedRes && JSON.stringify(fixedRes[0]) !== '{}'
@@ -83,7 +83,7 @@ function Fixed_Formulas({ route }) {
                                 .map((k, i) => (
                         <DataTable.Row key={k}>
                                 <DataTable.Cell>{
-                                                    t(k.split("(kg)")[0].split("(grams)")[0])
+                                                    t((k.split("(kg)")[0].split("(grams)")[0]))
                                                 }
                                 </DataTable.Cell>
                                 <DataTable.Cell>

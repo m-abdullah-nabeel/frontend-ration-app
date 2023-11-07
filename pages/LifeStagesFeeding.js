@@ -7,100 +7,10 @@ import { Button as ButtonPaper } from 'react-native-paper';
 import { Avatar, Card, Text as TextPaper } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const breed_data = [
-  { label: 'Local Breed', value: 'local' },
-  { label: 'Imported Breed', value: 'imported' }
-];
+import { useTranslation } from 'react-i18next';
 
-const weight_data = {
-  before_weaning: {
-    local: [
-      { label: '20', value: 20 },
-      { label: '25', value: 25 },
-      { label: '30', value: 30 }
-    ],
-    imported: [
-      { label: '40', value: 40 },
-      { label: '50', value: 50 },
-      { label: '60', value: 60 },
-      { label: '70', value: 70 },
-      { label: '80', value: 80 }
-    ]
-  },
-  after_weaning: {
-    local: [
-      { label: '40', value: 40 },
-      { label: '60', value: 60 },
-      { label: '80', value: 80 },
-      { label: '100', value: 100 },
-      { label: '130', value: 130 },
-      { label: '160', value: 160 },
-      { label: '190', value: 190 }
-    ],
-    imported: [
-      { label: '100', value: 100 },
-      { label: '150', value: 150 },
-      { label: '200', value: 200 },
-      { label: '250', value: 250 },
-      { label: '300', value: 300 },
-      { label: '350', value: 350 },
-      { label: '400', value: 400 },
-      { label: '450', value: 450 },
-      { label: '500', value: 500 },
-      { label: '550', value: 550 },
-      { label: '600', value: 600 }
-    ]
-  },
-  faroff_dry: {
-    local: [
-      { label: '400', value: 400 },
-      { label: '450', value: 450 },
-      { label: '500', value: 500 }
-    ],
-    imported: [
-      { label: '600', value: 600 },
-      { label: '650', value: 650 },
-      { label: '700', value: 700 },
-      { label: '750', value: 750 }
-    ]
-  },
-  closeup_dry: {
-    local: [
-      { label: '400', value: 400 },
-      { label: '450', value: 450 },
-      { label: '500', value: 500 }
-    ],
-    imported: [
-      { label: '600', value: 600 },
-      { label: '650', value: 650 },
-      { label: '700', value: 700 },
-      { label: '750', value: 750 }
-    ]
-  },
-  milking: {
-    local: [
-      { label: '350', value: 350 },
-      { label: '400', value: 400 },
-      { label: '450', value: 450 },
-    ],
-    imported: [
-      { label: '600', value: 600 },
-      { label: '650', value: 650 },
-      { label: '700', value: 700 },
-      { label: '750', value: 750 }
-    ]
-  }
-};
+import useLifeStageData from './LifeStagesDataHook';
 
-const formula_type = [
-  { label: 'Maize fodder based', value: 'maize' },
-  { label: 'Sorghum fodder based', value: 'sorghum' },
-  { label: 'Barseem fodder based', value: 'barseem' },
-  { label: 'Alfalfa fodder based', value: 'alfalfa' },
-  { label: 'Corn silage based', value: 'corn' },
-];
-
-// repeat from previous page
 const before_weaning_pic = require('../assets/images/before-weaning.jpeg');
 const after_weaning_pic = require('../assets/images/after-weaning.jpg');
 const faroff_dry_pic = require('../assets/images/faroff_dry.jpg');
@@ -109,23 +19,24 @@ const closeup_dry_pic = require('../assets/images/closeup.jpg');
 const stages_of_cattle_data = {
     before_weaning: { 
       label: 'Before Weaning', value: 'before_weaning', picture: before_weaning_pic,
-      description: "Before weaning, young cattle rely on their mother's milk for nourishment and gradually learn to graze and explore their surroundings. This early stage is crucial for their growth and development."
+      description: "before_weaning_desc"
      },
     after_weaning: { 
       label: 'After Weaning', value: 'after_weaning', picture: after_weaning_pic,
-      description: "After weaning, nutrition management becomes vital for young cattle as they transition from relying on their mother's milk to consuming solid food. Proper nutrition ensures their continued growth, health, and development, setting the foundation for their future well-being"
+      description: "after_weaning_desc"
      },
     faroff_dry: { 
       label: 'Faroff Dry Period', value: 'faroff_dry', picture: faroff_dry_pic,
-      description: 'During the early dry period, often referred to as "faroff," dairy cows are not lactating. Proper nutrition management is crucial at this stage to maintain their body condition and prepare them for the upcoming lactation cycle. Adequate nutrition ensures that cows stay healthy and can produce milk efficiently in the next lactation phase.'
+      description: "faroff_dry_desc"
      },
     closeup_dry: { 
       label: 'Closeup Dry Period', value: 'closeup_dry', picture: closeup_dry_pic,
-      description: "In the late dry period, known as closeup, dairy cows are on the verge of calving. Nutrition management during this phase is critical to support the cow's health, prepare for the calving process, and ensure a smooth transition into the next lactation cycle. Adequate care and nutrition are essential for both the cow and the calf's well-being."
+      description: "closeup_dry_desc"
      }
 }
 
 const FixedFormulaInputs = ({ route, navigation }) => {
+  const { breed_data, weight_data, formula_type } = useLifeStageData();
   // get a list of inputs
     const { stage, animal } = route.params;
     console.log(stage, animal, stage_data)
@@ -139,8 +50,11 @@ const FixedFormulaInputs = ({ route, navigation }) => {
   
     const [complete, setComplete] = useState(false)
 
-    const [filtered_wt_data, setFiltered_wt_Data] = useState([{ label: 'Please Select a Breed First', value: null }])
+    const [filtered_wt_data, setFiltered_wt_Data] = useState([{ label: "Please Select a Breed First", value: null }])
+    // const [filtered_wt_data, setFiltered_wt_Data] = useState([{ label: "Please Select a Breed First", value: null }])
   
+    const { t, i18n } = useTranslation();
+
     useEffect(() => {
       if (stage.stage=='before_weaning') {
         // Only check weight and breed
@@ -182,19 +96,34 @@ const FixedFormulaInputs = ({ route, navigation }) => {
      })
     }
 
+    function translateBreedData(breed_data, t) {
+      return breed_data.map(item => ({
+        label: t(item.label),
+        value: item.value,
+      }));
+    }
+    
+    function translateFormulaType(formula_type, t) {
+      return formula_type.map(item => ({
+        label: t(item.label),
+        value: item.value,
+      }));
+    }
+    const translatedBreedData = translateBreedData(breed_data, t);
+    const translatedFormulaType = translateFormulaType(formula_type, t);
+        
     return (
         <ScrollView>
           <Card mode='outlined' style={{marginHorizontal: 15, 
           // backgroundColor: "rgba(10, 100, 10, 0.6)"
-        }}>
+          }}>
             <Card.Cover source={picture} />
             <Card.Content>
-            {/* <Text>
-                Hello Inputs {JSON.stringify(stage)} {JSON.stringify(stage_data)} 
-            </Text> */}
-            <Card.Title title={stage_data.label} titleVariant='headlineMedium' titleStyle={{fontWeight: "bold", alignSelf: "center"}}/>
-            <TextPaper>
-              {stage_data.description}
+              {/* <Card.Title title={stage_data.label} titleVariant='headlineMedium' titleStyle={{fontWeight: "bold", alignSelf: "center"}}/> */}
+              <TextPaper style={{fontWeight: "bold", textAlign: "center", padding: 5}} variant="titleLarge">{t(`${stage_data.label}`)}</TextPaper>
+            <TextPaper style={{textAlign: "center"}}>
+            {t(`${stage_data.description}`)}
+              {}
             </TextPaper>
 
             </Card.Content>
@@ -206,11 +135,11 @@ const FixedFormulaInputs = ({ route, navigation }) => {
                 selectedTextStyle={styles.selectedTextStyle}
                 inputSearchStyle={styles.inputSearchStyle}
                 iconStyle={styles.iconStyle}
-                data={breed_data}
+                data={translatedBreedData}
                 maxHeight={400}
                 labelField="label"
                 valueField="value"
-                placeholder="Select Breed"
+                placeholder={t("Select Breed")}
                 value={breed}
                 onChange={item => {
                   setBreed(item.value);
@@ -231,7 +160,7 @@ const FixedFormulaInputs = ({ route, navigation }) => {
                 maxHeight={400}
                 labelField="label"
                 valueField="value"
-                placeholder="Select Weight"
+                placeholder={t("Select Weight")}
                 searchPlaceholder="Search..."
                 value={weight}
                 onChange={item => {
@@ -249,13 +178,13 @@ const FixedFormulaInputs = ({ route, navigation }) => {
                 selectedTextStyle={styles.selectedTextStyle}
                 inputSearchStyle={styles.inputSearchStyle}
                 iconStyle={styles.iconStyle}
-                data={formula_type}
+                data={translatedFormulaType}
                 search
                 maxHeight={400}
-                labelField="label"
+                labelField={t("label")}
                 valueField="value"
-                placeholder="Select Major Feedstuff"
-                searchPlaceholder="Search..."
+                placeholder={t("Select Major Feedstuff")}
+                searchPlaceholder={t("search")}
                 value={feed}
                 onChange={item => {
                   setFeed(item.value);
@@ -273,7 +202,7 @@ const FixedFormulaInputs = ({ route, navigation }) => {
                 onPress={handleSubmit}
                 buttonColor="rgba(10, 60, 10, 1)"
               >
-                {complete?"Next":"Please fill all inputs above"}
+                {complete?<>{t("Next")}</>:<>{t("Please fill all inputs above")}</>}
               </ButtonPaper>
 
             </View>

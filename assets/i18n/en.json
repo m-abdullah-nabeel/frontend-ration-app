@@ -108,6 +108,64 @@
         "Barley": "Barley",
         "Sorghum": "Sorghum",
         "Jantar": "Jantar",
-        "Cow pea (Rawanhan)": "Cow pea (Rawanhan)"
+        "Cow pea (Rawanhan)": "Cow pea (Rawanhan)",
+
+        "Stage-Based Feed Formulator": "Stage-Based Feed Formulator",
+        "stage-based-description": "Pre-formulated recipies based on stages of an animal's lifecycle",
+
+        "Seasonal Feed Optimizer": "Seasonal Feed Optimizer",
+        "season-based-description": "Pre-formulated recipies based on season, seasonal fodders animal body weight and milk production.",
+
+        "Before Weaning": "Before Weaning",
+        "before_weaning_desc": "Before weaning, young cattle rely on their mother's milk for nourishment and gradually learn to graze and explore their surroundings. This early stage is crucial for their growth and development.",
+
+        "After Weaning": "After Weaning",
+        "after_weaning_desc": "After weaning, nutrition management becomes vital for young cattle as they transition from relying on their mother's milk to consuming solid food. Proper nutrition ensures their continued growth, health, and development, setting the foundation for their future well-being",
+
+        "Faroff Dry Period": "Faroff Dry Period",
+        "faroff_dry_desc": "During the early dry period, often referred to as 'faroff,' dairy cows are not lactating. Proper nutrition management is crucial at this stage to maintain their body condition and prepare them for the upcoming lactation cycle. Adequate nutrition ensures that cows stay healthy and can produce milk efficiently in the next lactation phase.",
+
+        "Closeup Dry Period": "Closeup Dry Period",
+        "closeup_dry_desc": "In the late dry period, known as closeup, dairy cows are on the verge of calving. Nutrition management during this phase is critical to support the cow's health, prepare for the calving process, and ensure a smooth transition into the next lactation cycle. Adequate care and nutrition are essential for both the cow and the calf's well-being.",
+
+        "Select Breed": "Select Breed",
+        "Select Weight": "Select Weight",
+        "Next": "Next",
+        "Please fill all inputs above": "Please fill all inputs above",
+        "Please Select a Breed First": "Please Select a Breed First",
+        "Please Select a Season First": "Please Select a Season First",
+
+        "Local Breed": "Local Breed",
+        "Imported Breed": "Imported Breed", 
+
+        "Maize fodder based": "Maize fodder based",
+        "Sorghum fodder based": "Sorghum fodder based",
+        "Barseem fodder based": "Barseem fodder based",
+        "Alfalfa fodder based": "Alfalfa fodder based",
+        "Corn silage based": "Corn silage based",
+        "Select Major Feedstuff": "Select Major Feedstuff",
+        "Select Major Seasonal Feedstuff": "Select Major Seasonal Feedstuff",
+        "Select Season": "Select Season",
+        "Select Milk Production": "Select Milk Production",
+        "Select Animal / Species": "Select Animal / Species",
+
+        "Amount / Quantity": "Amount / Quantity",
+        "Recipie": "Recipie",
+        "unit_statement": "All the values are given in Kg, unless mentioned.", 
+        "search": "Search",
+
+        "fixed_list_stat": "Feed Formulas for Animals",
+        "Mineral Mixture": "Mineral Mixture",
+        "Urea": "Urea",
+        "Soda Bicarb": "Soda Bicarb",
+        "parts": "Parts",
+        "Calf Starter Formula": "Calf Starter Formula",
+        "Salt": "Salt",
+        "Summer": "Summer",
+        "Winter": "Winter"
+            
+
+
+    
     }
 }

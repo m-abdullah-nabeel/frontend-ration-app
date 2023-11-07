@@ -7,48 +7,11 @@ import { useTranslation } from 'react-i18next';
 import { Avatar, Card, Text as TextPaper, Button as ButtonPaper } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const animal_data = [
-  { label: 'Cattle', value: 'Cattle' },
-  { label: 'Buffalo', value: 'Buffalo' }
-];
+import {useAnimalData, useMilkData, useSeasonData} from "./seasonDataHook";
 
-const milk_data = [
-    { label: '5', value: 5 },
-    { label: '10', value: 10 },
-    { label: '15', value: 15 },
-    { label: '20', value: 20 },
-]
-
-const weight_data = {
-  Cattle: [
-      { label: '350', value: 350 },
-      { label: '400', value: 400 },
-      { label: '450', value: 450 }
-    ],
-  Buffalo: [
-        { label: '500', value: 500 },
-        { label: '600', value: 600 },
-    ]
-};
-
-const season_data = [
-  { label: 'Winter', value: 'Winter' },
-  { label: 'Summer', value: 'Summer' }
-]
-
-const feed_data = {
-  Summer: [
-      { label: 'Sorghum based', value: 'Sorghum based' },
-      { label: 'Maize based', value: 'Maize based' },
-      { label: 'Maize Silage based', value: 'Maize Silage based' }
-    ],
-    Winter: [
-        { label: 'Alfalfa and wheat straw based', value: 'Alfalfa and wheat straw based' },
-        { label: 'Barseem and wheat straw based', value: 'Barseem and wheat straw based' },
-        { label: 'Maize Silage based', value: 'Maize Silage based' }
-      ]
-}
-
+const { animal_data, weight_data } = useAnimalData();
+const { season_data, feed_data } = useSeasonData();
+const { milk_data } = useMilkData();
 
 const SeasonAndMilk = ({ route, navigation }) => {
     const { t } = useTranslation();
@@ -57,12 +20,28 @@ const SeasonAndMilk = ({ route, navigation }) => {
     const [feed, setFeed] = useState(null);
     const [milk, setMilk] = useState(null);
     const [season, setSeason] = useState(null)
-
     const [complete, setComplete] = useState(false)
-  
-    const [filtered_wt_data, setFiltered_wt_Data] = useState([{ label: 'Please Select a Breed First', value: null }])
-    const [filtered_season_data, setFiltered_season_Data] = useState([{ label: 'Please Select a Season First', value: null }])
+    const [filtered_wt_data, setFiltered_wt_Data] = useState([{ label: t('Please Select a Breed First'), value: null }])
+    const [filtered_season_data, setFiltered_season_Data] = useState([{ label: t('Please Select a Season First'), value: null }])
+    const translatedFeedData = {};
 
+    for (const season in feed_data) {
+      translatedFeedData[season] = feed_data[season].map(item => ({
+        label: t(item.label), // Translate the label
+        value: item.value,
+      }));
+    }
+
+    const translatedAnimalData = animal_data.map((item) => ({
+      label: t(item.label), // Translate the label
+      value: item.value,
+    }));
+  
+    const translatedSeasonData = season_data.map((item) => ({
+      label: t(item.label), // Translate the label
+      value: item.value,
+    }));
+  
     useEffect(()=>{
       if (
         animal === null ||
@@ -96,19 +75,14 @@ const SeasonAndMilk = ({ route, navigation }) => {
     useEffect(()=>{
       if (season !== null) {
         console.log("Valid Data")
-        let data_item = feed_data[[season]]
+        // let data_item = feed_data[[season]]
+        let data_item = translatedFeedData[[season]]
         setFiltered_season_Data(data_item)  
       } else {
         console.log("Invalid Data")
         return;
       }
     }, [season])
-
-    // let bw = animalData['Body Weight']
-    // let mp = animalData['Milk Production']
-    // let sp = animalData['species']
-    // let ss = animalData['Main Fodder']
-
 
     const handleSubmit = () => {
       console.log(animal, weight, feed, milk, season)
@@ -137,9 +111,9 @@ const SeasonAndMilk = ({ route, navigation }) => {
             <Card mode="outlined" style={{marginHorizontal: 15}}>
               <Card.Cover source={require("../assets/images/summerFeed.jpg")} />
               <Card.Content>
-                <Card.Title title={t('Seasonal Feed Optimizer')} titleVariant='headlineSmall' titleStyle={{fontWeight: "bold", alignSelf: "center"}}/>
-                <TextPaper>
-                Pre-formulated recipies based on season, seasonal fodders animal body weight and milk production.
+                <TextPaper style={{fontWeight: "bold", textAlign: "center", padding: 5}} variant="titleLarge">{t('Seasonal Feed Optimizer')}</TextPaper>
+                <TextPaper style={{textAlign: "center"}}>
+                  {t(`${"season-based-description"}`)}
                 </TextPaper>
               </Card.Content>
             </Card>
@@ -152,11 +126,11 @@ const SeasonAndMilk = ({ route, navigation }) => {
                 selectedTextStyle={styles.selectedTextStyle}
                 inputSearchStyle={styles.inputSearchStyle}
                 iconStyle={styles.iconStyle}
-                data={animal_data}
+                data={translatedAnimalData}
                 maxHeight={400}
                 labelField="label"
                 valueField="value"
-                placeholder="Select Animal / Species"
+                placeholder={t("Select Animal / Species")}
                 value={animal}
                 onChange={item => {
                   setAnimal(item.value);
@@ -177,7 +151,7 @@ const SeasonAndMilk = ({ route, navigation }) => {
                 maxHeight={400}
                 labelField="label"
                 valueField="value"
-                placeholder="Select Weight"
+                placeholder={t("Select Weight")}
                 searchPlaceholder="Search..."
                 value={weight}
                 onChange={item => {
@@ -198,7 +172,7 @@ const SeasonAndMilk = ({ route, navigation }) => {
                 maxHeight={400}
                 labelField="label"
                 valueField="value"
-                placeholder="Select Milk Production"
+                placeholder={t("Select Milk Production")}
                 searchPlaceholder="Search..."
                 value={milk}
                 onChange={item => {
@@ -214,12 +188,12 @@ const SeasonAndMilk = ({ route, navigation }) => {
                 selectedTextStyle={styles.selectedTextStyle}
                 inputSearchStyle={styles.inputSearchStyle}
                 iconStyle={styles.iconStyle}
-                data={season_data}
+                data={translatedSeasonData}
                 search
                 maxHeight={400}
                 labelField="label"
                 valueField="value"
-                placeholder="Select Season"
+                placeholder={t("Select Season")}
                 searchPlaceholder="Search..."
                 value={season}
                 onChange={item => {
@@ -240,7 +214,7 @@ const SeasonAndMilk = ({ route, navigation }) => {
                 maxHeight={400}
                 labelField="label"
                 valueField="value"
-                placeholder="Select Major Seasonal Feedstuff"
+                placeholder={t("Select Major Seasonal Feedstuff")}
                 searchPlaceholder="Search..."
                 value={feed}
                 onChange={item => {
@@ -257,7 +231,7 @@ const SeasonAndMilk = ({ route, navigation }) => {
               mode="contained" disabled={!complete}
               onPress={handleSubmit}
               >
-                {complete?"Next": "Please fill all above fields."}
+                {complete?<>{t("Next")}</>: <>{t("Please fill all inputs above")}</>}
               </ButtonPaper>
 
             </View>

@@ -6,6 +6,8 @@ import { ActivityIndicator, Dimensions } from 'react-native';
 
 import SponsorsDisplay from "./sposorsDisplay";
 
+import { ButtonPaper } from 'react-native-paper';
+
 import RequirementsSheep from '../assets/data/animal_requirements/sheep.json';
 import RequirementsGoat from '../assets/data/animal_requirements/goat.json';
 import RequirementsCattle from '../assets/data/animal_requirements/cattle.json';
@@ -241,34 +243,32 @@ const ResultCheck = (props) => {
     }
     // if the correct least cost result is not available
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: "center" }}>
+      <>
+      <View style={{height: windowHeight * 0.75, flex: 1, alignItems: 'center', justifyContent: "center", }}>
         <Image
-          style={{ width: 100, height: 100, flex: 1, justifyContent: 'center', alignItems: "center" }}
+          style={{ width: 100, height: 100, }}
           source={require('../assets/images/warn.gif')}
         />
+
         <Text style={{ fontSize: 24, fontWeight: 'bold', padding: 20, color: 'rgba(200, 50, 50, 1)' }}>{(t("retry combination")).toUpperCase()}</Text>
-        {/* <Text style={{ fontSize: 18, fontWeight: '500' }}>{status_[res['status']]}</Text> */}
       </View>
+      </>
     )
   }
   // unexpected errors like no connectivity or damaged app
   else {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: "center" }}>
+      <>
+      <View style={{height: windowHeight * 0.75, flex: 1, alignItems: 'center', justifyContent: "center", }}>
         <Image
-          style={{ width: '100%', height: 300, flex: 1, justifyContent: 'center', alignItems: "center" }}
+          style={{ width: 100, height: 100, }}
           source={require('../assets/images/important.gif')}
         />
-        <Text style={{ fontSize: 18, fontWeight: '500' }}>Try again...</Text>
-        <Text style={{ fontSize: 18, fontWeight: '500' }}>An unexpected error happened!</Text>
+        <Text style={{ fontSize: 12, fontWeight: '500' }}>An unexpected error happened!</Text>
         <Text >{res['error'] && JSON.stringify(res['error'])}</Text>
-        {
-          console.log(res['error'])
-        }
-        {
-          console.log(JSON.stringify(res['error']))
-        }
+        <Text style={{ fontSize: 24, fontWeight: 'bold', padding: 20, color: 'rgba(200, 50, 50, 1)' }}>{(t("retry combination")).toUpperCase()}</Text>
       </View>
+      </>
 
     )
   }
@@ -424,10 +424,10 @@ function DetailsScreen({ navigation, route }) {
       <View style={{ margin: 1 }}>
         {
           isLoading ?
-          <View style={{height: windowHeight * 0.8, flex: 1, alignItems: 'center', justifyContent: "center", borderWidth: 1,}}>
-            <View>
+          <View style={{height: windowHeight * 0.8, flex: 1, alignItems: 'center', justifyContent: "center", }}>
+            {/* <View> */}
               <ActivityIndicator animating size={100} color="green" />
-            </View>
+            {/* </View> */}
           </View>
                   :
             <>
