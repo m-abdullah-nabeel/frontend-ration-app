@@ -23,7 +23,7 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.manabeel.donewithit",
-      "versionCode": 4
+      "versionCode": 10
     },
     "web": {
       "favicon": "./assets/favicon.png"
