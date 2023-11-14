@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import SponsorsDisplay from "./sposorsDisplay"
 
 import { Avatar, Button, Card, Text } from 'react-native-paper';
+import AdTests from "./sampleAd"
 
 const MenuScreen = ({ navigation }) => {
     const { t } = useTranslation();
@@ -34,6 +35,8 @@ const MenuScreen = ({ navigation }) => {
                     </View>
                 </TouchableOpacity>
             </Card>
+
+            {/* <AdTests/> */}
 
             {/* least cost formulation */}
             <Card theme={{ colors: { primary: 'green' } }} mode="contained" style={{marginVertical:2}}>
