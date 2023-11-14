@@ -77,7 +77,7 @@ const LifeStagesResults = ({ route, navigation }) => {
     
     return (
         <ScrollView>
-            <AdTests/>
+            {/* <AdTests/> */}
             <Card>
                 <Card.Title 
                 title={t("Recipie")} 

@@ -3,45 +3,45 @@
         "local": [
             {
                 "Body Weight": "20",
-                "MIlk (lit/d)": "2.411",
-                "Calf starter (g/d)": "240.2"
+                "Milk (litre/day)": "2.411",
+                "Calf Starter (grams/day)": "240.2"
             },
             {
                 "Body Weight": "25",
-                "MIlk (lit/d)": "2.521 ",
-                "Calf starter (g/d)": "285.1 "
+                "Milk (litre/day)": "2.521 ",
+                "Calf Starter (grams/day)": "285.1 "
             },
             {
                 "Body Weight": "30",
-                "MIlk (lit/d)": "2.979 ",
-                "Calf starter (g/d)": "336.9"
+                "Milk (litre/day)": "2.979 ",
+                "Calf Starter (grams/day)": "336.9"
             }
         ], 
         "imported": [
             {
                 "Body Weight": "40",
-                "MIlk (lit/d)": "3.438 ",
-                "Calf starter (g/d)": "388.7 "
+                "Milk (litre/day)": "3.438 ",
+                "Calf Starter (grams/day)": "388.7 "
             },
             {
                 "Body Weight": "50",
-                "MIlk (lit/d)": "3.896 ",
-                "Calf starter (g/d)": "440.6 "
+                "Milk (litre/day)": "3.896 ",
+                "Calf Starter (grams/day)": "440.6 "
             },
             {
                 "Body Weight": "60",
-                "MIlk (lit/d)": "4.354 ",
-                "Calf starter (g/d)": "492.4 "
+                "Milk (litre/day)": "4.354 ",
+                "Calf Starter (grams/day)": "492.4 "
             },
             {
                 "Body Weight": "70",
-                "MIlk (lit/d)": "4.813 ",
-                "Calf starter (g/d)": "544.2 "
+                "Milk (litre/day)": "4.813 ",
+                "Calf Starter (grams/day)": "544.2 "
             },
             {
                 "Body Weight": "80",
-                "MIlk (lit/d)": "5.271 ",
-                "Calf starter (g/d)": "596.1"
+                "Milk (litre/day)": "5.271 ",
+                "Calf Starter (grams/day)": "596.1"
             }
         ],
         "calf_starter": [
@@ -50,9 +50,9 @@
                 "Maize": "22",
                 "Wheat": "15",
                 "Soybean meal": "25",
-                "CM": " 10",
-                "WB": "23",
-                "Mol": "5"
+                "Canola meal": " 10",
+                "Wheat Bran (Chokar)": "23",
+                "Cane Molasses": "5"
             }
         ]
     },

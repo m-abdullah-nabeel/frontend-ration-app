@@ -163,10 +163,8 @@
         "Salt": "Salt",
         "Summer": "Summer",
         "Winter": "Winter",
-        "welcomeMessage": "Welcome to UVA-gro"
-            
-
-
-    
+        "welcomeMessage": "Welcome to UVA-gro",
+        "Milk (litre/day)": "Milk (litre/day)",
+        "Calf Starter (grams/day)": "Calf Starter (grams/day)"
     }
 }
