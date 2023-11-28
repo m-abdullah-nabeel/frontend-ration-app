@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from "./pages/home";
-import Settings from "./pages/settings";
-import Landing from './pages/landing';
+import Home from "./pages/app_routes";
+import About from "./pages/other_pages/about";
+import Landing from './pages/app_splash';
 import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -18,10 +18,6 @@ import { Provider } from "react-redux";
 import { SafeAreaView, View } from "react-native";
 import { StatusBar } from 'expo-status-bar';
 
-import Entypo from '@expo/vector-icons/Entypo';
-import * as SplashScreen from 'expo-splash-screen';
-import * as Font from 'expo-font';
-
 const Tab = createBottomTabNavigator();
 const WelcomeStack = createStackNavigator()
 
@@ -30,9 +26,7 @@ const InnerComp = () => {
     <Tab.Navigator initialRouteName="Home"
       screenOptions={({ route }) => ({
         headerStyle: {
-          // backgroundColor: 'rgba(153, 20, 10, 0.8)',
           backgroundColor: 'rgba(10, 120, 10, 1)',
-          // borderColor: 'yellow', borderWidth: 5
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -62,7 +56,7 @@ const InnerComp = () => {
       })}
     >
       <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }} />
-      <Tab.Screen name="More" component={Settings} options={{ title: 'About' }} />
+      <Tab.Screen name="More" component={About} options={{ title: 'About' }} />
     </Tab.Navigator>
   )
 }

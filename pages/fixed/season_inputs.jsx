@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Avatar, Card, Text as TextPaper, Button as ButtonPaper } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import {useAnimalData, useMilkData, useSeasonData} from "./seasonDataHook";
+import {useAnimalData, useMilkData, useSeasonData} from "./season_data_hook";
 
 const { animal_data, weight_data } = useAnimalData();
 const { season_data, feed_data } = useSeasonData();
@@ -109,7 +109,7 @@ const SeasonAndMilk = ({ route, navigation }) => {
         <ScrollView>
           <View>
             <Card mode="outlined" style={{marginHorizontal: 15}}>
-              <Card.Cover source={require("../assets/images/summerFeed.jpg")} />
+              <Card.Cover source={require("../../assets/images/summerFeed.jpg")} />
               <Card.Content>
                 <TextPaper style={{fontWeight: "bold", textAlign: "center", padding: 5}} variant="titleLarge">{t('Seasonal Feed Optimizer')}</TextPaper>
                 <TextPaper style={{textAlign: "center"}}>

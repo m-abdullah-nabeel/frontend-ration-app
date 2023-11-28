@@ -5,7 +5,7 @@ import { Animated } from 'react-native';
 // translation
 import '../assets/i18n/i18n';
 import { useTranslation } from 'react-i18next';
-import LanguageChanger from './languageChanger';
+import LanguageChanger from './components/language';
 
 import { Dimensions } from 'react-native';
 

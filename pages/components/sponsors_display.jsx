@@ -21,7 +21,7 @@ const SponsorsDisplay = () => {
                     <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                         <Image
                             style={{ width: 50, height: 27 }}
-                            source={require('../assets/arass.png')}
+                            source={require('../../assets/arass.png')}
                         />
                     </View>
                 </TouchableOpacity>
@@ -32,7 +32,7 @@ const SponsorsDisplay = () => {
                     <View style={{ backgroundColor: 'white', borderRadius: 50, height: 35, width: 150, justifyContent: 'center', alignItems: 'center', margin: 5 }}>
                         <Image
                             style={{ width: 50, height: 23 }}
-                            source={require('../assets/uvas-big.png')}
+                            source={require('../../assets/uvas-big.png')}
                         />
                     </View>
                 </TouchableOpacity>

@@ -93,7 +93,6 @@ const DATA = [
   },
 ];
 
-
 const CategorySelector = ({ category, data, feedstuff, setFeedstuff, error, setError, catLen, setCatLen, min_selection, cat_msg }) => {
   const [selected, setSelected] = useState([])
   const { t } = useTranslation();

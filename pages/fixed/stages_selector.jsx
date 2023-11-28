@@ -8,10 +8,10 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useTranslation } from 'react-i18next';
 import { Avatar, Button, Card, Text as TextPaper } from 'react-native-paper';
 
-const before_weaning_pic = require('../assets/images/before-weaning.jpeg');
-const after_weaning_pic = require('../assets/images/after-weaning.jpg');
-const faroff_dry_pic = require('../assets/images/faroff_dry.jpg');
-const closeup_dry_pic = require('../assets/images/closeup.jpg');
+const before_weaning_pic = require('../../assets/images/before-weaning.jpeg');
+const after_weaning_pic = require('../../assets/images/after-weaning.jpg');
+const faroff_dry_pic = require('../../assets/images/faroff_dry.jpg');
+const closeup_dry_pic = require('../../assets/images/closeup.jpg');
 
 const stages_of_cattle_data = {
     before_weaning: { label: 'Before Weaning', value: 'before_weaning', picture: before_weaning_pic },
@@ -27,7 +27,7 @@ const stages_of_cattle = [
     'closeup_dry'
 ]
 
-const FixedFormulaSelector = ({ route, navigation }) => {
+const StageSelector = ({ route, navigation }) => {
     const [visible, setVisible] = useState(false);
     const [species, setSpecies] = useState('')
     const [input, setInput] = useState([])
@@ -109,4 +109,4 @@ const AnimalTile = ({ainmalSpecies, stage, navigation, route}) => {
     )
 }
 
-export default FixedFormulaSelector;
+export default StageSelector;

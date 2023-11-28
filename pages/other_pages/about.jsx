@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { ScrollView, View, Text, StyleSheet, Linking, SafeAreaView, TouchableOpacity, TextInput, Alert, Image } from "react-native"
-import SponsorsDisplay from "./sposorsDisplay";
+import SponsorsDisplay from "../components/sponsors_display";
 
 const OpenURLButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
@@ -46,7 +46,7 @@ const Team = () => {
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
           <Image
             style={{ width: 100, height: 100, borderRadius: 100 }}
-            source={require("../assets/images/team/mubarik.jpg")}
+            source={require("../../assets/images/team/mubarik.jpg")}
           />
         </View>
 
@@ -67,7 +67,7 @@ const Team = () => {
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
           <Image
             style={{ width: 100, height: 100, borderRadius: 100 }}
-            source={require("../assets/images/team/nasrullah.jpg")}
+            source={require("../../assets/images/team/nasrullah.jpg")}
           />
         </View>
 
@@ -88,7 +88,7 @@ const Team = () => {
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
           <Image
             style={{ width: 100, height: 100, borderRadius: 100 }}
-            source={require("../assets/images/team/zafarullah.jpg")}
+            source={require("../../assets/images/team/zafarullah.jpg")}
           />
         </View>
 
@@ -110,7 +110,7 @@ const Team = () => {
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: 100, }}>
           <Image
             style={{ width: 100, height: 100, borderRadius: 100 }}
-            source={require("../assets/images/team/abdullah.jpg")}
+            source={require("../../assets/images/team/abdullah.jpg")}
           />
         </View>
 
@@ -152,7 +152,7 @@ const Guidelines = () => {
         </Text>
         <Image
           style={{ width: 250, height: 625, alignSelf: "center" }}
-          source={require("../assets/images/demo/LeastCost.jpg")}
+          source={require("../../assets/images/demo/LeastCost.jpg")}
         />
       </View>
 

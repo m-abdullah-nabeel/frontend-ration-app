@@ -2,12 +2,12 @@ import React from "react";
 import { View, ScrollView, Text, Image, StyleSheet, Linking, TextInput, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from "react-native"
 import { useTranslation } from 'react-i18next';
-import SponsorsDisplay from "../pages/sposorsDisplay"
+import SponsorsDisplay from "../components/sponsors_display"
 
 import { Avatar, Button, Card, Text as TextPaper } from 'react-native-paper';
 
 
-const SpecieSelector = ({ navigation }) => {
+const FixedFormulaCategories = ({ navigation }) => {
     const { t } = useTranslation();
 
     return (
@@ -16,7 +16,7 @@ const SpecieSelector = ({ navigation }) => {
         }}>
             <TouchableOpacity onPress={() => { navigation.navigate('Fixed Formula Selector', {animal_type: 'cattle'}) }}>
             <Card mode="outlined" style={{marginVertical: 2}}>
-                <Card.Cover source={require("../assets/images/cattle-stages.jpg")} />
+                <Card.Cover source={require("../../assets/images/cattle-stages.jpg")} />
                 <Card.Content style={{
                             position: 'absolute', //top: 10, left: 10, right: 10, bottom: 10,
                             bottom: 10, left: 10, right: 10, 
@@ -35,7 +35,7 @@ const SpecieSelector = ({ navigation }) => {
 
             <TouchableOpacity onPress={() => { navigation.navigate('Milk and Season', {animal_type: 'buffalo'}) }}>
             <Card mode="outlined" style={{marginVertical: 2}}>
-                <Card.Cover source={require("../assets/images/summerFeed.jpg")} />
+                <Card.Cover source={require("../../assets/images/summerFeed.jpg")} />
                 <Card.Content style={{
                             position: 'absolute', //top: 10, left: 10, right: 10, bottom: 10,
                             bottom: 10, left: 10, right: 10, 
@@ -48,10 +48,9 @@ const SpecieSelector = ({ navigation }) => {
             </Card>
             </TouchableOpacity>
 
-            {/* <SponsorsDisplay/> */}
         </ScrollView >
 
     )
 }
 
-export default SpecieSelector
+export default FixedFormulaCategories

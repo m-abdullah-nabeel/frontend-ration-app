@@ -18,8 +18,8 @@ const large_ruminant_bw = [
   { label: '500', value: 500 },
   { label: '550', value: 550 },
   { label: '600', value: 600 },
-  // { label: '650', value: 650 },
-  // { label: '700', value: 700 },
+  { label: '650', value: 650 },
+  { label: '700', value: 700 },
 ];
 
 const large_ruminant_mp = [
@@ -27,10 +27,10 @@ const large_ruminant_mp = [
   { label: '10', value: 10 },
   { label: '15', value: 15 },
   { label: '20', value: 20 },
-  // { label: '25', value: 25 },
-  // { label: '30', value: 30 },
-  // { label: '35', value: 35 },
-  // { label: '40', value: 40 },
+  { label: '25', value: 25 },
+  { label: '30', value: 30 },
+  { label: '35', value: 35 },
+  { label: '40', value: 40 },
 ];
 
 const small_ruminant_bw = [
@@ -250,28 +250,17 @@ const AnimalSelector = ({ navigation }) => {
 
         <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Cattle") }}>
-            <Image style={styles.image} source={require('../assets/animals/cow.png')} />
+            <Image style={styles.image} source={require('../../assets/animals/cow.png')} />
           </TouchableOpacity>
         </View>
         <View style={styles.animal}>
           <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Buffalo") }}>
-            <Image style={styles.image} source={require('../assets/animals/buffalo.png')} />
+            <Image style={styles.image} source={require('../../assets/animals/buffalo.png')} />
           </TouchableOpacity>
         </View>
 
-        {/* <View style={[styles.animal]}>
-          <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Goat") }}>
-            <Image style={styles.image} source={require('../assets/animals/goat.png')} />
-          </TouchableOpacity>
-        </View>
         <View style={styles.animal}>
-          <TouchableOpacity onPress={() => { setVisible(true), setSpecies("Sheep") }}>
-            <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
-          </TouchableOpacity>
-        </View> */}
-
-        <View style={styles.animal}>
-            <Image style={styles.image} source={require('../assets/animals/goat.png')} />
+            <Image style={styles.image} source={require('../../assets/animals/goat.png')} />
             <View style={{
                         position: 'absolute', //top: 10, left: 10, right: 10, bottom: 10,
                         bottom: 10, left: 10, right: 10, 
@@ -284,7 +273,7 @@ const AnimalSelector = ({ navigation }) => {
         </View>
 
         <View style={styles.animal}>
-            <Image style={styles.image} source={require('../assets/animals/sheep.png')} />
+            <Image style={styles.image} source={require('../../assets/animals/sheep.png')} />
             <View style={{
                         position: 'absolute', //top: 10, left: 10, right: 10, bottom: 10,
                         bottom: 10, left: 10, right: 10, 

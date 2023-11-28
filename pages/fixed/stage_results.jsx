@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Image, Text, Button, ScrollView, TouchableOpacity} from 'react-native';
 import { DataTable } from 'react-native-paper';
-import SponsorsDisplay from "./sposorsDisplay"
+import SponsorsDisplay from "../components/sponsors_display"
 
 import { useTranslation } from 'react-i18next';
 
 // import { Avatar, Button, Card, Text } from 'react-native-paper';
 import { Card, Avatar } from 'react-native-paper';
-import AdTests from "./sampleAd"
+import AdTests from "../ads/sampleAd"
 
-const formulas_at_diff_stages = require('../assets/data/stages/formulas_at_diff_stages.json');
+// const formulas_at_diff_stages = require('../../../../../assets/data/stages/formulas_at_diff_stages.json');
+const formulas_at_diff_stages = require('../../assets/data/stages/formulas_at_diff_stages.json');
 
 const LifeStagesResults = ({ route, navigation }) => {
     let animal = route.params.animal.animal.animal
@@ -72,7 +73,7 @@ const LifeStagesResults = ({ route, navigation }) => {
 
     const LeftContent = props => <Image
         style={{width: 90, height: 90}}
-        source={require('../assets/logo/icon.png')}
+        source={require('../../assets/logo/icon.png')}
     />    
     
     return (

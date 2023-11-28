@@ -1,18 +1,18 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, StatusBar, Button } from 'react-native';
-import AnimalSelector from "../components/animalSelector";
-import SpecieSelector from "../components/specieSelector";
-import FixedFormulaSelector from "./fixedFormulaSelector";
-import FixedFormulaInputs from "./LifeStagesFeeding";
-import LifeStagesResults from "./lifeStageResults"
+import AnimalSelector from "./lcff/lcff_animal_inputs";
+import SpecieSelector from "./fixed/home_fixed_formula";
+import FixedFormulaSelector from "./fixed/stages_selector";
+import FixedFormulaInputs from "./fixed/stages_inputs";
+import LifeStagesResults from "./fixed/stage_results"
 // SeasonAndMilk
-import SeasonAndMilk from "./SeasonAndMilk"
-import Fixed_Formulas from "./fixed_formulas";
-import FixedStuffSelector from "./fixedFeedstuffs";
-import StuffSelector from "../components/stuffselector";
+import SeasonAndMilk from "./fixed/season_inputs"
+import Fixed_Formulas from "./fixed/season_results";
+import FixedStuffSelector from "./fixed/fixed_feedstuff_unknown";
+import StuffSelector from "./lcff/lcff_feedstuffs";
 import { createStackNavigator } from '@react-navigation/stack';
-import DetailsScreen from "./detail";
-import MenuScreen from "./menu";
+import DetailsScreen from "./lcff/lcff_results";
+import MenuScreen from "./app_home";
 
 const HomeStack = createStackNavigator()
 
@@ -34,7 +34,7 @@ const Home = ({ navigation }) => {
         <HomeStack.Screen name="Milk and Season" component={SeasonAndMilk} />
 
         <HomeStack.Screen name="Fixed Formula Display" component={Fixed_Formulas} />
-        <HomeStack.Screen name="Fixed Feedstuffs" component={FixedStuffSelector} />
+        {/* <HomeStack.Screen name="Fixed Feedstuffs" component={FixedStuffSelector} /> */}
         <HomeStack.Screen name="Details" component={DetailsScreen} />
         <HomeStack.Screen name="Stuff Selector" navigation={navigation} component={StuffSelector} />
       </HomeStack.Navigator>

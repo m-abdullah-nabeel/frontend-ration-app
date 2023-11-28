@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, View, Text, Linking, SafeAreaView, TouchableOpacity, Image } from "react-native"
-import FixedFormulaLibrary from '../assets/data/fixed_formulas/_combined.json';
-import StagedFixedFormulaLibrary from '../assets/data/fixed_formulas/stages_of_cattle.json';
+import FixedFormulaLibrary from '../../assets/data/fixed_formulas/_combined.json';
+import StagedFixedFormulaLibrary from '../../assets/data/fixed_formulas/stages_of_cattle.json';
 import { useTranslation } from 'react-i18next';
-import SponsorsDisplay from "./sposorsDisplay";
+import SponsorsDisplay from "../components/sponsors_display";
 
 import { DataTable } from 'react-native-paper';
 // import { Avatar, Button, Card, Text } from 'react-native-paper';
@@ -47,7 +47,7 @@ function Fixed_Formulas({ route }) {
 
     const LeftContent = props => <Image
     style={{width: 90, height: 90}}
-    source={require('../assets/logo/icon.png')}
+    source={require('../../assets/logo/icon.png')}
     />
 
     return (

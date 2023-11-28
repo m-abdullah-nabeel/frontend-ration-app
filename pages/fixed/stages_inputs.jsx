@@ -9,12 +9,12 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 import { useTranslation } from 'react-i18next';
 
-import useLifeStageData from './LifeStagesDataHook';
+import useLifeStageData from './stages_data_hook';
 
-const before_weaning_pic = require('../assets/images/before-weaning.jpeg');
-const after_weaning_pic = require('../assets/images/after-weaning.jpg');
-const faroff_dry_pic = require('../assets/images/faroff_dry.jpg');
-const closeup_dry_pic = require('../assets/images/closeup.jpg');
+const before_weaning_pic = require('../../assets/images/before-weaning.jpeg');
+const after_weaning_pic = require('../../assets/images/after-weaning.jpg');
+const faroff_dry_pic = require('../../assets/images/faroff_dry.jpg');
+const closeup_dry_pic = require('../../assets/images/closeup.jpg');
 
 const stages_of_cattle_data = {
     before_weaning: { 
@@ -114,9 +114,7 @@ const FixedFormulaInputs = ({ route, navigation }) => {
         
     return (
         <ScrollView>
-          <Card mode='outlined' style={{marginHorizontal: 15, 
-          // backgroundColor: "rgba(10, 100, 10, 0.6)"
-          }}>
+          <Card mode='outlined' style={{marginHorizontal: 15}}>
             <Card.Cover source={picture} />
             <Card.Content>
               {/* <Card.Title title={stage_data.label} titleVariant='headlineMedium' titleStyle={{fontWeight: "bold", alignSelf: "center"}}/> */}
@@ -128,84 +126,84 @@ const FixedFormulaInputs = ({ route, navigation }) => {
 
             </Card.Content>
           </Card>
-            <View>
+          <View>
+            <Dropdown
+              style={styles.dropdown}
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              iconStyle={styles.iconStyle}
+              data={translatedBreedData}
+              maxHeight={400}
+              labelField="label"
+              valueField="value"
+              placeholder={t("Select Breed")}
+              value={breed}
+              onChange={item => {
+                setBreed(item.value);
+                setWeight(null)
+              }}
+              renderLeftIcon={() => (
+                <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
+              )}
+            />
+            <Dropdown
+              style={styles.dropdown}
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              iconStyle={styles.iconStyle}
+              data={filtered_wt_data}
+              search
+              maxHeight={400}
+              labelField="label"
+              valueField="value"
+              placeholder={t("Select Weight")}
+              searchPlaceholder="Search..."
+              value={weight}
+              onChange={item => {
+                setWeight(item.value);
+              }}
+              renderLeftIcon={() => (
+                <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
+              )}
+            />
+            {
+              stage && stage.stage!=='before_weaning' ?
               <Dropdown
-                style={styles.dropdown}
-                placeholderStyle={styles.placeholderStyle}
-                selectedTextStyle={styles.selectedTextStyle}
-                inputSearchStyle={styles.inputSearchStyle}
-                iconStyle={styles.iconStyle}
-                data={translatedBreedData}
-                maxHeight={400}
-                labelField="label"
-                valueField="value"
-                placeholder={t("Select Breed")}
-                value={breed}
-                onChange={item => {
-                  setBreed(item.value);
-                  setWeight(null)
-                }}
-                renderLeftIcon={() => (
-                  <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
-                )}
-              />
-              <Dropdown
-                style={styles.dropdown}
-                placeholderStyle={styles.placeholderStyle}
-                selectedTextStyle={styles.selectedTextStyle}
-                inputSearchStyle={styles.inputSearchStyle}
-                iconStyle={styles.iconStyle}
-                data={filtered_wt_data}
-                search
-                maxHeight={400}
-                labelField="label"
-                valueField="value"
-                placeholder={t("Select Weight")}
-                searchPlaceholder="Search..."
-                value={weight}
-                onChange={item => {
-                  setWeight(item.value);
-                }}
-                renderLeftIcon={() => (
-                  <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
-                )}
-              />
-              {
-                stage && stage.stage!=='before_weaning' ?
-                <Dropdown
-                style={styles.dropdown}
-                placeholderStyle={styles.placeholderStyle}
-                selectedTextStyle={styles.selectedTextStyle}
-                inputSearchStyle={styles.inputSearchStyle}
-                iconStyle={styles.iconStyle}
-                data={translatedFormulaType}
-                search
-                maxHeight={400}
-                labelField={t("label")}
-                valueField="value"
-                placeholder={t("Select Major Feedstuff")}
-                searchPlaceholder={t("search")}
-                value={feed}
-                onChange={item => {
-                  setFeed(item.value);
-                }}
-                renderLeftIcon={() => (
-                  <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
-                )}
-              />
-                  : null
-              }
+              style={styles.dropdown}
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              iconStyle={styles.iconStyle}
+              data={translatedFormulaType}
+              search
+              maxHeight={400}
+              labelField={t("label")}
+              valueField="value"
+              placeholder={t("Select Major Feedstuff")}
+              searchPlaceholder={t("search")}
+              value={feed}
+              onChange={item => {
+                setFeed(item.value);
+              }}
+              renderLeftIcon={() => (
+                <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
+              )}
+            />
+                : null
+            }
 
-              <ButtonPaper style={{margin: 15}}
-                icon="send" mode="contained" 
-                disabled={!complete}
-                onPress={handleSubmit}
-                buttonColor="rgba(10, 60, 10, 1)"
-              >
-                {complete?<>{t("Next")}</>:<>{t("Please fill all inputs above")}</>}
-              </ButtonPaper>
+            <ButtonPaper style={{margin: 15}}
+              icon="send" mode="contained" 
+              disabled={!complete}
+              onPress={handleSubmit}
+              buttonColor="rgba(10, 60, 10, 1)"
+            >
+              {complete?<>{t("Next")}</>:<>{t("Please fill all inputs above")}</>}
+            </ButtonPaper>
 
-            </View>
+          </View>
         </ScrollView>
     )
 }

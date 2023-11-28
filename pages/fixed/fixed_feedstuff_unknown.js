@@ -57,9 +57,7 @@ const FixedStuffSelector = ({ route, navigation }) => {
                     )
                 }
 
-
             </View>
-
         </ScrollView>
     )
 }

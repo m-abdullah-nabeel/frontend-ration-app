@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet } from "react-native"
 import { Dropdown } from 'react-native-element-dropdown';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import '../assets/i18n/i18n';
+import '../../assets/i18n/i18n';
 import { useTranslation } from 'react-i18next';
 
 const data = [
@@ -40,11 +40,10 @@ const LanguageChanger = () => {
                     renderLeftIcon={() => (
                         <MaterialIcons
                             style={styles.icon}
-                            color={isFocus ? 'rgb(120, 10, 10)' : 'rgb(10, 120, 10)'}
+                            color={isFocus ? 'brown' : 'rgb(10, 120, 10)'}
                             name="language"
                             size={20}
                         />
-
                     )}
                 />
             </View>

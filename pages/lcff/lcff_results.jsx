@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, Button, TouchableOpacity, Linking, Image, ScrollView, Pressable } from "react-native"
-import nutrientdata from '../assets/data/feeds_nutrient.json';
-import animalsReqdata from '../assets/data/nutrients_required.json';
+import nutrientdata from '../../assets/data/feeds_nutrient.json';
+import animalsReqdata from '../../assets/data/nutrients_required.json';
 import { ActivityIndicator, Dimensions } from 'react-native';
 
-import SponsorsDisplay from "./sposorsDisplay";
+import SponsorsDisplay from "../components/sponsors_display";
 
 import { ButtonPaper } from 'react-native-paper';
 
-import RequirementsSheep from '../assets/data/animal_requirements/sheep.json';
-import RequirementsGoat from '../assets/data/animal_requirements/goat.json';
-import RequirementsCattle from '../assets/data/animal_requirements/cattle.json';
-import RequirementsBuffalo from '../assets/data/animal_requirements/buffalo.json';
+import RequirementsSheep from '../../assets/data/animal_requirements/sheep.json';
+import RequirementsGoat from '../../assets/data/animal_requirements/goat.json';
+import RequirementsCattle from '../../assets/data/animal_requirements/cattle.json';
+import RequirementsBuffalo from '../../assets/data/animal_requirements/buffalo.json';
 
 // testing language
 import { useTranslation } from 'react-i18next';
@@ -247,7 +247,7 @@ const ResultCheck = (props) => {
       <View style={{height: windowHeight * 0.75, flex: 1, alignItems: 'center', justifyContent: "center", }}>
         <Image
           style={{ width: 100, height: 100, }}
-          source={require('../assets/images/warn.gif')}
+          source={require('../../assets/images/warn.gif')}
         />
 
         <Text style={{ fontSize: 24, fontWeight: 'bold', padding: 20, color: 'rgba(200, 50, 50, 1)' }}>{(t("retry combination")).toUpperCase()}</Text>
@@ -262,7 +262,7 @@ const ResultCheck = (props) => {
       <View style={{height: windowHeight * 0.75, flex: 1, alignItems: 'center', justifyContent: "center", }}>
         <Image
           style={{ width: 100, height: 100, }}
-          source={require('../assets/images/important.gif')}
+          source={require('../../assets/images/important.gif')}
         />
         <Text style={{ fontSize: 12, fontWeight: '500' }}>An unexpected error happened!</Text>
         <Text >{res['error'] && JSON.stringify(res['error'])}</Text>
@@ -283,6 +283,8 @@ function DetailsScreen({ navigation, route }) {
   const [compo, setCompo] = useState([]);
   const [bwt, setbwt] = useState(0)
   const [calDMI, setCalDMI] = useState(0)
+
+  const [showReq, setShowReq] = useState([])
 
   const url_backend_render = 'https://uva-gro-backend-api.onrender.com/formulate/'
   // const url_backend_cloud_run = 'https://uva-gro-backend-nmoxvxzfrq-el.a.run.app/formulate/'
@@ -325,6 +327,7 @@ function DetailsScreen({ navigation, route }) {
       } else {
         console.log("Invalid Data")
       }
+      
     } catch (error) {
       console.error("Errors Details: ", error);
     } finally {
@@ -371,12 +374,11 @@ function DetailsScreen({ navigation, route }) {
 
     let found = ReqObj.filter(item => item.bodyweight == bw && item.milk == mp)[0]
     console.log(found)
+    setShowReq(found)
     let dmi = found['dmi']
     let cp_T = found['cp_req']
     let me_T = found['me_req']
-    // console.log(dmi)
-    // console.log(cp_T)
-    // console.log(me_T)
+
     setCalDMI(dmi)
     // change following conversions
     let me = (Number(me_T) / Number(dmi)).toFixed(2)
@@ -421,6 +423,43 @@ function DetailsScreen({ navigation, route }) {
 
   return (
     <ScrollView style={{ flex: 1 }}>
+          <View style={{backgroundColor: "#d3d3d3"}}>
+            <Text style={{alignSelf: "center"}}>Inputs</Text>
+            <View style={{backgroundColor: "orange"}}>
+              <Text>
+                Nutrient Requirements (Reading Data from the file)
+                {JSON.stringify(showReq)} {"\n"}
+              </Text>
+              <Text>
+                Nutrient Requirements (CP, ME, NDF)
+                {JSON.stringify(nutReq)}
+              </Text>
+              <Text>
+                Nutrient Requirements (CP, ME, NDF)
+                {JSON.stringify(nutReqShow)}
+              </Text>
+              <Text>
+                {"\n"}
+              </Text>      
+            </View>
+            <View style={{backgroundColor: "pink"}}>
+              <Text>Feeds</Text>
+              {compo.map((i)=>{
+                return<Text>{JSON.stringify(i.name)}: {JSON.stringify(i)} {"\n"} </Text>
+              })}
+            </View>
+            <View style={{backgroundColor: "#d3d3d3"}}>
+              <Text style={{alignSelf: "center"}}>Results</Text>
+            </View>
+            <View style={{backgroundColor: "yellow"}}>
+              <Text>Results Available? {JSON.stringify(data.available)}</Text>
+              <Text>Results Status? {JSON.stringify(data.status)}</Text>
+              <Text>Results? (Dry Matter Based Formula)</Text>
+              <Text>{JSON.stringify(data.results)}</Text>
+            </View>
+            
+        </View>
+  
       <View style={{ margin: 1 }}>
         {
           isLoading ?
@@ -439,9 +478,10 @@ function DetailsScreen({ navigation, route }) {
         }
       </View>
 
+
       {/* This section is developer mode only */}
       {/* animal requirements */}
-      {/* <View style={{
+      <View style={{
         backgroundColor: "rgba(10, 120, 10, 0.9)", borderRadius: 10, padding: 10, marginVertical: 20, marginBottom: 30
       }}>
         <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>
@@ -462,7 +502,7 @@ function DetailsScreen({ navigation, route }) {
         <Text style={{ color: "#fff", fontSize: 16, fontWeight: '400', alignSelf: "center" }}>
           {t("Dry Matter Intake")}: {calDMI} KG
         </Text>
-      </View> */}
+      </View>
 
     </ScrollView>
   );
