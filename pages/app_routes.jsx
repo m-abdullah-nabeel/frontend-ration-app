@@ -1,18 +1,27 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, StatusBar, Button } from 'react-native';
-import AnimalSelector from "./lcff/lcff_animal_inputs";
-import SpecieSelector from "./fixed/home_fixed_formula";
-import FixedFormulaSelector from "./fixed/stages_selector";
-import FixedFormulaInputs from "./fixed/stages_inputs";
-import LifeStagesResults from "./fixed/stage_results"
-// SeasonAndMilk
-import SeasonAndMilk from "./fixed/season_inputs"
-import Fixed_Formulas from "./fixed/season_results";
-import FixedStuffSelector from "./fixed/fixed_feedstuff_unknown";
-import StuffSelector from "./lcff/lcff_feedstuffs";
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import DetailsScreen from "./lcff/lcff_results";
+// App Home
 import MenuScreen from "./app_home";
+// Least Cost Feed Formulation
+import LCFFAnimalInputs from "./lcff/lcff_animal_inputs";
+import LCFFIngredientInputs from "./lcff/lcff_feedstuffs";
+import LCFFResults from "./lcff/lcff_results";
+// Premium Least Cost Feed Formulation
+import PremAnimalInputs from "./lcff-premium/plcff_animal_inputs";
+import PremNutrientRequirements from "./lcff-premium/plcff_nutrient_req";
+import PremIngredientInputs from "./lcff-premium/plcff_feedstuffs";
+import PremResults from "./lcff-premium/plcff_results";
+// Fixed Formulas Home
+import FixedFormulasHome from "./fixed/home_fixed_formula";
+// Fixed Formulas Stage-Based
+import StageSelector from "./fixed/stages_selector";
+import StageInputs from "./fixed/stages_inputs";
+import StageResults from "./fixed/stage_results"
+// Fixed Formulas Season-Based
+import SeasonAndMilk from "./fixed/season_inputs"
+import SeasonResults from "./fixed/season_results";
+// import FixedStuffSelector from "./fixed/fixed_feedstuff_unknown";
 
 const HomeStack = createStackNavigator()
 
@@ -25,18 +34,24 @@ const Home = ({ navigation }) => {
         }}
       >
         <HomeStack.Screen name="Menu Screen" component={MenuScreen} />
-        <HomeStack.Screen name="Specie Selector" component={SpecieSelector} />
-        <HomeStack.Screen name="Animal Selector" component={AnimalSelector} />
-        <HomeStack.Screen name="Fixed Formula Selector" component={FixedFormulaSelector} />
-        <HomeStack.Screen name="Fixed Formula Inputs" component={FixedFormulaInputs} />
-        <HomeStack.Screen name="Life Stages Formulas" component={LifeStagesResults} />
-        {/* Milk and Season */}
+        <HomeStack.Screen name="Specie Selector" component={FixedFormulasHome} />
+        {/* Least Cost Feed Formulation */}
+        <HomeStack.Screen name="Animal Selector" component={LCFFAnimalInputs} />
+        <HomeStack.Screen name="Stuff Selector" navigation={navigation} component={LCFFIngredientInputs} />
+        <HomeStack.Screen name="Details" component={LCFFResults} />
+        {/* Premium Feed Formulation */}
+        <HomeStack.Screen name="Prem Animal Inputs" component={PremAnimalInputs} />
+        <HomeStack.Screen name="Prem Nutrient Requirements" component={PremNutrientRequirements} />
+        <HomeStack.Screen name="Prem Ingredient Inputs" component={PremIngredientInputs} />
+        <HomeStack.Screen name="Prem Results" component={PremResults} />
+        {/* Stage-Based Formulae */}
+        <HomeStack.Screen name="Fixed Formula Selector" component={StageSelector} />
+        <HomeStack.Screen name="Fixed Formula Inputs" component={StageInputs} />
+        <HomeStack.Screen name="Life Stages Formulas" component={StageResults} />
+        {/* Season-Based Formulae */}
         <HomeStack.Screen name="Milk and Season" component={SeasonAndMilk} />
-
-        <HomeStack.Screen name="Fixed Formula Display" component={Fixed_Formulas} />
+        <HomeStack.Screen name="Fixed Formula Display" component={SeasonResults} />
         {/* <HomeStack.Screen name="Fixed Feedstuffs" component={FixedStuffSelector} /> */}
-        <HomeStack.Screen name="Details" component={DetailsScreen} />
-        <HomeStack.Screen name="Stuff Selector" navigation={navigation} component={StuffSelector} />
       </HomeStack.Navigator>
 
     </SafeAreaView>
@@ -46,8 +61,8 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    marginTop: StatusBar.currentHeight || 0,
+    paddingHorizontal: 10,
+    paddingTop: (StatusBar.currentHeight)/3 || 0,
   },
 });
 

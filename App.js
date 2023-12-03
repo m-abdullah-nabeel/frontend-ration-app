@@ -7,15 +7,11 @@ import Landing from './pages/app_splash';
 import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-// fonts
-import { useFonts } from 'expo-font';
-
 import 'react-native-gesture-handler';
 
 // redux
-import { Store } from "./redux/store/configureStore";
+import store from "./redux/index";
 import { Provider } from "react-redux";
-import { SafeAreaView, View } from "react-native";
 import { StatusBar } from 'expo-status-bar';
 
 const Tab = createBottomTabNavigator();
@@ -66,7 +62,7 @@ const App = () => {
     <>
       <StatusBar style="light" />
 
-      <Provider store={Store}>
+      <Provider store={store}>
         <NavigationContainer>
           <WelcomeStack.Navigator initialRouteName="MenuScreen"
             screenOptions={{

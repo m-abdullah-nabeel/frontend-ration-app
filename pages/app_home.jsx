@@ -43,7 +43,7 @@ const MenuScreen = ({ navigation }) => {
             </Card>
 
             <Card theme={{ colors: { primary: 'green' } }} mode="contained" style={{marginVertical:2}}>
-                <TouchableOpacity onPress={() => { navigation.navigate('Animal Selector') }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Prem Animal Inputs') }}>
                     <Card.Cover 
                     source={require("../assets/images/cattle-grass.jpg")}
                     />
