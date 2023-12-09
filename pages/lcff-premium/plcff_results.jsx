@@ -271,7 +271,6 @@ const ResultCheck = (props) => {
         <Text style={{ fontSize: 24, fontWeight: 'bold', padding: 20, color: 'rgba(200, 50, 50, 1)' }}>{(t("retry combination")).toUpperCase()}</Text>
       </View>
       </>
-
     )
   }
 }
@@ -341,9 +340,7 @@ function DetailsScreen() {
         {
           isLoading ?
           <View style={{height: windowHeight * 0.8, flex: 1, alignItems: 'center', justifyContent: "center", }}>
-            {/* <View> */}
               <ActivityIndicator animating size={100} color="green" />
-            {/* </View> */}
           </View>
                   :
             <>

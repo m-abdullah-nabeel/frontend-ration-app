@@ -2,11 +2,6 @@ import { useEffect, useState } from 'react';
 import nutrientdata from '../../assets/data/feeds_nutrient.json';
 import animalsReqdata from '../../assets/data/nutrients_required.json';
 
-import RequirementsSheep from '../../assets/data/animal_requirements/sheep.json';
-import RequirementsGoat from '../../assets/data/animal_requirements/goat.json';
-import RequirementsCattle from '../../assets/data/animal_requirements/cattle.json';
-import RequirementsBuffalo from '../../assets/data/animal_requirements/buffalo.json';
-
 const useIngredientSelector = (species) => {
   const [ingredients, setIngredients] = useState([]);
   const [factors, setFactors] = useState()
@@ -102,10 +97,21 @@ const useIngredientSelector = (species) => {
     },
   ];
   
+  const RuminantFields = [
+    // { name: "Name", data_field: "name", api_reference: "name" },
+    { name: "Dry Matter (%)", data_field: "DM%", api_reference: "DM%" },
+    { name: "Crude Protein", data_field: "CP", api_reference: "CP" },
+    { name: "Neutral Detergent Fiber", data_field: "NDF", api_reference: "NDF" },
+    { name: "Metabolizable Energy", data_field: "ME", api_reference: "ME" },
+    { name: "Cost", data_field: "cost", api_reference: "cost" },
+    { name: "Minimum", data_field: "min", api_reference: "min" },
+    { name: "Maximum", data_field: "max", api_reference: "max" },
+];
+
   useEffect(() => {
     if (species==="Cattle" || species==="Buffalo") {
       setIngredients(RuminnatsIngredients)
-    //   setFactors()
+      setFactors(RuminantFields)
     }
   }, [])
 
@@ -133,9 +139,20 @@ const useIngredientSelector = (species) => {
     return foundNutrient
   }
 
+  function extractValues(jsonData, fields) {
+    return jsonData.map(item => {
+        const extractedItem = {};
+        fields.forEach(key => {
+            extractedItem[key] = item[key];
+        });
+        return extractedItem;
+    });
+  }
+
   return {
     ingredients,
     factors,
+    extractValues,
     getCompositions,
     updateCompositiononAdd
   };

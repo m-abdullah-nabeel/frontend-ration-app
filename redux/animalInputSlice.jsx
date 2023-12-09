@@ -28,7 +28,6 @@ const feedFormulationSlice = createSlice({
     },
     updateIngredient: (state, action) => {
       // Ensure action.payload is an object with properties to match
-      // if (typeof action.payload === 'object' && action.payload !== null)
       if (typeof action.payload === 'object' && action.payload !== null) {
         const { name, updatedProperties } = action.payload;
         alert(JSON.stringify(action.payload))
@@ -45,6 +44,7 @@ const feedFormulationSlice = createSlice({
       // Ensure action.payload is the specific item to remove
       state.ingredients = state.ingredients.filter(item => item.name !== action.payload.name);
     },
+    
     setResults: (state, action) => {
       state.results = { ...state.results, ...action.payload };
     },

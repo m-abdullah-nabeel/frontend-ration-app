@@ -5,36 +5,44 @@ import {
 } from "react-native";
 import { useTranslation } from 'react-i18next';
 import { t } from "i18next";
+import { useForm, Controller } from "react-hook-form"
 import { useSelector, useDispatch } from "react-redux";
 import { selectSpecies } from "../../redux/speciesSlice"
-import { actions } from "../../redux";
-import { selectFeedFormulationData } from "../../redux/animalInputSlice";
+import { useNavigation } from '@react-navigation/native';
+import { setNutrientRequirements, selectFeedFormulationData } from "../../redux/animalInputSlice";
+
 import useIngredientSelector from "../lcff_data/ingredients_data_hook";
 import { Avatar, Button as PaperButton, Card, PaperText, TextInput } from 'react-native-paper';
 import { addIngredients, updateIngredient, removeIngredient } from "../../redux/animalInputSlice";
 
-const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+const LeftContent = props => <Avatar.Icon {...props} icon="calculator" />
 
-const IngredientAddor = ({i}) => {
+const IngredientAddor = ( { ingredient, setCatItems } ) => {
   const dispatch = useDispatch()
+  const {
+    control,
+    handleSubmit, setValue, trigger, 
+    formState: { errors },
+  } = useForm()
   const selectedSpecies = useSelector(selectSpecies)
-  const { updateCompositiononAdd } = useIngredientSelector(selectedSpecies)
+  const { updateCompositiononAdd, factors } = useIngredientSelector(selectedSpecies)
   const [select, setSelect] = useState(false)
   const [added, setAdded] = useState(false)
   const [composition, setComposition] = useState([])
   const [textInputValues, setTextInputValues] = useState({}); // New state to store TextInput values
+  const selectedFeedData = useSelector(selectFeedFormulationData)
 
   const handleSelect = () => {
     setSelect(!select)
-    setComposition(updateCompositiononAdd(i))
+    setComposition(updateCompositiononAdd(ingredient))
   }
 
-  const handleAdd = () => {
+  const handleAdd = (data) => {
     setSelect(false)
     setAdded(true)
-    alert(JSON.stringify(composition))
-    dispatch(addIngredients(composition))
-    // alert(composition)
+    alert(JSON.stringify(data))
+    dispatch(addIngredients(data))
+    setCatItems((prevSum) => prevSum + 1)
   }
 
   const handleUpdate = () => {
@@ -47,215 +55,245 @@ const IngredientAddor = ({i}) => {
     // alert(composition)
   }
   
-  const handleRemove = () => {
+  const handleRemove = ( data ) => {
     setSelect(false)
-    // alert(JSON.stringify(composition))
-    dispatch(removeIngredient(composition))
-    // alert(composition)
+    // alert(JSON.stringify(data))
+    dispatch(removeIngredient(data))
     setAdded(false)
+    setCatItems((prevSum) => prevSum - 1)
   }
 
-  const handleTextInputChange = (key, value) => {
-    // Update the state with the TextInput values
-    setTextInputValues((prevValues) => ({ ...prevValues, [key]: value }));
-  };
-
-  const handleTextInputBlur = () => {
-    // Update the composition state with the TextInput values
-    setComposition({ ...composition, ...textInputValues });
+  const handleTextInputChange = (fieldName, value) => {
+    // You can perform any logic here, such as updating the state
+    console.log(`Field ${fieldName} changed to: ${value}`);
+    setValue(fieldName, value);
   };
   
-  return (
-    <View>
-      <Card>
-        <TouchableOpacity 
-          style={[styles.item, added ? { backgroundColor: 'green' } : null, select ? { backgroundColor: 'grey' } : null]}
-          onPress={handleSelect}
-        >
-          <Text>{t(i)}</Text>
-        </TouchableOpacity>
+  const handleTextInputBlur = (fieldName) => {
+    // You can perform any logic here, such as validation checks
+    console.log(`Field ${fieldName} blurred`);
+    trigger(fieldName);
+  };
+  
+  useEffect(() => {
+    const fetchDefaultValues = async (data) => {
+      factors.map((val) => {
+        setValue(val.api_reference, composition[val.data_field])
+      })
+    };
+  
+    if (
+      factors && factors.length!==0 && ingredient!== null 
+    ) {
+      setValue("name", ingredient)
+      fetchDefaultValues();
+    }
+  }, [select]);
 
-        {select?
-        <>
-          <Card.Title 
-            title={`Change composition of ${i}`} 
-            // subtitle="Card Subtitle" 
-            left={LeftContent} 
-          />
-          <Card.Content>
-            {Object.keys(composition).map((key) => {
-              return (
-                <View key={key} style={{flexDirection: "row"}}>
-                  <Text style={{width: "30%"}}>{key}</Text>
-                  <TextInput
-                    // onChangeText={handleUpdateNutrient} 
-                    style={{width: "70%"}} dense mode="outlined"
-                    placeholder={composition[key]}
-                    onChangeText={(value) => handleTextInputChange(key, value)}
-                    onBlur={handleTextInputBlur}
-                  />
-                </View>  
-              )
-            })}
-          </Card.Content>
-          <Card.Actions>
-            {added ?
-            (<>
-              <PaperButton onPress={() => setSelect(false)}>
+  useEffect(() => {
+    const fetchDefaultValues = async (data) => {
+      const matchingObject = data.find(item => item.name === ingredient);
+
+      if (matchingObject) {
+          console.log(`Found object for ${ingredient}:`, matchingObject);
+          setAdded(true)
+          factors.map((val) => {
+            setValue(val.api_reference, matchingObject[val.data_field])
+          })
+      }
+    };
+  
+    if (
+      factors && factors.length!==0 && ingredient!== null 
+      && Object.keys(selectedFeedData).length!==0 && selectedFeedData.ingredients.length!==0
+    ) {
+      setValue("name", ingredient);
+      fetchDefaultValues(selectedFeedData.ingredients);
+    }
+  }, [select]);
+
+  return (
+    <View >
+      <TouchableOpacity
+        style={[
+          styles.item,
+          added ? { backgroundColor: 'green' } : null,
+          select ? { backgroundColor: 'grey' } : null,
+        ]}
+        onPress={handleSelect}
+      >
+        <Text style={[added ? { color: 'white' } : null,]}>
+          {t(ingredient)}
+        </Text>
+      </TouchableOpacity>
+
+      {select ? (
+        <Card style={{ marginTop: 10 }}>
+          <>
+            <Card.Title
+              title={`Change ${ingredient}'s Composition`}
+              left={LeftContent}
+              titleStyle={{ fontSize: 18, fontWeight: 'bold' }}
+            />
+            <Card.Content>
+              <Controller control={control} name={"name"} rules={{required: true}} 
+                render={({ field: { value } }) => (
+                  <TextInput value={composition["name"]} editable={false} style={{backgroundColor: "rgba(10, 100, 10, 0.8)", paddingLeft: 100, color: "white"}} />  
+                )}
+              />
+              {errors.name && (
+                <Text style={{ color: 'red' }}>This is required.</Text>
+              )}
+
+              {factors && factors.length!==0 && factors.map((key) => (
+                <View key={key.data_field} >
+                  <View style={{
+                    flexDirection: 'row', alignItems: 'center',  marginBottom: 10,
+                  }}
+                  >
+                    <Text style={{ width: '40%', fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
+                    <Controller control={control} name={key.api_reference} rules={{required: true}} 
+                      render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput style={{ width: '60%', fontSize: 14, height: 35 }}
+                        dense keyboardType="numeric" mode="outlined"
+                        onChangeText={(value) =>
+                          handleTextInputChange(key.api_reference, value)
+                        }
+                        onBlur={() => handleTextInputBlur(key.api_reference)}
+                        value={value}
+                      />  
+                      )}
+                    />
+                  </View>
+                  {errors[key.api_reference] && (
+                    <Text style={{ color: 'red' }}>This is required.</Text>
+                  )}
+
+                </View>
+              ))}
+
+            </Card.Content>
+
+            <Card.Actions>
+              <PaperButton
+                onPress={() => setSelect(false)}
+                style={{ marginRight: 10 }}
+              >
                 Close
               </PaperButton>
-              <PaperButton onPress={handleRemove}>
-                Remove Ingredient
-              </PaperButton>
-              <PaperButton onPress={handleUpdate}>
-                Update Ingredient
-              </PaperButton>
-            </>) : (
-            <PaperButton onPress={handleAdd}>
-              Add Ingredient with its values
-            </PaperButton>          
-            )}
-          </Card.Actions>
-        </>
-        :null}
-      </Card>
+
+              {added ? (
+                <>
+                  <PaperButton onPress={handleSubmit(handleRemove)} style={{ marginRight: 10 }}>
+                    Remove Ingredient
+                  </PaperButton>
+                  <PaperButton onPress={handleSubmit(handleUpdate)}>
+                    Update Ingredient
+                  </PaperButton>
+                </>
+              ) : (
+                <PaperButton onPress={handleSubmit(handleAdd)}>
+                  Add Ingredient with its values
+                </PaperButton>
+              )}
+            </Card.Actions>
+          </>
+        </Card>
+      ) : null}
+
+      {/* {Object.keys(selectedFeedData).length!==0 && selectedFeedData.ingredients.length!==0 && selectedFeedData.ingredients.map((i, index) => (
+        <Text key={index}>
+          {"\n"} {JSON.stringify(i)} {" \n "}
+        </Text>
+      ))} */}
+
     </View>
   )
 }
 
-const CategorySelector = ({ categoryData, feedstuff, setFeedstuff, error, setError, catLen, setCatLen, min_selection, cat_msg }) => {
-  const [selected, setSelected] = useState([])
+const PremIngredientInputs = () => {
   const { t } = useTranslation();
-
-  // useEffect(() => {
-  //   setCatLen({...catLen, [categoryData.title]: selected.length})
-  // }, [selected])
-
-  // useEffect(() => {
-  //   // error logic
-  //   console.log("catLen: " + catLen)
-  //   console.log("Error: " + (Object.values(catLen).includes(0) || Object.values(catLen).includes(1)))
-  //   const check2stuffsSelected = () => (Object.values(catLen).includes(0) || Object.values(catLen).includes(1))
-  //   check2stuffsSelected()
-  //     ? setError(true)
-  //     : setError(false)
-  // }, [catLen])
-
-  return (
-    <View>
-      <Text style={styles.header}>{t(categoryData.title)}</Text>
-
-      <View>
-        <View>
-          {error ?
-            (selected.length == 0 ? <Text style={styles.errorDisplay}>{t("category error")}</Text>:null)
-          :null}
-        </View>
-        <Text>{JSON.stringify(selected)}</Text>
-        <View>
-          {categoryData.data.map((i) => {
-            return (
-              <IngredientAddor key={i} i={i}/>
-            )
-          })}
-        </View>
-
-        {categoryData.data.map((x) => {
-          return (
-            <TouchableOpacity key={x}
-              style={[styles.item, selected.includes(x) ? { backgroundColor: 'green' } : null]}
-              onPress={() => {
-                selected.includes(x)
-                  ? (
-                    setSelected(selected.filter(j => j !== x)),
-                    setFeedstuff(feedstuff.filter(j => j !== x))
-                  )
-                  : (
-                    setSelected([...selected, x]),
-                    setFeedstuff([...feedstuff, x])
-                  )
-              }}
-            >
-              <Text
-                style={{ fontSize: 18, fontWeight: 'bold' }}
-              >
-                {t(x)}
-              </Text>
-            </TouchableOpacity>
-          )
-        })}
-      </View>
-
-    </View>
-  )
-}
-
-const PremIngredientInputs = ({ route, navigation, min_selection, cat_msg }) => {
-
-  const selectedFeedData = useSelector(selectFeedFormulationData)
   const selectedSpecies = useSelector(selectSpecies)
   const { ingredients } = useIngredientSelector(selectedSpecies)
-  // alert(JSON.stringify(ingredients))
+  const selectedFeedData = useSelector(selectFeedFormulationData)
+  const [catItems, setCatItems] = useState(0)
 
-  const [feedstuff, setFeedstuff] = useState([]);
-  const [error, setError] = useState(false);
-  const [catLen, setCatLen] = useState({
-    "Protein Supplements": 0,
-    "Fodders": 0,
-    "Energy Supplements": 0,
-  })
+  const [feedsPage, setFeedsPage] = useState(1);
+  const [catData, setCatData] = useState([])
+  const navigation = useNavigation();
 
-  const dispatch = useDispatch()
-  const feedFormuationData = useSelector(selectFeedFormulationData)
+  useEffect(() => {
+    if (ingredients!==null && ingredients!=="undefined" && ingredients.length!==0 && feedsPage!==0) {
+      setCatData(ingredients[feedsPage-1])
+    }
+  }, [feedsPage, ingredients])
+
+  const handleNextFeedPage = () => {
+    setFeedsPage(feedsPage+1)
+  }
+
+  const handlePreviousFeedPage = () => {
+    setFeedsPage(feedsPage-1)
+  }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/* <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 5, padding: 10, marginBottom: 10 }}>
+      {catData && catData.length!==0 ?
+      <ScrollView>
+      <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 5, padding: 10, marginBottom: 10 }}>
         <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("select fodders")}</Text>
         <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
           {t("your animal")}: {t(selectedSpecies)} Premium
         </Text>
       </View>
 
+      <Text style={styles.header}>{t(catData.title)}</Text>
+
       <View>
-        <Text>{JSON.stringify(feedFormuationData)}</Text>
-      </View> */}
+        <View>
+          {true?<Text style={styles.errorDisplay}>{t("category error")}</Text>:null}
+        </View>
 
-      <ScrollView>
-        {ingredients.map((category) => (
-          <CategorySelector categoryData={category}
-            category={category.title} data={category.data} key={category.title}
-            min_selection={category.min_selection} cat_msg={category.cat_msg}
-            feedstuff={feedstuff} setFeedstuff={setFeedstuff}
-            error={error} setError={setError}
-            catLen={catLen} setCatLen={setCatLen}
-          />
-        ))}
+        <View>
+          {catData.data.map((i) => (
+            <View key={i}>
+              <IngredientAddor ingredient={i} setCatItems={setCatItems}/>
+            </View>
+          ))}
+        </View>
+      </View>
 
-        {/* Delete Later */}
-        {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
-          <Text key={i}>
-            {i} {": \n"} {JSON.stringify(selectedFeedData[i])} {" \n "}
-          </Text>
-        ))}  
+    </ScrollView>
+    : <Text>Loading Other Data</Text>}
 
-        {/* <Text>{JSON.stringify(selectedFeedData)}</Text>   */}
+      <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
+        <PaperButton onPress={handlePreviousFeedPage} disabled={feedsPage<=1}>
+          Previous
+        </PaperButton>
 
-      </ScrollView>
+        <Text>{feedsPage} / {ingredients.length}</Text>
 
-      {/* show this button only when you have no error */}
-      {error? null:
-      <Button
-        onPress={() => {
-          error ?
-            (alert("errors found")) :
-            navigation.navigate('Prem Results', { stock: feedstuff });
-        }}
-        title={t("next")}
-        color="rgb(10, 100, 10)"
-        style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20 }}
-        accessibilityLabel="Next to detailed"
-      />}
+        <PaperButton onPress={handleNextFeedPage} disabled={feedsPage>=ingredients.length || catItems<catData.min_selection}>
+          Next
+        </PaperButton>
+      </View>
+
+      <Text>You have selected {catItems} from this category.</Text>
+
+      {feedsPage==ingredients.length && catItems>=catData.min_selection &&
+        <Button
+          onPress={() => navigation.navigate('Prem Results')}
+          title={t("next")} color="rgb(10, 100, 10)"
+          style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20 }}
+        />
+      }
+
+      {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
+        <Text key={i}>
+          {i} {": \n"} {JSON.stringify(selectedFeedData[i])} {" \n "}
+        </Text>
+      ))}
+
     </SafeAreaView>
   )
 }
