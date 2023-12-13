@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import nutrientdata from '../../assets/data/feeds_nutrient.json';
 import animalsReqdata from '../../assets/data/nutrients_required.json';
+import Compositions from "./ingredients.json";
 
 const useIngredientSelector = (species) => {
   const [ingredients, setIngredients] = useState([]);

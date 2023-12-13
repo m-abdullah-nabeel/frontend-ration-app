@@ -73,55 +73,29 @@ const DropdownCom = ({ factorData, setValue }) => {
 
 const PremNutrientsRequired = () => {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
   const selectedSpecies = useSelector(selectSpecies);
   const selectedFeedData = useSelector(selectFeedFormulationData)
   const { nutrientInput, factors, getNutriReq } = useAnimalReqFactor(selectedSpecies)
   const { t } = useTranslation();
   const { control, handleSubmit, setValue, formState: { errors, isValid, isDirty } } = useForm();
-
-  const [formData, setFormData] = useState([])
   const [requirements, setRequirements] = useState([])
 
   const onSubmit = (data) => {
     // alert(JSON.stringify(data));
-    setFormData(data)
-    const { bodyweight, animal, ...filteredRequirements }  = getNutriReq(selectedSpecies, data)
+    const { BW, animal, ...filteredRequirements }  = getNutriReq(selectedSpecies, data)
     // alert(getNutriReq(selectedSpecies, data))
     setRequirements(filteredRequirements)
   };
 
-  const handleInputChange = (text, key) => {
-    setRequirements((prevData) => ({ ...prevData, [key]: text }));
-  };
-
-  const isNumeric = (value) => !isNaN(parseFloat(value)) && isFinite(value);
-
-  const isFormValid = () => {
-    return Object.values(requirements).every(
-      (value) => value.trim() !== '' && isNumeric(value)
-    );
-  };
-
-  const handleSubmitUpdated = () => {
-    if (isFormValid()) {
-      // Do something with the valid form data
-      console.log('Form is valid:', requirements);
-      // alert('Form is valid:' + JSON.stringify(requirements));
-      dispatch(setNutrientRequirements(requirements))
-    } else {
-      // Handle validation error
-      console.log('Form is not valid. Please fill in all fields with numeric values.');
-    }
-  };
-
   return (
-    <ScrollView>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: "center" }}>
+    <ScrollView style={{flex: 1}}>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
         <Text>Choose Animal Requiremnents</Text>
         <Text style={[{ fontSize: 18, fontWeight: 'bold' }]}>
           {t("your animal")} {t(selectedSpecies)}
         </Text>
+        {/* <Text>{JSON.stringify(nutrientInput)}</Text> */}
+        {/* <Text>{JSON.stringify(requirements)}</Text> */}
         <View style={{width: "100%"}}>
           {nutrientInput.map((factor) => (
             <View key={factor.id}>
@@ -130,9 +104,9 @@ const PremNutrientsRequired = () => {
                 render={({ field }) => (
                   <View>
                     {/* <Text>{factor.name}</Text> */}
+
                     <DropdownCom
                       factorData={factor}
-                      
                       setValue={setValue} 
                     />
                     {errors.factor && <Text style={{ color: 'red' }}>{errors.factor.message}</Text>}
@@ -148,66 +122,107 @@ const PremNutrientsRequired = () => {
           <Button mode="contained" onPress={handleSubmit(onSubmit)}>Load Nutrient Requirements</Button>
         </View>
 
+        {Object.keys(requirements).length==0 || factors.length==0 ? null:
+        <NutrientInput factors={factors} requirements={requirements}/>}
+
         <View>
-          {Object.keys(requirements).length === 0 ? (
-            <Text>Please select factors above to load basic requirements</Text>
-          ) : (
-            Object.keys(requirements).map((i) => (
-              <View key={i} style={{ marginBottom: 1 }}>
-                <View style={{
-                  flexDirection: "row", alignItems: "center", justifyContent: "flex-start"
-                }}>
-                  <Text style={{ width: "30%" }}>{i}</Text>
-                  <View style={{ width: "70%" }}>
-                    <TextInput
-                      style={{ width: 300, }}
-                      mode="outlined"
-                      label={i}
-                      value={requirements[i]}
-                      onChangeText={(text) => handleInputChange(text, i)}
-                      keyboardType="numeric"
-                      dense
-                    />
-                    <HelperText type="error" visible={!isNumeric(requirements[i])}>
-                      Value must be a number.
-                    </HelperText>
-                  </View>
-                </View>
 
-              </View>
-            ))
-          )}
-          {Object.keys(requirements).length > 0 && (
-            <Button
-              mode="contained"
-              onPress={handleSubmitUpdated}
-              disabled={!isFormValid()}
-              title="Submit"
-            >
-              Submit
-            </Button>
-          )}
-
-          <Text>
-            Following is current data
-          </Text>
-          {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
+          {/* {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
             <Text key={i}>
               {i} {": \n"} {JSON.stringify(selectedFeedData[i])} {" \n "}
             </Text>
-          ))}    
-          <Button onPress={() => navigation.navigate('Prem Ingredient Inputs')}> 
+          ))} */}
+
+          {/* <Button onPress={() => navigation.navigate('Prem Ingredient Inputs')}> 
             Next Page
-          </Button>    
+          </Button>     */}
         </View>
 
-      </View >
+      </View>
     </ScrollView>
   )
 }
 
 export default PremNutrientsRequired;
 
+const NutrientInput = ({factors, requirements}) => {
+  const { control, handleSubmit, setValue, trigger, formState: { errors, isValid, isDirty } } = useForm();
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+
+  const handleTextInputChange = (fieldName, value) => {
+    console.log(`Field ${fieldName} changed to: ${value}`);
+    setValue(fieldName, value);
+  };
+  
+  const handleTextInputBlur = (fieldName) => {
+    console.log(`Field ${fieldName} blurred`);
+    trigger(fieldName);
+  };
+  
+  useEffect(() => {
+    const fetchDefaultValues = async (data) => {
+      factors.map((val) => {
+        setValue(val.api_reference, (requirements[val.data_field]))
+      })
+    };
+  
+    if (factors && factors.length!==0 ) {
+      fetchDefaultValues();
+    }
+  }, [requirements]);
+
+  const handleSubmitUpdated = (data) => {
+    // alert(JSON.stringify(data))
+    // dispatch(setNutrientRequirements(requirements))
+    dispatch(setNutrientRequirements(data))
+    navigation.navigate('Prem Ingredient Inputs')
+  };
+
+  return (
+    <View>
+      {/* <Text>{JSON.stringify(factors)}</Text> */}
+      {factors && factors.length!==0 && factors.map((key) => {
+        return (
+          <View key={key.name}>
+            <View style={{
+                flexDirection: 'row', alignItems: 'center',  marginBottom: 10,
+              }}
+            >
+              <Text style={{ width: '40%', fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
+              <Controller control={control} name={key.api_reference} rules={{required: true}} 
+                  render={({ field: { onChange, onBlur, value } }) => (
+                    <TextInput style={{ width: '60%', fontSize: 14, height: 35 }}
+                    dense keyboardType="numeric" mode="outlined"
+                    onChangeText={(value) =>
+                      handleTextInputChange(key.api_reference, value)
+                    }
+                    onBlur={() => handleTextInputBlur(key.api_reference)}
+                    value={value}
+                  />  
+                  )}
+                />
+
+            </View>
+            {errors[key.api_reference] && (
+                <Text style={{ color: 'red' }}>This is required.</Text>
+            )}
+          </View>
+        )
+      })}
+      <Button
+        mode="contained"
+        onPress={handleSubmit(handleSubmitUpdated)}
+        // disabled={!isValid}
+        title="Submit"
+      >
+        Submit
+      </Button>
+
+    </View>
+
+  )
+}
 const styles = StyleSheet.create({
   textStyle: {
     color: "white",

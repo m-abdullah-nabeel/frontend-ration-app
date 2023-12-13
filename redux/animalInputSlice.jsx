@@ -2,9 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  nutrientRequirements: {
-    cp_req: '',
-  },
+  nutrientRequirements: {},
   ingredients: [
     // Ingredients with or without categories to be done later
   ],

@@ -2,10 +2,23 @@ import { useEffect, useState } from 'react';
 import nutrientdata from '../../assets/data/feeds_nutrient.json';
 import animalsReqdata from '../../assets/data/nutrients_required.json';
 
-import RequirementsSheep from '../../assets/data/animal_requirements/sheep.json';
-import RequirementsGoat from '../../assets/data/animal_requirements/goat.json';
-import RequirementsCattle from '../../assets/data/animal_requirements/cattle.json';
-import RequirementsBuffalo from '../../assets/data/animal_requirements/buffalo.json';
+import RequirementsSheep from '../../assets/data/animal_requirements/sheepPrem.json';
+import RequirementsGoat from '../../assets/data/animal_requirements/goatPrem.json';
+import RequirementsCattle from '../../assets/data/animal_requirements/cattlePrem.json';
+import RequirementsBuffalo from '../../assets/data/animal_requirements/buffaloPrem.json';
+
+const RuminantFields = [
+  // { name: "Name", data_field: "name", api_reference: "name" },
+  { name: "Minimum Dry Matter Intake", data_field: "DMI", api_reference: "minDM" },
+  { name: "Maximum Dry Matter Intake", data_field: "DMI", api_reference: "maxDM" },
+  { name: "Minimum Crude Protein", data_field: "CP", api_reference: "minCP" },
+  { name: "Maximum Crude Protein", data_field: "CP", api_reference: "maxCP" },
+  { name: "Minimum Metabolizable Energy", data_field: "ME", api_reference: "minME" },
+  { name: "Maximum Metabolizable Energy", data_field: "ME", api_reference: "maxME" },
+  { name: "Minimum Neutral Detergent Fiber", data_field: "NDF", api_reference: "minNDF" },
+  { name: "Maximum Neutral Detergent Fiber", data_field: "NDF", api_reference: "maxNDF" },
+];
+
 
 const useAnimalReqFactor = (species) => {
   const [nutrientInput, SetNutrientInput] = useState([]);
@@ -65,29 +78,18 @@ const useAnimalReqFactor = (species) => {
         { id: "bodyWeight", name: "Body Weight", data: largeRuminantBW, dataUnit: "Kilograms"},
         { id: "milkProduction", name: "Milk Production", data: largeRuminantMP, dataUnit: "Litres" },
       ])
-      setFactors()
+      setFactors(RuminantFields)
     }
     if (species==="Goat" || species==="Sheep") {
       SetNutrientInput([
         { id: "bodyWeight", name: "Body Weight", data: smallRuminantBW, dataUnit: "Kilograms" },
         { id: "milkProduction", name: "Milk Production", data: smallRuminantMP, dataUnit: "Litres" },
       ])
+      setFactors(RuminantFields)
     }
   }, [])
 
   // Requirements
-  const getCompositions = (namesList, NutrientObject) => {
-    let newlist = [];
-    namesList.map(
-      (a) => {
-        NutrientObject.find(x => x.name == a) !== undefined ?
-          newlist.push(NutrientObject.find(x => x.name == a)) :
-          null
-      }
-    )
-    setCompo(newlist)
-  }
-
   const getNutriReq = (species, factorData) => {
     let ReqObj;
     if (species == "Cattle") {
@@ -108,7 +110,7 @@ const useAnimalReqFactor = (species) => {
 
     // alert("Data Recieved\n" + "Species: " + species + "\n" + "Details: " + JSON.stringify(factorData))
 
-    let found = ReqObj.filter(item => item.bodyweight == bw && item.milk == mp)[0]
+    let found = ReqObj.filter(item => item['BW'] == bw && item.Milk == mp)[0]
     console.log(found)
     // alert(JSON.stringify(found))
     setShowReq(found)

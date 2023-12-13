@@ -8,13 +8,11 @@ import SponsorsDisplay from "../components/sponsors_display";
 
 import { ButtonPaper } from 'react-native-paper';
 
-import RequirementsSheep from '../../assets/data/animal_requirements/sheep.json';
-import RequirementsGoat from '../../assets/data/animal_requirements/goat.json';
-import RequirementsCattle from '../../assets/data/animal_requirements/cattle.json';
-import RequirementsBuffalo from '../../assets/data/animal_requirements/buffalo.json';
+import { setNutrientRequirements, selectFeedFormulationData } from "../../redux/animalInputSlice";
 
 // testing language
 import { useTranslation } from 'react-i18next';
+import { useSelector } from "react-redux";
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -276,14 +274,18 @@ const ResultCheck = (props) => {
 }
 
 function DetailsScreen() {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  const selectedFeedData = useSelector(selectFeedFormulationData)
 
   const url_backend_render = 'https://uva-gro-backend-api.onrender.com/formulate/'
   // const url_backend_cloud_run = 'https://uva-gro-backend-nmoxvxzfrq-el.a.run.app/formulate/'
   // const url_backend_localhost = 'http://127.0.0.1:8000/formulate/'
 
   const { t } = useTranslation();
+
+  console.log("Selected Feed Data: ")
+  console.log(selectedFeedData)
 
   // const getCalculations = async (reqUrl) => {
   //   console.log("Running Calculations")
@@ -346,6 +348,7 @@ function DetailsScreen() {
             <>
               {/* <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} calDMI={calDMI} /> */}
               <View style={{marginTop: 10}}>
+                <Text>{JSON.stringify(selectedFeedData)}</Text>
                 <SponsorsDisplay />
               </View>
             </>
