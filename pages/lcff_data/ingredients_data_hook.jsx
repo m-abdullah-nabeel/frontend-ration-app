@@ -104,8 +104,8 @@ const useIngredientSelector = (species) => {
     { name: "Neutral Detergent Fiber", data_field: "NDF", api_reference: "NDF" },
     { name: "Metabolizable Energy", data_field: "ME", api_reference: "ME" },
     { name: "Cost", data_field: "cost", api_reference: "cost" },
-    { name: "Minimum", data_field: "min", api_reference: "Cattle Min" },
-    { name: "Maximum", data_field: "max", api_reference: "Cattle Max" },
+    { name: "Minimum", data_field: "min", api_reference: "min" },
+    { name: "Maximum", data_field: "max", api_reference: "max" },
 ];
 
   useEffect(() => {

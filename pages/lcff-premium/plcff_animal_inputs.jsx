@@ -5,7 +5,7 @@ import { Alert, Modal, Pressable } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
+import { resetAnimalInput, selectFeedFormulationData } from "../../redux/animalInputSlice";
 // Translation
 import { useTranslation } from 'react-i18next';
 
@@ -28,18 +28,28 @@ const AnimalData = [
 const PremAnimalInputs = ({ navigation }) => {
   const { t } = useTranslation();
   const selectedSpecies = useSelector(selectSpecies);
+  const selectedFeedData = useSelector(selectFeedFormulationData)
 
   return (
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.headerText}>{t('select animal header')}</Text>
       </View>
+
       {/* <Text>Your Selected Animal is {selectedSpecies}</Text> */}
 
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start', alignItems: 'center' }}>
         {AnimalData.map((animal, index) => (
           <AnimalComponent key={index} animal={animal} />
         ))}
+      </View>
+
+      <View>
+      {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i, index) => (
+        <Text key={index}>
+          {"\n"} {i} {JSON.stringify(selectedFeedData[i])} {" \n "}
+        </Text>
+      ))}
       </View>
 
     </ScrollView >
@@ -56,6 +66,7 @@ const AnimalComponent = ({ animal }) => {
   const handleAnimalPress = () => {
     if (!animal.comingSoon) {
       dispatch(globalSpecies(animal.name));
+      dispatch(resetAnimalInput())
       navigation.navigate('Prem Nutrient Requirements');
     }
   };

@@ -45,15 +45,22 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
     setCatItems((prevSum) => prevSum + 1)
   }
 
-  const handleUpdate = () => {
+  const handleUpdate = (data) => {
     setSelect(false)
     setAdded(true)
-    setComposition({ ...composition, ...textInputValues });
-
     alert(JSON.stringify(composition))
-    dispatch(updateIngredient(composition))
-    // alert(composition)
+    dispatch(updateIngredient(data))
   }
+
+  // const handleUpdate = () => {
+  //   setSelect(false)
+  //   setAdded(true)
+  //   setComposition({ ...composition, ...textInputValues });
+
+  //   alert(JSON.stringify(composition))
+  //   dispatch(updateIngredient(composition))
+  //   // alert(composition)
+  // }
   
   const handleRemove = ( data ) => {
     setSelect(false)
@@ -136,9 +143,15 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
               titleStyle={{ fontSize: 18, fontWeight: 'bold' }}
             />
             <Card.Content>
-              <Controller control={control} name={"name"} rules={{required: true}} 
+              {/* <Controller control={control} name={"name"} rules={{required: true}} 
                 render={({ field: { value } }) => (
                   <TextInput value={composition["name"]} editable={false} style={{backgroundColor: "rgba(10, 100, 10, 0.8)", paddingLeft: 100, color: "white"}} />  
+                )}
+              /> */}
+              <Controller control={control} name={"name"} rules={{required: true}} 
+                render={({ field: { value } }) => (
+                  value ? null :
+                  <TextInput value={composition["name"]} editable={false} style={{paddingLeft: 100, color: "white"}} />
                 )}
               />
               {errors.name && (
@@ -294,9 +307,9 @@ const PremIngredientInputs = () => {
     : <Text>Loading Other Data</Text>}
 
       <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-        <PaperButton onPress={handlePreviousFeedPage} disabled={feedsPage<=1}>
+        {/* <PaperButton onPress={handlePreviousFeedPage} disabled={feedsPage<=1}>
           Previous
-        </PaperButton>
+        </PaperButton> */}
 
         <Text>{feedsPage} / {ingredients.length}</Text>
 
@@ -315,11 +328,11 @@ const PremIngredientInputs = () => {
         />
       }
 
-      {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
+      {/* {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
         <Text key={i}>
           {i} {": \n"} {JSON.stringify(selectedFeedData[i])} {" \n "}
         </Text>
-      ))}
+      ))} */}
 
     </SafeAreaView>
   )
