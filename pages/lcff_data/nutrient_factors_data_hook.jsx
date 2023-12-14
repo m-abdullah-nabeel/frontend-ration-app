@@ -11,12 +11,12 @@ const RuminantFields = [
   // { name: "Name", data_field: "name", api_reference: "name" },
   { name: "Minimum Dry Matter Intake", data_field: "DMI", api_reference: "minDM" },
   { name: "Maximum Dry Matter Intake", data_field: "DMI", api_reference: "maxDM" },
-  { name: "Minimum Crude Protein", data_field: "CP", api_reference: "minCP" },
-  { name: "Maximum Crude Protein", data_field: "CP", api_reference: "maxCP" },
-  { name: "Minimum Metabolizable Energy", data_field: "ME", api_reference: "minME" },
-  { name: "Maximum Metabolizable Energy", data_field: "ME", api_reference: "maxME" },
-  { name: "Minimum Neutral Detergent Fiber", data_field: "NDF", api_reference: "minNDF" },
-  { name: "Maximum Neutral Detergent Fiber", data_field: "NDF", api_reference: "maxNDF" },
+  { name: "Minimum Crude Protein", data_field: "minCP", api_reference: "minCP" },
+  { name: "Maximum Crude Protein", data_field: "maxCP", api_reference: "maxCP" },
+  { name: "Minimum Metabolizable Energy", data_field: "minME", api_reference: "minME" },
+  { name: "Maximum Metabolizable Energy", data_field: "maxME", api_reference: "maxME" },
+  { name: "Minimum Neutral Detergent Fiber", data_field: "minNDF", api_reference: "minNDF" },
+  { name: "Maximum Neutral Detergent Fiber", data_field: "maxNDF", api_reference: "maxNDF" },
 ];
 
 

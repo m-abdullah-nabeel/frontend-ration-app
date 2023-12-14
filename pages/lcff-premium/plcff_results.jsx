@@ -278,61 +278,62 @@ function DetailsScreen() {
   const [data, setData] = useState([]);
   const selectedFeedData = useSelector(selectFeedFormulationData)
 
-  const url_backend_render = 'https://uva-gro-backend-api.onrender.com/formulate/'
+  const url_backend_render = 'https://uva-gro-backend-api.onrender.com/api/premium/formulate'
 
   const { t } = useTranslation();
 
   console.log("Selected Feed Data: ")
   console.log(selectedFeedData)
+  const ingredients = selectedFeedData.ingredients
+  const nutrientRequirements = selectedFeedData.nutrientRequirements
 
-  // const getCalculations = async (reqUrl) => {
-  //   console.log("Running Calculations")
-  //   try {
-  //     if (compo.length > 0 && nutReq.length > 0) {
-  //       setLoading(true)
-  //       let reqData = {
-  //         "feeds": compo,
-  //         "nut_req": nutReq
-  //       }
-  //       console.log("reqData")
-  //       console.log(reqData)
+  const getCalculations = async (reqUrl) => {
+    console.log(`Requesting ${reqUrl}`)
+    try {
+      if (ingredients.length > 0 && Object.keys(nutrientRequirements).length > 0) {
+        setLoading(true)
+        let reqData = {
+          "ingredients": ingredients,
+          "nutrientRequirements": nutrientRequirements
+        }
+        console.log("reqData")
+        console.log(reqData)
 
-  //       const response = await fetch(reqUrl, {
-  //         method: 'POST',
-  //         headers: {
-  //         'Accept': 'application/json',
-  //         'Content-Type': 'application/json',
-  //         // "Content-type": "application/json; charset=UTF-8",
-  //         'Access-Control-Allow-Origin': '*',
-  //         // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-  //         // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
-  //         },
-  //         // body: reqData,
-  //         body: JSON.stringify(reqData),
-  //     });
+        const response = await fetch(reqUrl, {
+          method: 'POST',
+          headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          // "Content-type": "application/json; charset=UTF-8",
+          'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+          // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+          },
+          // body: reqData,
+          body: JSON.stringify(reqData),
+      });
 
-  //       const json = await response.json();
-  //       setData(json);
-  //       console.log("Here is the JSON response: ");
-  //       console.log(json);
-  //       console.log("JSON response ends!");
-  //       setLoading(false);
-  //     } else {
-  //       console.log("Invalid Data")
-  //     }
+        const json = await response.json();
+        setData(json);
+        console.log("Here is the JSON response: ");
+        console.log(json);
+        console.log("JSON response ends!");
+        setLoading(false);
+      } else {
+        console.log("Invalid Data")
+      }
       
-  //   } catch (error) {
-  //     console.error("Errors Details: ", error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  //   console.log("Concluding Calculations")
-  // }
+    } catch (error) {
+      console.error("Errors Details: ", error);
+    } finally {
+      setLoading(false);
+    }
+    console.log("Concluding Calculations")
+  }
 
-  // useEffect(() => {
-  //   console.log(nutReqShow)
-  //   getCalculations(url_backend_render)
-  // }, []);
+  useEffect(() => {
+    getCalculations(url_backend_render)
+  }, []);
 
   return (
     <ScrollView style={{ flex: 1 }}>  
@@ -346,8 +347,24 @@ function DetailsScreen() {
             <>
               {/* <ResultCheck result={data} compo={compo} navigate={navigation} bwt={bwt} calDMI={calDMI} /> */}
               <View style={{marginTop: 10}}>
-                <Text>{JSON.stringify(selectedFeedData)}</Text>
-                <SponsorsDisplay />
+                <Text>Results</Text>
+                
+                {data.success == true && data.results.length!==0 ?
+                Object.keys(data.output).map((key) => {
+                  return (
+                    <View key={key}>
+                      <View style={{ flexDirection: "row"}}>
+                        <Text style={{ width: "50%", fontSize: 18}}>{key}</Text>
+                        <Text style={{ width: "50%", fontSize: 18}}>{data.output[key] * 100} %</Text>
+                      </View>
+                    </View>
+                  )
+                }) : <Text>Unstable Data</Text>}
+                
+                {/* <Text>{JSON.stringify(data)}</Text> */}
+                {/* <Text>Temporary Display</Text>
+                <Text>{JSON.stringify(selectedFeedData)}</Text> */}
+                {/* <SponsorsDisplay /> */}
               </View>
             </>
         }

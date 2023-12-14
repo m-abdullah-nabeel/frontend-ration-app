@@ -45,7 +45,7 @@ const MenuScreen = ({ navigation }) => {
             <Card theme={{ colors: { primary: 'green' } }} mode="contained" style={{marginVertical:2}}>
                 <TouchableOpacity onPress={() => { navigation.navigate('Prem Animal Inputs') }}>
                     <Card.Cover 
-                    source={require("../assets/images/cattle-grass.jpg")}
+                    source={require("../assets/images/summerFeed.jpg")}
                     />
                         <View style={{
                             position: 'absolute', top: 50, left: 50, right: 50, bottom: 50,
@@ -53,7 +53,7 @@ const MenuScreen = ({ navigation }) => {
                             flex: 1, alignItems: "center", justifyContent: "center",
                         }}>
                             <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('feed formulate')}</Text>
-                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold' }}>Least Cost Feed Formulation</Text>
+                            <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold' }}>Advanced Least Cost Feed Formulation</Text>
                             <Text style={{ color: 'white', alignSelf: "center", fontWeight: 'bold', fontSize: 28 }}>{t('Premium')}</Text>
                         </View>
                 </TouchableOpacity>
