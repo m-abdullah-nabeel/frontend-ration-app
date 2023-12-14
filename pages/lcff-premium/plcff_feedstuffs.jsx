@@ -220,21 +220,48 @@ const PremIngredientInputs = () => {
 
   const [feedsPage, setFeedsPage] = useState(1);
   const [catData, setCatData] = useState([])
+  const [selectedItemsByPage, setSelectedItemsByPage] = useState({});
   const navigation = useNavigation();
 
+  // useEffect(() => {
+  //   if (ingredients!==null && ingredients!=="undefined" && ingredients.length!==0 && feedsPage!==0) {
+  //     setCatData(ingredients[feedsPage-1])
+  //   }
+  // }, [feedsPage, ingredients])
+
+  // const handleNextFeedPage = () => {
+  //   setFeedsPage(feedsPage+1)
+  // }
+
+  // const handlePreviousFeedPage = () => {
+  //   setFeedsPage(feedsPage-1)
+  // }
+
   useEffect(() => {
-    if (ingredients!==null && ingredients!=="undefined" && ingredients.length!==0 && feedsPage!==0) {
-      setCatData(ingredients[feedsPage-1])
+    if (ingredients !== null && ingredients !== "undefined" && ingredients.length !== 0 && feedsPage !== 0) {
+      setCatData(ingredients[feedsPage - 1]);
+      // Reset selected items when switching pages
+      setCatItems(selectedItemsByPage[feedsPage] || 0);
     }
-  }, [feedsPage, ingredients])
+  }, [feedsPage, ingredients]);
 
   const handleNextFeedPage = () => {
-    setFeedsPage(feedsPage+1)
-  }
+    // Save the selected items for the current page
+    setSelectedItemsByPage(prevState => ({
+      ...prevState,
+      [feedsPage]: catItems,
+    }));
+    setFeedsPage(feedsPage + 1);
+  };
 
   const handlePreviousFeedPage = () => {
-    setFeedsPage(feedsPage-1)
-  }
+    // Save the selected items for the current page
+    setSelectedItemsByPage(prevState => ({
+      ...prevState,
+      [feedsPage]: catItems,
+    }));
+    setFeedsPage(feedsPage - 1);
+  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

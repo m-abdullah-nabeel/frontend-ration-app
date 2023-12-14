@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import nutrientdata from '../../assets/data/feeds_nutrient.json';
-import animalsReqdata from '../../assets/data/nutrients_required.json';
-import Compositions from "./ingredients.json";
+import Compositions from '../../assets/data/ingredients.json';
 
 const useIngredientSelector = (species) => {
   const [ingredients, setIngredients] = useState([]);
@@ -100,13 +99,13 @@ const useIngredientSelector = (species) => {
   
   const RuminantFields = [
     // { name: "Name", data_field: "name", api_reference: "name" },
-    { name: "Dry Matter (%)", data_field: "DM%", api_reference: "DM%" },
+    { name: "Dry Matter (%)", data_field: "DM", api_reference: "DM" },
     { name: "Crude Protein", data_field: "CP", api_reference: "CP" },
     { name: "Neutral Detergent Fiber", data_field: "NDF", api_reference: "NDF" },
     { name: "Metabolizable Energy", data_field: "ME", api_reference: "ME" },
     { name: "Cost", data_field: "cost", api_reference: "cost" },
-    { name: "Minimum", data_field: "min", api_reference: "min" },
-    { name: "Maximum", data_field: "max", api_reference: "max" },
+    { name: "Minimum", data_field: "min", api_reference: "Cattle Min" },
+    { name: "Maximum", data_field: "max", api_reference: "Cattle Max" },
 ];
 
   useEffect(() => {
@@ -130,7 +129,7 @@ const useIngredientSelector = (species) => {
   }
 
   const updateCompositiononAdd = (ingredient) => {
-    const foundNutrient = nutrientdata.find((x) => x.name === ingredient);
+    const foundNutrient = Compositions.find((x) => x.name === ingredient);
     // if (foundNutrient) {
     //   // Do something with the found nutrient object
     //   console.log('Found Ingredient:', foundNutrient);
