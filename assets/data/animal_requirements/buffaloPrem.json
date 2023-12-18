@@ -11,10 +11,10 @@
         "NDF-kg/d": "2.55",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "1775.47",
+        "minME": "1675.47",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2275.47",
+        "maxME": "2175.47",
         "maxNDF": "36.00"
     },
     {
@@ -29,10 +29,10 @@
         "NDF-kg/d": "2.79",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "1754.76",
+        "minME": "1654.76",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2254.76",
+        "maxME": "2154.76",
         "maxNDF": "36.00"
     },
     {
@@ -47,10 +47,10 @@
         "NDF-kg/d": "2.97",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "1768.95",
+        "minME": "1668.95",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2268.95",
+        "maxME": "2168.95",
         "maxNDF": "36.00"
     },
     {
@@ -65,10 +65,10 @@
         "NDF-kg/d": "3.10",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "1812.63",
+        "minME": "1712.63",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2312.63",
+        "maxME": "2212.63",
         "maxNDF": "36.00"
     },
     {
@@ -83,10 +83,10 @@
         "NDF-kg/d": "3.17",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "1884.50",
+        "minME": "1784.50",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2384.50",
+        "maxME": "2284.50",
         "maxNDF": "36.00"
     },
     {
@@ -101,10 +101,10 @@
         "NDF-kg/d": "3.19",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "1986.25",
+        "minME": "1886.25",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2486.25",
+        "maxME": "2386.25",
         "maxNDF": "36.00"
     },
     {
@@ -119,10 +119,10 @@
         "NDF-kg/d": "3.16",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2122.57",
+        "minME": "2022.57",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2622.57",
+        "maxME": "2522.57",
         "maxNDF": "36.00"
     },
     {
@@ -137,10 +137,10 @@
         "NDF-kg/d": "3.07",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2301.87",
+        "minME": "2201.87",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2801.87",
+        "maxME": "2701.87",
         "maxNDF": "36.00"
     },
     {
@@ -155,10 +155,10 @@
         "NDF-kg/d": "2.93",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2538.01",
+        "minME": "2438.01",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3038.01",
+        "maxME": "2938.01",
         "maxNDF": "36.00"
     },
     {
@@ -173,10 +173,10 @@
         "NDF-kg/d": "2.96",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2140.01",
+        "minME": "2040.01",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2640.01",
+        "maxME": "2540.01",
         "maxNDF": "36.00"
     },
     {
@@ -191,10 +191,10 @@
         "NDF-kg/d": "3.22",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2081.05",
+        "minME": "1981.05",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2581.05",
+        "maxME": "2481.05",
         "maxNDF": "36.00"
     },
     {
@@ -209,10 +209,10 @@
         "NDF-kg/d": "3.42",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2062.94",
+        "minME": "1962.94",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2562.94",
+        "maxME": "2462.94",
         "maxNDF": "36.00"
     },
     {
@@ -227,10 +227,10 @@
         "NDF-kg/d": "3.57",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2077.90",
+        "minME": "1977.90",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2577.90",
+        "maxME": "2477.90",
         "maxNDF": "36.00"
     },
     {
@@ -245,10 +245,10 @@
         "NDF-kg/d": "3.67",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2122.55",
+        "minME": "2022.55",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2622.55",
+        "maxME": "2522.55",
         "maxNDF": "36.00"
     },
     {
@@ -263,10 +263,10 @@
         "NDF-kg/d": "3.71",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2196.56",
+        "minME": "2096.56",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2696.56",
+        "maxME": "2596.56",
         "maxNDF": "36.00"
     },
     {
@@ -281,10 +281,10 @@
         "NDF-kg/d": "3.70",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2302.21",
+        "minME": "2202.21",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2802.21",
+        "maxME": "2702.21",
         "maxNDF": "36.00"
     },
     {
@@ -299,10 +299,10 @@
         "NDF-kg/d": "3.63",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2444.59",
+        "minME": "2344.59",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2944.59",
+        "maxME": "2844.59",
         "maxNDF": "36.00"
     },
     {
@@ -317,10 +317,10 @@
         "NDF-kg/d": "3.51",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2632.40",
+        "minME": "2532.40",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3132.40",
+        "maxME": "3032.40",
         "maxNDF": "36.00"
     },
     {
@@ -335,10 +335,10 @@
         "NDF-kg/d": "3.65",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2230.89",
+        "minME": "2130.89",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2730.89",
+        "maxME": "2630.89",
         "maxNDF": "36.00"
     },
     {
@@ -353,10 +353,10 @@
         "NDF-kg/d": "3.93",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2164.41",
+        "minME": "2064.41",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2664.41",
+        "maxME": "2564.41",
         "maxNDF": "36.00"
     },
     {
@@ -371,10 +371,10 @@
         "NDF-kg/d": "4.16",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2134.20",
+        "minME": "2034.20",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2634.20",
+        "maxME": "2534.20",
         "maxNDF": "36.00"
     },
     {
@@ -389,10 +389,10 @@
         "NDF-kg/d": "4.33",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2133.48",
+        "minME": "2033.48",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2633.48",
+        "maxME": "2533.48",
         "maxNDF": "36.00"
     },
     {
@@ -407,10 +407,10 @@
         "NDF-kg/d": "4.44",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2158.81",
+        "minME": "2058.81",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2658.81",
+        "maxME": "2558.81",
         "maxNDF": "36.00"
     },
     {
@@ -425,10 +425,10 @@
         "NDF-kg/d": "4.51",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2209.09",
+        "minME": "2109.09",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2709.09",
+        "maxME": "2609.09",
         "maxNDF": "36.00"
     },
     {
@@ -443,10 +443,10 @@
         "NDF-kg/d": "4.51",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2285.09",
+        "minME": "2185.09",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2785.09",
+        "maxME": "2685.09",
         "maxNDF": "36.00"
     },
     {
@@ -461,10 +461,10 @@
         "NDF-kg/d": "4.47",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2389.44",
+        "minME": "2289.44",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2889.44",
+        "maxME": "2789.44",
         "maxNDF": "36.00"
     },
     {
@@ -479,10 +479,10 @@
         "NDF-kg/d": "4.37",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2526.91",
+        "minME": "2426.91",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3026.91",
+        "maxME": "2926.91",
         "maxNDF": "36.00"
     },
     {
@@ -497,10 +497,10 @@
         "NDF-kg/d": "3.78",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2632.44",
+        "minME": "2532.44",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3132.44",
+        "maxME": "3032.44",
         "maxNDF": "36.00"
     },
     {
@@ -515,10 +515,10 @@
         "NDF-kg/d": "4.08",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2527.07",
+        "minME": "2427.07",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3027.07",
+        "maxME": "2927.07",
         "maxNDF": "36.00"
     },
     {
@@ -533,10 +533,10 @@
         "NDF-kg/d": "4.33",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2466.65",
+        "minME": "2366.65",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2966.65",
+        "maxME": "2866.65",
         "maxNDF": "36.00"
     },
     {
@@ -551,10 +551,10 @@
         "NDF-kg/d": "4.52",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2441.65",
+        "minME": "2341.65",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2941.65",
+        "maxME": "2841.65",
         "maxNDF": "36.00"
     },
     {
@@ -569,10 +569,10 @@
         "NDF-kg/d": "4.66",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2446.82",
+        "minME": "2346.82",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2946.82",
+        "maxME": "2846.82",
         "maxNDF": "36.00"
     },
     {
@@ -587,10 +587,10 @@
         "NDF-kg/d": "4.74",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2479.69",
+        "minME": "2379.69",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "2979.69",
+        "maxME": "2879.69",
         "maxNDF": "36.00"
     },
     {
@@ -605,10 +605,10 @@
         "NDF-kg/d": "4.77",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2539.92",
+        "minME": "2439.92",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3039.92",
+        "maxME": "2939.92",
         "maxNDF": "36.00"
     },
     {
@@ -623,10 +623,10 @@
         "NDF-kg/d": "4.75",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2629.06",
+        "minME": "2529.06",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3129.06",
+        "maxME": "3029.06",
         "maxNDF": "36.00"
     },
     {
@@ -641,10 +641,10 @@
         "NDF-kg/d": "4.67",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2750.67",
+        "minME": "2650.67",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3250.67",
+        "maxME": "3150.67",
         "maxNDF": "36.00"
     },
     {
@@ -659,10 +659,10 @@
         "NDF-kg/d": "3.91",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3007.45",
+        "minME": "2907.45",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3507.45",
+        "maxME": "3407.45",
         "maxNDF": "36.00"
     },
     {
@@ -677,10 +677,10 @@
         "NDF-kg/d": "4.23",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2863.90",
+        "minME": "2763.90",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3363.90",
+        "maxME": "3263.90",
         "maxNDF": "36.00"
     },
     {
@@ -695,10 +695,10 @@
         "NDF-kg/d": "4.50",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2773.65",
+        "minME": "2673.65",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3273.65",
+        "maxME": "3173.65",
         "maxNDF": "36.00"
     },
     {
@@ -713,10 +713,10 @@
         "NDF-kg/d": "4.72",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2724.49",
+        "minME": "2624.49",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3224.49",
+        "maxME": "3124.49",
         "maxNDF": "36.00"
     },
     {
@@ -731,10 +731,10 @@
         "NDF-kg/d": "4.87",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2709.38",
+        "minME": "2609.38",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3209.38",
+        "maxME": "3109.38",
         "maxNDF": "36.00"
     },
     {
@@ -749,10 +749,10 @@
         "NDF-kg/d": "4.98",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2724.54",
+        "minME": "2624.54",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3224.54",
+        "maxME": "3124.54",
         "maxNDF": "36.00"
     },
     {
@@ -767,10 +767,10 @@
         "NDF-kg/d": "5.03",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2768.57",
+        "minME": "2668.57",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3268.57",
+        "maxME": "3168.57",
         "maxNDF": "36.00"
     },
     {
@@ -785,10 +785,10 @@
         "NDF-kg/d": "5.03",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2842.01",
+        "minME": "2742.01",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3342.01",
+        "maxME": "3242.01",
         "maxNDF": "36.00"
     },
     {
@@ -803,10 +803,10 @@
         "NDF-kg/d": "4.97",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2947.30",
+        "minME": "2847.30",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3447.30",
+        "maxME": "3347.30",
         "maxNDF": "36.00"
     },
     {
@@ -821,10 +821,10 @@
         "NDF-kg/d": "4.32",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3140.82",
+        "minME": "3040.82",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3640.82",
+        "maxME": "3540.82",
         "maxNDF": "36.00"
     },
     {
@@ -839,10 +839,10 @@
         "NDF-kg/d": "4.66",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2986.81",
+        "minME": "2886.81",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3486.81",
+        "maxME": "3386.81",
         "maxNDF": "36.00"
     },
     {
@@ -857,10 +857,10 @@
         "NDF-kg/d": "4.95",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2885.17",
+        "minME": "2785.17",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3385.17",
+        "maxME": "3285.17",
         "maxNDF": "36.00"
     },
     {
@@ -875,10 +875,10 @@
         "NDF-kg/d": "5.19",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2823.93",
+        "minME": "2723.93",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3323.93",
+        "maxME": "3223.93",
         "maxNDF": "36.00"
     },
     {
@@ -893,10 +893,10 @@
         "NDF-kg/d": "5.37",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2795.93",
+        "minME": "2695.93",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3295.93",
+        "maxME": "3195.93",
         "maxNDF": "36.00"
     },
     {
@@ -911,10 +911,10 @@
         "NDF-kg/d": "5.50",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2797.05",
+        "minME": "2697.05",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3297.05",
+        "maxME": "3197.05",
         "maxNDF": "36.00"
     },
     {
@@ -929,10 +929,10 @@
         "NDF-kg/d": "5.57",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2825.35",
+        "minME": "2725.35",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3325.35",
+        "maxME": "3225.35",
         "maxNDF": "36.00"
     },
     {
@@ -947,10 +947,10 @@
         "NDF-kg/d": "5.59",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2880.57",
+        "minME": "2780.57",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3380.57",
+        "maxME": "3280.57",
         "maxNDF": "36.00"
     },
     {
@@ -965,10 +965,10 @@
         "NDF-kg/d": "5.55",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2964.06",
+        "minME": "2864.06",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3464.06",
+        "maxME": "3364.06",
         "maxNDF": "36.00"
     },
     {
@@ -983,10 +983,10 @@
         "NDF-kg/d": "4.45",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3455.70",
+        "minME": "3355.70",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3955.70",
+        "maxME": "3855.70",
         "maxNDF": "36.00"
     },
     {
@@ -1001,10 +1001,10 @@
         "NDF-kg/d": "4.81",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3268.58",
+        "minME": "3168.58",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3768.58",
+        "maxME": "3668.58",
         "maxNDF": "36.00"
     },
     {
@@ -1019,10 +1019,10 @@
         "NDF-kg/d": "5.13",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3140.70",
+        "minME": "3040.70",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3640.70",
+        "maxME": "3540.70",
         "maxNDF": "36.00"
     },
     {
@@ -1037,10 +1037,10 @@
         "NDF-kg/d": "5.38",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3057.92",
+        "minME": "2957.92",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3557.92",
+        "maxME": "3457.92",
         "maxNDF": "36.00"
     },
     {
@@ -1055,10 +1055,10 @@
         "NDF-kg/d": "5.59",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3011.62",
+        "minME": "2911.62",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3511.62",
+        "maxME": "3411.62",
         "maxNDF": "36.00"
     },
     {
@@ -1073,10 +1073,10 @@
         "NDF-kg/d": "5.73",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "2996.62",
+        "minME": "2896.62",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3496.62",
+        "maxME": "3396.62",
         "maxNDF": "36.00"
     },
     {
@@ -1091,10 +1091,10 @@
         "NDF-kg/d": "5.83",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3010.09",
+        "minME": "2910.09",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3510.09",
+        "maxME": "3410.09",
         "maxNDF": "36.00"
     },
     {
@@ -1109,10 +1109,10 @@
         "NDF-kg/d": "5.87",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3051.04",
+        "minME": "2951.04",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3551.04",
+        "maxME": "3451.04",
         "maxNDF": "36.00"
     },
     {
@@ -1127,10 +1127,10 @@
         "NDF-kg/d": "5.85",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3120.05",
+        "minME": "3020.05",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3620.05",
+        "maxME": "3520.05",
         "maxNDF": "36.00"
     },
     {
@@ -1145,10 +1145,10 @@
         "NDF-kg/d": "4.58",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3752.80",
+        "minME": "3652.80",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "4252.80",
+        "maxME": "4152.80",
         "maxNDF": "36.00"
     },
     {
@@ -1163,10 +1163,10 @@
         "NDF-kg/d": "4.97",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3533.23",
+        "minME": "3433.23",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "4033.23",
+        "maxME": "3933.23",
         "maxNDF": "36.00"
     },
     {
@@ -1181,10 +1181,10 @@
         "NDF-kg/d": "5.30",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3379.61",
+        "minME": "3279.61",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3879.61",
+        "maxME": "3779.61",
         "maxNDF": "36.00"
     },
     {
@@ -1199,10 +1199,10 @@
         "NDF-kg/d": "5.58",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3275.65",
+        "minME": "3175.65",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3775.65",
+        "maxME": "3675.65",
         "maxNDF": "36.00"
     },
     {
@@ -1217,10 +1217,10 @@
         "NDF-kg/d": "5.80",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3211.30",
+        "minME": "3111.30",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3711.30",
+        "maxME": "3611.30",
         "maxNDF": "36.00"
     },
     {
@@ -1235,10 +1235,10 @@
         "NDF-kg/d": "5.97",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3180.34",
+        "minME": "3080.34",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3680.34",
+        "maxME": "3580.34",
         "maxNDF": "36.00"
     },
     {
@@ -1253,10 +1253,10 @@
         "NDF-kg/d": "6.09",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3179.14",
+        "minME": "3079.14",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3679.14",
+        "maxME": "3579.14",
         "maxNDF": "36.00"
     },
     {
@@ -1271,10 +1271,10 @@
         "NDF-kg/d": "6.15",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3206.00",
+        "minME": "3106.00",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3706.00",
+        "maxME": "3606.00",
         "maxNDF": "36.00"
     },
     {
@@ -1289,10 +1289,10 @@
         "NDF-kg/d": "6.16",
         "Percentages": "Percentages",
         "minCP": "15.00",
-        "minME": "3260.76",
+        "minME": "3160.76",
         "minNDF": "28.00",
         "maxCP": "18.00",
-        "maxME": "3760.76",
+        "maxME": "3660.76",
         "maxNDF": "36.00"
     }
 ]

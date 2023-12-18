@@ -8,10 +8,109 @@ const useIngredientSelector = (species) => {
 
   const [compo, setCompo] = useState([]);
   
+  // const RuminnatsIngredients = [
+  //   {
+  //     title: "Fodders",
+  //     min_selection: 2,
+  //     cat_msg: "Select at least 2",
+  //     data: [
+  //       "Barseem",
+  //       "Maize",
+  //       "Oat (Jai)",
+  //       "Mustard (Sarson)",
+  //       "Maize Silage",
+  //       "Sugarcane",
+  //       "Sugarcane tops",
+  //       "Mott grass",
+  //       "Johnson grass (Baru)",
+  //       "Wheat Straw (toori)",
+  //       "Rice Straw (Parali)",
+  //       "Millet stovers",
+  //       "Maize stovers",
+  //       "Sorghum stovers",
+  //       "Corn cobs",
+  //       "Rice Husk (Phakk)",
+  //       "Barseem Hay",
+  //       "Lucerne Hay",
+  //       "Cowpea Hay",
+  //       "Millet Straw",
+  //       "Cowpea Mature",
+  //       "Fenugreek Early Vegetative",
+  //       "Sorghum Silage",
+  //       "Rhodes Grass",
+  //       "Alfalfa (Lucerne)",
+  //       "Napier grass",
+  //       "Rye grass",
+  //       "Millet",
+  //       "Barley",
+  //       "Sorghum",
+  //       "Jantar",
+  //       "Cow pea (Rawanhan)"
+  //     ]
+  //   },
+  //   {
+  //     title: "Energy Supplements",
+  //     min_selection: 1,
+  //     cat_msg: "Select at least 1",
+  //     data: [
+  //       "Maize grain",
+  //       "Wheat grain",
+  //       "Millet grain",
+  //       "Mamni",
+  //       "Maize bran",
+  //       "Wheat Bran (Chokar)",
+  //       "Rice polish",
+  //       "Sugarbeet pulp",
+  //       "Apple pomace",
+  //       "Citrus waste",
+  //       "Channa Karra",
+  //       "Massar Karra",
+  //       "Mung Karra",
+  //       "Dry dates",
+  //       "Potato",
+  //       "Sorghum Grains",
+  //       "Barley Grains",
+  //       "Oats Grains",
+  //       "Rice Grains",
+  //       "Millet Grains",
+  //       "Cane Molasses",
+  //       "Sugarcane Bagasse",
+  //       "Biscuit waste",
+  //       "De-oiled rice polish",
+  //       "Maize oil cake",
+  //       "Re-rice polish",
+  //       "Vermicelles",
+  //       "Black pea seeds",
+  //       "Black pea hulls",
+  //       "Pea seeds",
+  //       "Flaxseed cake",
+  //       "Vegetable Oils",
+  //       "Animal Fats"  
+  //     ]
+  //   },
+  //   {
+  //     title: "Protein Supplements",
+  //     min_selection: 1,
+  //     cat_msg: "Select at least 1",
+  //     data: [
+  //       "Cottonseed cake (Khal)",
+  //       "Soybean meal",
+  //       "Canola meal",
+  //       "Rapeseed meal",
+  //       "Maize gluten meal 30%",
+  //       "Maize gluten meal 60%",
+  //       "Palm kernel cake",
+  //       "Sunflower meal",
+  //       "Guar meal",
+  //       "Linseed meal"
+  //     ]
+  //   },
+  // ];
+  
   const RuminnatsIngredients = [
     {
-      title: "Fodders",
-      min_selection: 2,
+      title: "Ingredients",
+      min_selection: 0,
       cat_msg: "Select at least 2",
       data: [
         "Barseem",
@@ -45,14 +144,7 @@ const useIngredientSelector = (species) => {
         "Barley",
         "Sorghum",
         "Jantar",
-        "Cow pea (Rawanhan)"
-      ]
-    },
-    {
-      title: "Energy Supplements",
-      min_selection: 1,
-      cat_msg: "Select at least 1",
-      data: [
+        "Cow pea (Rawanhan)",
         "Maize grain",
         "Wheat grain",
         "Millet grain",
@@ -74,15 +166,18 @@ const useIngredientSelector = (species) => {
         "Rice Grains",
         "Millet Grains",
         "Cane Molasses",
-        "Sugarcane Bagasse"
-  
-      ]
-    },
-    {
-      title: "Protein Supplements",
-      min_selection: 1,
-      cat_msg: "Select at least 1",
-      data: [
+        "Sugarcane Bagasse",
+        "Biscuit waste",
+        "De-oiled rice polish",
+        "Maize oil cake",
+        "Re-rice polish",
+        "Vermicelles",
+        "Black pea seeds",
+        "Black pea hulls",
+        "Pea seeds",
+        "Flaxseed cake",
+        "Vegetable Oils",
+        "Animal Fats",
         "Cottonseed cake (Khal)",
         "Soybean meal",
         "Canola meal",
@@ -96,7 +191,8 @@ const useIngredientSelector = (species) => {
       ]
     },
   ];
-  
+
+
   const RuminantFields = [
     // { name: "Name", data_field: "name", api_reference: "name" },
     { name: "Dry Matter (%)", data_field: "DM", api_reference: "DM" },

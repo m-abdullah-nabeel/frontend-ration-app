@@ -24,20 +24,28 @@ const feedFormulationSlice = createSlice({
         state.ingredients.push(action.payload);
       }
     },
-    updateIngredient: (state, action) => {
-      // Ensure action.payload is an object with properties to match
-      if (typeof action.payload === 'object' && action.payload !== null) {
-        const { name, updatedProperties } = action.payload;
-        alert(JSON.stringify(action.payload))
 
+    updateIngredient: (state, action) => {
+      console.log("Inside updateIngredient reducer");
+      
+      if (typeof action.payload === 'object' && action.payload !== null) {
+        console.log("Right Input");
+        console.log("Payload:", JSON.stringify(action.payload));
+    
+        const { name, ...updatedProperties } = action.payload;
+        console.log("Name:", name);
+        console.log("Updated Properties:", updatedProperties);
+    
         state.ingredients = state.ingredients.map(item => {
           if (item[name] === action.payload[name]) {
+            console.log("Updating item:", item);
             return { ...item, ...updatedProperties };
           }
           return item;
         });  
       }
-    },
+    },    
+
     removeIngredient: (state, action) => {
       // Ensure action.payload is the specific item to remove
       state.ingredients = state.ingredients.filter(item => item.name !== action.payload.name);

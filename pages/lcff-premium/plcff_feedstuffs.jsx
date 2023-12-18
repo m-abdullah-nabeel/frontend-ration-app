@@ -40,7 +40,7 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
   const handleAdd = (data) => {
     setSelect(false)
     setAdded(true)
-    alert(JSON.stringify(data))
+    // alert(JSON.stringify(data))
     dispatch(addIngredients(data))
     setCatItems((prevSum) => prevSum + 1)
   }
@@ -48,19 +48,9 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
   const handleUpdate = (data) => {
     setSelect(false)
     setAdded(true)
-    alert(JSON.stringify(composition))
+    // alert(JSON.stringify(composition))
     dispatch(updateIngredient(data))
   }
-
-  // const handleUpdate = () => {
-  //   setSelect(false)
-  //   setAdded(true)
-  //   setComposition({ ...composition, ...textInputValues });
-
-  //   alert(JSON.stringify(composition))
-  //   dispatch(updateIngredient(composition))
-  //   // alert(composition)
-  // }
   
   const handleRemove = ( data ) => {
     setSelect(false)
@@ -291,7 +281,8 @@ const PremIngredientInputs = () => {
 
       <View>
         <View>
-          {true?<Text style={styles.errorDisplay}>{t("category error")}</Text>:null}
+          <Text>Select minimum {catData.min_selection}</Text>
+          {/* {true?<Text style={styles.errorDisplay}>{t("category error")}</Text>:null} */}
         </View>
 
         <View>
