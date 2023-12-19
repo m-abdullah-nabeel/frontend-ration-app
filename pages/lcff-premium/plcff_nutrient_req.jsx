@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setSpecies, selectSpecies } from "../../redux/speciesSlice"; 
-import { setNutrientRequirements, selectFeedFormulationData } from "../../redux/animalInputSlice";
+import { setNutrientRequirements, selectFeedFormulationData, resetAnimalInput } from "../../redux/animalInputSlice";
 import useAnimalReqFactor from "../lcff_data/nutrient_factors_data_hook";
 
 import { useForm, Controller } from 'react-hook-form';
@@ -163,6 +163,7 @@ const NutrientInput = ({factors, requirements}) => {
 
   const handleSubmitUpdated = (data) => {
     // alert(JSON.stringify(data))
+    dispatch(resetAnimalInput())
     dispatch(setNutrientRequirements(data))
     navigation.navigate('Prem Ingredient Inputs')
   };
