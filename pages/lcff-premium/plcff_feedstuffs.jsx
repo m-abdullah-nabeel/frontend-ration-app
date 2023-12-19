@@ -12,10 +12,15 @@ import { useNavigation } from '@react-navigation/native';
 import { setNutrientRequirements, selectFeedFormulationData } from "../../redux/animalInputSlice";
 
 import useIngredientSelector from "../lcff_data/ingredients_data_hook";
-import { Avatar, Button as PaperButton, Card, PaperText, TextInput } from 'react-native-paper';
+import { Avatar, Button as PaperButton, Card, PaperText, TextInput, Icon } from 'react-native-paper';
 import { addIngredients, updateIngredient, removeIngredient } from "../../redux/animalInputSlice";
 
-const LeftContent = props => <Avatar.Icon {...props} icon="calculator" />
+// const LeftContent = props => <Avatar.Icon mode="outlined" {...props} icon="calculator" />
+const LeftContent = props => <Icon
+  source="calculator"
+  color={"rgb(10, 100, 10)"}
+  size={40}
+  />
 
 const IngredientAddor = ( { ingredient, setCatItems } ) => {
   const dispatch = useDispatch()
@@ -115,7 +120,7 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
         style={[
           styles.item,
           added ? { backgroundColor: 'green' } : null,
-          select ? { backgroundColor: 'grey' } : null,
+          select ? { backgroundColor: '#d3d3d3' } : null,
         ]}
         onPress={handleSelect}
       >
@@ -125,12 +130,12 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
       </TouchableOpacity>
 
       {select ? (
-        <Card style={{ marginTop: 10 }}>
+        <Card style={{ marginTop: 10, backgroundColor: "#d3d3d3" }}>
           <>
             <Card.Title
               title={`Change ${ingredient}'s Composition`}
               left={LeftContent}
-              titleStyle={{ fontSize: 18, fontWeight: 'bold' }}
+              titleStyle={{ fontSize: 18, fontWeight: '600' }}
             />
             <Card.Content>
               {/* <Controller control={control} name={"name"} rules={{required: true}} 
@@ -178,7 +183,7 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
             </Card.Content>
 
             <Card.Actions>
-              <PaperButton
+              <PaperButton textColor="rgb(10, 100, 10)"
                 onPress={() => setSelect(false)}
                 style={{ marginRight: 10 }}
               >
@@ -187,16 +192,20 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
 
               {added ? (
                 <>
-                  <PaperButton onPress={handleSubmit(handleRemove)} style={{ marginRight: 10 }}>
-                    Remove Ingredient
+                  <PaperButton 
+                    mode="contained" buttonColor="rgb(200, 10, 10)"
+                    onPress={handleSubmit(handleRemove)} style={{ marginRight: 10 }}>
+                    Remove
                   </PaperButton>
-                  <PaperButton onPress={handleSubmit(handleUpdate)}>
+                  <PaperButton 
+                    mode="contained" buttonColor="rgb(10, 100, 10)"
+                    onPress={handleSubmit(handleUpdate)}>
                     Update Ingredient
                   </PaperButton>
                 </>
               ) : (
-                <PaperButton onPress={handleSubmit(handleAdd)}>
-                  Add Ingredient with its values
+                <PaperButton buttonColor="rgb(10, 100, 10)" onPress={handleSubmit(handleAdd)}>
+                  Add
                 </PaperButton>
               )}
             </Card.Actions>
@@ -273,45 +282,24 @@ const PremIngredientInputs = () => {
       <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 5, padding: 10, marginBottom: 10 }}>
         <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("select fodders")}</Text>
         <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
-          {t("your animal")}: {t(selectedSpecies)} Premium
+          {t("your animal")}: {t(selectedSpecies)}
         </Text>
       </View>
 
-      <Text style={styles.header}>{t(catData.title)}</Text>
-
       <View>
-        <View>
-          <Text>Select minimum {catData.min_selection}</Text>
-          {/* {true?<Text style={styles.errorDisplay}>{t("category error")}</Text>:null} */}
-        </View>
-
-        <View>
-          {catData.data.map((i) => (
-            <View key={i}>
-              <IngredientAddor ingredient={i} setCatItems={setCatItems}/>
-            </View>
-          ))}
-        </View>
+        {catData.data.map((i) => (
+          <View key={i}>
+            <IngredientAddor ingredient={i} setCatItems={setCatItems}/>
+          </View>
+        ))}
       </View>
 
     </ScrollView>
     : <Text>Loading Other Data</Text>}
 
-      <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-        {/* <PaperButton onPress={handlePreviousFeedPage} disabled={feedsPage<=1}>
-          Previous
-        </PaperButton> */}
-
-        <Text>{feedsPage} / {ingredients.length}</Text>
-
-        <PaperButton onPress={handleNextFeedPage} disabled={feedsPage>=ingredients.length || catItems<catData.min_selection}>
-          Next
-        </PaperButton>
-      </View>
-
       <Text>You have selected {catItems} from this category.</Text>
 
-      {feedsPage==ingredients.length && catItems>=catData.min_selection &&
+      {feedsPage==ingredients.length && catItems>=0 &&
         <Button
           onPress={() => navigation.navigate('Prem Results')}
           title={t("next")} color="rgb(10, 100, 10)"

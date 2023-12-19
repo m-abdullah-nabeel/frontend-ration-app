@@ -6,9 +6,9 @@ const initialState = {
   ingredients: [
     // Ingredients with or without categories to be done later
   ],
-  results: {
-    // Define initial structure for results if needed
-  },
+  // results: {
+  //   // Define initial structure for results if needed
+  // },
 };
 
 const feedFormulationSlice = createSlice({

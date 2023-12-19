@@ -15,6 +15,7 @@ import useAnimalReqFactor from "../lcff_data/nutrient_factors_data_hook";
 import { useForm, Controller } from 'react-hook-form';
 import { Button as ButtonNative, TextInput as TextInputNative } from 'react-native';
 import { Button, TextInput, HelperText } from 'react-native-paper';
+import { IconButton, Text as PaperText } from 'react-native-paper';
 
 const DropdownCom = ({ factorData, setValue }) => {
   const { t } = useTranslation();
@@ -89,14 +90,15 @@ const PremNutrientsRequired = () => {
 
   return (
     <ScrollView style={{flex: 1}}>
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
-        <Text>Choose Animal Requiremnents</Text>
-        <Text style={[{ fontSize: 18, fontWeight: 'bold' }]}>
-          {t("your animal")} {t(selectedSpecies)}
-        </Text>
-        {/* <Text>{JSON.stringify(nutrientInput)}</Text> */}
-        {/* <Text>{JSON.stringify(requirements)}</Text> */}
-        <View style={{width: "100%"}}>
+      <View>
+        <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 5, padding: 10, marginBottom: 10 }}>
+          <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("pre-requirement-statement")}</Text>
+          <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
+            {t("your animal")}: {t(selectedSpecies)}
+          </Text>
+        </View>
+
+        <View style={{justifyContent: "center", width: "100%"}}>
           {nutrientInput.map((factor) => (
             <View key={factor.id}>
               <Controller
@@ -119,24 +121,11 @@ const PremNutrientsRequired = () => {
             </View>
           ))}
 
-          <Button mode="contained" onPress={handleSubmit(onSubmit)}>Load Nutrient Requirements</Button>
+          <Button buttonColor='rgb(10, 100, 10)' mode="contained" onPress={handleSubmit(onSubmit)}>Load Nutrient Requirements</Button>
         </View>
 
         {Object.keys(requirements).length==0 || factors.length==0 ? null:
         <NutrientInput factors={factors} requirements={requirements}/>}
-
-        <View>
-
-          {/* {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
-            <Text key={i}>
-              {i} {": \n"} {JSON.stringify(selectedFeedData[i])} {" \n "}
-            </Text>
-          ))} */}
-
-          {/* <Button onPress={() => navigation.navigate('Prem Ingredient Inputs')}> 
-            Next Page
-          </Button>     */}
-        </View>
 
       </View>
     </ScrollView>
@@ -174,10 +163,13 @@ const NutrientInput = ({factors, requirements}) => {
 
   const handleSubmitUpdated = (data) => {
     // alert(JSON.stringify(data))
-    // dispatch(setNutrientRequirements(requirements))
     dispatch(setNutrientRequirements(data))
     navigation.navigate('Prem Ingredient Inputs')
   };
+
+  const addFactor = (data) => {
+    alert("You can add more nutrients.\nComing soon!")
+  }
 
   return (
     <View>
@@ -191,18 +183,17 @@ const NutrientInput = ({factors, requirements}) => {
             >
               <Text style={{ width: '40%', fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
               <Controller control={control} name={key.api_reference} rules={{required: true}} 
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput style={{ width: '60%', fontSize: 14, height: 35 }}
-                    dense keyboardType="numeric" mode="outlined"
-                    onChangeText={(value) =>
-                      handleTextInputChange(key.api_reference, value)
-                    }
-                    onBlur={() => handleTextInputBlur(key.api_reference)}
-                    value={value}
-                  />  
-                  )}
-                />
-
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <TextInput style={{ width: '60%', fontSize: 14, height: 35 }}
+                  dense mode="outlined" inputmode="decimal" keyboardType="numeric" maxLength={10} textAlign="right"
+                  onChangeText={(value) =>
+                    handleTextInputChange(key.api_reference, value)
+                  }
+                  onBlur={() => handleTextInputBlur(key.api_reference)}
+                  value={value}
+                />  
+                )}
+              />
             </View>
             {errors[key.api_reference] && (
                 <Text style={{ color: 'red' }}>This is required.</Text>
@@ -210,8 +201,17 @@ const NutrientInput = ({factors, requirements}) => {
           </View>
         )
       })}
+
+      <IconButton
+        icon="plus"
+        mode="outlined"
+        iconColor={"black"}
+        size={30} disabled={!isValid}
+        onPress={handleSubmit(addFactor)}
+      />
+
       <Button
-        mode="contained"
+        mode="contained" buttonColor='rgb(10, 100, 10)'
         onPress={handleSubmit(handleSubmitUpdated)}
         // disabled={!isValid}
         title="Submit"
