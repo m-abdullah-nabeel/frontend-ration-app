@@ -133,7 +133,7 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
         <Card style={{ marginTop: 10, backgroundColor: "#d3d3d3" }}>
           <>
             <Card.Title
-              title={`Change ${ingredient}'s Composition`}
+              title={t("change composition") + t(ingredient)}
               left={LeftContent}
               titleStyle={{ fontSize: 18, fontWeight: '600' }}
             />
@@ -187,7 +187,7 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
                 onPress={() => setSelect(false)}
                 style={{ marginRight: 10 }}
               >
-                Close
+                {t("close")}
               </PaperButton>
 
               {added ? (
@@ -195,17 +195,17 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
                   <PaperButton 
                     mode="contained" buttonColor="rgb(200, 10, 10)"
                     onPress={handleSubmit(handleRemove)} style={{ marginRight: 10 }}>
-                    Remove
+                    {t("remove")}
                   </PaperButton>
                   <PaperButton 
                     mode="contained" buttonColor="rgb(10, 100, 10)"
                     onPress={handleSubmit(handleUpdate)}>
-                    Update Ingredient
+                    {t("update")}
                   </PaperButton>
                 </>
               ) : (
                 <PaperButton buttonColor="rgb(10, 100, 10)" onPress={handleSubmit(handleAdd)}>
-                  Add
+                  {t("add")}
                 </PaperButton>
               )}
             </Card.Actions>

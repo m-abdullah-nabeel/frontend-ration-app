@@ -93,8 +93,8 @@ const PremNutrientsRequired = () => {
       <View>
         <View style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 5, padding: 10, marginBottom: 10 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 28, paddingLeft: 15, color: 'white', alignSelf: "center" }}>{t("pre-requirement-statement")}</Text>
-          <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 15, color: 'white', alignSelf: "center" }}>
-            {t("your animal")}: {t(selectedSpecies)}
+          <Text style={{ fontWeight: 'light', fontSize: 14, paddingLeft: 10, color: 'white', alignSelf: "center" }}>
+            {t("your animal")} {t(selectedSpecies)}
           </Text>
         </View>
 
@@ -115,13 +115,13 @@ const PremNutrientsRequired = () => {
                   </View>
                 )}
                 name={factor.name}
-                rules={{ required: `${t(factor.name) + t("is required")} ` }}
+                rules={{ required: `${t(factor.name) + " " + t("is required")} ` }}
               />
               <Text style={{ color: 'red' }}>{errors[factor.name]?.message}</Text>
             </View>
           ))}
 
-          <Button buttonColor='rgb(10, 100, 10)' mode="contained" onPress={handleSubmit(onSubmit)}>Load Nutrient Requirements</Button>
+          <Button buttonColor='rgb(10, 100, 10)' mode="contained" onPress={handleSubmit(onSubmit)}>{t("load-requirement")}</Button>
         </View>
 
         {Object.keys(requirements).length==0 || factors.length==0 ? null:
@@ -215,9 +215,8 @@ const NutrientInput = ({factors, requirements}) => {
         mode="contained" buttonColor='rgb(10, 100, 10)'
         onPress={handleSubmit(handleSubmitUpdated)}
         // disabled={!isValid}
-        title="Submit"
       >
-        Submit
+        {t("next")}
       </Button>
 
     </View>

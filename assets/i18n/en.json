@@ -110,6 +110,18 @@
         "Jantar": "Jantar",
         "Cow pea (Rawanhan)": "Cow pea (Rawanhan)",
 
+        "Biscuit waste": "Biscuit Waste",
+        "De-oiled rice polish": "De-Oiled Rice Polish",
+        "Re-rice polish": "Re-Rice Polish",
+        "Maize oil cake": "Maize Oil Cake",
+        "Black pea seeds": "Black Pea Seeds",
+        "Black pea hulls": "Black Pea Hulls",
+        "Pea seeds": "Pea Seeds",
+        "Flaxseed cake": "Flaxseed Cake",
+        "Vegetable Oils": "Vegetable Oils",
+        "Animal Fats": "Animal Fats",
+        "Vermicelles": "Vermicelleds",
+
         "Stage-Based Feed Formulator": "Stage-Based Feed Formulator",
         "stage-based-description": "Pre-formulated recipies based on stages of an animal's lifecycle",
 
@@ -165,6 +177,15 @@
         "Winter": "Winter",
         "welcomeMessage": "Welcome to UVA-gro",
         "Milk (litre/day)": "Milk (litre/day)",
-        "Calf Starter (grams/day)": "Calf Starter (grams/day)"
+        "Calf Starter (grams/day)": "Calf Starter (grams/day)",
+
+        "pre-requirement-statement": "Choose Nearest Animal Requirements",
+        "is required": "is required",
+        "load-requirement": "Load Default Requirements",
+        "change composition": "Change Nutrient Profile of ",
+        "add": "Add",
+        "close": "Close",
+        "remove": "Remove",
+        "update": "Update Ingredient"
     }
 }

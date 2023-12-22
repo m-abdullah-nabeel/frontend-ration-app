@@ -12,7 +12,7 @@
         "milk prod select": "",
         "animal parameter error": "دونوں زمرے منتخب کریں",
         "animal parameter next": "آگے چارہ منتخب کریں",
-        "select fodders": "غزاءی اجزا منتخب کریں",
+        "select fodders": "غزاءی اجزاء کا انتخاب کریں",
         "category error": "اس زمرے میں سے کم از کم ایک غزاءی اجزا منتخب کریں",
         "next": "آگے بڑھیں",
         "error insufficient nutrients": "",
@@ -116,6 +116,18 @@
         "Jantar": "جنتر",
         "Cow pea (Rawanhan)": "گوارا (روانہاں)",
 
+        "Biscuit waste": "بسکٹ کا گودا",
+        "De-oiled rice polish": "ڈی آئل شدہ چاول پالش",
+        "Re-rice polish": "ری-رایس پالش",
+        "Maize oil cake": "مکئی کے تیل کی کھل",
+        "Black pea seeds": "سیاہ مٹر کے بیج",
+        "Black pea hulls": "سیاہ مٹر کے چھلکے",
+        "Pea seeds": "مٹر کے بیج",
+        "Flaxseed cake": "فلیکس بیج کی کھل",
+        "Vegetable Oils": "سبزیوں کا تیل",
+        "Animal Fats": "جانوروں کی چربی",
+        "Vermicelles": "ورمیسیلز",
+
         "Stage-Based Feed Formulator": "اسٹیج پر مبنی فیڈ فارمولے",
         "stage-based-description": "جانوروں کے لائف سائیکل کے مراحل پر مبنی پہلے سے تیار کردہ فارمولے۔",
 
@@ -171,6 +183,15 @@
         "Winter": "موسم سرما",
         "welcomeMessage": "یووا گرو میں خوش آمدید",
         "Milk (litre/day)": "دودھ (لیٹر/دن)",
-        "Calf Starter (grams/day)": "کالف اسٹارٹر(گرام/دن) )"
+        "Calf Starter (grams/day)": "کالف اسٹارٹر(گرام/دن) )",
+
+        "pre-requirement-statement": "اپنے جانوروں کی قریب ترین ضروریات کا انتخاب کریں۔",
+        "is required": "کو منتخب کریں",
+        "load-requirement": "جانور کی تجویز کردہ ضروریات حاصل کریں۔",
+        "change composition": "غذائی پروفائل تبدیل کریں:",
+        "add": "شامل کریں",
+        "close": "بند کریں",
+        "remove": "اسے ہٹائیں",
+        "update": "تبدیل کریں"
     }
 }
