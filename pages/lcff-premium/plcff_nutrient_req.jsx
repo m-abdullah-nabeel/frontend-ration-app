@@ -218,7 +218,6 @@ const NutrientInput = ({factors, requirements}) => {
       >
         {t("next")}
       </Button>
-
     </View>
 
   )

@@ -37,7 +37,7 @@ const feedFormulationSlice = createSlice({
         console.log("Updated Properties:", updatedProperties);
     
         state.ingredients = state.ingredients.map(item => {
-          if (item[name] === action.payload[name]) {
+          if (item.name === name) {
             console.log("Updating item:", item);
             return { ...item, ...updatedProperties };
           }

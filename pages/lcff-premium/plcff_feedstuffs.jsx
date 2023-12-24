@@ -20,7 +20,7 @@ const LeftContent = props => <Icon
   source="calculator"
   color={"rgb(10, 100, 10)"}
   size={40}
-  />
+/>
 
 const IngredientAddor = ( { ingredient, setCatItems } ) => {
   const dispatch = useDispatch()
@@ -34,7 +34,6 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
   const [select, setSelect] = useState(false)
   const [added, setAdded] = useState(false)
   const [composition, setComposition] = useState([])
-  const [textInputValues, setTextInputValues] = useState({}); // New state to store TextInput values
   const selectedFeedData = useSelector(selectFeedFormulationData)
 
   const handleSelect = () => {
@@ -169,7 +168,7 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
                         }
                         onBlur={() => handleTextInputBlur(key.api_reference)}
                         value={value}
-                      />  
+                      />
                       )}
                     />
                   </View>
@@ -235,20 +234,6 @@ const PremIngredientInputs = () => {
   const [selectedItemsByPage, setSelectedItemsByPage] = useState({});
   const navigation = useNavigation();
 
-  // useEffect(() => {
-  //   if (ingredients!==null && ingredients!=="undefined" && ingredients.length!==0 && feedsPage!==0) {
-  //     setCatData(ingredients[feedsPage-1])
-  //   }
-  // }, [feedsPage, ingredients])
-
-  // const handleNextFeedPage = () => {
-  //   setFeedsPage(feedsPage+1)
-  // }
-
-  // const handlePreviousFeedPage = () => {
-  //   setFeedsPage(feedsPage-1)
-  // }
-
   useEffect(() => {
     if (ingredients !== null && ingredients !== "undefined" && ingredients.length !== 0 && feedsPage !== 0) {
       setCatData(ingredients[feedsPage - 1]);
@@ -256,24 +241,6 @@ const PremIngredientInputs = () => {
       setCatItems(selectedItemsByPage[feedsPage] || 0);
     }
   }, [feedsPage, ingredients]);
-
-  const handleNextFeedPage = () => {
-    // Save the selected items for the current page
-    setSelectedItemsByPage(prevState => ({
-      ...prevState,
-      [feedsPage]: catItems,
-    }));
-    setFeedsPage(feedsPage + 1);
-  };
-
-  const handlePreviousFeedPage = () => {
-    // Save the selected items for the current page
-    setSelectedItemsByPage(prevState => ({
-      ...prevState,
-      [feedsPage]: catItems,
-    }));
-    setFeedsPage(feedsPage - 1);
-  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -307,11 +274,11 @@ const PremIngredientInputs = () => {
         />
       }
 
-      {/* {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
+      {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
         <Text key={i}>
           {i} {": \n"} {JSON.stringify(selectedFeedData[i])} {" \n "}
         </Text>
-      ))} */}
+      ))}
 
     </SafeAreaView>
   )
