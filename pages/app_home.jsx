@@ -17,19 +17,19 @@ const MenuScreen = ({ navigation }) => {
                 imageSource={require("../assets/images/winterFeed.jpg")}
             />
 
-            {/* <HorizontalCard 
+            <HorizontalCard 
                 navigation={ navigation } t={ t } 
                 link={"Animal Selector"} titleText={"Simple feed formulate"} 
                 subtitleText={"Least Cost Feed Formulation"}
                 descText={"Unlock precision in animal nutrition with our innovative Least Cost Feed Formulation tool. Tailored for optimal results, this feature is equally practical for any species, ensuring efficient and cost-effective feed planning to meet the unique nutritional needs of your animals. Explore now for smarter and more sustainable animal feed management."}
                 imageSource={require("../assets/images/summerFeed.jpg")}
-            /> */}
+            />
             
             <HorizontalCard 
                 navigation={ navigation } t={ t } 
                 link={"Prem Animal Inputs"} titleText={"feed formulate"} 
                 subtitleText={"Least Cost Feed Formulation"} 
-                descText={"Unlock the power of precision nutrition with our Least Cost Feed Formulation tool. Tailored for every species, this feature harnesses cutting-edge technology to optimize feed formulations, ensuring the perfect balance of nutrition for your animals. Whether you're raising poultry, livestock, or any other species, this tool provides a comprehensive solution to enhance the health and performance of your animals. Step into the future of animal nutrition management and elevate your farming practices with ease."}
+                descText={"Unlock precision in animal nutrition with our innovative Least Cost Feed Formulation tool. Tailored for optimal results, this feature is equally practical for any species, ensuring efficient and cost-effective feed planning to meet the unique nutritional needs of your animals. Explore now for smarter and more sustainable animal feed management."}
                 imageSource={require("../assets/images/cattlefeed.jpg")}
             />
 
@@ -42,13 +42,13 @@ export default MenuScreen;
 const HorizontalCard = ({ navigation, t, link, titleText, subtitleText, imageSource, descText }) => {
     return (
       <Card
-        mode="contained"
+        mode="outlined"
         style={{
           marginVertical: 8,
           marginHorizontal: 0, padding: 0,
           borderRadius: 10,
           elevation: 5,
-          backgroundColor: "rgba(10, 100, 10, 0.2)"
+          backgroundColor: "rgba(10, 200, 10, 0.1)"
         }}
       >
         <TouchableOpacity
