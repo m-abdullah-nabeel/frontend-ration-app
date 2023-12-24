@@ -86,18 +86,75 @@ function DetailsScreen() {
       </View> */}
       <View style={{ margin: 1 }}>
         {isLoading ?<Loading/>:
-          <View style={{marginTop: 10}}>
+          <View style={{marginVertical: 10}}>
             <Text style={{fontWeight: "bold", padding: 15}}>Results</Text>
 
-            <ScrollView horizontal>
-              <DataTable>
+            <View style={{
+              backgroundColor: "rgba(153, 150, 10, 1)",
+              borderRadius: 10, padding: 10, margin: 5, alignSelf: "center", width: "100%",
+            }}>
+              <Text style={{
+                fontSize: 18, fontWeight: 'bold', color: "rgb(250, 250, 250)", alignSelf: "center",
+              }}>
+                Least Cost Feed Formulation
+              </Text>
+            </View>
+
+              <View style={{
+                backgroundColor: "rgba(153, 150, 10, 1)",
+                borderRadius: 10, padding: 10, margin: 5, alignSelf: "center", width: "100%",
+              }}>
+                <Text style={{
+                  fontSize: 18, fontWeight: 'bold', color: "rgb(250, 250, 250)", alignSelf: "center",
+                }}>
+                  {t("Dry Matter Formula")}
+                  {/* Least Cost Feed Formulation */}
+                </Text>
+                {/* <Text style={{ color: "rgb(250, 250, 250)", fontSize: 12, alignSelf: "center" }}>
+                    {t("Dry Matter Formula")}
+                  </Text> */}
+              </View>
+
+              <DataTable style={{ padding: 10, borderColor: 'green', borderWidth: 2, borderRadius: 10 }}>
+              <DataTable.Header>
+                <DataTable.Title style={{ fontWeight: "bold", color: "white" }}>Ingredients</DataTable.Title>
+                <DataTable.Title numeric style={{ fontWeight: "bold", color: "white" }}>Dry Matter Basis</DataTable.Title>
+              </DataTable.Header>
+
+              {data.success == true && 
+              data.results && data.results.length!==0 && 
+              data.formula && data.formula.length!==0 ?
+              data.formula.map((key) => {
+                const dmval = (key.value * 100).toFixed(2)
+                return (
+                  <DataTable.Row key={key.name}>
+                    <DataTable.Cell style={{ fontWeight: "bold", color: "white" }}>{key.name}</DataTable.Cell>
+                    <DataTable.Cell numeric style={{ fontWeight: "bold", color: "white" }}>{dmval} %</DataTable.Cell>
+                  </DataTable.Row>
+                )
+              }) : <Text>No combination found with given constraints</Text>}     
+
+              </DataTable>
+
+              <View style={{
+                backgroundColor: "rgba(153, 150, 10, 1)",
+                borderRadius: 10, padding: 10, margin: 5, alignSelf: "center", width: "100%",
+              }}>
+                <Text style={{
+                  fontSize: 18, fontWeight: 'bold', color: "rgb(250, 250, 250)", alignSelf: "center",
+                }}>
+                  {t("As Fed Basis")}
+                  {/* Least Cost Feed Formulation */}
+                </Text>
+                {/* <Text style={{ color: "rgb(250, 250, 250)", fontSize: 12, alignSelf: "center" }}>
+                  {t("As Fed Basis")}
+                </Text> */}
+              </View>
+
+              <DataTable style={{ padding: 10, borderColor: 'green', borderWidth: 2, borderRadius: 10 }}>
                 <DataTable.Header>
-                  <DataTable.Title style={{ width: 200 }}>Ingredients</DataTable.Title>
-                  <DataTable.Title style={{ width: 150 }}>Dry Matter Basis</DataTable.Title>
-                  <DataTable.Title style={{ width: 150 }}>As Fed Basis</DataTable.Title>
-                  <DataTable.Title style={{ width: 100 }}>CP</DataTable.Title>
-                  <DataTable.Title style={{ width: 150 }}>ME</DataTable.Title>
-                  <DataTable.Title style={{ width: 100 }}>NDF</DataTable.Title>
+                  <DataTable.Title style={{ fontWeight: "bold", color: "white" }}>Ingredients</DataTable.Title>
+                  <DataTable.Title numeric style={{ fontWeight: "bold", color: "white" }}>As Fed Basis</DataTable.Title>
                 </DataTable.Header>
 
                 {data.success == true && 
@@ -106,31 +163,70 @@ function DetailsScreen() {
                 data.formula.map((key) => {
                   const val = key.value
                   const dmval = (key.value * 100).toFixed(2)
-                  // const dmi = data.nutrientRequirements.minDM
                   const dmi = nutrientRequirements.minDM
                   const asfed = ((dmi * key.value)/(key.DM /100)).toFixed(2)
-                  const cp = ((asfed*key.DM/100)*(key.CP/100)).toFixed(2)
-                  const me = ((asfed*key.DM/100)*(key.ME)).toFixed(2)
-                  const ndf = ((asfed*key.DM/100)*(key.NDF/100)).toFixed(2)
                   return (
                     <DataTable.Row key={key.name}>
-                      <DataTable.Cell style={{ width: 200 }}>{key.name}</DataTable.Cell>
-                      <DataTable.Cell style={{ width: 150 }}>{dmval} %</DataTable.Cell>
-                      <DataTable.Cell style={{ width: 150 }}>{asfed} Kg</DataTable.Cell>
-                      <DataTable.Cell style={{ width: 100 }}>{cp} Kg</DataTable.Cell>
-                      <DataTable.Cell style={{ width: 150 }}>{me} Mcal</DataTable.Cell>
-                      <DataTable.Cell style={{ width: 100 }}>{ndf} Kg</DataTable.Cell>
+                      <DataTable.Cell style={{ fontWeight: "bold", color: "white" }}>{key.name}</DataTable.Cell>
+                      <DataTable.Cell numeric style={{ fontWeight: "bold", color: "white" }}>{asfed} Kg</DataTable.Cell>
                     </DataTable.Row>
                   )
                 }) : <Text>No combination found with given constraints</Text>}     
 
               </DataTable>
-            </ScrollView>
 
-            <SponsorsDisplay />
+              <View style={{
+                backgroundColor: "rgba(153, 150, 10, 1)",
+                borderRadius: 10, padding: 10, margin: 5, alignSelf: "center", width: "100%",
+              }}>
+                <Text style={{
+                  fontSize: 18, fontWeight: 'bold', color: "rgb(250, 250, 250)", alignSelf: "center",
+                }}>
+                  Nutrient Details 
+                </Text>
+              </View>
+
+              <ScrollView horizontal style={{ padding: 10, borderColor: 'green', borderWidth: 2, borderRadius: 10 }}>
+                <DataTable>
+                  <DataTable.Header>
+                    <DataTable.Title style={{ width: 200 }}>Ingredients</DataTable.Title>
+                    <DataTable.Title style={{ width: 150 }}>Dry Matter Basis</DataTable.Title>
+                    <DataTable.Title style={{ width: 150 }}>As Fed Basis</DataTable.Title>
+                    <DataTable.Title style={{ width: 100 }}>CP</DataTable.Title>
+                    <DataTable.Title style={{ width: 150 }}>ME</DataTable.Title>
+                    <DataTable.Title style={{ width: 100 }}>NDF</DataTable.Title>
+                  </DataTable.Header>
+
+                  {data.success == true && 
+                  data.results && data.results.length!==0 && 
+                  data.formula && data.formula.length!==0 ?
+                  data.formula.map((key) => {
+                    const val = key.value
+                    const dmval = (key.value * 100).toFixed(2)
+                    // const dmi = data.nutrientRequirements.minDM
+                    const dmi = nutrientRequirements.minDM
+                    const asfed = ((dmi * key.value)/(key.DM /100)).toFixed(2)
+                    const cp = ((asfed*key.DM/100)*(key.CP/100)).toFixed(2)
+                    const me = ((asfed*key.DM/100)*(key.ME)).toFixed(2)
+                    const ndf = ((asfed*key.DM/100)*(key.NDF/100)).toFixed(2)
+                    return (
+                      <DataTable.Row key={key.name}>
+                        <DataTable.Cell style={{ width: 200 }}>{key.name}</DataTable.Cell>
+                        <DataTable.Cell style={{ width: 150 }}>{dmval} %</DataTable.Cell>
+                        <DataTable.Cell style={{ width: 150 }}>{asfed} Kg</DataTable.Cell>
+                        <DataTable.Cell style={{ width: 100 }}>{cp} Kg</DataTable.Cell>
+                        <DataTable.Cell style={{ width: 150 }}>{me} Mcal</DataTable.Cell>
+                        <DataTable.Cell style={{ width: 100 }}>{ndf} Kg</DataTable.Cell>
+                      </DataTable.Row>
+                    )
+                  }) : <Text>No combination found with given constraints</Text>}     
+
+                </DataTable>
+              </ScrollView>
           </View>
         }
       </View>
+      <SponsorsDisplay />
     </ScrollView>
   );
 }

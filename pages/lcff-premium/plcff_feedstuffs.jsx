@@ -158,10 +158,11 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
                     flexDirection: 'row', alignItems: 'center',  marginBottom: 10,
                   }}
                   >
-                    <View style={{ flex: 2, flexDirection: "column" }}>
+                    <Text style={{ flex: 2, fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
+                    {/* <View style={{ flex: 2, flexDirection: "column" }}>
                       <Text style={{ fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
                       <Text style={{color: "red", fontSize: 12}}>Default: {composition[key.data_field] || null}</Text>
-                    </View>
+                    </View> */}
                     <Controller control={control} name={key.api_reference} rules={{required: true}} 
                       render={({ field: { onChange, onBlur, value } }) => (
                         <TextInput style={{ flex: 3, fontSize: 14, height: 35 }}

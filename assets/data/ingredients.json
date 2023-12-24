@@ -7,10 +7,8 @@
         "ME raw": "2.30",
         "ME": "2300.00",
         "cost": "12.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Alfalfa (Lucerne)",
@@ -20,10 +18,8 @@
         "ME raw": "2.24",
         "ME": "2240.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Napier grass",
@@ -33,10 +29,8 @@
         "ME raw": "1.95",
         "ME": "1950.00",
         "cost": "5.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Rye grass",
@@ -46,10 +40,8 @@
         "ME raw": "2.40",
         "ME": "2400.00",
         "cost": "5.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Millet",
@@ -59,10 +51,8 @@
         "ME raw": "2.19",
         "ME": "2190.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Barley",
@@ -72,10 +62,8 @@
         "ME raw": "2.19",
         "ME": "2190.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Maize",
@@ -85,10 +73,8 @@
         "ME raw": "2.20",
         "ME": "2200.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.40",
-        "Cattle Min": "10.00",
-        "Cattle Max": "40.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sorghum",
@@ -98,10 +84,8 @@
         "ME raw": "2.10",
         "ME": "2100.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.40",
-        "Cattle Min": "10.00",
-        "Cattle Max": "40.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Oat (Jai)",
@@ -111,10 +95,8 @@
         "ME raw": "2.30",
         "ME": "2300.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.40",
-        "Cattle Min": "10.00",
-        "Cattle Max": "40.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Mustard (Sarson)",
@@ -124,10 +106,8 @@
         "ME raw": "2.10",
         "ME": "2100.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Maize Silage",
@@ -137,10 +117,8 @@
         "ME raw": "2.30",
         "ME": "2300.00",
         "cost": "10.00",
-        "min": "0.10",
-        "max": "0.50",
-        "Cattle Min": "10.00",
-        "Cattle Max": "50.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sugarcane",
@@ -150,10 +128,8 @@
         "ME raw": "2.20",
         "ME": "2200.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.40",
-        "Cattle Min": "10.00",
-        "Cattle Max": "40.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Jantar",
@@ -163,10 +139,8 @@
         "ME raw": "2.74",
         "ME": "2740.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.40",
-        "Cattle Min": "10.00",
-        "Cattle Max": "40.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Cow pea (Rawanhan)",
@@ -176,10 +150,8 @@
         "ME raw": "2.34",
         "ME": "2340.00",
         "cost": "5.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sugarcane  tops",
@@ -189,10 +161,8 @@
         "ME raw": "1.70",
         "ME": "1700.00",
         "cost": "3.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Mott grass",
@@ -202,10 +172,8 @@
         "ME raw": "2.30",
         "ME": "2300.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Wheat Straw (toori)",
@@ -215,10 +183,8 @@
         "ME raw": "1.50",
         "ME": "1500.00",
         "cost": "17.00",
-        "min": "0.01",
-        "max": "0.10",
-        "Cattle Min": "1.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Rice Straw (Parali)",
@@ -228,10 +194,8 @@
         "ME raw": "1.70",
         "ME": "1700.00",
         "cost": "8.00",
-        "min": "0.01",
-        "max": "0.10",
-        "Cattle Min": "1.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Millet stovers",
@@ -241,10 +205,8 @@
         "ME raw": "1.50",
         "ME": "1500.00",
         "cost": "5.00",
-        "min": "0.01",
-        "max": "0.10",
-        "Cattle Min": "1.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Maize stovers",
@@ -254,10 +216,8 @@
         "ME raw": "1.50",
         "ME": "1500.00",
         "cost": "5.00",
-        "min": "0.01",
-        "max": "0.10",
-        "Cattle Min": "1.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sorghum stovers",
@@ -267,10 +227,8 @@
         "ME raw": "1.80",
         "ME": "1800.00",
         "cost": "5.00",
-        "min": "0.01",
-        "max": "0.10",
-        "Cattle Min": "1.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Corn cobs",
@@ -280,10 +238,8 @@
         "ME raw": "1.90",
         "ME": "1900.00",
         "cost": "5.00",
-        "min": "0.01",
-        "max": "0.10",
-        "Cattle Min": "1.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Rice Husk (Phakk)",
@@ -293,10 +249,8 @@
         "ME raw": "1.50",
         "ME": "1500.00",
         "cost": "15.00",
-        "min": "0.01",
-        "max": "0.10",
-        "Cattle Min": "1.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Maize grain",
@@ -306,10 +260,8 @@
         "ME raw": "3.20",
         "ME": "3200.00",
         "cost": "75.00",
-        "min": "0.05",
-        "max": "0.30",
-        "Cattle Min": "5.00",
-        "Cattle Max": "30.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Wheat grain",
@@ -319,10 +271,8 @@
         "ME raw": "3.20",
         "ME": "3200.00",
         "cost": "100.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Millet grain",
@@ -332,10 +282,8 @@
         "ME raw": "3.10",
         "ME": "3100.00",
         "cost": "100.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Mamni",
@@ -345,10 +293,8 @@
         "ME raw": "2.90",
         "ME": "2900.00",
         "cost": "50.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Maize bran",
@@ -358,10 +304,8 @@
         "ME raw": "2.60",
         "ME": "2600.00",
         "cost": "50.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Wheat Bran (Chokar)",
@@ -371,10 +315,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "45.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Rice polish",
@@ -384,10 +326,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "30.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sugarbeet pulp",
@@ -397,10 +337,8 @@
         "ME raw": "2.40",
         "ME": "2400.00",
         "cost": "50.00",
-        "min": "0.05",
-        "max": "0.30",
-        "Cattle Min": "5.00",
-        "Cattle Max": "30.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Apple pomace",
@@ -410,10 +348,8 @@
         "ME raw": "2.10",
         "ME": "2100.00",
         "cost": "20.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Citrus waste",
@@ -423,10 +359,8 @@
         "ME raw": "2.50",
         "ME": "2500.00",
         "cost": "20.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Channa Karra",
@@ -436,10 +370,8 @@
         "ME raw": "2.40",
         "ME": "2400.00",
         "cost": "65.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Massar Karra",
@@ -449,10 +381,8 @@
         "ME raw": "2.30",
         "ME": "2300.00",
         "cost": "65.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Mung Karra",
@@ -462,10 +392,8 @@
         "ME raw": "2.50",
         "ME": "2500.00",
         "cost": "65.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Dry dates",
@@ -475,10 +403,8 @@
         "ME raw": "2.50",
         "ME": "2500.00",
         "cost": "20.00",
-        "min": "0.05",
-        "max": "0.09",
-        "Cattle Min": "5.00",
-        "Cattle Max": "9.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Potato",
@@ -488,10 +414,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "20.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Cottonseed cake (Khal)",
@@ -501,10 +425,8 @@
         "ME raw": "2.00",
         "ME": "2000.00",
         "cost": "100.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Soybean meal",
@@ -514,10 +436,8 @@
         "ME raw": "3.10",
         "ME": "3100.00",
         "cost": "300.00",
-        "min": "0.05",
-        "max": "0.30",
-        "Cattle Min": "5.00",
-        "Cattle Max": "30.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Canola meal",
@@ -527,10 +447,8 @@
         "ME raw": "2.50",
         "ME": "2500.00",
         "cost": "145.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Linseed meal",
@@ -540,10 +458,8 @@
         "ME raw": "2.20",
         "ME": "2200.00",
         "cost": "145.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Rapeseed Cake",
@@ -553,10 +469,8 @@
         "ME raw": "2.70",
         "ME": "2700.00",
         "cost": "130.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Maize gluten meal 30%",
@@ -566,10 +480,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "61.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Maize gluten meal 60%",
@@ -579,10 +491,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "40.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Palm kernel cake",
@@ -592,10 +502,8 @@
         "ME raw": "2.20",
         "ME": "2200.00",
         "cost": "50.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sunflower meal",
@@ -605,10 +513,8 @@
         "ME raw": "2.10",
         "ME": "2100.00",
         "cost": "55.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Guar meal",
@@ -618,10 +524,8 @@
         "ME raw": "2.70",
         "ME": "2700.00",
         "cost": "120.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sorghum Grains",
@@ -631,10 +535,8 @@
         "ME raw": "3.00",
         "ME": "3000.00",
         "cost": "90.00",
-        "min": "0.05",
-        "max": "0.15",
-        "Cattle Min": "5.00",
-        "Cattle Max": "15.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Barley Grains",
@@ -644,10 +546,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "90.00",
-        "min": "0.05",
-        "max": "0.15",
-        "Cattle Min": "5.00",
-        "Cattle Max": "15.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": " Oats Grains",
@@ -657,10 +557,8 @@
         "ME raw": "2.60",
         "ME": "2600.00",
         "cost": "90.00",
-        "min": "0.05",
-        "max": "0.15",
-        "Cattle Min": "5.00",
-        "Cattle Max": "15.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Rice Grains",
@@ -670,10 +568,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "90.00",
-        "min": "0.05",
-        "max": "0.15",
-        "Cattle Min": "5.00",
-        "Cattle Max": "15.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Millet Grains",
@@ -683,10 +579,8 @@
         "ME raw": "2.20",
         "ME": "2200.00",
         "cost": "90.00",
-        "min": "0.05",
-        "max": "0.15",
-        "Cattle Min": "5.00",
-        "Cattle Max": "15.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Cane Molasses",
@@ -696,10 +590,8 @@
         "ME raw": "2.60",
         "ME": "2600.00",
         "cost": "90.00",
-        "min": "0.05",
-        "max": "0.15",
-        "Cattle Min": "5.00",
-        "Cattle Max": "15.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Barseem Hay",
@@ -709,10 +601,8 @@
         "ME raw": "2.40",
         "ME": "2400.00",
         "cost": "12.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Lucerne Hay",
@@ -722,10 +612,8 @@
         "ME raw": "2.00",
         "ME": "2000.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Cowpea Hay",
@@ -735,10 +623,8 @@
         "ME raw": "1.80",
         "ME": "1800.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Millet Straw",
@@ -748,10 +634,8 @@
         "ME raw": "1.70",
         "ME": "1700.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Cowpea Mature",
@@ -761,10 +645,8 @@
         "ME raw": "2.30",
         "ME": "2300.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Fenugreek Early Vegetative",
@@ -774,10 +656,8 @@
         "ME raw": "2.10",
         "ME": "2100.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sorghum Silage",
@@ -787,10 +667,8 @@
         "ME raw": "2.10",
         "ME": "2100.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.40",
-        "Cattle Min": "10.00",
-        "Cattle Max": "40.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Rhodes Grass",
@@ -800,10 +678,8 @@
         "ME raw": "2.10",
         "ME": "2100.00",
         "cost": "5.00",
-        "min": "0.10",
-        "max": "0.20",
-        "Cattle Min": "10.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Sugarcane Bagasse",
@@ -813,10 +689,8 @@
         "ME raw": "1.30",
         "ME": "1300.00",
         "cost": "5.00",
-        "min": "0.01",
-        "max": "0.05",
-        "Cattle Min": "1.00",
-        "Cattle Max": "5.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Biscuit waste",
@@ -826,10 +700,8 @@
         "ME raw": "3.30",
         "ME": "3300.00",
         "cost": "20.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "De - oiled rice polish",
@@ -839,10 +711,8 @@
         "ME raw": "3.20",
         "ME": "3200.00",
         "cost": "35.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Maize oil cake",
@@ -852,10 +722,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "50.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Re - rice polish",
@@ -865,10 +733,8 @@
         "ME raw": "3.20",
         "ME": "3200.00",
         "cost": "32.00",
-        "min": "0.05",
-        "max": "0.20",
-        "Cattle Min": "5.00",
-        "Cattle Max": "20.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Vermicelles",
@@ -878,10 +744,8 @@
         "ME raw": "3.30",
         "ME": "3300.00",
         "cost": "40.00",
-        "min": "0.01",
-        "max": "0.05",
-        "Cattle Min": "1.00",
-        "Cattle Max": "5.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Black pea seeds",
@@ -891,10 +755,8 @@
         "ME raw": "2.80",
         "ME": "2800.00",
         "cost": "35.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Black pea hulls",
@@ -904,10 +766,8 @@
         "ME raw": "2.40",
         "ME": "2400.00",
         "cost": "10.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Pea seeds",
@@ -917,10 +777,8 @@
         "ME raw": "2.90",
         "ME": "2900.00",
         "cost": "25.00",
-        "min": "0.05",
-        "max": "0.10",
-        "Cattle Min": "5.00",
-        "Cattle Max": "10.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Flaxseed cake",
@@ -930,10 +788,8 @@
         "ME raw": "2.90",
         "ME": "2900.00",
         "cost": "50.00",
-        "min": "0.05",
-        "max": "0.25",
-        "Cattle Min": "5.00",
-        "Cattle Max": "25.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Vegetable Oils",
@@ -943,10 +799,8 @@
         "ME raw": "8.00",
         "ME": "8000.00",
         "cost": "400.00",
-        "min": "0.02",
-        "max": "0.05",
-        "Cattle Min": "2.00",
-        "Cattle Max": "5.00"
+        "min": "0.00",
+        "max": "1.00"
     },
     {
         "name": "Animal Fats",
@@ -956,9 +810,7 @@
         "ME raw": "8.00",
         "ME": "8000.00",
         "cost": "400.00",
-        "min": "0.01",
-        "max": "0.03",
-        "Cattle Min": "1.00",
-        "Cattle Max": "3.00"
+        "min": "0.00",
+        "max": "1.00"
     }
 ]

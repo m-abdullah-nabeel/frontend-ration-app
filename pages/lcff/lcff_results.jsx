@@ -106,94 +106,11 @@ const ResultCheck = (props) => {
                         <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{percent_val} %</Text>
                       </View>
                     </View>
-                    {/* This section is developer mode only */}
-                    {/* <Text style={{ backgroundColor: 'red' }}>
-                      Composition |
-                      DM% = {curr_['DM%']} %,
-                      CP = {curr_['CP']} %,
-                      ME = {curr_['ME']} kcal,
-                      NDF = {curr_['NDF']} %,
-                    </Text>
-                    <Text style={{ backgroundColor: 'green' }}>
-                      Provides |
-                      Dry Matter = {dm_feedStuff} ,
-                      CP = {cp_feedStuff} ,
-                      ME = {me_feedStuff} ,
-                      NDF = {ndf_feedStuff}
-                    </Text> */}
                   </View>
                 )
               })
             }
           </View>
-
-          {/* This section is developer mode only */}
-          {/* this formula contains / nutrient composition of feed */}
-          {/* <View style={{
-            backgroundColor: "rgb(30, 130, 30)", borderRadius: 10, padding: 10, marginTop: 20
-          }}>
-            <Text style={{ fontSize: 24, color: "#fff", fontWeight: 'bold', alignSelf: "center" }}>{t("feed composition line")}</Text>
-            <Text style={{ color: "#fff", alignSelf: "center" }}>
-              Dry Matter:&nbsp;
-              {
-                dm_a.reduce(function (x, y) { return x + y; }, 0).toFixed(2)
-              } KG
-            </Text>
-            <Text style={{ color: "#fff", alignSelf: "center" }}>
-              Total CP =
-              {
-                (
-                  cp_a.reduce(function (x, y) { return x + y }, 0)
-                ).toFixed(2)
-              } kg per total dm
-            </Text>
-            <Text style={{ color: "#fff", alignSelf: "center" }}>
-              {t("CP")}:
-              {
-                (
-                  cp_a.reduce(function (x, y) { return x + y }, 0) * 100
-                  /
-                  dm_a.reduce(function (x, y) { return x + y }, 0)
-                ).toFixed(2)
-              } % per kg dm
-            </Text>
-            <Text style={{ color: "#fff", alignSelf: "center" }}>
-              Total ME =
-              {
-                (
-                  me_a.reduce(function (x, y) { return x + y; }, 0)
-                ).toFixed(2)
-              } kg per total diet
-            </Text>
-            <Text style={{ color: "#fff", alignSelf: "center" }}>
-              {t("ME")}:
-              {
-                (
-                  me_a.reduce(function (x, y) { return x + y; }, 0)
-                  /
-                  dm_a.reduce(function (x, y) { return x + y }, 0)
-                ).toFixed(2)
-              } kcal per kg dm
-            </Text>
-            <Text style={{ color: "#fff", alignSelf: "center" }}>
-              Total NDF =
-              {
-                (
-                  ndf_a.reduce(function (x, y) { return x + y; }, 0)
-                ).toFixed(2)
-              } % per kg dm
-            </Text>
-            <Text style={{ color: "#fff", alignSelf: "center" }}>
-              {t("NDF")}:
-              {
-                (
-                  ndf_a.reduce(function (x, y) { return x + y; }, 0) * 100
-                  /
-                  dm_a.reduce(function (x, y) { return x + y }, 0)
-                ).toFixed(2)
-              } kg per total dm
-            </Text>
-          </View> */}
 
           {/* As fed basis for one animal */}
 
