@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import { setNutrientRequirements, selectFeedFormulationData } from "../../redux/animalInputSlice";
 
 import useIngredientSelector from "../lcff_data/ingredients_data_hook";
-import { Avatar, Button as PaperButton, Card, PaperText, TextInput, Icon } from 'react-native-paper';
+import { Avatar, Button as PaperButton, Card, PaperText, TextInput, Icon, HelperText } from 'react-native-paper';
 import { addIngredients, updateIngredient, removeIngredient } from "../../redux/animalInputSlice";
 
 // const LeftContent = props => <Avatar.Icon mode="outlined" {...props} icon="calculator" />
@@ -158,10 +158,13 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
                     flexDirection: 'row', alignItems: 'center',  marginBottom: 10,
                   }}
                   >
-                    <Text style={{ width: '40%', fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
+                    <View style={{ flex: 2, flexDirection: "column" }}>
+                      <Text style={{ fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
+                      <Text style={{color: "red", fontSize: 12}}>Default: {composition[key.data_field] || null}</Text>
+                    </View>
                     <Controller control={control} name={key.api_reference} rules={{required: true}} 
                       render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput style={{ width: '60%', fontSize: 14, height: 35 }}
+                        <TextInput style={{ flex: 3, fontSize: 14, height: 35 }}
                         dense keyboardType="numeric" mode="outlined"
                         onChangeText={(value) =>
                           handleTextInputChange(key.api_reference, value)
@@ -266,19 +269,18 @@ const PremIngredientInputs = () => {
 
       <Text>You have selected {catItems} from this category.</Text>
 
-      {feedsPage==ingredients.length && catItems>=0 &&
-        <Button
-          onPress={() => navigation.navigate('Prem Results')}
-          title={t("next")} color="rgb(10, 100, 10)"
-          style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20 }}
-        />
-      }
+      <Button
+        onPress={() => navigation.navigate('Prem Results')}
+        title={t("next")} color="rgb(10, 100, 10)"
+        style={{ backgroundColor: 'rgb(10, 100, 10)', borderRadius: 50, padding: 20 }}
+        disabled={catItems<2}
+      />
 
-      {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
+      {/* {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i) => (
         <Text key={i}>
           {i} {": \n"} {JSON.stringify(selectedFeedData[i])} {" \n "}
         </Text>
-      ))}
+      ))} */}
 
     </SafeAreaView>
   )
