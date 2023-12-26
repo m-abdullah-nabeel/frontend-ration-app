@@ -137,6 +137,9 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
               titleStyle={{ fontSize: 18, fontWeight: '600' }}
             />
             <Card.Content>
+            <Text style={{fontSize: 12}}>Please translate/scale inclusion levels from 0-100 to 0-1</Text>
+            <Text style={{fontSize: 11, color: "red"}}>Example: If you want to set inclusion level to 40%, use 0.4</Text>
+            <Text style={{fontSize: 11, color: "red", marginBottom: 5}}>For inclusion level 5%, use 0.05, and for 100% use 1.</Text>
               {/* <Controller control={control} name={"name"} rules={{required: true}} 
                 render={({ field: { value } }) => (
                   <TextInput value={composition["name"]} editable={false} style={{backgroundColor: "rgba(10, 100, 10, 0.8)", paddingLeft: 100, color: "white"}} />  
@@ -153,12 +156,12 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
               )}
 
               {factors && factors.length!==0 && factors.map((key) => (
-                <View key={key.data_field} >
+                <View key={key.data_field}>
                   <View style={{
                     flexDirection: 'row', alignItems: 'center',  marginBottom: 10,
                   }}
                   >
-                    <Text style={{ flex: 2, fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
+                    <Text style={{ flex: 2, fontSize: 18, fontWeight: '400', paddingRight: 10}}>{key.name}</Text>
                     {/* <View style={{ flex: 2, flexDirection: "column" }}>
                       <Text style={{ fontSize: 18, fontWeight: '400', }}>{key.name}</Text>
                       <Text style={{color: "red", fontSize: 12}}>Default: {composition[key.data_field] || null}</Text>

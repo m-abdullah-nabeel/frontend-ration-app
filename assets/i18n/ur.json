@@ -192,6 +192,12 @@
         "add": "شامل کریں",
         "close": "بند کریں",
         "remove": "اسے ہٹائیں",
-        "update": "تبدیل کریں"
+        "update": "تبدیل کریں",
+
+        "next error": "Select at least two feedstuffs!",
+        "prepared-formula-link-description": "ضروریات کے مطابق، مویشیوں کے لیے تیار کردہ فارمولے۔",
+        "uva-gro-formulation-insights": "",
+        "uva-gro-formulation-insights-stat": ""
+
     }
 }

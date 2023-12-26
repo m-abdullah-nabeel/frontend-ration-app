@@ -188,6 +188,7 @@
         "remove": "Remove",
         "update": "Update Ingredient",
 
-        "next error": "Select at least two feedstuffs!"
+        "next error": "Select at least two feedstuffs!",
+        "prepared-formula-link-description": "Prepared formulas for cattle tailored with their needs."
     }
 }
