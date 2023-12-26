@@ -3,10 +3,6 @@ import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 // App Home
 import MenuScreen from "./app_home";
-// Least Cost Feed Formulation
-import LCFFAnimalInputs from "./lcff/lcff_animal_inputs";
-import LCFFIngredientInputs from "./lcff/lcff_feedstuffs";
-import LCFFResults from "./lcff/lcff_results";
 // Premium Least Cost Feed Formulation
 import PremAnimalInputs from "./lcff-premium/plcff_animal_inputs";
 import PremNutrientRequirements from "./lcff-premium/plcff_nutrient_req";
@@ -35,10 +31,6 @@ const Home = ({ navigation }) => {
       >
         <HomeStack.Screen name="Menu Screen" component={MenuScreen} />
         <HomeStack.Screen name="Specie Selector" component={FixedFormulasHome} />
-        {/* Least Cost Feed Formulation */}
-        <HomeStack.Screen name="Animal Selector" component={LCFFAnimalInputs} />
-        <HomeStack.Screen name="Stuff Selector" navigation={navigation} component={LCFFIngredientInputs} />
-        <HomeStack.Screen name="Details" component={LCFFResults} />
         {/* Premium Feed Formulation */}
         <HomeStack.Screen name="Prem Animal Inputs" component={PremAnimalInputs} />
         <HomeStack.Screen name="Prem Nutrient Requirements" component={PremNutrientRequirements} />

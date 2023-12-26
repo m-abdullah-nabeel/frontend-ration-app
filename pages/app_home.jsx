@@ -17,13 +17,13 @@ const MenuScreen = ({ navigation }) => {
                 imageSource={require("../assets/images/winterFeed.jpg")}
             />
 
-            <HorizontalCard 
+            {/* <HorizontalCard 
                 navigation={ navigation } t={ t } 
                 link={"Animal Selector"} titleText={"Simple feed formulate"} 
                 subtitleText={"Least Cost Feed Formulation"}
                 descText={"Unlock precision in animal nutrition with our innovative Least Cost Feed Formulation tool. Tailored for optimal results, this feature is equally practical for any species, ensuring efficient and cost-effective feed planning to meet the unique nutritional needs of your animals. Explore now for smarter and more sustainable animal feed management."}
                 imageSource={require("../assets/images/summerFeed.jpg")}
-            />
+            /> */}
             
             <HorizontalCard 
                 navigation={ navigation } t={ t } 
