@@ -56,23 +56,9 @@ function DetailsScreen() {
         const json = await response.json();
         setData(json);
         
+        console.log(json);
         // alert("CURRENT DATA IS: ")
         // alert(JSON.stringify(json))
-
-        if (
-          data.success === true &&
-          data.results && data.results.length!==0 && 
-          data.formula && data.formula.length!==0
-        ) {
-          setFeasible(true);
-          setLoading(false);
-        } else if (
-          data.success === false
-        ) {
-          setFeasible(false)
-        }
-        console.log(json);
-        setLoading(false);
       } else {
         console.log("Invalid Data")
         setError(true)
@@ -89,6 +75,25 @@ function DetailsScreen() {
   }
 
   useEffect(() => {
+    const setFeasibility = () => {
+      if (
+        data && data.length !==0 &&
+        data.success === true &&
+        data.results && data.results.length!==0 && 
+        data.formula && data.formula.length!==0
+      ) {
+        setFeasible(true);
+        setLoading(false);
+      } else if (
+        data.success === false
+      ) {
+        setFeasible(false)
+      }
+    }
+    setFeasibility()
+  }, [data])
+
+  useEffect(() => {
     getCalculations(url_backend_render)
   }, []);
 
@@ -100,7 +105,7 @@ function DetailsScreen() {
 
   const DisplayResults = () => {
     return (
-      <View>
+      <View style={{ marginVertical: 10}}>
         <View style={{
           backgroundColor: "rgba(153, 150, 10, 1)",
           borderRadius: 10, padding: 10, margin: 5, alignSelf: "center", width: "100%",
@@ -246,16 +251,19 @@ function DetailsScreen() {
         {!isLoading &&
           <View style={{marginVertical: 10}}>
 
+            {/* {data.success === true &&
+            data.results && data.results.length!==0 && 
+            data.formula && data.formula.length!==0 && <DisplayResults/>} */}
+
             {feasible === true && <DisplayResults/>}
 
             {feasible === false && <Text>No Combination Found. {JSON.stringify(data?.msg)}</Text>}
             {error === true && <Text>Some Error Occured.</Text>}
             {errMsg !== '' && <Text>Error: {errMsg}</Text>}
-            
-            <ButtonPaper onPress={() => navigation.goBack()}>
-              Go back and Change Inclusion Levels
-            </ButtonPaper>
 
+            <ButtonPaper mode="outlined" onPress={() => navigation.goBack()}>
+              Re-formulate? 
+            </ButtonPaper>
           </View>
         }
       </View>

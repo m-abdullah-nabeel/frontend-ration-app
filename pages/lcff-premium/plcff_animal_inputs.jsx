@@ -15,8 +15,8 @@ import { setSpecies as globalSpecies, selectSpecies } from "../../redux/speciesS
 const AnimalData = [
   { name: 'Cattle', imagePath: require('../../assets/animals/cow.png') },
   { name: 'Buffalo', imagePath: require('../../assets/animals/buffalo.png') },
-  { name: 'Goat', imagePath: require('../../assets/animals/goat.png'), comingSoon: true },
-  { name: 'Sheep', imagePath: require('../../assets/animals/sheep.png'), comingSoon: true },
+  { name: 'Goat', imagePath: require('../../assets/animals/goat.png') },
+  { name: 'Sheep', imagePath: require('../../assets/animals/sheep.png') },
   { name: 'Camel', imagePath: require('../../assets/animals/camel.png'), comingSoon: true },
   { name: 'Horse', imagePath: require('../../assets/animals/horse.png'), comingSoon: true },
   { name: 'Donkey', imagePath: require('../../assets/animals/donkey.png'), comingSoon: true },

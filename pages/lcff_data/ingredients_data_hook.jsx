@@ -204,7 +204,10 @@ const useIngredientSelector = (species) => {
 ];
 
   useEffect(() => {
-    if (species==="Cattle" || species==="Buffalo") {
+    if (
+      species==="Cattle" || species==="Buffalo" ||
+      species==="Goat" || species==="Sheep"
+    ) {
       setIngredients(RuminnatsIngredients)
       setFactors(RuminantFields)
     }
