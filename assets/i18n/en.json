@@ -38,7 +38,7 @@
         "Mustard (Sarson)": "Mustard (Sarson)",
         "Maize Silage": "Maize Silage",
         "Sugarcane": "Sugarcane",
-        "Sugarcane tops": "Sugarcane  tops",
+        "Sugarcane tops": "Sugarcane tops",
         "Mott grass": "Mott grass",
         "Johnson grass (Baru)": "Johnson grass (Baru)",
         "Wheat Straw (toori)": "Wheat Straw (toori)",
@@ -186,6 +186,8 @@
         "add": "Add",
         "close": "Close",
         "remove": "Remove",
-        "update": "Update Ingredient"
+        "update": "Update Ingredient",
+
+        "next error": "Select at least two feedstuffs!"
     }
 }

@@ -268,7 +268,7 @@ const PremIngredientInputs = () => {
     </ScrollView>
     : <Text>Loading Other Data</Text>}
 
-      <Text>You have selected {catItems} from this category.</Text>
+      {/* <Text>You have selected {catItems} from this category.</Text> */}
 
       <Button
         onPress={() => navigation.navigate('Prem Results')}

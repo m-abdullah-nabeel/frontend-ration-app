@@ -9,6 +9,9 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from "react-redux";
 import { useNavigation } from '@react-navigation/native';
 
+import BlockAd from "../ads/block_ad";
+import AdsData from "../ads/ads.json";
+
 const windowHeight = Dimensions.get('window').height;
 
 function DetailsScreen() {
@@ -19,7 +22,9 @@ function DetailsScreen() {
   const [feasible, setFeasible] = useState(false)
   const selectedFeedData = useSelector(selectFeedFormulationData)
   const { t } = useTranslation();
-  const navigation = useNavigation()
+  const navigation = useNavigation();
+  const adData1 = AdsData[0]
+  const adData2 = AdsData[1]
 
   const url_backend_render = 'https://uva-gro-backend-api.onrender.com/api/premium/formulate'
   console.log("Selected Feed Data: ")
@@ -106,6 +111,7 @@ function DetailsScreen() {
   const DisplayResults = () => {
     return (
       <View style={{ marginVertical: 10}}>
+        <BlockAd adData={adData1}/>
         <View style={{
           backgroundColor: "rgba(153, 150, 10, 1)",
           borderRadius: 10, padding: 10, margin: 5, alignSelf: "center", width: "100%",
@@ -245,11 +251,11 @@ function DetailsScreen() {
   return (
     <ScrollView style={{ flex: 1 }}>
 
-      <View style={{ margin: 1, flex: 1 }}>
+      <View style={{  }}>
         {isLoading && <Loading/>}
 
         {!isLoading &&
-          <View style={{marginVertical: 10}}>
+          <View style={{ }}>
 
             {/* {data.success === true &&
             data.results && data.results.length!==0 && 
@@ -267,8 +273,13 @@ function DetailsScreen() {
           </View>
         }
       </View>
-      <SponsorsDisplay />
+      
+      <BlockAd adData={adData2}/>
 
+      <View style={{ marginVertical: 10 }}>
+        <SponsorsDisplay />
+      </View>
+            
     </ScrollView>
   );
 }

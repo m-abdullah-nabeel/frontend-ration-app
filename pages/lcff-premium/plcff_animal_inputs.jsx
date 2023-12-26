@@ -44,13 +44,13 @@ const PremAnimalInputs = ({ navigation }) => {
         ))}
       </View>
 
-      <View>
+      {/* <View>
       {Object.keys(selectedFeedData).length!==0 && Object.keys(selectedFeedData).map((i, index) => (
         <Text key={index}>
           {"\n"} {i} {JSON.stringify(selectedFeedData[i])} {" \n "}
         </Text>
       ))}
-      </View>
+      </View> */}
 
     </ScrollView >
   )

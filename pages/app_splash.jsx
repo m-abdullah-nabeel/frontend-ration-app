@@ -7,6 +7,10 @@ import '../assets/i18n/i18n';
 import { useTranslation } from 'react-i18next';
 import LanguageChanger from './components/language';
 
+import { Modal, Portal, PaperProvider, Button } from 'react-native-paper';
+import ModalAd from "./ads/modal_ad";
+import AdsData from "./ads/ads.json";
+
 import { Dimensions } from 'react-native';
 
 // "splash": {
@@ -19,12 +23,12 @@ import { Dimensions } from 'react-native';
 const Landing = ({ navigation }) => {
     const [animationComplete, setAnimationComplete] = useState(false);
     return (
-        <View style={{ flex: 1 }}>
-            {
-                animationComplete?
-                <LandingPage navigation={navigation}/>:
-                <AnimatedSplashCpomponent animationComplete={animationComplete} setAnimationComplete={setAnimationComplete}/>
-            }
+        <View style={{ flex: 1 }}>          
+          {animationComplete? <LandingPage navigation={navigation}/>:
+          <AnimatedSplashCpomponent 
+            animationComplete={animationComplete} 
+            setAnimationComplete={setAnimationComplete}
+          />}
         </View >
     )
 }
@@ -34,6 +38,8 @@ const LandingPage = ({ navigation }) => {
     const url_arass = "https://arass.org/";
     const { t } = useTranslation();
     const fadeAnim = useRef(new Animated.Value(0)).current;
+
+    const [showAd, setShowAd] = useState(true);
   
     useEffect(() => {
       Animated.timing(
@@ -46,8 +52,18 @@ const LandingPage = ({ navigation }) => {
       ).start();
     }, [fadeAnim]);
   
+    // const adData = {
+    //   imageUrl: 'https://images.pexels.com/photos/12495793/pexels-photo-12495793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    //   title: 'High-Quality Animal Feeds by Al-Shafi Feeds',
+    //   description: "Experience excellence in animal nutrition with Al-Shafi Feeds - Your Trusted Source for Superior Quality! 🌾🐄\n\nDiscover our premium feeds, meticulously crafted to enhance the health and well-being of your livestock. At Al-Shafi Feeds, we blend traditional wisdom with cutting-edge technology to bring you the finest selection of wanda, silages, and more.\n\nAs industry leaders, Al-Shafi Feeds is committed to delivering unique and advanced solutions. Our mission extends beyond feeds - we are dedicated to supporting the community with top-notch services and sustainable practices.\n\nJoin the ranks of satisfied farmers who rely on Al-Shafi Feeds for unmatched animal nutrition. Elevate your farm's success with our quality feeds! 🚀🌿",
+    //   ctaText: 'Explore Now'
+    // };
+
+    const adData = AdsData[0]
+    
     return (
       <Animated.View style={{ flex: 1, backgroundColor: 'rgba(10, 100, 10, 1)', opacity: fadeAnim }}>
+
         <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
           <View style={{
             position: 'absolute', top: StatusBar.currentHeight + 5, right: 10,
@@ -116,7 +132,13 @@ const LandingPage = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-  
+
+        <Button onPress={() => setShowAd(true)}>
+          Open
+        </Button>
+    
+        <ModalAd showAd={showAd} setShowAd={setShowAd} adData={adData}/>
+
         </Animated.View>
     )
   }

@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 
 // import { Avatar, Button, Card, Text } from 'react-native-paper';
 import { Card, Avatar } from 'react-native-paper';
-import AdTests from "../ads/sampleAd"
 
 // const formulas_at_diff_stages = require('../../../../../assets/data/stages/formulas_at_diff_stages.json');
 const formulas_at_diff_stages = require('../../assets/data/stages/formulas_at_diff_stages.json');
