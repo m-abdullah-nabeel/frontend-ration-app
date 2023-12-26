@@ -154,7 +154,7 @@
         "max": "1.00"
     },
     {
-        "name": "Sugarcane  tops",
+        "name": "Sugarcane tops",
         "DM": "26.80",
         "CP": "6.40",
         "NDF": "67.10",
@@ -462,7 +462,7 @@
         "max": "1.00"
     },
     {
-        "name": "Rapeseed Cake",
+        "name": "Rapeseed meal",
         "DM": "89.90",
         "CP": "34.30",
         "NDF": "25.50",
@@ -550,7 +550,7 @@
         "max": "1.00"
     },
     {
-        "name": " Oats Grains",
+        "name": "Oats Grains",
         "DM": "89.30",
         "CP": "11.00",
         "NDF": "13.80",
@@ -704,7 +704,7 @@
         "max": "1.00"
     },
     {
-        "name": "De - oiled rice polish",
+        "name": "De-oiled rice polish",
         "DM": "91.60",
         "CP": "16.10",
         "NDF": "14.10",
@@ -726,7 +726,7 @@
         "max": "1.00"
     },
     {
-        "name": "Re - rice polish",
+        "name": "Re-rice polish",
         "DM": "90.00",
         "CP": "16.20",
         "NDF": "5.60",

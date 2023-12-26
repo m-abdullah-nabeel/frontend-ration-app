@@ -142,12 +142,12 @@ const IngredientAddor = ( { ingredient, setCatItems } ) => {
                   <TextInput value={composition["name"]} editable={false} style={{backgroundColor: "rgba(10, 100, 10, 0.8)", paddingLeft: 100, color: "white"}} />  
                 )}
               /> */}
-              <Controller control={control} name={"name"} rules={{required: true}} 
+              {/* <Controller control={control} name={"name"} rules={{required: true}} 
                 render={({ field: { value } }) => (
                   value ? null :
                   <TextInput value={composition["name"]} editable={false} style={{paddingLeft: 100, color: "white"}} />
                 )}
-              />
+              /> */}
               {errors.name && (
                 <Text style={{ color: 'red' }}>This is required.</Text>
               )}

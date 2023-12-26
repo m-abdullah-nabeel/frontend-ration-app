@@ -121,7 +121,6 @@ const useIngredientSelector = (species) => {
         "Sugarcane",
         "Sugarcane tops",
         "Mott grass",
-        "Johnson grass (Baru)",
         "Wheat Straw (toori)",
         "Rice Straw (Parali)",
         "Millet stovers",
