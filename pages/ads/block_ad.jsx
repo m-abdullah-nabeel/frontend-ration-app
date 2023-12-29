@@ -22,7 +22,7 @@ const BlockAd = ({ adData }) => {
 }
 
 const RealisticAdBanner = ({ adData, onPress }) => {
-    const { imageUrl, title, description, ctaText } = adData;
+    const { imageUrl, logoURL, title, description, ctaText } = adData;
   
     const MAX_TITLE_LENGTH = 20;
     const MAX_DESCRIPTION_LENGTH = 150;
@@ -34,7 +34,8 @@ const RealisticAdBanner = ({ adData, onPress }) => {
     return (
       <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
         <View style={styles.container}>
-          <Image source={{ uri: imageUrl }} style={styles.adImage} />
+          {/* <Image source={{ uri: imageUrl }} style={styles.adImage} /> */}
+          <Image source={{ uri: logoURL }} style={styles.adImage} />
           <View style={styles.adInfoContainer}>
             <Text style={styles.adTitle}>{title}</Text>
             {/* <Text style={styles.adSponsored}>Sponsored</Text> */}

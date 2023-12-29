@@ -6,7 +6,7 @@ import { Button } from 'react-native-paper';
 const FullScreenAdModal = ({ showAd, setShowAd, adData }) => {
   const hideModal = () => setShowAd(false);
 
-  const { imageUrl, title, description, ctaText } = adData;
+  const { imageUrl, logoURL, title, description, ctaText } = adData;
   const { t } = useTranslation();
 
   return (
@@ -32,7 +32,8 @@ const FullScreenAdModal = ({ showAd, setShowAd, adData }) => {
               {ctaText}
             </Button> */}
           </View>
-          <Image source={{ uri: imageUrl }} style={styles.adImage} />
+          {/* <Image source={{ uri: imageUrl }} style={styles.adImage} /> */}
+          <Image source={{ uri: logoURL }} style={styles.adImage} />
           <Button
             mode="contained"
             style={styles.ctaButton}
