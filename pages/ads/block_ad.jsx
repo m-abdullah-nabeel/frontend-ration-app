@@ -25,7 +25,7 @@ const RealisticAdBanner = ({ adData, onPress }) => {
     const { imageUrl, title, description, ctaText } = adData;
   
     const MAX_TITLE_LENGTH = 20;
-    const MAX_DESCRIPTION_LENGTH = 200;
+    const MAX_DESCRIPTION_LENGTH = 150;
 
     const truncateText = (text, maxLength) => {
       return text.length > maxLength ? text.substring(0, maxLength - 3) + '...' : text;
@@ -37,14 +37,14 @@ const RealisticAdBanner = ({ adData, onPress }) => {
           <Image source={{ uri: imageUrl }} style={styles.adImage} />
           <View style={styles.adInfoContainer}>
             <Text style={styles.adTitle}>{title}</Text>
-            <Text style={styles.adSponsored}>Sponsored</Text>
-            <Text style={styles.adDescription}>{truncateText(description, MAX_DESCRIPTION_LENGTH)}</Text>
-            <TouchableOpacity
+            {/* <Text style={styles.adSponsored}>Sponsored</Text> */}
+            {/* <Text style={styles.adDescription}>{truncateText(description, MAX_DESCRIPTION_LENGTH)}</Text> */}
+            {/* <TouchableOpacity
               style={styles.ctaButton}
               onPress={onPress}
             >
               <Text style={styles.ctaButtonText}>{ctaText}</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
       </TouchableOpacity>
@@ -66,10 +66,13 @@ const RealisticAdBanner = ({ adData, onPress }) => {
       elevation: 2,
     },
     adImage: {
-      width: 80,
-      height: 80,
+      // width: 100,
+      // height: 70,
+      width: 200,
+      height: 140,
       borderRadius: 8,
       marginRight: 10,
+      objectFit: 'cover', 
     },
     adInfoContainer: {
       flex: 1,

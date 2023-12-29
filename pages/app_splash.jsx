@@ -133,9 +133,9 @@ const LandingPage = ({ navigation }) => {
           </View>
         </View>
 
-        {/* <Button onPress={() => setShowAd(true)}>
+        <Button onPress={() => setShowAd(true)}>
           Open
-        </Button> */}
+        </Button>
     
         <ModalAd showAd={showAd} setShowAd={setShowAd} adData={adData}/>
 

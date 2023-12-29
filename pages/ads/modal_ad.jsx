@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 
@@ -6,27 +7,41 @@ const FullScreenAdModal = ({ showAd, setShowAd, adData }) => {
   const hideModal = () => setShowAd(false);
 
   const { imageUrl, title, description, ctaText } = adData;
+  const { t } = useTranslation();
 
   return (
     <Modal visible={showAd} transparent={true} animationType="slide">
       <View style={styles.modalContainer}>
         <View style={styles.adContainer}>
-          <TouchableOpacity style={styles.closeButton} onPress={hideModal}>
+          {/* <TouchableOpacity style={styles.closeButton} onPress={hideModal}>
             <Text style={styles.closeButtonText}>X</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          {/* <Button style={styles.closeButton} onPress={hideModal}>
+            X
+          </Button> */}
+
           <View style={styles.adInfoContainer}>
             <Text style={styles.adTitle}>{title}</Text>
-            <Text style={styles.adSponsored}>Sponsored</Text>
-            <Text style={styles.adDescription}>{description}</Text>
-            <Button
+            {/* <Text style={styles.adSponsored}>Sponsored</Text> */}
+            {/* <Text style={styles.adDescription}>{description}</Text> */}
+            {/* <Button
               mode="contained"
               style={styles.ctaButton}
               onPress={hideModal}
             >
               {ctaText}
-            </Button>
+            </Button> */}
           </View>
           <Image source={{ uri: imageUrl }} style={styles.adImage} />
+          <Button
+            mode="contained"
+            style={styles.ctaButton}
+            onPress={hideModal}
+          >
+            {t("next")}
+            {/* {ctaText} */}
+          </Button>
+
         </View>
       </View>
     </Modal>
@@ -82,13 +97,13 @@ const styles = StyleSheet.create({
     top: 10,
     right: 10,
     // padding: 20, // Increase the padding for a larger button
-    borderWidth: 2,
-    borderColor: "black",
-    height: 40, 
-    width: 40,
-    borderRadius: 40,
-    justifyContent: "center",
-    alignItems: "center"
+    // borderWidth: 2,
+    // borderColor: "black",
+    // height: 40, 
+    // width: 40,
+    // borderRadius: 40,
+    // justifyContent: "center",
+    // alignItems: "center"
 
   },
   closeButtonText: {
