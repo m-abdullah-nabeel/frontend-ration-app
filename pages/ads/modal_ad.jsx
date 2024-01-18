@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Button } from 'react-native-paper';
+import { IconButton, MD3Colors } from 'react-native-paper';
 
 const FullScreenAdModal = ({ showAd, setShowAd, adData }) => {
   const hideModal = () => setShowAd(false);
@@ -13,6 +14,7 @@ const FullScreenAdModal = ({ showAd, setShowAd, adData }) => {
     <Modal visible={showAd} transparent={true} animationType="slide">
       <View style={styles.modalContainer}>
         <View style={styles.adContainer}>
+
           {/* <TouchableOpacity style={styles.closeButton} onPress={hideModal}>
             <Text style={styles.closeButtonText}>X</Text>
           </TouchableOpacity> */}
@@ -20,28 +22,37 @@ const FullScreenAdModal = ({ showAd, setShowAd, adData }) => {
             X
           </Button> */}
 
-          <View style={styles.adInfoContainer}>
+          {/* <View style={styles.adInfoContainer}>
             <Text style={styles.adTitle}>{title}</Text>
-            {/* <Text style={styles.adSponsored}>Sponsored</Text> */}
-            {/* <Text style={styles.adDescription}>{description}</Text> */}
-            {/* <Button
+            <Text style={styles.adSponsored}>Sponsored</Text>
+            <Text style={styles.adDescription}>{description}</Text>
+            <Button
               mode="contained"
               style={styles.ctaButton}
               onPress={hideModal}
             >
               {ctaText}
-            </Button> */}
-          </View>
+            </Button>
+          </View> */}
           {/* <Image source={{ uri: imageUrl }} style={styles.adImage} /> */}
+
+          <IconButton
+            style={{ position: "absolute", top: 10, right: 10, zIndex: 100 }}
+            icon="close" mode='outlined'
+            // iconColor={MD3Colors.error50}
+            size={20}
+            onPress={hideModal}
+          />
           <Image source={{ uri: logoURL }} style={styles.adImage} />
-          <Button
+          <Text style={[styles.adTitle, {alignSelf: "center", fontWeight: "normal", textAlign: "center"}]}>{title}</Text>
+          {/* <Button
             mode="contained"
             style={styles.ctaButton}
             onPress={hideModal}
           >
             {t("next")}
-            {/* {ctaText} */}
-          </Button>
+            {ctaText}
+          </Button> */}
 
         </View>
       </View>
@@ -62,6 +73,8 @@ const styles = StyleSheet.create({
     padding: 20,
     width: '80%',
     flexDirection: 'column',
+
+    position: "relative"
   },
   adImage: {
     width: '100%',

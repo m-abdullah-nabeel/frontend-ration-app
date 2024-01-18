@@ -34,19 +34,22 @@ const RealisticAdBanner = ({ adData, onPress }) => {
     return (
       <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
         <View style={styles.container}>
-          {/* <Image source={{ uri: imageUrl }} style={styles.adImage} /> */}
           <Image source={{ uri: logoURL }} style={styles.adImage} />
+          <View style={{ width: "80%" }}>
+            <Text style={[styles.adTitle, {alignSelf: "center", fontWeight: "normal", textAlign: "center"}]}>{title}</Text>
+          </View>
+          {/* <Image source={{ uri: imageUrl }} style={styles.adImage} />
           <View style={styles.adInfoContainer}>
             <Text style={styles.adTitle}>{title}</Text>
-            {/* <Text style={styles.adSponsored}>Sponsored</Text> */}
-            {/* <Text style={styles.adDescription}>{truncateText(description, MAX_DESCRIPTION_LENGTH)}</Text> */}
-            {/* <TouchableOpacity
+            <Text style={styles.adSponsored}>Sponsored</Text>
+            <Text style={styles.adDescription}>{truncateText(description, MAX_DESCRIPTION_LENGTH)}</Text>
+            <TouchableOpacity
               style={styles.ctaButton}
               onPress={onPress}
             >
               <Text style={styles.ctaButtonText}>{ctaText}</Text>
-            </TouchableOpacity> */}
-          </View>
+            </TouchableOpacity>
+          </View> */}
         </View>
       </TouchableOpacity>
     );
@@ -54,8 +57,9 @@ const RealisticAdBanner = ({ adData, onPress }) => {
   
   const styles = StyleSheet.create({
     container: {
-        marginVertical: 10,
-      flexDirection: 'row',
+      marginVertical: 10,
+      // flexDirection: 'row',
+      flexDirection: 'column',
       alignItems: 'center',
       backgroundColor: 'white',
       padding: 10,
@@ -69,11 +73,11 @@ const RealisticAdBanner = ({ adData, onPress }) => {
     adImage: {
       // width: 100,
       // height: 70,
-      width: 200,
-      height: 140,
+      width: 300,
+      height: 100,
       borderRadius: 8,
       marginRight: 10,
-      objectFit: 'cover', 
+      objectFit: "contain"
     },
     adInfoContainer: {
       flex: 1,

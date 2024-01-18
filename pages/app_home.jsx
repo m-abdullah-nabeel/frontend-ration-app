@@ -17,12 +17,12 @@ const MenuScreen = ({ navigation }) => {
         <View style={{ flex: 1 }}>
           <ScrollView>
 
-            <View style={{ padding: 16, elevation: 2, backgroundColor: 'rgba(153, 150, 10, 1)' }}>
+            {/* <View style={{ padding: 16, elevation: 2, backgroundColor: 'rgba(153, 150, 10, 1)' }}>
               <Text style={{ fontSize: 20, color: "rgba(250, 250, 250, 1)", fontWeight: 'bold', marginBottom: 8 }}>UVA-gro Formulation Insights</Text>
               <Text style={{ fontSize: 14, color: "rgba(250, 250, 250, 1)", marginBottom: 8 }}>
               Unlock precision in animal nutrition with our innovative Least Cost Feed Formulation tool. Tailored for optimal results, our Least Cost Feed Formulation feature is equally practical for any species, ensuring efficient and cost-effective feed planning to meet the unique nutritional needs of your animals. Explore now for smarter and more sustainable animal feed management.
               </Text>
-            </View>
+            </View> */}
 
             <HorizontalCard 
                 navigation={ navigation } t={ t } 

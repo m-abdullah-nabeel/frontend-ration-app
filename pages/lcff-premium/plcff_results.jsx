@@ -262,7 +262,7 @@ function DetailsScreen() {
           <Text style={{ fontSize: 14, }}>DM: {(onDm).toFixed(2)} Kg / animal</Text>
           <Text style={{ fontSize: 14, }}>Price: {(costCum).toFixed(2)} PKR</Text>
         </View>
-
+{/* 
         <View style={{
           backgroundColor: "rgba(153, 150, 10, 1)",
           borderRadius: 10, padding: 10, margin: 5, alignSelf: "center", width: "100%",
@@ -333,6 +333,7 @@ function DetailsScreen() {
           </DataTable>
 
         </ScrollView>
+ */}
       </View>
     )
   }
