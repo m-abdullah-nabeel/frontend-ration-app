@@ -36,14 +36,14 @@ const teamMembers = [
     img: "zafarullah.jpg",
     imgOnline: "zafarullah.jpg",
     desc: "Dr. Muhammad Zafar Ullah Khan is PhD in Animal Nutrition from UVAS, Lahore and he is industrial partner of the UVA-gro project. He has more than 15 years of field experience and played managerial roles in livestock industry with expertise in animal nutrition and herd management of dairy animals. He has been currently working as Chief Executive Officer (CEO) in Agri-Food Research & Sustainable Solutions (Private) Limited (ARASS). He collaborated different research projects with academia.",
-    email: "mailto:vetzafar@gmail.com",
+    email: "vetzafar@gmail.com",
     phone: "+923334754251",
     web: ""
   },
   {
     id: 4,
     name: "Dr. Muhammad Abdullah Nabeel",
-    position: "Tech Lead, CyberSecure Solutions",
+    position: "Developer, Cybersecure Solutions",
     role: "App Developer",
     img: "abdullah.jpg",
     imgOnline: "abdullah.jpg",
@@ -85,24 +85,19 @@ function Settings() {
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ padding: 10 }}>
 
+        {/* Project Information */}
+        <Collapsible title={"Project Description"}>
+          <ProjectInfo/>
+        </Collapsible>
+
         {/* Team */}
         <Collapsible title={"Team Members"}>
           <Team/>
         </Collapsible>
 
-        {/* Contact */}
-        <Collapsible title={"Contact Team"}>
-          <Contact/>
-        </Collapsible>
-
         {/* Guidelines */}
         <Collapsible title={"Guidelines"}>
           <Guidelines/>
-        </Collapsible>
-
-        {/* Project Information */}
-        <Collapsible title={"Project Description"}>
-          <ProjectInfo/>
         </Collapsible>
 
         {/* FAQ */}
@@ -128,22 +123,35 @@ const TeamMember = (props) => {
       }}
     >
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 14 }}>{desc}</Text>
+        <Text style={[{ fontSize: 14 }, styles.ptext]}>{desc}</Text>
       </View>
       <View style={{ 
-        flex: 1, flexDirection: "row",
+        flex: 1, //flexDirection: "row",
       }}>
         <OpenURLButton url={`mailto:${email}`}>
-          <Icon style={{marginRight: 10, marginTop: 5}} name="email" size={25} color="dodgerblue"  />
+          <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
+            <Icon style={{marginRight: 10, marginTop: 5}} name="email" size={25} color="dodgerblue"  />
+            <Text style={styles.ptext}>{email}</Text>
+          </View>
         </OpenURLButton>
 
+        
         <OpenURLButton url={`tel:${phone}`}>
-          <Icon style={{marginRight: 10, marginTop: 5}} name="phone" size={25} color="green"  />
+          <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
+            <Icon style={{marginRight: 10, marginTop: 5}} name="phone" size={25} color="green"  />
+            <Text style={styles.ptext}>{phone}</Text>
+          </View>
         </OpenURLButton>
 
-        <OpenURLButton url={web}>
-          <Icon style={{marginRight: 10, marginTop: 5}} name="web" size={25} color="orange"  />
-        </OpenURLButton>
+
+        {web!=='' && 
+          <OpenURLButton url={web}>
+            <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
+              <Icon style={{marginRight: 10, marginTop: 5}} name="web" size={25} color="orange"  />
+              <Text style={styles.ptext}>{web}</Text>
+            </View>
+          </OpenURLButton>
+        }
       </View>
 
     </View>
@@ -169,7 +177,7 @@ const TeamMember = (props) => {
         </View>
 
         <View style={{ flex: 4, paddingVertical: 20 }}>
-          <Text style={{ fontWeight: '600' }}>{role}</Text>
+          <Text style={[{ fontWeight: '600' }, styles.ptext]}>{role}</Text>
           <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{name}</Text>
           <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{position}</Text>
 
@@ -183,7 +191,8 @@ const TeamMember = (props) => {
 const Team = () => {
   return (
     <View>
-      {/* <Text style={styles.title}>Team Members</Text> */}
+      <Contact/>
+
       {teamMembers.map((i) => (
         <TeamMember key={i.id} 
           name={i.name} role={i.role} position={i.position} img={i.img} imgOnline={i.imgOnline}
@@ -282,7 +291,6 @@ const Contact = () => {
       </Text>
 
       <Text>
-        {"Email: \n"}
         <View>
         <OpenURLButton url='mailto:uvagro.pak@gmail.com'>
           <Text style={{ color: 'blue' }}>uvagro.pak@gmail.com</Text>

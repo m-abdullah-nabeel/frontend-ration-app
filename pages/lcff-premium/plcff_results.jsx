@@ -103,7 +103,7 @@ function DetailsScreen() {
   }, []);
 
   const Loading = () => (
-    <View style={{height: windowHeight * 0.8, flex: 1, alignItems: 'center', justifyContent: "center", }}>
+    <View style={{height: windowHeight * 0.65, flex: 1, alignItems: 'center', justifyContent: "center", }}>
       <ActivityIndicator animating size={100} color="green" />
     </View>
   )
@@ -111,9 +111,9 @@ function DetailsScreen() {
   const DisplayResults = () => {
     return (
       <View style={{ marginVertical: 10}}>
-        <BlockAd adData={adData1}/>
         <DryMatterFormula/>
         <AsFedFormula/>
+        <BlockAd adData={adData1}/>
         <NutrientProfile />
 
       </View>
@@ -340,8 +340,9 @@ function DetailsScreen() {
 
   return (
     <ScrollView style={{ flex: 1 }}>
-
+      
       <View style={{  }}>
+        <BlockAd adData={adData2}/>
         {isLoading && <Loading/>}
 
         {!isLoading &&
@@ -364,8 +365,6 @@ function DetailsScreen() {
           </View>
         }
       </View>
-      
-      <BlockAd adData={adData2}/>
 
       <View style={{ marginVertical: 10 }}>
         <SponsorsDisplay />
