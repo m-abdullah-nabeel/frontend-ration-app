@@ -15,14 +15,15 @@ import { setSpecies as globalSpecies, selectSpecies } from "../../redux/speciesS
 const AnimalData = [
   { name: 'Cattle', imagePath: require('../../assets/animals/cow.png') },
   { name: 'Buffalo', imagePath: require('../../assets/animals/buffalo.png') },
-  { name: 'Goat', imagePath: require('../../assets/animals/goat.png') },
-  { name: 'Sheep', imagePath: require('../../assets/animals/sheep.png') },
-  { name: 'Camel', imagePath: require('../../assets/animals/camel.png'), comingSoon: true },
-  { name: 'Horse', imagePath: require('../../assets/animals/horse.png'), comingSoon: true },
-  { name: 'Donkey', imagePath: require('../../assets/animals/donkey.png'), comingSoon: true },
-  { name: 'Cat', imagePath: require('../../assets/animals/cat.png'), comingSoon: true },
-  { name: 'Dog', imagePath: require('../../assets/animals/dog.png'), comingSoon: true },
-  { name: 'Chicken', imagePath: require('../../assets/animals/cock.png'), comingSoon: true },
+  { name: 'Beef', imagePath: require('../../assets/animals/buffalo.png'), comingSoon: true },
+  { name: 'Goat', imagePath: require('../../assets/animals/goat.png'), comingSoon: true },
+  { name: 'Sheep', imagePath: require('../../assets/animals/sheep.png'), comingSoon: true },
+  // { name: 'Camel', imagePath: require('../../assets/animals/camel.png'), comingSoon: true },
+  // { name: 'Horse', imagePath: require('../../assets/animals/horse.png'), comingSoon: true },
+  // { name: 'Donkey', imagePath: require('../../assets/animals/donkey.png'), comingSoon: true },
+  // { name: 'Cat', imagePath: require('../../assets/animals/cat.png'), comingSoon: true },
+  // { name: 'Dog', imagePath: require('../../assets/animals/dog.png'), comingSoon: true },
+  // { name: 'Chicken', imagePath: require('../../assets/animals/cock.png'), comingSoon: true },
 ];
 
 const PremAnimalInputs = ({ navigation }) => {
@@ -73,12 +74,16 @@ const AnimalComponent = ({ animal }) => {
 
   return (
     <View style={styles.animal}>
+      <View style={styles.nameOverlay}>
+        <Text style={styles.nameText}>{t(`${animal.name}`)}</Text>
+      </View>
       <TouchableOpacity onPress={handleAnimalPress}>
         <Image style={styles.image} source={animal.imagePath} />
       </TouchableOpacity>
       {animal.comingSoon && (
         <View style={styles.comingSoonOverlay}>
           <Text style={styles.comingSoonText}>{t('coming soon')}</Text>
+          {/* <Text style={styles.comingSoonText}>{t(`${animal.name}`)}</Text> */}
         </View>
       )}
     </View>
@@ -121,6 +126,21 @@ const styles = StyleSheet.create({
   },
   comingSoonOverlay: {
     position: 'absolute',
+    top: 0,
+    bottom: 0, // added to cover
+    left: 0,
+    right: 0,
+    padding: 5,
+    // backgroundColor: 'rgba(10, 140, 10, 0.7)',
+    backgroundColor: 'rgba(140, 140, 140, 0.4)',
+    borderRadius: 5,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  nameOverlay: {
+    position: 'absolute',
+    zIndex: 100,
     bottom: 10,
     left: 10,
     right: 10,
@@ -131,8 +151,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   comingSoonText: {
     color: 'white',
+    backgroundColor: "black",
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  nameText: {
+    color: 'white',  
     fontWeight: 'bold',
     textAlign: 'center',
   },
