@@ -22,8 +22,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.manabeel.donewithit",
-      "versionCode": 18
+      "package": "com.uvagro.uvagro",
+      "versionCode": 21
     },
     "web": {
       "favicon": "./assets/favicon.png"
