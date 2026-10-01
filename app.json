@@ -2,6 +2,11 @@
   "expo": {
     "name": "UVA-gro",
     "slug": "donewithit",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
     "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -35,6 +40,12 @@
     },
     "runtimeVersion": {
       "policy": "sdkVersion"
-    }
+    },
+    "plugins": [
+      "expo-font",
+      "expo-asset",
+      "expo-splash-screen",
+      "expo-status-bar"
+    ]
   }
 }
