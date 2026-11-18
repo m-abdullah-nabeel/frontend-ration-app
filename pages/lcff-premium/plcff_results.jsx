@@ -27,7 +27,10 @@ function DetailsScreen() {
   const adData2 = AdsData[1]
 
   const url_backend_render = 'https://uva-gro-backend-api.onrender.com/api/premium/formulate'
+<<<<<<< HEAD
   // const url_backend_render = 'http://0.0.0.0:8000/api/premium/formulate'
+=======
+>>>>>>> 52a87d6cecde9348d0bb61e204aabf3501b071fa
   console.log("Selected Feed Data: ")
   console.log(selectedFeedData)
   const ingredients = selectedFeedData.ingredients

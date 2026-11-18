@@ -20,8 +20,13 @@
       "channel": "production",
       "autoIncrement": true
     }
+<<<<<<< HEAD
   },
   "cli": {
     "appVersionSource": "remote"
   }
 }
+=======
+  }
+}
+>>>>>>> 52a87d6cecde9348d0bb61e204aabf3501b071fa
