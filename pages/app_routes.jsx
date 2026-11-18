@@ -3,11 +3,8 @@ import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 // App Home
 import MenuScreen from "./app_home";
-<<<<<<< HEAD
 // Expert Interface
 import ExpertHome from "./expert-ff/e-home";
-=======
->>>>>>> 52a87d6cecde9348d0bb61e204aabf3501b071fa
 // Premium Least Cost Feed Formulation
 import PremAnimalInputs from "./lcff-premium/plcff_animal_inputs";
 import PremNutrientRequirements from "./lcff-premium/plcff_nutrient_req";
@@ -36,12 +33,9 @@ const Home = ({ navigation }) => {
       >
         <HomeStack.Screen name="Menu Screen" component={MenuScreen} />
         <HomeStack.Screen name="Specie Selector" component={FixedFormulasHome} />
-<<<<<<< HEAD
         {/* Expert Feed Formulation */}
         <HomeStack.Screen name="Expert Dashboard" component={ExpertHome} />
 
-=======
->>>>>>> 52a87d6cecde9348d0bb61e204aabf3501b071fa
         {/* Premium Feed Formulation */}
         <HomeStack.Screen name="Prem Animal Inputs" component={PremAnimalInputs} />
         <HomeStack.Screen name="Prem Nutrient Requirements" component={PremNutrientRequirements} />

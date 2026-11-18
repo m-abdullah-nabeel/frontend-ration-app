@@ -47,7 +47,6 @@ const MenuScreen = ({ navigation }) => {
                 imageSource={require("../assets/images/cattlefeed.jpg")}
             />
 
-<<<<<<< HEAD
 
             <HorizontalCard 
                 navigation={ navigation } t={ t } 
@@ -69,10 +68,6 @@ const MenuScreen = ({ navigation }) => {
           <BlockAd adData={adData0}/>
           <BlockAd adData={adData1}/>
           <BlockAd adData={adData0}/>
-=======
-          <BlockAd adData={adData0}/>
-          <BlockAd adData={adData1}/>
->>>>>>> 52a87d6cecde9348d0bb61e204aabf3501b071fa
             
 
           </ScrollView>
