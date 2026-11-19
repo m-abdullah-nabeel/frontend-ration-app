@@ -18,12 +18,12 @@ const AnimalData = [
   { name: 'Beef', imagePath: require('../../assets/animals/beef.png'), comingSoon: true },
   { name: 'Goat', imagePath: require('../../assets/animals/goat.png'), comingSoon: true },
   { name: 'Sheep', imagePath: require('../../assets/animals/sheep.png'), comingSoon: true },
-  // { name: 'Camel', imagePath: require('../../assets/animals/camel.png'), comingSoon: true },
-  // { name: 'Horse', imagePath: require('../../assets/animals/horse.png'), comingSoon: true },
-  // { name: 'Donkey', imagePath: require('../../assets/animals/donkey.png'), comingSoon: true },
-  // { name: 'Cat', imagePath: require('../../assets/animals/cat.png'), comingSoon: true },
-  // { name: 'Dog', imagePath: require('../../assets/animals/dog.png'), comingSoon: true },
-  // { name: 'Chicken', imagePath: require('../../assets/animals/cock.png'), comingSoon: true },
+  { name: 'Camel', imagePath: require('../../assets/animals/camel.png'), comingSoon: true },
+  { name: 'Horse', imagePath: require('../../assets/animals/horse.png'), comingSoon: true },
+  { name: 'Donkey', imagePath: require('../../assets/animals/donkey.png'), comingSoon: true },
+  { name: 'Cat', imagePath: require('../../assets/animals/cat.png'), comingSoon: true },
+  { name: 'Dog', imagePath: require('../../assets/animals/dog.png'), comingSoon: true },
+  { name: 'Chicken', imagePath: require('../../assets/animals/cock.png'), comingSoon: true },
 ];
 
 const PremAnimalInputs = ({ navigation }) => {
