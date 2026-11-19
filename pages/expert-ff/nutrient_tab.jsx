@@ -1,21 +1,20 @@
-import { t } from "i18next";
-import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
-import { Alert, Modal, Pressable, TextInput } from "react-native";
-import { Avatar, Button, Card } from 'react-native-paper';
-// import { Avatar, Button, Card, Text } from 'react-native-paper';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Alert,
+  TextInput,
+} from "react-native";
+import { Button, Card } from "react-native-paper";
+import {
+  REQUIREMENT_PROFILES,
+  PROFILE_META,
+  SUGGESTED_NUTRIENTS,
+} from "../expert-ff-data/requirementProfiles";
 
-import { useNavigation } from '@react-navigation/native';
-import { Dropdown } from 'react-native-element-dropdown';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import { resetAnimalInput, selectFeedFormulationData } from "../../redux/animalInputSlice";
-// Translation
-import { useTranslation } from 'react-i18next';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { setSpecies as globalSpecies, selectSpecies } from "../../redux/speciesSlice"; 
-import { REQUIREMENT_PROFILES } from "../expert-ff-data/requirementProfiles";
-
+const QUICK_UNITS = ["%", "kcal/kg", "Mcal/kg", "g/kg", "mg/kg"];
 
 const RequirementUnit = ({
   id,
@@ -29,94 +28,109 @@ const RequirementUnit = ({
 }) => {
   return (
     <Card
-      // mode="outlined"
       style={{
-        marginVertical: 8,
-        padding: 10,
+        marginVertical: 6,
+        marginHorizontal: 12,
+        padding: 12,
         backgroundColor: "#fff",
       }}
     >
       <View style={{ flexDirection: "column", gap: 10 }}>
-        
         {/* Header */}
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-            {nutrientName} ({id})
-          </Text>
-
-          {/* <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-            {nutrientName} ({unit})
-          </Text> */}
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <View style={{ flex: 1, paddingRight: 8 }}>
+            <Text style={{ fontSize: 16, fontWeight: "bold", color: "#222" }}>
+              {nutrientName} ({id})
+            </Text>
+            <Text style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
+              Unit: {unit || "%"}
+            </Text>
+          </View>
 
           <Button
             mode="contained"
-            buttonColor="red"
+            compact
+            buttonColor="#D32F2F"
             onPress={() => onDelete(id)}
           >
             Delete
           </Button>
         </View>
 
-        {/* Inputs */}
+        {/* Min / Max Inputs */}
         <View style={{ flexDirection: "row", gap: 10 }}>
-          
-          {/* Min Input */}
-          <TextInput
-            placeholder="Min"
-            keyboardType="numeric"
-            value={minValue}
-            onChangeText={(val) => onChangeMin(id, val)}
-            style={{
-              flex: 1,
-              borderWidth: 1,
-              borderColor: "#ccc",
-              borderRadius: 8,
-              padding: 10,
-            }}
-          />
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontSize: 11, color: "#666", marginBottom: 4 }}>
+              Min ({unit || "%"})
+            </Text>
+            <TextInput
+              placeholder="Min"
+              keyboardType="numeric"
+              value={minValue}
+              onChangeText={(val) => onChangeMin(id, val)}
+              style={{
+                borderWidth: 1,
+                borderColor: "#ccc",
+                borderRadius: 8,
+                padding: 10,
+                backgroundColor: "#FAFAFA",
+              }}
+            />
+          </View>
 
-          {/* Max Input */}
-          <TextInput
-            placeholder="Max"
-            keyboardType="numeric"
-            value={maxValue}
-            onChangeText={(val) => onChangeMax(id, val)}
-            style={{
-              flex: 1,
-              borderWidth: 1,
-              borderColor: "#ccc",
-              borderRadius: 8,
-              padding: 10,
-            }}
-          />
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontSize: 11, color: "#666", marginBottom: 4 }}>
+              Max ({unit || "%"})
+            </Text>
+            <TextInput
+              placeholder="Max"
+              keyboardType="numeric"
+              value={maxValue}
+              onChangeText={(val) => onChangeMax(id, val)}
+              style={{
+                borderWidth: 1,
+                borderColor: "#ccc",
+                borderRadius: 8,
+                padding: 10,
+                backgroundColor: "#FAFAFA",
+              }}
+            />
+          </View>
         </View>
       </View>
     </Card>
   );
 };
 
-const NutrientTab = ({ nutrients, setNutrients }) => {
+const NutrientTab = ({ nutrients, setNutrients, onGoToFeedstuffs }) => {
   const [newNutrientId, setNewNutrientId] = useState("");
   const [newNutrientName, setNewNutrientName] = useState("");
-  const [newNutrientUnit, setNewNutrientUnit] = useState("");
+  const [newNutrientUnit, setNewNutrientUnit] = useState("%");
+  const [newNutrientMin, setNewNutrientMin] = useState("");
+  const [newNutrientMax, setNewNutrientMax] = useState("");
 
-  const loadProfile = (profileName) => {
-    setNutrients(REQUIREMENT_PROFILES[profileName]);
+  const loadProfile = (profileKey, title) => {
+    const profileNutrients = REQUIREMENT_PROFILES[profileKey];
+    if (!profileNutrients) return;
+    setNutrients(profileNutrients.map((item) => ({ ...item })));
+    Alert.alert("Profile Loaded", `${title} nutrient requirements loaded.`);
   };
 
   const handleMinChange = (id, value) => {
     setNutrients((prev) =>
-      prev.map((n) =>
-        n.id === id ? { ...n, min: value } : n
-      )
+      prev.map((n) => (n.id === id ? { ...n, min: value } : n))
     );
   };
 
   const handleMaxChange = (id, value) => {
     setNutrients((prev) =>
-      prev.map((n) =>
-        n.id === id ? { ...n, max: value } : n
-      )
+      prev.map((n) => (n.id === id ? { ...n, max: value } : n))
     );
   };
 
@@ -124,138 +138,205 @@ const NutrientTab = ({ nutrients, setNutrients }) => {
     setNutrients((prev) => prev.filter((n) => n.id !== id));
   };
 
-  const nutrientExists = nutrients.some(
-    (n) =>
-      n.id === newNutrientId.trim().toUpperCase()
+  const handleAddSuggested = (suggestedItem) => {
+    const alreadyExists = nutrients.some(
+      (n) => n.id.toUpperCase() === suggestedItem.id.toUpperCase()
+    );
+    if (alreadyExists) return;
+
+    setNutrients((prev) => [...prev, { ...suggestedItem }]);
+  };
+
+  const normalizedInputId = newNutrientId.trim().toUpperCase().replace(/\s+/g, "_");
+  const nutrientExists =
+    normalizedInputId.length > 0 &&
+    nutrients.some((n) => n.id.toUpperCase() === normalizedInputId);
+
+  const availableSuggestions = SUGGESTED_NUTRIENTS.filter(
+    (s) => !nutrients.some((n) => n.id.toUpperCase() === s.id.toUpperCase())
   );
 
   const handleAddNutrient = () => {
-
-    if (!newNutrientId.trim()) {
-      Alert.alert("Error", "Please enter nutrient ID");
+    if (!normalizedInputId) {
+      Alert.alert("Error", "Please enter a Nutrient ID (e.g. ASH, LYS, Zn).");
       return;
     }
 
     if (!newNutrientName.trim()) {
-      Alert.alert("Error", "Please enter nutrient name");
+      Alert.alert("Error", "Please enter a Nutrient Name.");
       return;
     }
 
-    // Normalize ID
-    const nutrientId = newNutrientId
-      .trim()
-      .toUpperCase();
+    if (nutrientExists) {
+      Alert.alert("Duplicate Nutrient", `${normalizedInputId} already exists.`);
+      return;
+    }
 
-    // Check duplicates
-    const alreadyExists = nutrients.some(
-      (nutrient) => nutrient.id === nutrientId
-    );
-
-    if (alreadyExists) {
-      Alert.alert(
-        "Duplicate Nutrient",
-        `${nutrientId} already exists`
-      );
+    if (
+      newNutrientMin !== "" &&
+      newNutrientMax !== "" &&
+      Number(newNutrientMin) > Number(newNutrientMax)
+    ) {
+      Alert.alert("Invalid Range", "Minimum value cannot be greater than Maximum value.");
       return;
     }
 
     const newNutrient = {
-      id: nutrientId,
+      id: normalizedInputId,
       name: newNutrientName.trim(),
-      unit: newNutrientUnit || "%",
-      min: "",
-      max: "",
+      unit: newNutrientUnit.trim() || "%",
+      min: newNutrientMin.trim(),
+      max: newNutrientMax.trim(),
+      isCustom: true,
     };
 
     setNutrients((prev) => [...prev, newNutrient]);
 
-    // Clear Inputs
     setNewNutrientId("");
     setNewNutrientName("");
-    setNewNutrientUnit("");
+    setNewNutrientUnit("%");
+    setNewNutrientMin("");
+    setNewNutrientMax("");
   };
 
   return (
-      <View style={{flex: 1}}>
-        {/* Adding Custom Nutrients in Menu */}
-        <ScrollView
-          contentContainerStyle={{
-            paddingBottom: 140,
+    <View style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 150 }}>
+        {/* Guidance Banner */}
+        <View
+          style={{
+            marginHorizontal: 12,
+            marginTop: 4,
+            marginBottom: 8,
+            padding: 12,
+            backgroundColor: "#E8F5E9",
+            borderLeftWidth: 5,
+            borderLeftColor: "#2E7D32",
+            borderRadius: 8,
           }}
         >
-          <View>
+          <Text style={{ color: "#1B5E20", fontSize: 13, lineHeight: 19 }}>
+            Tap suggested nutrients below, load an animal profile, or create your own
+            unique custom nutrient.
+          </Text>
+        </View>
 
-            <View
+        {/* Smart Suggested Nutrients */}
+        {availableSuggestions.length > 0 && (
+          <View style={{ marginHorizontal: 12, marginBottom: 10 }}>
+            <Text
               style={{
-                margin: 12,
-                padding: 12,
-                backgroundColor: "#E8F5E9", // light green
-                borderLeftWidth: 5,
-                borderLeftColor: "#4CAF50", // highlight line
-                borderRadius: 8,
+                fontSize: 13,
+                fontWeight: "bold",
+                color: "#444",
+                marginBottom: 8,
               }}
             >
-              <Text
-                style={{
-                  color: "#2E7D32",
-                  fontSize: 14,
-                  lineHeight: 20,
-                }}
-              >
-                Keep adding nutrients required for animal feed formulation.
+              Suggested Nutrients (Tap to Add)
+            </Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View style={{ flexDirection: "row", gap: 8 }}>
+                {availableSuggestions.map((item) => (
+                  <TouchableOpacity
+                    key={item.id}
+                    onPress={() => handleAddSuggested(item)}
+                    style={{
+                      backgroundColor: "#E3F2FD",
+                      borderColor: "#90CAF9",
+                      borderWidth: 1,
+                      borderRadius: 20,
+                      paddingHorizontal: 12,
+                      paddingVertical: 7,
+                    }}
+                  >
+                    <Text style={{ color: "#0D47A1", fontWeight: "600", fontSize: 13 }}>
+                      + {item.id} ({item.name})
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </ScrollView>
+          </View>
+        )}
+
+        {/* Active Nutrients List */}
+        <View>
+          {nutrients.length === 0 ? (
+            <Text style={{ textAlign: "center", color: "#777", marginVertical: 20 }}>
+              No nutrients selected. Tap a suggestion or load a profile below.
+            </Text>
+          ) : (
+            nutrients.map((nutrient) => (
+              <RequirementUnit
+                key={nutrient.id}
+                id={nutrient.id}
+                nutrientName={nutrient.name}
+                unit={nutrient.unit}
+                minValue={nutrient.min}
+                maxValue={nutrient.max}
+                onChangeMin={handleMinChange}
+                onChangeMax={handleMaxChange}
+                onDelete={handleDelete}
+              />
+            ))
+          )}
+        </View>
+
+        {/* Create Custom Unique Nutrient */}
+        <Card
+          style={{
+            marginHorizontal: 12,
+            marginTop: 12,
+            padding: 14,
+            backgroundColor: "#fff",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "bold",
+              color: "#1B5E20",
+              marginBottom: 10,
+            }}
+          >
+            Create Custom Unique Nutrient
+          </Text>
+
+          <View style={{ gap: 10 }}>
+            <TextInput
+              placeholder="Nutrient ID (e.g. ASH, ZN, LYS)"
+              value={newNutrientId}
+              onChangeText={setNewNutrientId}
+              autoCapitalize="characters"
+              style={{
+                borderWidth: 1,
+                borderColor: nutrientExists ? "#D32F2F" : "#ccc",
+                borderRadius: 8,
+                padding: 10,
+              }}
+            />
+
+            {nutrientExists && (
+              <Text style={{ color: "#D32F2F", fontSize: 12 }}>
+                Nutrient ID "{normalizedInputId}" is already added.
               </Text>
-            </View>
+            )}
+
+            <TextInput
+              placeholder="Nutrient Name (e.g. Total Ash, Zinc)"
+              value={newNutrientName}
+              onChangeText={setNewNutrientName}
+              style={{
+                borderWidth: 1,
+                borderColor: "#ccc",
+                borderRadius: 8,
+                padding: 10,
+              }}
+            />
 
             <View>
-              {nutrients.map((nutrient) => (
-                <RequirementUnit
-                  key={nutrient.id}
-                  id={nutrient.id}
-                  nutrientName={nutrient.name}
-                  unit={nutrient.unit}
-                  minValue={nutrient.min}
-                  maxValue={nutrient.max}
-                  onChangeMin={handleMinChange}
-                  onChangeMax={handleMaxChange}
-                  onDelete={handleDelete}
-                />
-              ))}
-            </View>
-          </View>
-
-          <View style={{ marginTop: 10, paddingHorizontal: 10 }}>
-            <View style={{ padding: 10, gap: 10 }}>
-
-              {/* Nutrient ID */}
               <TextInput
-                placeholder="Nutrient ID (e.g. ME)"
-                value={newNutrientId}
-                onChangeText={setNewNutrientId}
-                autoCapitalize="characters"
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  borderRadius: 8,
-                  padding: 10,
-                }}
-              />
-
-              {/* Nutrient Name */}
-              <TextInput
-                placeholder="Nutrient Name (e.g. Metabolizable Energy)"
-                value={newNutrientName}
-                onChangeText={setNewNutrientName}
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  borderRadius: 8,
-                  padding: 10,
-                }}
-              />
-
-              {/* Unit */}
-              <TextInput
-                placeholder="Unit (e.g. %, kcal/kg)"
+                placeholder="Unit (e.g. %, kcal/kg, mg/kg)"
                 value={newNutrientUnit}
                 onChangeText={setNewNutrientUnit}
                 style={{
@@ -265,121 +346,161 @@ const NutrientTab = ({ nutrients, setNutrients }) => {
                   padding: 10,
                 }}
               />
-
+              <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                style={{ marginTop: 6 }}
+              >
+                <View style={{ flexDirection: "row", gap: 6 }}>
+                  {QUICK_UNITS.map((u) => (
+                    <TouchableOpacity
+                      key={u}
+                      onPress={() => setNewNutrientUnit(u)}
+                      style={{
+                        paddingHorizontal: 10,
+                        paddingVertical: 4,
+                        borderRadius: 14,
+                        backgroundColor:
+                          newNutrientUnit === u ? "#2E7D32" : "#EEEEEE",
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: 12,
+                          color: newNutrientUnit === u ? "#fff" : "#333",
+                        }}
+                      >
+                        {u}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </ScrollView>
             </View>
-            {nutrientExists && (
-              <Text style={{ color: "red" }}>
-                Nutrient already exists
-              </Text>
-            )}
+
+            <View style={{ flexDirection: "row", gap: 10 }}>
+              <TextInput
+                placeholder="Min (optional)"
+                keyboardType="numeric"
+                value={newNutrientMin}
+                onChangeText={setNewNutrientMin}
+                style={{
+                  flex: 1,
+                  borderWidth: 1,
+                  borderColor: "#ccc",
+                  borderRadius: 8,
+                  padding: 10,
+                }}
+              />
+              <TextInput
+                placeholder="Max (optional)"
+                keyboardType="numeric"
+                value={newNutrientMax}
+                onChangeText={setNewNutrientMax}
+                style={{
+                  flex: 1,
+                  borderWidth: 1,
+                  borderColor: "#ccc",
+                  borderRadius: 8,
+                  padding: 10,
+                }}
+              />
+            </View>
+
             <TouchableOpacity
               onPress={handleAddNutrient}
               style={{
-                backgroundColor: "#4CAF50",
-                paddingVertical: 14,
+                backgroundColor: "#2E7D32",
+                paddingVertical: 13,
                 borderRadius: 10,
                 alignItems: "center",
+                marginTop: 4,
               }}
             >
-              <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>
-                + Add New Nutrient
+              <Text style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>
+                + Add Custom Nutrient
               </Text>
             </TouchableOpacity>
           </View>
+        </Card>
 
-        </ScrollView >
+        {onGoToFeedstuffs && (
+          <TouchableOpacity
+            onPress={onGoToFeedstuffs}
+            style={{
+              marginHorizontal: 12,
+              marginTop: 14,
+              backgroundColor: "#1565C0",
+              paddingVertical: 14,
+              borderRadius: 10,
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 15 }}>
+              Next: Configure Feedstuffs →
+            </Text>
+          </TouchableOpacity>
+        )}
+      </ScrollView>
 
-        {/* Load default requirements */}
-
-        <View
+      {/* Quick Load Animal Profiles */}
+      <View
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          paddingVertical: 10,
+          backgroundColor: "#fff",
+          borderTopWidth: 1,
+          borderColor: "#e0e0e0",
+        }}
+      >
+        <Text
           style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            paddingVertical: 10,
-            backgroundColor: "#fff",
-            borderTopWidth: 1,
-            borderColor: "#eee",
+            fontSize: 11,
+            fontWeight: "bold",
+            color: "#666",
+            paddingHorizontal: 12,
+            marginBottom: 6,
           }}
         >
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ paddingHorizontal: 10 }}
-          >
-            <View style={{ flexDirection: "row" }}>
-
-              {/* Card 1 */}
+          QUICK LOAD PRESET PROFILES
+        </Text>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingHorizontal: 10 }}
+        >
+          <View style={{ flexDirection: "row" }}>
+            {PROFILE_META.map((profile) => (
               <TouchableOpacity
-                // onPress={() => console.log("Dairy")}
-                onPress={() => loadProfile("DAIRY_CATTLE")}
+                key={profile.key}
+                onPress={() => loadProfile(profile.key, profile.title)}
                 style={{
-                  width: 220,
-                  marginRight: 12,
-                  backgroundColor: "#E8F5E9",
+                  width: 195,
+                  marginRight: 10,
+                  backgroundColor: profile.bg,
                   borderRadius: 12,
-                  padding: 14,
-                  elevation: 2,
+                  padding: 12,
+                  elevation: 1,
                 }}
               >
-                <Text style={{ fontSize: 16, fontWeight: "bold", color: "#2E7D32" }}>
-                  Dairy Cattle
+                <Text
+                  style={{ fontSize: 15, fontWeight: "bold", color: profile.color }}
+                >
+                  {profile.title}
                 </Text>
-                <Text style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
-                  Load nutrient requirements
-                </Text>
-              </TouchableOpacity>
-
-              {/* Card 2 */}
-              <TouchableOpacity
-                // onPress={() => console.log("Broiler")}
-                onPress={() => loadProfile("BROILER_STARTER")}
-                style={{
-                  width: 220,
-                  marginRight: 12,
-                  backgroundColor: "#E3F2FD",
-                  borderRadius: 12,
-                  padding: 14,
-                  elevation: 2,
-                }}
-              >
-                <Text style={{ fontSize: 16, fontWeight: "bold", color: "#1565C0" }}>
-                  Broiler Poultry
-                </Text>
-                <Text style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
-                  Load nutrient requirements
+                <Text style={{ fontSize: 11, color: "#555", marginTop: 3 }}>
+                  {profile.subtitle}
                 </Text>
               </TouchableOpacity>
-
-              {/* Card 3 */}
-              <TouchableOpacity
-                // onPress={() => console.log("Beef")}
-                onPress={() => loadProfile("BEEF_CATTLE")}
-                style={{
-                  width: 220,
-                  marginRight: 12,
-                  backgroundColor: "#FFF3E0",
-                  borderRadius: 12,
-                  padding: 14,
-                  elevation: 2,
-                }}
-              >
-                <Text style={{ fontSize: 16, fontWeight: "bold", color: "#EF6C00" }}>
-                  Beef Cattle
-                </Text>
-                <Text style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
-                  Load nutrient requirements
-                </Text>
-              </TouchableOpacity>
-
-            </View>
-          </ScrollView>
-        </View>
-        
+            ))}
+          </View>
+        </ScrollView>
       </View>
-
-  )
-}
+    </View>
+  );
+};
 
 export default NutrientTab;
